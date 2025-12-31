@@ -151,7 +151,7 @@ export default function Home() {
         <div className="container">
           <div className="pricing-card">
             <p style={{ textTransform: "uppercase", fontWeight: "bold", color: "#718096" }}>Inversión Única en tu Bienestar</p>
-            <div className="price-old">129.90 €</div>
+            <div className="price-old">69.90 €</div>
             <div className="price-new">19.90 € <span style={{ fontSize: "1rem", fontWeight: "normal", color: "#718096" }}>+ IVA</span></div>
             <p style={{ marginBottom: "30px" }}>Una inversión en la salud de tu familia.</p>
 
