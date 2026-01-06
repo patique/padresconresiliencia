@@ -3,25 +3,53 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #E3E6E6;
+  --foreground: #0F1111;
+  --amazon-blue: #131921;
+  --amazon-light-blue: #232f3e;
+  --amazon-yellow: #FEBD69;
+  --amazon-orange: #FA8900;
+  --link-blue: #007185;
+  --price-red: #B12704;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Amazon Ember", Arial, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Amazon specific utility overrides */
+.a-link-normal {
+  color: var(--link-blue);
+  text-decoration: none;
+}
+
+.a-link-normal:hover {
+  color: #C7511F;
+  text-decoration: underline;
+}
+
+.a-price-symbol {
+  font-size: 0.6em;
+  vertical-align: super;
+}
+
+.a-price-whole {
+  font-size: 1.3em;
+}
+
+.a-price-fraction {
+  font-size: 0.6em;
+  vertical-align: super;
+}
+
+/* Hide scrollbar for nav */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
