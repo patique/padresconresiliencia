@@ -2,7 +2,7 @@ import prisma from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Search, Menu, Star, ChevronRight, Lock } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ShieldCheck, Download, Star } from "lucide-react";
 
 interface ProductPageProps {
     params: { slug: string };
@@ -18,144 +18,104 @@ export default async function ProductPage({ params }: ProductPageProps) {
         notFound();
     }
 
-    // Formatting price logic
-    const priceString = product.price.toFixed(2);
-    const [whole, fraction] = priceString.split('.');
-    const originalPrice = (product.price * 1.5).toFixed(2);
+    const benefits = [
+        "Acceso inmediato al Curso (11 Módulos)",
+        "PDF completo desbloqueable a los 28 días",
+        "Formato compatible con todos los dispositivos",
+        "Garantía de devolución de 15 días"
+    ];
 
     return (
-        <div className="min-h-screen bg-white font-sans text-[#0F1111]">
-            {/* Navbar Minimal Clone */}
-            <header className="bg-[#131921] h-[60px] flex items-center px-4 gap-4 sticky top-0 z-50">
-                <Link href="/" className="border border-transparent hover:border-white rounded-[2px] px-2 py-1 flex items-center mt-1">
-                    <span className="text-white text-2xl font-bold tracking-tight">amazon</span>
-                    <span className="text-white text-sm mb-3">.es</span>
-                </Link>
-                <div className="flex-1 hidden md:flex h-[40px] rounded-[4px] overflow-hidden focus-within:ring-[3px] focus-within:ring-[#F90]">
-                    <div className="bg-[#F3F3F3] text-[#555] text-[12px] px-3 flex items-center border-r border-[#CDCDCD] cursor-pointer">Todos</div>
-                    <input type="text" className="flex-1 px-2 text-[15px] outline-none" placeholder="Buscar..." />
-                    <button className="bg-[#FEBD69] hover:bg-[#F3A847] w-[45px] flex items-center justify-center rounded-r-[4px]">
-                        <Search className="w-5 h-5 text-[#333]" />
-                    </button>
+        <div className="min-h-screen bg-[#FDFBF7] font-sans">
+            {/* Simple Header */}
+            <header className="bg-white border-b border-stone-100 py-4 sticky top-0 z-50">
+                <div className="container mx-auto px-6">
+                    <Link href="/" className="inline-flex items-center text-stone-500 hover:text-[#E07A5F] transition font-medium">
+                        <ArrowLeft className="w-4 h-4 mr-2" /> Volver al catálogo
+                    </Link>
                 </div>
             </header>
-            <div className="bg-[#232f3e] h-[39px] text-white flex items-center px-4 text-[14px] gap-3">
-                <button className="flex items-center gap-1 font-bold border border-transparent hover:border-white px-2 py-1 rounded-[2px]">
-                    <Menu className="w-5 h-5" /> Todo
-                </button>
-                <Link href="/" className="border border-transparent hover:border-white px-2 py-1 rounded-[2px]">Volver a resultados</Link>
-            </div>
 
-            <main className="max-w-[1500px] mx-auto p-4 bg-white">
+            <main className="py-12 md:py-20">
+                <div className="container mx-auto px-6 max-w-6xl">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-                {/* Breadcrumbs */}
-                <div className="text-[12px] text-[#565959] mb-2 flex items-center">
-                    <Link href="/" className="hover:text-[#C7511F] hover:underline">Infoproductos</Link>
-                    <ChevronRight className="w-3 h-3 mx-1 text-gray-400" />
-                    <Link href="/" className="hover:text-[#C7511F] hover:underline">Crianza</Link>
-                    <ChevronRight className="w-3 h-3 mx-1 text-gray-400" />
-                    <span className="text-[#C7511F] font-bold">{product.title}</span>
-                </div>
+                        {/* Product Image Column */}
+                        <div className="relative sticky top-24">
+                            <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-2xl bg-white border-8 border-white transform rotate-1 lg:-rotate-1 hover:rotate-0 transition duration-500">
+                                {product.imageUrl ? (
+                                    <Image src={product.imageUrl} alt={product.title} fill className="object-cover" priority />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center bg-stone-100 text-stone-300">Sin Imagen</div>
+                                )}
+                            </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[40px_minmax(300px,45%)_1fr_minmax(220px,280px)] gap-8 mt-6">
-
-                    {/* 1. Thumbnails Column */}
-                    <div className="hidden lg:flex flex-col gap-3">
-                        {[1, 2].map(i => (
-                            <div key={i} className="w-[40px] h-[55px] border border-[#888c8c] hover:border-[#e77600] cursor-pointer rounded-[2px] overflow-hidden p-[2px]">
-                                <div className="w-full h-full bg-gray-100 relative">
-                                    {product.imageUrl && <Image src={product.imageUrl} alt="" fill className="object-cover opacity-70" />}
+                            {/* Floating Trust Badge */}
+                            <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg flex items-center gap-3 animate-bounce-slow hidden md:flex">
+                                <div className="bg-green-100 p-2 rounded-full text-green-600">
+                                    <ShieldCheck className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <p className="text-xs text-stone-400 font-bold uppercase tracking-wider">Garantía</p>
+                                    <p className="text-sm font-bold text-stone-800">100% Satisfacción</p>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-
-                    {/* 2. Main Image */}
-                    <div className="relative w-full aspect-[4/5] max-h-[600px] min-h-[400px]">
-                        {product.imageUrl ? (
-                            <Image src={product.imageUrl} alt={product.title} fill className="object-contain" priority />
-                        ) : (
-                            <div className="w-full h-full bg-gray-50 flex items-center justify-center text-gray-300">Imagen no disponible</div>
-                        )}
-                    </div>
-
-                    {/* 3. Central Details */}
-                    <div className="flex-1 min-w-0">
-                        <h1 className="text-[24px] font-medium leading-[32px] mb-1 text-[#0F1111]">{product.title}</h1>
-                        <div className="text-[14px] text-[#007185] mb-2 hover:text-[#C7511F] hover:underline cursor-pointer">
-                            Visita la tienda de Padres con Resiliencia
                         </div>
 
-                        <div className="flex items-center gap-2 mb-4">
-                            <div className="flex text-[#F08804]">
-                                {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-4 h-4 fill-current stroke-none" />)}
+                        {/* Content Column */}
+                        <div className="flex flex-col justify-center">
+                            <div className="mb-6 flex items-center gap-2">
+                                <span className="bg-[#E07A5F]/10 text-[#E07A5F] px-4 py-1.5 rounded-full text-sm font-bold tracking-wide">
+                                    EBOOK PREMIUM
+                                </span>
+                                <div className="flex items-center gap-1 text-yellow-400 ml-4">
+                                    <Star className="w-4 h-4 fill-current" />
+                                    <span className="text-stone-600 text-sm font-semibold ml-1">4.9/5</span>
+                                </div>
                             </div>
-                            <span className="text-[14px] text-[#007185] hover:text-[#C7511F] hover:underline cursor-pointer">128 valoraciones</span>
-                        </div>
 
-                        <hr className="border-gray-200 mb-4" />
+                            <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
+                                {product.title}
+                            </h1>
 
-                        <div className="mb-2">
-                            <span className="text-[#B12704] text-[28px] font-medium leading-none font-sans">
-                                <span className="text-[14px] align-top relative top-[4px] mr-[1px] font-normal">€</span>
-                                {whole}<span className="text-[14px] align-top relative top-[4px] font-normal">{fraction}</span>
-                            </span>
-                            <span className="text-[14px] text-gray-500 ml-2">
-                                P.V.P.: <span className="line-through">€{originalPrice}</span>
-                            </span>
-                            <span className="text-[14px] text-[#007185] ml-2 font-medium">Ahorras: €{(Number(originalPrice) - product.price).toFixed(2)}</span>
-                        </div>
+                            <div className="text-lg text-stone-600 leading-relaxed mb-8 space-y-4">
+                                <p>{product.description}</p>
+                                <p>Una guía esencial diseñada para padres que buscan respuestas claras y prácticas, sin perderse en teoría innecesaria.</p>
+                            </div>
 
-                        <div className="text-[14px] text-[#007185] mb-6">
-                            Los precios incluyen el IVA.
-                        </div>
+                            {/* Price Block */}
+                            <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm mb-8">
+                                <div className="flex items-end justify-between mb-6">
+                                    <div>
+                                        <p className="text-stone-400 text-sm mb-1 line-through">Precio Habitual: {(product.price * 1.5).toFixed(2)}€</p>
+                                        <div className="flex items-baseline gap-1">
+                                            <span className="text-4xl font-bold text-stone-900">{product.price.toFixed(2)}€</span>
+                                            <span className="text-stone-500 text-sm">+ IVA</span>
+                                        </div>
+                                    </div>
+                                    <div className="text-right">
+                                        <span className="bg-red-100 text-red-600 px-3 py-1 rounded-md text-sm font-bold">
+                                            Oferta Limitada
+                                        </span>
+                                    </div>
+                                </div>
 
-                        <div className="mb-6">
-                            <h2 className="font-bold text-[16px] mb-2">Acerca de este producto</h2>
-                            <ul className="list-disc pl-5 space-y-1 text-[14px] text-[#0F1111]">
-                                {product.description.split('. ').map((item, i) => (
-                                    item && <li key={i}>{item}.</li>
+                                <a href="https://pay.hotmart.com/N103419626V" className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0">
+                                    Comprar Ahora y Descargar
+                                </a>
+                                <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
+                                    <Download className="w-3 h-3" /> Entrega digital inmediata vía email
+                                </p>
+                            </div>
+
+                            {/* Benefits List */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {benefits.map((benefit, i) => (
+                                    <div key={i} className="flex items-start gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-[#81B0B2] shrink-0 mt-0.5" />
+                                        <span className="text-stone-600 text-sm">{benefit}</span>
+                                    </div>
                                 ))}
-                                <li>Formato digital descargable (PDF).</li>
-                                <li>Acceso inmediato tras la compra.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    {/* 4. Buy Box (Right) */}
-                    <div className="border border-[#D5D9D9] rounded-[8px] p-[18px] h-fit bg-white">
-                        <div className="text-[#B12704] text-[28px] font-medium leading-none font-sans mb-4">
-                            <span className="text-[14px] align-top relative top-[4px] mr-[1px] font-normal">€</span>
-                            {whole}<span className="text-[14px] align-top relative top-[4px] font-normal">{fraction}</span>
-                        </div>
-
-                        <div className="text-[14px] text-[#007185] mb-2">
-                            Entrega GRATIS <span className="text-black font-bold">inmediata</span> por email.
-                        </div>
-
-                        <div className="text-[18px] text-[#007600] font-medium mb-4">En Stock.</div>
-
-                        <div className="mb-4">
-                            <div className="flex items-center gap-2 mb-2">
-                                <span className="text-[13px] text-gray-500 w-[80px]">Vendido por</span>
-                                <span className="text-[13px] text-[#007185]">PadresResilientes</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-[13px] text-gray-500 w-[80px]">Enviado por</span>
-                                <span className="text-[13px] text-[#007185]">Hotmart</span>
-                            </div>
-                        </div>
-
-                        {/* Buy Buttons */}
-                        <div className="space-y-3">
-                            <a
-                                href="https://pay.hotmart.com/N103419626V"
-                                className="block w-full bg-[#FFA41C] hover:bg-[#FA8900] border border-[#FF8F00] rounded-full text-center py-[6px] text-[13px] text-[#0F1111] shadow-sm cursor-pointer"
-                            >
-                                Comprar ahora
-                            </a>
-                            <div className="text-center text-[12px] text-gray-500 flex items-center justify-center gap-1 mt-2">
-                                <Lock className="w-3 h-3" /> Transacción segura
                             </div>
                         </div>
                     </div>
