@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { BookOpen, Star, Plus, GraduationCap, Heart, Cross, Calendar } from "lucide-react";
+import { BookOpen, Star, Plus, GraduationCap, Heart, Cross, Calendar, Check } from "lucide-react";
 import WaitlistModal from "@/components/ui/WaitlistModal";
 
 interface Product {
@@ -127,73 +127,50 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                 topic={selectedTopic || ""}
                 onClose={() => setSelectedTopic(null)}
                 previewContent={selectedTopic?.includes("Educar en la Fe") ? (
-                    <div className="space-y-8">
-                        <div>
-                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Introducción</h4>
-                            <h3 className="font-bold text-stone-800 text-lg mb-3">La fe como refugio, no como carga</h3>
-                            <ul className="space-y-2 text-stone-600">
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> El peso de la lista de tareas y el error de la "Asignatura Religión".</li>
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> Lo que este libro no es (y lo que sí es).</li>
-                            </ul>
+                    <div className="space-y-6 text-left">
+                        <h3 className="font-bold text-stone-900 text-xl leading-tight">
+                            ¿Sientes que la fe de tus hijos se te escapa entre los dedos?
+                        </h3>
+
+                        <div className="space-y-4 text-stone-600 text-sm leading-relaxed">
+                            <p>
+                                Seamos honestos: educar en la fe hoy es difícil. Te preocupa que el día de mañana tus hijos no encuentren sentido en la Iglesia. Te duele ver que se aburren en Misa o que cuestionan todo lo que les has enseñado con tanto amor.
+                            </p>
+
+                            <p className="font-medium text-stone-800 italic border-l-4 border-[#E07A5F] pl-4 py-1 bg-stone-50 rounded-r-lg">
+                                "Lo que nadie nos dijo es que la fe no se enseña con sermones, se contagia con asombro."
+                            </p>
+
+                            <p>
+                                He escrito este ebook para padres como tú: que aman a Dios, que aman a sus hijos, pero que se sienten agotados por intentar "cumplir" con todo.
+                            </p>
                         </div>
 
                         <div>
-                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Módulo 1</h4>
-                            <h3 className="font-bold text-stone-800 text-lg mb-3">El Cambio de Mentalidad (Los Cimientos)</h3>
-                            <ul className="space-y-2 text-stone-600">
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Dios no es un policía:</strong> Jubilar al vigilante para encontrar al Padre.</li>
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>La fe se contagia, no se impone:</strong> El poder del testimonio.</li>
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Vulnerabilidad:</strong> Por qué pedir perdón a tus hijos es un acto de fe.</li>
+                            <h4 className="font-bold text-stone-900 mb-3 text-sm">En este libro descubrirás:</h4>
+                            <ul className="space-y-3 text-sm text-stone-600">
+                                <li className="flex gap-3">
+                                    <div className="bg-green-100 text-green-700 rounded-full p-1 shrink-0 h-fit mt-0.5"><Check className="w-3 h-3" /></div>
+                                    <span><strong>0 a 7 años:</strong> Cómo crear rituales sencillos que den seguridad y paz a tu hogar.</span>
+                                </li>
+                                <li className="flex gap-3">
+                                    <div className="bg-green-100 text-green-700 rounded-full p-1 shrink-0 h-fit mt-0.5"><Check className="w-3 h-3" /></div>
+                                    <span><strong>7 a 12 años:</strong> Cómo responder a las preguntas difíciles sobre el mal y el sufrimiento sin miedo.</span>
+                                </li>
+                                <li className="flex gap-3">
+                                    <div className="bg-green-100 text-green-700 rounded-full p-1 shrink-0 h-fit mt-0.5"><Check className="w-3 h-3" /></div>
+                                    <span><strong>Adolescentes:</strong> El arte de "conectar antes de corregir" para no perder el vínculo cuando lleguen las dudas.</span>
+                                </li>
+                                <li className="flex gap-3">
+                                    <div className="bg-green-100 text-green-700 rounded-full p-1 shrink-0 h-fit mt-0.5"><Check className="w-3 h-3" /></div>
+                                    <span><strong>Para ti:</strong> Cómo recuperar tus propios 5 minutos de paz para volver a disfrutar de tu familia.</span>
+                                </li>
                             </ul>
                         </div>
 
-                        <div>
-                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Módulo 2</h4>
-                            <h3 className="font-bold text-stone-800 text-lg mb-3">Lo Sagrado en lo Cotidiano (0 a 7 años)</h3>
-                            <ul className="space-y-2 text-stone-600">
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Micro-liturgias domésticas:</strong> Momentos "ancla" que crean seguridad.</li>
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>El asombro en la naturaleza:</strong> Leer el libro de la Creación.</li>
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>La teología del juego:</strong> Dios entre los juguetes y las risas.</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Módulo 3</h4>
-                            <h3 className="font-bold text-stone-800 text-lg mb-3">Preguntas Difíciles (7 a 12 años)</h3>
-                            <ul className="space-y-2 text-stone-600">
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>¿Por qué existe el mal?:</strong> Libertad, dolor y esperanza real.</li>
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>La Misa sin dramas:</strong> De la obligación a la fiesta.</li>
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Héroes de verdad:</strong> Los santos como referentes de aventura.</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Módulo 4</h4>
-                            <h3 className="font-bold text-stone-800 text-lg mb-3">Adolescencia y Rebeldía (12+ años)</h3>
-                            <ul className="space-y-2 text-stone-600">
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>La duda como motor:</strong> Por qué cuestionar la fe es necesario.</li>
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Conectar antes de corregir:</strong> Hablar el idioma de los valores.</li>
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Jesús el Revolucionario:</strong> El imán del compromiso social.</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Módulo 5</h4>
-                            <h3 className="font-bold text-stone-800 text-lg mb-3">Cuidar al Cuidador</h3>
-                            <ul className="space-y-2 text-stone-600">
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>No puedes dar lo que no tienes:</strong> Tus 5 minutos de oasis.</li>
-                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Soltar el control:</strong> Confiar en que Dios los quiere más que tú.</li>
-                            </ul>
-                        </div>
-
-                        <div className="bg-[#E07A5F]/10 p-4 rounded-xl border border-[#E07A5F]/20">
-                            <h3 className="font-bold text-stone-900 mb-2">✨ Bonus Incluidos</h3>
-                            <ul className="space-y-1 text-sm text-stone-700">
-                                <li>• Cinefórum familiar: Películas para hablar de Dios.</li>
-                                <li>• El bote de la gratitud: Ritual de fin de año.</li>
-                                <li>• Voluntariado en familia: La fe que se pone las botas.</li>
-                            </ul>
-                        </div>
+                        <p className="text-stone-600 text-sm italic bg-[#E07A5F]/10 p-4 rounded-xl border border-[#E07A5F]/20">
+                            Este no es un libro para padres perfectos. Es un libro para padres reales. Si estás listo para dejar atrás la culpa y empezar a vivir una fe que respira, que ríe y que conecta de verdad con el corazón de tus hijos, este libro es para ti.
+                        </p>
                     </div>
                 ) : undefined}
             />
