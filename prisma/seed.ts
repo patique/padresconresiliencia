@@ -98,7 +98,7 @@ const BLOG_POSTS = [
         date: new Date("2024-01-08"),
         category: "Espiritualidad",
         readTime: "6 min",
-        imageUrl: "/images/blog/iglesia-ninos.jpg",
+        imageUrl: "/images/blog/iglesia-ninos.png",
         content: `
             <p>¿Te suena esta batalla? Es domingo por la mañana. Tú intentas que se vistan rápido, ellos se quejan, llegáis tarde y pasas la hora de Misa chistándoles para que no se muevan.</p>
             <p>Al salir, piensas: <em>"Esto no sirve de nada. Solo estoy consiguiendo que odien venir"</em>.</p>
@@ -125,6 +125,40 @@ const BLOG_POSTS = [
                 <p>Te enseñaré a crear un hogar donde la fe respire y no asfixie. Aún no ha salido, pero puedes unirte a la lista de espera y ver el temario completo.</p>
                 <p style="text-align: center; margin-top: 1.5rem;">
                     <a href="/#waitlist-educar-en-la-fe" style="background-color: #E07A5F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; font-weight: bold; border-radius: 0.5rem; display: inline-block;">Ver Temario y Unirme a la Lista</a>
+                </p>
+            </div>
+        `
+    {
+        slug: "nadie-te-aviso-del-ruido",
+        title: "Nadie te avisó de que el amor más grande de tu vida vendría acompañado de tanto ruido",
+        excerpt: "Te han vendido que ser padres es instintivo y maravilloso todo el tiempo. Mentira. Descubre cómo bajar el volumen al ruido mental y disfrutar de la crianza.",
+        author: "Máximo",
+        date: new Date("2024-01-09"),
+        category: "Bienestar",
+        readTime: "5 min",
+        imageUrl: "/images/blog/padres-cansados.png",
+        content: `
+            <p>¿Recuerdas cuando te decían "aprovecha para dormir ahora"? Te reías. Ahora darías lo que fuera por 4 horas seguidas de silencio.</p>
+
+            <h2>La realidad del primer año te atropella</h2>
+            <p>La culpa por querer salir corriendo 5 minutos. La sensación de que tu pareja y tú sois compañeros de piso gestionando una empresa de pañales. El "ruido mental" constante de si lo estarás haciendo bien.</p>
+
+            <blockquote style="border-left: 4px solid #E07A5F; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #57534E;">
+                Te han vendido que ser padres es instintivo y maravilloso todo el tiempo. <strong>Mentira.</strong>
+            </blockquote>
+
+            <p>Es maravilloso, sí. Pero también es agotador, sucio y a veces, solitario.</p>
+
+            <h2>No es cuestión de "aguantar más"</h2>
+            <p>He creado este método porque yo también me rompí. Y descubrí que no es cuestión de apretar los dientes, sino de tener mejores herramientas.</p>
+
+            <p>Tu hijo no necesita unos padres perfectos; necesita unos padres cuerdos y felices.</p>
+
+            <div style="background-color: #F0FDF4; padding: 2rem; border-radius: 1rem; border: 1px solid #10B981; margin-top: 2rem;">
+                <h3 style="color: #047857; margin-top: 0;">¿Quieres recuperar tu vida?</h3>
+                <p>En el programa <strong>Bienestar Emocional de los Padres</strong> no te enseño a cambiar pañales. Te enseño a blindar tu descanso, desactivar las bombas de pareja y gestionar la "opinología" externa.</p>
+                <p style="text-align: center; margin-top: 1.5rem;">
+                    <a href="/bienestar-padres-primer-ano" style="background-color: #10B981; color: white; padding: 0.75rem 1.5rem; text-decoration: none; font-weight: bold; border-radius: 0.5rem; display: inline-block;">Ver el Programa Completo</a>
                 </p>
             </div>
         `
@@ -196,7 +230,16 @@ async function main() {
     for (const post of BLOG_POSTS) {
         const createdPost = await prisma.blogPost.upsert({
             where: { slug: post.slug },
-            update: {},
+            update: {
+                title: post.title,
+                excerpt: post.excerpt,
+                author: post.author,
+                date: post.date,
+                category: post.category,
+                readTime: post.readTime,
+                imageUrl: post.imageUrl,
+                content: post.content
+            },
             create: post,
         });
         console.log(`Created post: ${createdPost.title}`);
