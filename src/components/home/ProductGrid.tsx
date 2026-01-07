@@ -24,24 +24,21 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
             title: "Educar en la Fe: Guía para Padres",
             description: "Recursos prácticos para transmitir la fe católica en casa de forma natural y alegre.",
             price: 27.00,
-            imageUrl: null,
-            icon: <Cross className="w-10 h-10 text-stone-400" />
+            imageUrl: "/images/future_course_1.png"
         },
         {
             id: "fc-2",
             title: "Adolescencia sin Dramas",
             description: "Estrategias de comunicación para conectar con tu hijo adolescente y evitar conflictos.",
             price: 34.00,
-            imageUrl: null,
-            icon: <GraduationCap className="w-10 h-10 text-stone-400" />
+            imageUrl: "/images/future_course_2.png"
         },
         {
             id: "fc-3",
             title: "Primeros Pasos: 0 a 3 años",
             description: "El manual definitivo para los primeros años de vida. Sueño, alimentación y apego.",
             price: 29.00,
-            imageUrl: null,
-            icon: <Calendar className="w-10 h-10 text-stone-400" />
+            imageUrl: "/images/future_course_3.png"
         }
     ];
 
@@ -104,10 +101,15 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
 
                 {/* Future Mockup Products */}
                 {futureCourses.map((course) => (
-                    <div key={course.id} className="group flex flex-col bg-stone-50 rounded-2xl border-2 border-dashed border-stone-200 overflow-hidden hover:border-[#E07A5F]/50 transition-all duration-300">
-                        <div className="relative aspect-[4/3] bg-stone-100/50 flex items-center justify-center">
-                            {course.icon}
-                            <div className="absolute top-4 right-4 bg-stone-200 px-3 py-1 rounded-full text-xs font-bold text-stone-500">
+                    <div key={course.id} className="group flex flex-col bg-white rounded-2xl border border-stone-200 overflow-hidden hover:shadow-xl hover:shadow-stone-200/50 transition-all duration-300 transform hover:-translate-y-1">
+                        <div className="relative aspect-[4/3] bg-stone-100 overflow-hidden">
+                            <Image
+                                src={course.imageUrl}
+                                alt={course.title}
+                                fill
+                                className="object-cover group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100 grayscale group-hover:grayscale-0"
+                            />
+                            <div className="absolute top-4 right-4 bg-stone-900/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-white shadow-sm">
                                 Próximamente
                             </div>
                         </div>
@@ -120,11 +122,11 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                                 {course.description}
                             </p>
 
-                            <div className="mt-auto pt-6 border-t border-stone-200/50">
+                            <div className="mt-auto pt-6 border-t border-stone-100">
                                 <button
                                     type="button"
                                     onClick={() => setSelectedTopic(course.title)}
-                                    className="w-full bg-white border border-[#E07A5F] text-[#E07A5F] hover:bg-[#E07A5F] hover:text-white px-5 py-3 rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2"
+                                    className="w-full bg-stone-100 text-stone-600 hover:bg-[#E07A5F] hover:text-white border border-transparent hover:border-[#E07A5F] px-5 py-3 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 group-hover:bg-[#E07A5F]/10 group-hover:text-[#E07A5F] group-hover:hover:bg-[#E07A5F] group-hover:hover:text-white"
                                 >
                                     <Heart className="w-4 h-4" /> Lo quiero
                                 </button>
