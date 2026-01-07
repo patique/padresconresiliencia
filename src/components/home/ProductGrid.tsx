@@ -24,21 +24,21 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
             title: "Educar en la Fe: Guía para Padres",
             description: "Recursos prácticos para transmitir la fe católica en casa de forma natural y alegre.",
             price: 27.00,
-            imageUrl: "/images/future_course_1.png"
+            imageUrl: "/images/future_course_1.jpg"
         },
         {
             id: "fc-2",
             title: "Adolescencia sin Dramas",
             description: "Estrategias de comunicación para conectar con tu hijo adolescente y evitar conflictos.",
             price: 34.00,
-            imageUrl: "/images/future_course_2.png"
+            imageUrl: "/images/future_course_2.jpg"
         },
         {
             id: "fc-3",
             title: "Primeros Pasos: 0 a 3 años",
             description: "El manual definitivo para los primeros años de vida. Sueño, alimentación y apego.",
             price: 29.00,
-            imageUrl: "/images/future_course_3.png"
+            imageUrl: "/images/future_course_3.jpg"
         }
     ];
 
