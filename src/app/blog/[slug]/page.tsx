@@ -1,20 +1,27 @@
-import { BLOG_POSTS } from "@/data/blog-posts";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CommentsSection from "@/components/blog/CommentsSection";
 import AuthorSection from "@/components/home/AuthorSection";
-import { Calendar, Clock, ArrowLeft, Share2, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import prisma from "@/lib/prisma";
+
+// We can keep generateStaticParams if we want SSG for known slugs, 
+// but we'll need to fetch them from DB or keep the static list for now.
+// For simplicity, let's switch to dynamic rendering or just fetch inside the component.
 
 export async function generateStaticParams() {
-    return BLOG_POSTS.map((post) => ({
+    const posts = await prisma.blogPost.findMany({ select: { slug: true } });
+    return posts.map((post) => ({
         slug: post.slug,
     }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-    const post = BLOG_POSTS.find((p) => p.slug === params.slug);
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+    const post = await prisma.blogPost.findUnique({
+        where: { slug: params.slug }
+    });
 
     if (!post) {
         notFound();
@@ -41,7 +48,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                         </h1>
 
                         <div className="flex items-center justify-center gap-6 text-sm text-stone-500 font-medium">
-                            <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {post.date}</span>
+                            <span className="flex items-center gap-2">
+                                <Calendar className="w-4 h-4" /> {post.date.toLocaleDateString()}
+                            </span>
                             <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> {post.readTime} lectura</span>
                             <span className="font-bold text-stone-900">Por {post.author}</span>
                         </div>
@@ -53,34 +62,25 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     <div className="lg:col-span-8 lg:col-start-3">
                         {/* Featured Image Placeholder */}
                         <div className="aspect-video bg-stone-200 rounded-2xl mb-12 flex items-center justify-center relative overflow-hidden shadow-sm">
-                            <span className="text-6xl opacity-20">🖼️</span>
-                            {/* <Image src={post.imageUrl} fill alt={post.title} className="object-cover" /> */}
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover" />
                         </div>
 
                         {/* Article Body */}
                         <article
-                            className="prose prose-stone prose-lg max-w-none 
-                            prose-headings:font-bold prose-headings:text-stone-900 
-                            prose-p:text-stone-600 prose-p:leading-8 
+                            className="prose prose-stone prose-lg max-w-none
+                            prose-headings:font-bold prose-headings:text-stone-900
+                            prose-p:text-stone-600 prose-p:leading-8
                             prose-blockquote:border-l-[#E07A5F] prose-blockquote:bg-orange-50/50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
                             prose-a:text-[#E07A5F] prose-a:font-bold hover:prose-a:text-stone-900
                             prose-li:text-stone-600"
                             dangerouslySetInnerHTML={{ __html: post.content }}
                         />
 
-                        {/* Share Section */}
+                        {/* Share Section - (Visual only for now) */}
                         <div className="border-y border-stone-200 py-8 my-12 flex items-center justify-between">
                             <span className="font-bold text-stone-900 text-sm">¿Te ha gustado? Compártelo:</span>
                             <div className="flex gap-4">
-                                <button className="p-2 rounded-full bg-stone-100 hover:bg-[#E07A5F] hover:text-white transition-all text-stone-600">
-                                    <Facebook className="w-4 h-4" />
-                                </button>
-                                <button className="p-2 rounded-full bg-stone-100 hover:bg-[#E07A5F] hover:text-white transition-all text-stone-600">
-                                    <Twitter className="w-4 h-4" />
-                                </button>
-                                <button className="p-2 rounded-full bg-stone-100 hover:bg-[#E07A5F] hover:text-white transition-all text-stone-600">
-                                    <Linkedin className="w-4 h-4" />
-                                </button>
                                 <button className="p-2 rounded-full bg-stone-100 hover:bg-[#E07A5F] hover:text-white transition-all text-stone-600">
                                     <Share2 className="w-4 h-4" />
                                 </button>
@@ -88,7 +88,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                         </div>
 
                         {/* Comments */}
-                        <CommentsSection />
+                        <CommentsSection postId={post.id} />
                     </div>
                 </div>
 

@@ -1,25 +1,17 @@
-export type BlogPost = {
-    slug: string;
-    title: string;
-    excerpt: string;
-    content: string;
-    author: string;
-    date: string;
-    category: string;
-    readTime: string;
-    imageUrl: string;
-};
+import { PrismaClient } from "@prisma/client";
 
-export const BLOG_POSTS: BlogPost[] = [
+const prisma = new PrismaClient();
+
+const BLOG_POSTS = [
     {
         slug: "carga-mental-maternidad",
         title: "La Carga Mental: El trabajo invisible que agota a las madres",
         excerpt: "¿Sientes que tu cerebro tiene 50 pestañas abiertas a la vez? No estás sola. Analizamos qué es la carga mental y 3 estrategias prácticas para reducirla hoy mismo.",
         author: "Máximo",
-        date: "7 Ene, 2024",
+        date: new Date("2024-01-07"),
         category: "Bienestar",
         readTime: "5 min",
-        imageUrl: "/images/blog/carga-mental.jpg", // We'll need to use placeholders or generate these
+        imageUrl: "/images/blog/carga-mental.jpg",
         content: `
             <p>Es martes por la noche. Estás agotada en el sofá, pero tu cerebro no para: "¿He descongelado el pollo? ¿Mañana tienen excursión? Tengo que pedir cita con el pediatra. Se está acabando el detergente".</p>
             
@@ -49,7 +41,7 @@ export const BLOG_POSTS: BlogPost[] = [
         title: "5 Frases para conectar con tu adolescente (sin que te gire los ojos)",
         excerpt: "La comunicación con adolescentes puede parecer un campo minado. Descubre cómo cambiar el guion y pasar de los portazos a las conversaciones reales.",
         author: "Máximo",
-        date: "4 Ene, 2024",
+        date: new Date("2024-01-04"),
         category: "Adolescencia",
         readTime: "7 min",
         imageUrl: "/images/blog/adolescente.jpg",
@@ -75,11 +67,11 @@ export const BLOG_POSTS: BlogPost[] = [
         `
     },
     {
-        slug: "fe-en-familia-dia- a-dia",
+        slug: "fe-en-familia-dia-a-dia",
         title: "Cómo transmitir la fe sin que sea 'aburrido' para los niños",
         excerpt: "Educar en la fe no tiene por qué ser una obligación pesada. Descubre pequeños rituales diarios que integran la espiritualidad de forma natural y alegre.",
         author: "Máximo",
-        date: "28 Dic, 2023",
+        date: new Date("2023-12-28"),
         category: "Espiritualidad",
         readTime: "4 min",
         imageUrl: "/images/blog/fe-familia.jpg",
@@ -99,3 +91,25 @@ export const BLOG_POSTS: BlogPost[] = [
         `
     }
 ];
+
+async function main() {
+    console.log("Seeding Database...");
+
+    for (const post of BLOG_POSTS) {
+        const createdPost = await prisma.blogPost.upsert({
+            where: { slug: post.slug },
+            update: {},
+            create: post,
+        });
+        console.log(`Created post: ${createdPost.title}`);
+    }
+}
+
+main()
+    .catch((e) => {
+        console.error(e);
+        process.exit(1);
+    })
+    .finally(async () => {
+        await prisma.$disconnect();
+    });

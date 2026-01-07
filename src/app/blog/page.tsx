@@ -1,16 +1,21 @@
-import { BLOG_POSTS } from "@/data/blog-posts";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
-import Image from "next/image";
 import { Calendar, Clock, ArrowRight, NotebookPen } from "lucide-react";
+import prisma from "@/lib/prisma";
 
 export const metadata = {
     title: "Blog | Padres con Resiliencia",
     description: "Artículos y reflexiones sobre crianza consciente, adolescencia y educación en la fe.",
 };
 
-export default function BlogIndex() {
+export const revalidate = 60; // Revalidate every minute
+
+export default async function BlogIndex() {
+    const posts = await prisma.blogPost.findMany({
+        orderBy: { date: 'desc' }
+    });
+
     return (
         <div className="min-h-screen flex flex-col bg-stone-50">
             <Navbar />
@@ -32,13 +37,11 @@ export default function BlogIndex() {
                 {/* Posts Grid */}
                 <section className="py-20 container mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        {BLOG_POSTS.map((post) => (
+                        {posts.map((post) => (
                             <article key={post.slug} className="group bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
                                 <Link href={`/blog/${post.slug}`} className="relative h-56 bg-stone-200 overflow-hidden">
-                                    {/* Placeholder div if image fails or use mock images later */}
-                                    <div className="absolute inset-0 bg-stone-200 flex items-center justify-center text-stone-400 group-hover:scale-105 transition duration-500">
-                                        <span className="text-6xl opacity-20">📝</span>
-                                    </div>
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
                                     <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-[#E07A5F] shadow-sm uppercase tracking-wide">
                                         {post.category}
                                     </div>
@@ -46,7 +49,9 @@ export default function BlogIndex() {
 
                                 <div className="p-8 flex-1 flex flex-col">
                                     <div className="flex items-center gap-4 text-xs text-stone-400 font-medium mb-4">
-                                        <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date}</span>
+                                        <span className="flex items-center gap-1">
+                                            <Calendar className="w-3 h-3" /> {post.date.toLocaleDateString()}
+                                        </span>
                                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
                                     </div>
 
