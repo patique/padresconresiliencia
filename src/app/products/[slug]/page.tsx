@@ -57,7 +57,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                 </div>
                                 <div>
                                     <p className="text-xs text-stone-400 font-bold uppercase tracking-wider">Garantía</p>
-                                    <p className="text-sm font-bold text-stone-800">100% Satisfacción</p>
+                                    <p className="text-sm font-bold text-stone-800">15 Días</p>
                                 </div>
                             </div>
                         </div>
@@ -118,6 +118,46 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                         <span className="text-stone-600 text-sm">{benefit}</span>
                                     </div>
                                 ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Testimonials Section */}
+                <div className="container mx-auto px-6 max-w-6xl mt-24 border-t border-stone-200 pt-16">
+                    <h2 className="text-2xl font-bold text-stone-900 mb-10 text-center">Lo que dicen otros padres</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
+                            <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
+                            <p className="text-stone-600 mb-4 text-sm leading-relaxed">"Me ha cambiado la forma de ver las rabietas. Ahora entiendo qué pasa por la cabeza de mi hijo y me siento mucho más tranquila."</p>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-stone-200 rounded-full flex items-center justify-center font-bold text-stone-500">ML</div>
+                                <div>
+                                    <p className="text-sm font-bold text-stone-900">María López</p>
+                                    <p className="text-xs text-stone-400">Madre de 2 hijos</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
+                            <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
+                            <p className="text-stone-600 mb-4 text-sm leading-relaxed">"Directo al grano y muy práctico. He leído muchos libros pero este formato me ha resultado mucho más útil para el día a día."</p>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-stone-200 rounded-full flex items-center justify-center font-bold text-stone-500">CR</div>
+                                <div>
+                                    <p className="text-sm font-bold text-stone-900">Carlos Ruiz</p>
+                                    <p className="text-xs text-stone-400">Padre primerizo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
+                            <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
+                            <p className="text-stone-600 mb-4 text-sm leading-relaxed">"La sección sobre gestión emocional es oro puro. Ojalá hubiera tenido esta información hace 3 años."</p>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 bg-stone-200 rounded-full flex items-center justify-center font-bold text-stone-500">AS</div>
+                                <div>
+                                    <p className="text-sm font-bold text-stone-900">Ana Sánchez</p>
+                                    <p className="text-xs text-stone-400">Madre de un niño de 4 años</p>
+                                </div>
                             </div>
                         </div>
                     </div>
