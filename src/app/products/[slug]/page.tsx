@@ -104,7 +104,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                 </div>
 
                                 <a href="https://pay.hotmart.com/N103419626V" className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0">
-                                    Acceder al Curso
+                                    Comprar Ahora
                                 </a>
                                 <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
                                     <Download className="w-3 h-3" /> Acceso inmediato y seguro a través de la plataforma Hotmart
@@ -280,7 +280,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         href="https://pay.hotmart.com/N103419626V"
                         className="bg-[#E07A5F] hover:bg-[#D06950] text-white font-bold py-3 px-6 rounded-xl flex-1 text-center shadow-lg active:scale-95 transition"
                     >
-                        Acceder al Curso
+                        Comprar Ahora
                     </a>
                 </div>
             </div>
