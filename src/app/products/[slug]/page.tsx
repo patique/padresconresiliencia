@@ -127,36 +127,68 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <div className="container mx-auto px-6 max-w-6xl mt-24 border-t border-stone-200 pt-16">
                     <h2 className="text-2xl font-bold text-stone-900 mb-10 text-center">Lo que dicen otros padres</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
+                        {/* Testimonial 1 */}
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
                             <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
-                            <p className="text-stone-600 mb-4 text-sm leading-relaxed">"Me ha cambiado la forma de ver las rabietas. Ahora entiendo qué pasa por la cabeza de mi hijo y me siento mucho más tranquila."</p>
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-stone-200 rounded-full flex items-center justify-center font-bold text-stone-500">ML</div>
+                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1">
+                                "Los primeros meses fueron un caos de dudas y culpa. Este libro ha sido mi ancla. Entender el desarrollo cerebral de mi bebé me ayudó a dejar de obsesionarme con los horarios y empezar a disfrutar de la conexión real."
+                            </p>
+                            <div className="flex items-center gap-4 mt-auto">
+                                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
+                                    <Image
+                                        src="/images/testimonials/testimonial-1.jpg"
+                                        alt="María López"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
                                 <div>
                                     <p className="text-sm font-bold text-stone-900">María López</p>
-                                    <p className="text-xs text-stone-400">Madre de 2 hijos</p>
+                                    <p className="text-xs text-stone-400">Mamá de un bebé de 4 meses</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
+
+                        {/* Testimonial 2 */}
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
                             <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
-                            <p className="text-stone-600 mb-4 text-sm leading-relaxed">"Directo al grano y muy práctico. He leído muchos libros pero este formato me ha resultado mucho más útil para el día a día."</p>
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-stone-200 rounded-full flex items-center justify-center font-bold text-stone-500">CR</div>
+                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1">
+                                "Nadie te enseña a ser padre de un recién nacido. La sección sobre el llanto y el sueño me dio herramientas concretas para calmar a mi hijo (y a mí mismo). Por fin siento que aporto seguridad a mi familia."
+                            </p>
+                            <div className="flex items-center gap-4 mt-auto">
+                                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
+                                    <Image
+                                        src="/images/testimonials/testimonial-2.jpg"
+                                        alt="Carlos Ruiz"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
                                 <div>
                                     <p className="text-sm font-bold text-stone-900">Carlos Ruiz</p>
-                                    <p className="text-xs text-stone-400">Padre primerizo</p>
+                                    <p className="text-xs text-stone-400">Papá primerizo</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100">
+
+                        {/* Testimonial 3 */}
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
                             <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
-                            <p className="text-stone-600 mb-4 text-sm leading-relaxed">"La sección sobre gestión emocional es oro puro. Ojalá hubiera tenido esta información hace 3 años."</p>
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-stone-200 rounded-full flex items-center justify-center font-bold text-stone-500">AS</div>
+                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1">
+                                "Me sentía totalmente perdida y agotada. Leer sobre la importancia de mi propio bienestar fue un despertar. Gracias a este ebook he aprendido a pedir ayuda sin culpa y a ser una madre más presente y feliz."
+                            </p>
+                            <div className="flex items-center gap-4 mt-auto">
+                                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
+                                    <Image
+                                        src="/images/testimonials/testimonial-3.jpg"
+                                        alt="Ana Sánchez"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
                                 <div>
                                     <p className="text-sm font-bold text-stone-900">Ana Sánchez</p>
-                                    <p className="text-xs text-stone-400">Madre de un niño de 4 años</p>
+                                    <p className="text-xs text-stone-400">Mamá de un bebé de 8 meses</p>
                                 </div>
                             </div>
                         </div>
