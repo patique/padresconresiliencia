@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, BookOpen, Star, Users } from "lucide-react";
+import { ArrowRight, BookOpen, Star, Users, Calendar } from "lucide-react";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -9,13 +9,22 @@ import ProductGrid from "@/components/home/ProductGrid";
 import AuthorSection from "@/components/home/AuthorSection";
 import StatsBar from "@/components/home/StatsBar";
 import SocialProofToast from "@/components/ui/SocialProofToast";
+import ProblemSection from "@/components/home/ProblemSection";
+import SocialProofSection from "@/components/home/SocialProofSection";
+import FaqSection from "@/components/home/FaqSection";
 
 import ParentingQuiz from "@/components/home/ParentingQuiz";
 
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const dbProducts = await prisma.product.findMany();
+  const [dbProducts, latestPosts] = await Promise.all([
+    prisma.product.findMany(),
+    prisma.blogPost.findMany({
+      take: 3,
+      orderBy: { date: 'desc' },
+    })
+  ]);
 
   // Serialize products (convert Dates to strings/numbers or omit) to avoid "Date object" warning in Client Components
   const products = dbProducts.map(p => ({
@@ -50,8 +59,8 @@ export default async function HomePage() {
                 <Link href="#productos" className="btn-primary text-lg px-8 py-4 w-full sm:w-auto">
                   Ver Recursos Disponibles
                 </Link>
-                <Link href="#comunidad" className="text-stone-600 font-medium hover:text-[#E07A5F] px-8 py-4 transition flex items-center gap-2">
-                  <Users className="w-5 h-5" /> Unirme a la comunidad
+                <Link href="#blog" className="text-stone-600 font-medium hover:text-[#E07A5F] px-8 py-4 transition flex items-center gap-2">
+                  <BookOpen className="w-5 h-5" /> Leer Artículos
                 </Link>
               </div>
             </div>
@@ -68,6 +77,9 @@ export default async function HomePage() {
         {/* Stats Bar */}
         <StatsBar />
 
+        {/* Problem Section (Agitation) */}
+        <ProblemSection />
+
         {/* Interactive Quiz */}
         <ParentingQuiz />
 
@@ -76,7 +88,7 @@ export default async function HomePage() {
           <div className="container mx-auto px-6">
             <div className="flex items-end justify-between mb-12">
               <div>
-                <h2 className="text-3xl font-bold mb-4">Nuestros Recursos</h2>
+                <h2 className="text-3xl font-bold mb-4 text-stone-900">Nuestros Recursos</h2>
                 <p className="text-stone-500 max-w-xl">Guías digitales diseñadas para resolver problemas específicos de la crianza moderna. Acceso inmediato.</p>
               </div>
               <Link href="#" className="hidden md:flex items-center gap-2 text-[#E07A5F] font-bold hover:underline">
@@ -87,6 +99,57 @@ export default async function HomePage() {
             <ProductGrid initialProducts={products} />
           </div>
         </section>
+
+        {/* Social Proof */}
+        <SocialProofSection />
+
+        {/* Latest Blog Posts */}
+        <section id="blog" className="py-24 bg-stone-50">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-stone-900 mb-4">Últimas lecturas</h2>
+              <p className="text-stone-500 max-w-2xl mx-auto">Reflexiones y estrategias para el día a día.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {latestPosts.map((post) => (
+                <Link href={`/blog/${post.slug}`} key={post.id} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                  <div className="aspect-video relative overflow-hidden">
+                    <img
+                      src={post.imageUrl}
+                      alt={post.title}
+                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 text-xs font-bold text-[#E07A5F] uppercase tracking-wider mb-3">
+                      <span>{post.category}</span>
+                    </div>
+                    <h3 className="font-bold text-stone-900 text-lg mb-3 line-clamp-2 group-hover:text-[#E07A5F] transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-stone-500 text-sm mb-4 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center text-xs text-stone-400 font-medium">
+                      <Calendar className="w-3 h-3 mr-1" />
+                      {post.date.toLocaleDateString()}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/blog" className="inline-flex items-center gap-2 font-bold text-stone-900 hover:text-[#E07A5F] transition-colors">
+                Ver todos los artículos <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <FaqSection />
 
         <AuthorSection />
 
