@@ -6,6 +6,7 @@ import { ArrowRight, BookOpen, Star, Users } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ProductGrid from "@/components/home/ProductGrid";
+import AuthorSection from "@/components/home/AuthorSection";
 
 export const revalidate = 60;
 
@@ -65,6 +66,8 @@ export default async function HomePage() {
             <ProductGrid initialProducts={products} />
           </div>
         </section>
+
+        <AuthorSection />
 
       </main>
 
