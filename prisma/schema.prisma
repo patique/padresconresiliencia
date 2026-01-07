@@ -13,6 +13,7 @@ model Product {
   title       String
   description String
   price       Float
+  originalPrice Float?
   imageUrl    String?
   slug        String   @unique
   fileUrl     String?
@@ -26,4 +27,11 @@ model Contact {
   email     String
   message   String
   createdAt DateTime @default(now())
+}
+
+model Waitlist {
+  id          String   @id @default(cuid())
+  email       String
+  courseTopic String
+  createdAt   DateTime @default(now())
 }

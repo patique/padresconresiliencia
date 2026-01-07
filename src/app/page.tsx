@@ -5,6 +5,7 @@ import { ArrowRight, BookOpen, Star, Users } from "lucide-react";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ProductGrid from "@/components/home/ProductGrid";
 
 export const revalidate = 60;
 
@@ -61,73 +62,7 @@ export default async function HomePage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-              {products.map((product) => (
-                <div key={product.id} className="group flex flex-col bg-white rounded-2xl border border-stone-200 overflow-hidden hover:shadow-xl hover:shadow-stone-200/50 transition-all duration-300 transform hover:-translate-y-1">
-                  <Link href={`/products/${product.slug}`} className="relative aspect-[4/3] bg-stone-100 overflow-hidden">
-                    {product.imageUrl ? (
-                      <Image
-                        src={product.imageUrl}
-                        alt={product.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition duration-500"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-stone-400">
-                        <BookOpen className="w-12 h-12 opacity-50" />
-                      </div>
-                    )}
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-stone-800 shadow-sm">
-                      Digital PDF
-                    </div>
-                  </Link>
-
-                  <div className="p-6 flex-1 flex flex-col">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="flex text-yellow-400">
-                        {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-4 h-4 fill-current" />)}
-                      </div>
-                      <span className="text-xs text-stone-400">(128 reseñas)</span>
-                    </div>
-
-                    <Link href={`/products/${product.slug}`}>
-                      <h3 className="text-xl font-bold text-stone-900 mb-2 group-hover:text-[#E07A5F] transition">
-                        {product.title}
-                      </h3>
-                    </Link>
-
-                    <p className="text-stone-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                      {product.description}
-                    </p>
-
-                    <div className="mt-auto flex items-center justify-between pt-6 border-t border-stone-100">
-                      <div className="flex flex-col">
-                        <span className="text-xs text-stone-400 line-through">{(product.price * 1.5).toFixed(2)}€</span>
-                        <span className="text-2xl font-bold text-stone-900">{product.price.toFixed(2)}€</span>
-                      </div>
-                      <Link href={`/products/${product.slug}`} className="bg-stone-900 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#E07A5F] transition-colors">
-                        Ver Detalles
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              ))}
-
-              {/* Coming Soon Card */}
-              <div className="flex flex-col items-center justify-center bg-stone-50 rounded-2xl border-2 border-dashed border-stone-200 p-10 text-center opacity-75 grayscale hover:grayscale-0 transition duration-500">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4">
-                  <BookOpen className="w-8 h-8 text-stone-300" />
-                </div>
-                <h3 className="text-lg font-bold text-stone-800 mb-2">Más recursos en camino</h3>
-                <p className="text-stone-500 text-sm mb-4 max-w-xs">
-                  Estamos trabajando en nuevas guías y cursos.
-                </p>
-                <span className="inline-block bg-stone-100 text-stone-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  Próximamente
-                </span>
-              </div>
-            </div>
+            <ProductGrid initialProducts={products} />
           </div>
         </section>
 

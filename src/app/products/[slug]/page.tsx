@@ -87,7 +87,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                             <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm mb-8">
                                 <div className="flex items-end justify-between mb-6">
                                     <div>
-                                        <p className="text-stone-400 text-sm mb-1 line-through">Precio Habitual: {(product.price * 1.5).toFixed(2)}€</p>
+                                        {product.originalPrice && (
+                                            <p className="text-stone-400 text-sm mb-1 line-through">Precio Habitual: {product.originalPrice.toFixed(2)}€</p>
+                                        )}
                                         <div className="flex items-baseline gap-1">
                                             <span className="text-4xl font-bold text-stone-900">{product.price.toFixed(2)}€</span>
                                             <span className="text-stone-500 text-sm">+ IVA</span>
@@ -104,7 +106,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                     Comprar Ahora y Descargar
                                 </a>
                                 <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
-                                    <Download className="w-3 h-3" /> Entrega digital inmediata vía email
+                                    <Download className="w-3 h-3" /> Acceso inmediato y seguro a través de la plataforma Hotmart
                                 </p>
                             </div>
 
