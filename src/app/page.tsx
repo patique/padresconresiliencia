@@ -94,6 +94,38 @@ export default async function HomePage() {
       </main>
 
       <Footer />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "name": "Padres con Resiliencia",
+                "url": "https://www.padresconresiliencia.com",
+                "logo": "https://www.padresconresiliencia.com/icon.png",
+                "sameAs": [
+                  "https://instagram.com/padresconresiliencia",
+                  "https://twitter.com/padresresilia"
+                ],
+                "description": "Recursos prácticos y guías para una crianza consciente, respetuosa y basada en la fe."
+              },
+              {
+                "@type": "WebSite",
+                "name": "Padres con Resiliencia",
+                "url": "https://www.padresconresiliencia.com",
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": "https://www.padresconresiliencia.com/search?q={search_term_string}",
+                  "query-input": "required name=search_term_string"
+                }
+              }
+            ]
+          })
+        }}
+      />
     </div>
   );
 }
