@@ -7,6 +7,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ProductGrid from "@/components/home/ProductGrid";
 import AuthorSection from "@/components/home/AuthorSection";
+import StatsBar from "@/components/home/StatsBar";
+import SocialProofToast from "@/components/ui/SocialProofToast";
 
 export const revalidate = 60;
 
@@ -61,6 +63,9 @@ export default async function HomePage() {
           </div>
         </section>
 
+        {/* Stats Bar */}
+        <StatsBar />
+
         {/* Products Grid */}
         <section id="productos" className="py-24 bg-white">
           <div className="container mx-auto px-6">
@@ -80,6 +85,7 @@ export default async function HomePage() {
 
         <AuthorSection />
 
+        <SocialProofToast />
       </main>
 
       <Footer />
