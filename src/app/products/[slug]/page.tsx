@@ -9,10 +9,13 @@ interface ProductPageProps {
     params: { slug: string };
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
-    const { slug } = params;
+export default async function ProductPage({ params }: { params: { slug: string } }) {
+    if (params.slug === "bienestar-emocional-padres") {
+        redirect("/bienestar-padres-primer-ano");
+    }
+
     const product = await prisma.product.findUnique({
-        where: { slug: slug },
+        where: { slug: params.slug },
     });
 
     if (!product) {
