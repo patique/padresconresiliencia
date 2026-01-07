@@ -16,8 +16,9 @@ export default function Navbar() {
                         Padres con Resiliencia
                     </Link>
                     <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
-                        <Link href="#productos" className="hover:text-[#E07A5F] transition">Recursos</Link>
-                        <Link href="#nosotros" className="hover:text-[#E07A5F] transition">Sobre Nosotros</Link>
+                        <Link href="/#productos" className="hover:text-[#E07A5F] transition">Recursos</Link>
+                        <Link href="/blog" className="hover:text-[#E07A5F] transition">Blog</Link>
+                        <Link href="/#nosotros" className="hover:text-[#E07A5F] transition">Sobre Nosotros</Link>
                         <button
                             onClick={() => setIsModalOpen(true)}
                             className="btn-primary cursor-pointer"

@@ -20,9 +20,9 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-bold mb-6">Recursos</h4>
                         <ul className="space-y-3 text-sm">
-                            <li><Link href="#" className="hover:text-white transition">Guías PDF</Link></li>
-                            <li><Link href="#" className="hover:text-white transition">Cursos Online</Link></li>
-                            <li><Link href="#" className="hover:text-white transition">Plantillas Gratuitas</Link></li>
+                            <li><Link href="/#productos" className="hover:text-white transition">Guías PDF</Link></li>
+                            <li><Link href="/#productos" className="hover:text-white transition">Cursos Online</Link></li>
+                            <li><Link href="/blog" className="hover:text-white transition">Artículos y Reflexiones</Link></li>
                         </ul>
                     </div>
                     <div>
