@@ -101,12 +101,23 @@ export default function ParentingQuiz() {
     };
 
     const calculateResult = (finalAnswers: string[]) => {
-        // Simple logic: most frequent answer wins. Default to ebook.
+        const ageValue = finalAnswers[0]; // First question is always Age
+
+        // Define valid options based on Age
+        let validTypes: string[] = [];
+        if (ageValue === "ebook") validTypes = ["ebook", "faith"];
+        else if (ageValue === "toddler") validTypes = ["toddler", "faith"];
+        else if (ageValue === "teen") validTypes = ["teen", "faith"];
+        else validTypes = ["ebook", "toddler", "teen", "faith"]; // "Any age" allows everything
+
+        // Count votes
         const counts: Record<string, number> = {};
         finalAnswers.forEach(a => counts[a] = (counts[a] || 0) + 1);
 
-        const winner = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
-        setResult(winner);
+        // Sort validTypes by count (descending). If tie, the first one in list (Age-based) wins.
+        validTypes.sort((a, b) => (counts[b] || 0) - (counts[a] || 0));
+
+        setResult(validTypes[0]);
         setShowResult(true);
     };
 
