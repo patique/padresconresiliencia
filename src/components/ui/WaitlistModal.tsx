@@ -2,6 +2,7 @@
 
 import { X, Bell } from "lucide-react";
 import { useEffect, useState, useTransition } from "react";
+import { createPortal } from "react-dom";
 import { joinWaitlist } from "@/actions/waitlist";
 
 interface WaitlistModalProps {
@@ -11,41 +12,54 @@ interface WaitlistModalProps {
 }
 
 export default function WaitlistModal({ isOpen, onClose, topic }: WaitlistModalProps) {
-    const [isMounted, setIsMounted] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const [isPending, startTransition] = useTransition();
     const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
     useEffect(() => {
-        setIsMounted(true);
+        setMounted(true);
+        return () => setMounted(false);
     }, []);
 
     useEffect(() => {
         if (isOpen) {
-            setMessage(null); // Reset message when opening
+            setMessage(null);
+            // Prevent body scroll when modal is open
         }
     }, [isOpen]);
 
-    if (!isOpen || !isMounted) return null;
+    if (!mounted) return null;
+    if (!isOpen) return null;
 
     async function handleSubmit(formData: FormData) {
         startTransition(async () => {
-            const result = await joinWaitlist(null, formData);
-            if (result.success) {
-                setMessage({ text: result.message, type: 'success' });
-                setTimeout(() => {
-                    onClose();
-                }, 2500);
-            } else {
-                setMessage({ text: result.message, type: 'error' });
+            try {
+                const result = await joinWaitlist(null, formData);
+                if (result.success) {
+                    setMessage({ text: result.message, type: 'success' });
+                    setTimeout(() => {
+                        onClose();
+                    }, 2500);
+                } else {
+                    setMessage({ text: result.message, type: 'error' });
+                }
+            } catch (error) {
+                console.error("Waitlist error:", error);
+                setMessage({ text: "Ocurrió un error inesperado. Inténtalo de nuevo.", type: 'error' });
             }
         });
     }
 
-    return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm animate-in fade-in duration-200">
-            <div className="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden animate-in zoom-in-95 duration-200 relative">
+    // Use Portal to render outside of the DOM hierarchy (solves z-index/transform issues)
+    return createPortal(
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-sm animate-in fade-in duration-200">
+            <div
+                className="bg-white rounded-2xl shadow-xl w-full max-w-sm overflow-hidden animate-in zoom-in-95 duration-200 relative"
+                onClick={(e) => e.stopPropagation()}
+            >
                 <button
                     onClick={onClose}
+                    type="button"
                     className="absolute top-4 right-4 text-stone-400 hover:text-stone-600 transition"
                 >
                     <X className="w-5 h-5" />
@@ -88,6 +102,7 @@ export default function WaitlistModal({ isOpen, onClose, topic }: WaitlistModalP
                     </form>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 }
