@@ -10,6 +10,8 @@ import AuthorSection from "@/components/home/AuthorSection";
 import StatsBar from "@/components/home/StatsBar";
 import SocialProofToast from "@/components/ui/SocialProofToast";
 
+import ParentingQuiz from "@/components/home/ParentingQuiz";
+
 export const revalidate = 60;
 
 export default async function HomePage() {
@@ -65,6 +67,9 @@ export default async function HomePage() {
 
         {/* Stats Bar */}
         <StatsBar />
+
+        {/* Interactive Quiz */}
+        <ParentingQuiz />
 
         {/* Products Grid */}
         <section id="productos" className="py-24 bg-white">
