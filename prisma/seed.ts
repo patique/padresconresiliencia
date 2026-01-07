@@ -169,7 +169,7 @@ const BLOG_POSTS = [
 const PRODUCTS = [
     {
         title: "Bienestar Emocional de los Padres",
-        description: "Gestiona el estrés, la culpa y la carga mental para criar desde la calma.",
+        description: "Deja de sobrevivir al primer año. Gestiona la culpa, el caos y recupera a tu pareja con un método que funciona.",
         price: 7.99,
         originalPrice: 89.90,
         imageUrl: "/pareja_frustrada_2.jpg",
