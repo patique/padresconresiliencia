@@ -69,11 +69,15 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                         {/* Article Body */}
                         <article
                             className="prose prose-stone prose-lg max-w-none
-                            prose-headings:font-bold prose-headings:text-stone-900
-                            prose-p:text-stone-600 prose-p:leading-8
-                            prose-blockquote:border-l-[#E07A5F] prose-blockquote:bg-orange-50/50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
-                            prose-a:text-[#E07A5F] prose-a:font-bold hover:prose-a:text-stone-900
-                            prose-li:text-stone-600"
+                            prose-headings:font-bold prose-headings:text-stone-900 prose-headings:tracking-tight
+                            prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+                            prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+                            prose-p:text-stone-600 prose-p:leading-8 prose-p:mb-6
+                            prose-strong:text-stone-900 prose-strong:font-bold
+                            prose-a:text-[#E07A5F] prose-a:font-bold hover:prose-a:text-stone-900 prose-a:no-underline hover:prose-a:underline
+                            prose-blockquote:border-l-4 prose-blockquote:border-[#E07A5F] prose-blockquote:bg-orange-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:text-stone-700 prose-blockquote:font-medium prose-blockquote:shadow-sm
+                            prose-ul:list-disc prose-ul:pl-6 prose-li:text-stone-600 prose-li:marker:text-[#E07A5F]
+                            prose-img:rounded-2xl prose-img:shadow-md"
                             dangerouslySetInnerHTML={{ __html: post.content }}
                         />
 
