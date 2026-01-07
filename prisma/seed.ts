@@ -90,11 +90,70 @@ const BLOG_POSTS = [
             <p>Haz que la fe sea sinónimo de hogar, de seguridad y de alegría, no de normas rígidas. Ese es el corazón de nuestra guía <em>Educar en la Fe</em>.</p>
         `
     }
+const PRODUCTS = [
+    {
+        title: "Bienestar Emocional de los Padres",
+        description: "Gestiona el estrés, la culpa y la carga mental para criar desde la calma.",
+        price: 9.00,
+        originalPrice: 19.00,
+        imageUrl: "/ebook_cover_real.jpg",
+        slug: "bienestar-emocional-padres",
+    },
+    {
+        title: "Educar en la Fe",
+        description: "Transmite tus valores y creencias de forma natural y alegre.",
+        price: 0,
+        originalPrice: 0,
+        imageUrl: "/images/covers/faith_cover.jpg",
+        slug: "educar-en-la-fe",
+        // We might need to handle 'coming soon' logic differently or just use price 0/high price to indicate placeholder? 
+        // For now, let's just seed it as a product.
+    },
+    {
+        title: "Primeros Pasos: 0 a 3 años",
+        description: "Guía completa para la etapa más crucial del desarrollo.",
+        price: 0,
+        originalPrice: 0,
+        imageUrl: "/images/covers/toddler_cover.jpg",
+        slug: "primeros-pasos",
+    },
+    {
+        title: "Adolescencia sin Dramas",
+        description: "Conecta con tu hijo y gestiona los conflictos desde el respeto.",
+        price: 0,
+        originalPrice: 0,
+        imageUrl: "/images/covers/teen_cover.jpg",
+        slug: "adolescencia-sin-dramas",
+    }
 ];
 
 async function main() {
     console.log("Seeding Database...");
 
+    // Seed Products
+    for (const product of PRODUCTS) {
+        const createdProduct = await prisma.product.upsert({
+            where: { slug: product.slug },
+            update: {
+                title: product.title,
+                description: product.description,
+                price: product.price,
+                originalPrice: product.originalPrice,
+                imageUrl: product.imageUrl
+            },
+            create: {
+                title: product.title,
+                description: product.description,
+                price: product.price,
+                originalPrice: product.originalPrice,
+                imageUrl: product.imageUrl,
+                slug: product.slug
+            },
+        });
+        console.log(`Created product: ${createdProduct.title}`);
+    }
+
+    // Seed Blog Posts
     for (const post of BLOG_POSTS) {
         const createdPost = await prisma.blogPost.upsert({
             where: { slug: post.slug },
