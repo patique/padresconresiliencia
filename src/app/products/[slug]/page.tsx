@@ -215,7 +215,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                 </span>
                             </summary>
                             <p className="px-6 pb-6 text-stone-600 leading-relaxed">
-                                El acceso es inmediato. En cuanto completes el pago, recibirás un email de Hotmart con el enlace de descarga directa en formato PDF. Podrás guardarlo para siempre.
+                                Recibirás acceso inmediato a la plataforma de Hotmart. Los 11 módulos del curso se irán activando progresivamente uno a uno. Todo el contenido se gestiona de forma sencilla y segura a través de dicha plataforma.
                             </p>
                         </details>
 
