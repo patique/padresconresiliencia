@@ -2,7 +2,7 @@ import prisma from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CheckCircle2, ShieldCheck, Download, Star } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ShieldCheck, Download, Star, Check } from "lucide-react";
 import AuthorSection from "@/components/home/AuthorSection";
 
 interface ProductPageProps {
@@ -10,10 +10,6 @@ interface ProductPageProps {
 }
 
 export default async function ProductPage({ params }: { params: { slug: string } }) {
-    if (params.slug === "bienestar-emocional-padres") {
-        redirect("/bienestar-padres-primer-ano");
-    }
-
     const product = await prisma.product.findUnique({
         where: { slug: params.slug },
     });
@@ -82,10 +78,48 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                 {product.title}
                             </h1>
 
-                            <div className="text-lg text-stone-600 leading-relaxed mb-8 space-y-4">
-                                <p>{product.description}</p>
-                                <p>Una guía esencial diseñada para padres que buscan respuestas claras y prácticas, sin perderse en teoría innecesaria.</p>
-                            </div>
+                            {product.slug === 'bienestar-emocional-padres' ? (
+                                <div className="space-y-6 text-stone-600 mb-8 leading-relaxed">
+                                    <h2 className="text-2xl font-bold text-stone-900 leading-tight">
+                                        Nadie te avisó de que el amor más grande de tu vida vendría acompañado de tanto <span className="text-[#E07A5F]">ruido</span>.
+                                    </h2>
+                                    <p>
+                                        ¿Recuerdas cuando te decían "aprovecha para dormir ahora"? Te reías. Ahora darías lo que fuera por 4 horas seguidas de silencio.
+                                    </p>
+                                    <p>
+                                        La realidad del primer año te atropella: La culpa, la sensación de ser compañeros de piso con tu pareja, el ruido mental...
+                                    </p>
+                                    <div className="font-medium text-stone-900 bg-[#E07A5F]/10 p-4 border-l-4 border-[#E07A5F] rounded-r-lg">
+                                        Te han vendido que ser padres es instintivo y maravilloso todo el tiempo. <strong>Mentira.</strong> Es maravilloso, sí. Pero también agotador.
+                                    </div>
+                                    <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100 shadow-sm mt-6">
+                                        <h3 className="font-bold text-stone-900 mb-4 text-lg">En este ebook aprenderás a:</h3>
+                                        <div className="grid grid-cols-1 gap-4">
+                                            <div className="flex gap-3">
+                                                <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
+                                                <div><strong className="text-stone-900">Blindar tu descanso:</strong> Estrategias reales para dormir sin dejarle llorar.</div>
+                                            </div>
+                                            <div className="flex gap-3">
+                                                <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
+                                                <div><strong className="text-stone-900">Desactivar la bomba de la pareja:</strong> Cómo hablaros bonito cuando estáis a punto de explotar.</div>
+                                            </div>
+                                            <div className="flex gap-3">
+                                                <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
+                                                <div><strong className="text-stone-900">Gestionar la "opinología":</strong> Poner límites a suegros y cuñados sin culpa.</div>
+                                            </div>
+                                            <div className="flex gap-3">
+                                                <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
+                                                <div><strong className="text-stone-900">Recuperar tu identidad:</strong> Recordar quién eras tú antes de ser "mamá/papá de...".</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="text-lg text-stone-600 leading-relaxed mb-8 space-y-4">
+                                    <p>{product.description}</p>
+                                    <p>Una guía esencial diseñada para padres que buscan respuestas claras y prácticas, sin perderse en teoría innecesaria.</p>
+                                </div>
+                            )}
 
                             {/* Price Block */}
                             <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm mb-8">

@@ -33,7 +33,7 @@ const BLOG_POSTS = [
             <h3>3. El poder del "No lo sé"</h3>
             <p>Cuando te pregunten "¿Dónde están los zapatos azules?", resiste la urgencia de responder. Un "no lo sé, ¿dónde los viste por última vez?" entrena al resto de la familia a buscar sus propias soluciones.</p>
 
-            <p>Recuperar tu espacio mental es vital no solo para tu salud, sino para poder disfrutar de la crianza. En nuestro ebook <a href="/bienestar-padres-primer-ano" style="color: #E07A5F; font-weight: bold; text-decoration: underline;">Bienestar Emocional de los Padres</a> profundizamos en herramientas para desconectar y validar tus emociones.</p>
+            <p>Recuperar tu espacio mental es vital no solo para tu salud, sino para poder disfrutar de la crianza. En nuestro ebook <a href="/products/bienestar-emocional-padres" style="color: #E07A5F; font-weight: bold; text-decoration: underline;">Bienestar Emocional de los Padres</a> profundizamos en herramientas para desconectar y validar tus emociones.</p>
         `
     },
     {
