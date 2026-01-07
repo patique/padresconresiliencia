@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2, ShieldCheck, Download, Star } from "lucide-react";
+import AuthorSection from "@/components/home/AuthorSection";
 
 interface ProductPageProps {
     params: { slug: string };
@@ -194,7 +195,96 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         </div>
                     </div>
                 </div>
+
+                {/* Author Section Integration */}
+                <div className="mt-20">
+                    <AuthorSection />
+                </div>
+
+                {/* FAQ Section */}
+                <div className="container mx-auto px-6 max-w-4xl mt-20 mb-20">
+                    <h2 className="text-2xl font-bold text-stone-900 mb-8 text-center">Preguntas Frecuentes</h2>
+                    <div className="space-y-4">
+                        <details className="group bg-white rounded-xl border border-stone-100 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                            <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-stone-900 font-bold hover:bg-stone-50 transition">
+                                <span>¿Cómo recibo el libro?</span>
+                                <span className="shrink-0 rounded-full bg-white p-1.5 text-stone-900 sm:p-3 group-open:-rotate-180 transition duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p className="px-6 pb-6 text-stone-600 leading-relaxed">
+                                El acceso es inmediato. En cuanto completes el pago, recibirás un email de Hotmart con el enlace de descarga directa en formato PDF. Podrás guardarlo para siempre.
+                            </p>
+                        </details>
+
+                        <details className="group bg-white rounded-xl border border-stone-100 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                            <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-stone-900 font-bold hover:bg-stone-50 transition">
+                                <span>¿Puedo leerlo en el móvil?</span>
+                                <span className="shrink-0 rounded-full bg-white p-1.5 text-stone-900 sm:p-3 group-open:-rotate-180 transition duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p className="px-6 pb-6 text-stone-600 leading-relaxed">
+                                Sí, el formato está 100% optimizado para leerse cómodamente en cualquier dispositivo: móvil, tablet, ordenador o tu lector de libros electrónicos favorito.
+                            </p>
+                        </details>
+
+                        <details className="group bg-white rounded-xl border border-stone-100 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                            <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-stone-900 font-bold hover:bg-stone-50 transition">
+                                <span>¿Qué pasa si no me sirve?</span>
+                                <span className="shrink-0 rounded-full bg-white p-1.5 text-stone-900 sm:p-3 group-open:-rotate-180 transition duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p className="px-6 pb-6 text-stone-600 leading-relaxed">
+                                Tienes 15 días de garantía total. Si sientes que el contenido no te aporta valor o no resuena contigo, nos escribes a través de Hotmart y te devolvemos el 100% de tu dinero. Sin preguntas ni letras pequeñas.
+                            </p>
+                        </details>
+
+                        <details className="group bg-white rounded-xl border border-stone-100 shadow-sm [&_summary::-webkit-details-marker]:hidden">
+                            <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-stone-900 font-bold hover:bg-stone-50 transition">
+                                <span>¿Para qué edad es adecuado?</span>
+                                <span className="shrink-0 rounded-full bg-white p-1.5 text-stone-900 sm:p-3 group-open:-rotate-180 transition duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                    </svg>
+                                </span>
+                            </summary>
+                            <p className="px-6 pb-6 text-stone-600 leading-relaxed">
+                                Aunque el ebook se centra en los desafíos inmensos del primer año (0-12 meses) y el puerperio, las herramientas de gestión emocional, comunicación en pareja y autocuidado te servirán como base sólida para toda la crianza.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
             </main>
+
+            {/* Sticky Mobile CTA */}
+            <div className="fixed bottom-0 left-0 w-full bg-white border-t border-stone-200 p-4 lg:hidden z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
+                <div className="flex items-center justify-between gap-4">
+                    <div className="flex flex-col">
+                        <span className="text-xs text-stone-500 font-medium line-through">
+                            {product.originalPrice ? `${product.originalPrice}€` : ''}
+                        </span>
+                        <span className="text-xl font-bold text-stone-900 leading-none">
+                            {product.price}€
+                        </span>
+                    </div>
+                    <a
+                        href="https://pay.hotmart.com/N103419626V"
+                        className="bg-[#E07A5F] hover:bg-[#D06950] text-white font-bold py-3 px-6 rounded-xl flex-1 text-center shadow-lg active:scale-95 transition"
+                    >
+                        Descargar Ahora
+                    </a>
+                </div>
+            </div>
+
         </div>
     );
 }
