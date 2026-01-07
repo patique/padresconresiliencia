@@ -5,8 +5,10 @@ import { X, CheckCircle2 } from "lucide-react";
 
 const NAMES = [
     "María G.", "Laura M.", "Carmen R.", "Ana P.", "Lucía S.", "Sofía L.",
-    "Elena D.", "Isabel T.", "Marta V.", "Paula C.", "Javier R.", "David M.",
-    "Alejandro S.", "Pablo F.", "Cristina B.", "Raquel H.", "Beatriz L."
+    "Elena D.", "Isabel T.", "Marta V.", "Paula C.", "Valentina M.", "Camila R.",
+    "Mateo G.", "Sebastián P.", "Santiago L.", "Mariana C.", "Diego V.",
+    "Fernanda S.", "Gabriela O.", "Nicolás F.", "Valeria A.", "Matías J.",
+    "Daniela B.", "Martín E.", "Felipe A.", "Ximena R.", "Juana M."
 ];
 
 const LOCATIONS = [
