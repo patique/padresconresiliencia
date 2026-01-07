@@ -1,8 +1,9 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CommentsSection from "@/components/blog/CommentsSection";
+import ShareButtons from "@/components/blog/ShareButtons";
 import AuthorSection from "@/components/home/AuthorSection";
-import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
+import { Calendar, Clock, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import prisma from "@/lib/prisma";
@@ -81,15 +82,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                             dangerouslySetInnerHTML={{ __html: post.content }}
                         />
 
-                        {/* Share Section - (Visual only for now) */}
-                        <div className="border-y border-stone-200 py-8 my-12 flex items-center justify-between">
-                            <span className="font-bold text-stone-900 text-sm">¿Te ha gustado? Compártelo:</span>
-                            <div className="flex gap-4">
-                                <button className="p-2 rounded-full bg-stone-100 hover:bg-[#E07A5F] hover:text-white transition-all text-stone-600">
-                                    <Share2 className="w-4 h-4" />
-                                </button>
-                            </div>
-                        </div>
+                        {/* Share Section */}
+                        <ShareButtons title={post.title} slug={post.slug} />
 
                         {/* Comments */}
                         <CommentsSection postId={post.id} />
