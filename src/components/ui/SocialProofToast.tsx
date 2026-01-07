@@ -5,11 +5,14 @@ import { X, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
 const NOTIFICATIONS = [
-    { name: "Lucía M.", action: "se unió a 'Educar en la Fe'", location: "Madrid", time: "hace 2 min" },
-    { name: "Carlos R.", action: "descargó 'Bienestar Emocional'", location: "Barcelona", time: "hace 5 min" },
-    { name: "Ana P.", action: "se unió a la lista de espera", location: "Valencia", time: "hace 12 min" },
-    { name: "Sofía G.", action: "compró el Pack Crianza", location: "Sevilla", time: "hace 1 hora" },
-    { name: "Miguel A.", action: "descargó la guía gratuita", location: "Bilbao", time: "hace 20 min" },
+    { name: "Valentina R.", action: "se unió a 'Educar en la Fe'", location: "Ciudad de México", time: "hace 2 min" },
+    { name: "Carolina M.", action: "descargó 'Bienestar Emocional'", location: "Bogotá", time: "hace 5 min" },
+    { name: "Diego S.", action: "se unió a la lista de espera", location: "Santiago de Chile", time: "hace 12 min" },
+    { name: "Lucía G.", action: "compró el Pack Crianza", location: "Buenos Aires", time: "hace 1 hora" },
+    { name: "Martina P.", action: "descargó la guía gratuita", location: "Lima", time: "hace 20 min" },
+    { name: "Sofia L.", action: "se unió a 'Educar en la Fe'", location: "Madrid", time: "hace 35 min" },
+    { name: "Javier D.", action: "compró el curso completo", location: "Medellín", time: "hace 10 min" },
+    { name: "Camila F.", action: "se unió a la comunidad", location: "Miami", time: "hace 8 min" },
 ];
 
 export default function SocialProofToast() {
