@@ -10,9 +10,11 @@ const NAMES = [
 ];
 
 const LOCATIONS = [
-    "Madrid", "Barcelona", "Valencia", "Sevilla", "Málaga", "Bilbao",
-    "Zaragoza", "Murcia", "Alicante", "Granada", "Córdoba", "Vigo",
-    "Gijón", "Valladolid", "Palma", "Las Palmas", "Tenerife"
+    "Madrid, España", "Ciudad de México, MX", "Buenos Aires, AR",
+    "Barcelona, España", "Bogotá, Colombia", "Santiago, Chile",
+    "Lima, Perú", "Valencia, España", "Medellín, Colombia",
+    "Sevilla, España", "Guadalajara, MX", "Montevideo, Uruguay",
+    "Quito, Ecuador", "Bilbao, España", "Córdoba, Argentina"
 ];
 
 const ACTIONS = [
