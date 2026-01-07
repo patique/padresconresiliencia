@@ -42,7 +42,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
                         {/* Product Image Column */}
-                        <div className="relative sticky top-24">
+                        <div className="relative lg:sticky lg:top-24">
                             <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-2xl bg-white border-8 border-white transform rotate-1 lg:-rotate-1 hover:rotate-0 transition duration-500">
                                 {product.imageUrl ? (
                                     <Image src={product.imageUrl} alt={product.title} fill className="object-cover" priority />
@@ -104,7 +104,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                                 </div>
 
                                 <a href="https://pay.hotmart.com/N103419626V" className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0">
-                                    Comprar Ahora y Descargar
+                                    Acceder al Curso
                                 </a>
                                 <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
                                     <Download className="w-3 h-3" /> Acceso inmediato y seguro a través de la plataforma Hotmart
@@ -280,7 +280,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         href="https://pay.hotmart.com/N103419626V"
                         className="bg-[#E07A5F] hover:bg-[#D06950] text-white font-bold py-3 px-6 rounded-xl flex-1 text-center shadow-lg active:scale-95 transition"
                     >
-                        Descargar Ahora
+                        Acceder al Curso
                     </a>
                 </div>
             </div>
