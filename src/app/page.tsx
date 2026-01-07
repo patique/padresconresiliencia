@@ -11,7 +11,18 @@ import AuthorSection from "@/components/home/AuthorSection";
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const products = await prisma.product.findMany();
+  const dbProducts = await prisma.product.findMany();
+
+  // Serialize products (convert Dates to strings/numbers or omit) to avoid "Date object" warning in Client Components
+  const products = dbProducts.map(p => ({
+    id: p.id,
+    title: p.title,
+    description: p.description,
+    price: p.price,
+    originalPrice: p.originalPrice,
+    imageUrl: p.imageUrl,
+    slug: p.slug,
+  }));
 
   return (
     <div className="min-h-screen flex flex-col">
