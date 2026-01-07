@@ -167,6 +167,217 @@ export default function LandingPage() {
                     </div>
                 </section>
 
+                {/* SYLLABUS SECTION */}
+                <section className="py-24 bg-white">
+                    <div className="container mx-auto px-6 max-w-4xl">
+                        <div className="text-center mb-16">
+                            <span className="text-emerald-600 font-bold uppercase tracking-wider text-sm">Contenido del Programa</span>
+                            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mt-2 mb-6">¿Qué encontrarás dentro?</h2>
+                            <p className="text-slate-600">Acceso digital inmediato a todos los módulos y recursos.</p>
+                        </div>
+
+                        <div className="space-y-8">
+                            {/* Introduction */}
+                            <div className="border border-slate-200 rounded-2xl overflow-hidden">
+                                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 font-bold text-slate-800 flex items-center gap-3">
+                                    <span className="bg-emerald-100 text-emerald-700 py-1 px-3 rounded text-sm">Intro</span>
+                                    Bienvenida e Inicio del viaje
+                                </div>
+                                <div className="p-6 bg-white space-y-3">
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 1: Cómo sacarle el máximo provecho a este curso</span>
+                                    </div>
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 2: Tu primer PDF: Introducción al curso</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Módulo 1 */}
+                            <div className="border border-slate-200 rounded-2xl overflow-hidden">
+                                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 font-bold text-slate-800 flex items-center gap-3">
+                                    <span className="bg-slate-200 text-slate-700 py-1 px-3 rounded text-sm">Módulo 1</span>
+                                    La realidad emocional del primer año
+                                </div>
+                                <div className="p-6 bg-white space-y-3">
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 3: Acceso al PDF – "La realidad emocional del primer año: Lo que nadie te cuenta"</span>
+                                    </div>
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <Star className="w-5 h-5 text-yellow-500 mt-0.5" />
+                                        <span>Clase 4: Reflexión guiada (bonus)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Módulo 2 */}
+                            <div className="border border-slate-200 rounded-2xl overflow-hidden">
+                                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 font-bold text-slate-800 flex items-center gap-3">
+                                    <span className="bg-slate-200 text-slate-700 py-1 px-3 rounded text-sm">Módulo 2</span>
+                                    Estrés y ansiedad posparto
+                                </div>
+                                <div className="p-6 bg-white space-y-3">
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 5: Acceso al PDF – Capítulo 3 completo</span>
+                                    </div>
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <Check className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 6: Checklist semanal de autoevaluación (bonus)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Módulo 3 */}
+                            <div className="border border-slate-200 rounded-2xl overflow-hidden">
+                                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 font-bold text-slate-800 flex items-center gap-3">
+                                    <span className="bg-slate-200 text-slate-700 py-1 px-3 rounded text-sm">Módulo 3</span>
+                                    El poder del sueño
+                                </div>
+                                <div className="p-6 bg-white space-y-3">
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 7: Acceso al PDF – Capítulo 4 completo</span>
+                                    </div>
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <Clock className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 8: Plantilla de planificación de turnos y descansos (bonus)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Módulo 4 */}
+                            <div className="border border-slate-200 rounded-2xl overflow-hidden">
+                                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 font-bold text-slate-800 flex items-center gap-3">
+                                    <span className="bg-slate-200 text-slate-700 py-1 px-3 rounded text-sm">Módulo 4</span>
+                                    Fortaleciendo la relación de pareja
+                                </div>
+                                <div className="p-6 bg-white space-y-3">
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 9: Acceso al PDF – Capítulo 5 completo</span>
+                                    </div>
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <Heart className="w-5 h-5 text-red-400 mt-0.5" />
+                                        <span>Clase 10: Lista de 10 rituales de conexión rápidos y realistas</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Módulo 5 */}
+                            <div className="border border-slate-200 rounded-2xl overflow-hidden">
+                                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 font-bold text-slate-800 flex items-center gap-3">
+                                    <span className="bg-slate-200 text-slate-700 py-1 px-3 rounded text-sm">Módulo 5</span>
+                                    Equilibrio trabajo y familia
+                                </div>
+                                <div className="p-6 bg-white space-y-3">
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 11: Acceso al PDF – Capítulo 6 completo</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Módulo 6 */}
+                            <div className="border border-slate-200 rounded-2xl overflow-hidden">
+                                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 font-bold text-slate-800 flex items-center gap-3">
+                                    <span className="bg-slate-200 text-slate-700 py-1 px-3 rounded text-sm">Módulo 6</span>
+                                    Pedir ayuda y construir red de apoyo
+                                </div>
+                                <div className="p-6 bg-white space-y-3">
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 12: Acceso al PDF – "Pedir ayuda sin culpa" (Capítulo 7)</span>
+                                    </div>
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 13: Acceso al PDF – "Tu red de apoyo ideal" (Capítulo 8)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Módulo 7 */}
+                            <div className="border border-slate-200 rounded-2xl overflow-hidden">
+                                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 font-bold text-slate-800 flex items-center gap-3">
+                                    <span className="bg-slate-200 text-slate-700 py-1 px-3 rounded text-sm">Módulo 7</span>
+                                    Técnicas para calmarte en minutos
+                                </div>
+                                <div className="p-6 bg-white space-y-3">
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 14: Acceso al PDF – Capítulo 9 completo</span>
+                                    </div>
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <Star className="w-5 h-5 text-yellow-500 mt-0.5" />
+                                        <span>Clase 15: Scripts de técnicas (bonus)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Módulo 8 */}
+                            <div className="border border-slate-200 rounded-2xl overflow-hidden">
+                                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200 font-bold text-slate-800 flex items-center gap-3">
+                                    <span className="bg-slate-200 text-slate-700 py-1 px-3 rounded text-sm">Módulo 8</span>
+                                    Ayuda profesional y cierre
+                                </div>
+                                <div className="p-6 bg-white space-y-3">
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 16: Acceso al PDF – Capítulo 10 completo</span>
+                                    </div>
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <BookOpen className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                        <span>Clase 17: Acceso al PDF – "Conclusión y recursos" (Capítulo 11)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Módulo Bonus */}
+                            <div className="border border-emerald-100 rounded-2xl overflow-hidden">
+                                <div className="bg-emerald-50 px-6 py-4 border-b border-emerald-100 font-bold text-emerald-900 flex items-center gap-3">
+                                    <span className="bg-emerald-200 text-emerald-800 py-1 px-3 rounded text-sm">Bonus</span>
+                                    Material Extra
+                                </div>
+                                <div className="p-6 bg-white space-y-3">
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <Star className="w-5 h-5 text-yellow-400 mt-0.5" />
+                                        <span>Clase 18: Tu Plan de Acción Personalizado</span>
+                                    </div>
+                                    <div className="flex items-start gap-3 text-slate-600">
+                                        <Star className="w-5 h-5 text-yellow-400 mt-0.5" />
+                                        <span>Clase 19: Recursos extra</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Módulo Final */}
+                            <div className="border-2 border-emerald-500 rounded-2xl overflow-hidden shadow-lg shadow-emerald-100">
+                                <div className="bg-emerald-500 px-6 py-4 text-white font-bold flex items-center gap-3">
+                                    <span className="bg-white text-emerald-600 py-1 px-3 rounded text-sm font-bold">IMPORTANTE</span>
+                                    Módulo Final
+                                </div>
+                                <div className="p-6 bg-white">
+                                    <div className="flex items-start gap-4 text-slate-700 font-medium">
+                                        <div className="bg-emerald-100 p-2 rounded-lg">
+                                            <BookOpen className="w-6 h-6 text-emerald-600" />
+                                        </div>
+                                        <div>
+                                            <span className="text-lg font-bold block mb-1">Descarga del Ebook Completo</span>
+                                            <p className="text-sm text-slate-500 font-normal">
+                                                Para garantizar tu satisfacción y el buen uso del material, la descarga del archivo PDF completo se desbloqueará automáticamente tras el periodo de garantía de 15 días.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
                 {/* AUTHOR BIO - PROFESSIONAL */}
                 <section className="py-24 bg-white border-b border-slate-100">
                     <div className="container mx-auto px-6 max-w-4xl">
