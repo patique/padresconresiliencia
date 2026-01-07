@@ -20,6 +20,8 @@ export async function joinWaitlist(prevState: any, formData: FormData) {
         return { success: true, message: '¡Gracias! Te avisaremos cuando esté listo.' };
     } catch (error) {
         console.error('Error joining waitlist:', error);
-        return { success: false, message: 'Hubo un error al registrarte.' };
+        // Expose error message for debugging purposes temporarily
+        const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+        return { success: false, message: `Error: ${errorMessage}` };
     }
 }
