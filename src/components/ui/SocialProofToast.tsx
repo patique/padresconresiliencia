@@ -14,7 +14,13 @@ const LOCATIONS = [
     "Barcelona, España", "Bogotá, Colombia", "Santiago, Chile",
     "Lima, Perú", "Valencia, España", "Medellín, Colombia",
     "Sevilla, España", "Guadalajara, MX", "Montevideo, Uruguay",
-    "Quito, Ecuador", "Bilbao, España", "Córdoba, Argentina"
+    "Quito, Ecuador", "Bilbao, España", "Córdoba, Argentina",
+    "Málaga, España", "Monterrey, MX", "Rosario, Argentina",
+    "Zaragoza, España", "Cali, Colombia", "San José, Costa Rica",
+    "Alicante, España", "Santo Domingo, RD", "Mendoza, Argentina",
+    "Murcia, España", "Puebla, MX", "Asunción, Paraguay",
+    "Palma, España", "Barranquilla, Colombia", "Ciudad de Panamá",
+    "Vigo, España", "Arequipa, Perú", "Valparaíso, Chile"
 ];
 
 const ACTIONS = [
