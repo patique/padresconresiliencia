@@ -1,0 +1,101 @@
+export type BlogPost = {
+    slug: string;
+    title: string;
+    excerpt: string;
+    content: string;
+    author: string;
+    date: string;
+    category: string;
+    readTime: string;
+    imageUrl: string;
+};
+
+export const BLOG_POSTS: BlogPost[] = [
+    {
+        slug: "carga-mental-maternidad",
+        title: "La Carga Mental: El trabajo invisible que agota a las madres",
+        excerpt: "¿Sientes que tu cerebro tiene 50 pestañas abiertas a la vez? No estás sola. Analizamos qué es la carga mental y 3 estrategias prácticas para reducirla hoy mismo.",
+        author: "Máximo",
+        date: "7 Ene, 2024",
+        category: "Bienestar",
+        readTime: "5 min",
+        imageUrl: "/images/blog/carga-mental.jpg", // We'll need to use placeholders or generate these
+        content: `
+            <p>Es martes por la noche. Estás agotada en el sofá, pero tu cerebro no para: "¿He descongelado el pollo? ¿Mañana tienen excursión? Tengo que pedir cita con el pediatra. Se está acabando el detergente".</p>
+            
+            <p>Esto no es simplemente "pensar cosas". Esto es la <strong>Carga Mental</strong>: el trabajo invisible de gestión, planificación y coordinación que, estadísticamente, recae desproporcionadamente sobre las madres.</p>
+
+            <h2>¿Por qué nos pesa tanto?</h2>
+            <p>El problema de la carga mental no es solo la ejecución de las tareas (hacer la cena), sino la gestión (pensar qué cenar, ver qué ingredientes faltan, calcular cuándo ir a comprar). Es un rol de "Project Manager" del hogar que nunca hemos pedido.</p>
+
+            <blockquote>"La carga mental es tener la responsabilidad de que todo funcione, incluso cuando no lo estás haciendo tú."</blockquote>
+
+            <h2>3 Estrategias para soltar lastre</h2>
+            
+            <h3>1. Haz visible lo invisible</h3>
+            <p>Siéntate con tu pareja y escribe TODAS las tareas que implican pensar, no solo hacer. A veces, la otra persona no es consciente de todo lo que ocurre "entre bastidores" en tu mente.</p>
+
+            <h3>2. Delega la responsabilidad completa, no la tarea</h3>
+            <p>En lugar de decir "pon la lavadora", delega "la gestión de la ropa sucia". Quien se encarga de eso, debe pensar cuándo ponerla, tenderla y guardarla. Si tú tienes que recordarles que lo hagan, sigues llevando la carga mental.</p>
+
+            <h3>3. El poder del "No lo sé"</h3>
+            <p>Cuando te pregunten "¿Dónde están los zapatos azules?", resiste la urgencia de responder. Un "no lo sé, ¿dónde los viste por última vez?" entrena al resto de la familia a buscar sus propias soluciones.</p>
+
+            <p>Recuperar tu espacio mental es vital no solo para tu salud, sino para poder disfrutar de la crianza. En nuestro ebook <em>Bienestar Emocional de los Padres</em> profundizamos en herramientas para desconectar y validar tus emociones.</p>
+        `
+    },
+    {
+        slug: "conectar-adolescente-sin-discutir",
+        title: "5 Frases para conectar con tu adolescente (sin que te gire los ojos)",
+        excerpt: "La comunicación con adolescentes puede parecer un campo minado. Descubre cómo cambiar el guion y pasar de los portazos a las conversaciones reales.",
+        author: "Máximo",
+        date: "4 Ene, 2024",
+        category: "Adolescencia",
+        readTime: "7 min",
+        imageUrl: "/images/blog/adolescente.jpg",
+        content: `
+            <p>¿Te suena esta escena? Tu hijo entra por la puerta, le preguntas con tu mejor intención "¿Qué tal el cole?" y recibes un gruñido o un "bien" seco mientras se encierra en su cuarto.</p>
+            
+            <p>La adolescencia es una etapa de individuación. Ellos necesitan separarse (es biológico), pero paradójicamente, te necesitan más que nunca como base segura.</p>
+
+            <h2>Cambia tu estrategia de comunicación</h2>
+            
+            <p>Aquí tienes 5 frases que abren puertas en lugar de cerrarlas:</p>
+
+            <h3>1. "Me encantaría saber tu opinión sobre esto..."</h3>
+            <p>A los adolescentes les encanta sentirse validados como adultos. Pídeles consejo sobre algo real (una noticia, una decisión de compra, un problema laboral). Les demuestra respeto intelectual.</p>
+
+            <h3>2. "Te he traído tu snack favorito" (y te vas)</h3>
+            <p>A veces, el amor entra por el estómago y el respeto al espacio. No pidas nada a cambio. Es un acto de servicio que dice "te veo y te cuido" sin invadir.</p>
+
+            <h3>3. "Veo que estás agobiado. ¿Quieres hablar o prefieres espacio?"</h3>
+            <p>Darles la opción de NO hablar es, a menudo, la mejor forma de que acaben hablando. Les devuelves el control.</p>
+            
+            <p>Recuerda: tu objetivo no es ser su mejor amigo, es ser su padre/madre confiable. En nuestro próximo curso <em>Adolescencia sin Dramas</em>, trabajaremos a fondo estos guiones de comunicación.</p>
+        `
+    },
+    {
+        slug: "fe-en-familia-dia- a-dia",
+        title: "Cómo transmitir la fe sin que sea 'aburrido' para los niños",
+        excerpt: "Educar en la fe no tiene por qué ser una obligación pesada. Descubre pequeños rituales diarios que integran la espiritualidad de forma natural y alegre.",
+        author: "Máximo",
+        date: "28 Dic, 2023",
+        category: "Espiritualidad",
+        readTime: "4 min",
+        imageUrl: "/images/blog/fe-familia.jpg",
+        content: `
+            <p>Muchos padres católicos temen que obligar a sus hijos a rezar genere rechazo. Y es un miedo válido. La fe se contagia, no se impone.</p>
+
+            <h2>Lo sagrado en lo cotidiano</h2>
+            <p>No necesitas grandes liturgias diarias. Busca a Dios en lo pequeño:</p>
+
+            <ul>
+                <li><strong>Agradecer antes de cenar:</strong> Pero no con una fórmula repetitiva, sino pidiendo que cada uno diga una cosa buena de su día. Conectas la gratitud con Dios y con la alegría diaria.</li>
+                <li><strong>La naturaleza:</strong> Cuando vayáis al parque o de excursión, maravillaos juntos. "¡Mira qué colores ha pintado Dios hoy en el cielo!".</li>
+                <li><strong>Bendecirles al dormir:</strong> Una simple cruz en la frente antes de dormir es un gesto táctil de amor y protección que recordarán siempre.</li>
+            </ul>
+
+            <p>Haz que la fe sea sinónimo de hogar, de seguridad y de alegría, no de normas rígidas. Ese es el corazón de nuestra guía <em>Educar en la Fe</em>.</p>
+        `
+    }
+];
