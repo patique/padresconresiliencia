@@ -2,24 +2,49 @@
 
 import { useEffect, useState } from "react";
 import { X, CheckCircle2 } from "lucide-react";
-import Image from "next/image";
 
-const NOTIFICATIONS = [
-    { name: "Valentina R.", action: "se unió a 'Educar en la Fe'", location: "Ciudad de México", time: "hace 2 min" },
-    { name: "Carolina M.", action: "descargó 'Bienestar Emocional'", location: "Bogotá", time: "hace 5 min" },
-    { name: "Diego S.", action: "se unió a la lista de espera", location: "Santiago de Chile", time: "hace 12 min" },
-    { name: "Lucía G.", action: "compró el Pack Crianza", location: "Buenos Aires", time: "hace 1 hora" },
-    { name: "Martina P.", action: "descargó la guía gratuita", location: "Lima", time: "hace 20 min" },
-    { name: "Sofia L.", action: "se unió a 'Educar en la Fe'", location: "Madrid", time: "hace 35 min" },
-    { name: "Javier D.", action: "compró el curso completo", location: "Medellín", time: "hace 10 min" },
-    { name: "Camila F.", action: "se unió a la comunidad", location: "Miami", time: "hace 8 min" },
+const NAMES = [
+    "María G.", "Laura M.", "Carmen R.", "Ana P.", "Lucía S.", "Sofía L.",
+    "Elena D.", "Isabel T.", "Marta V.", "Paula C.", "Javier R.", "David M.",
+    "Alejandro S.", "Pablo F.", "Cristina B.", "Raquel H.", "Beatriz L."
 ];
+
+const LOCATIONS = [
+    "Madrid", "Barcelona", "Valencia", "Sevilla", "Málaga", "Bilbao",
+    "Zaragoza", "Murcia", "Alicante", "Granada", "Córdoba", "Vigo",
+    "Gijón", "Valladolid", "Palma", "Las Palmas", "Tenerife"
+];
+
+const ACTIONS = [
+    "se unió a 'Educar en la Fe'",
+    "descargó 'Bienestar Emocional'",
+    "se unió a la lista de espera",
+    "compró el Pack Crianza",
+    "descargó la guía gratuita",
+    "reservó su plaza",
+    "comenzó el curso"
+];
+
+const getRandomElement = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
+
+const generateNotification = () => {
+    const time = Math.floor(Math.random() * 59) + 1;
+    return {
+        name: getRandomElement(NAMES),
+        location: getRandomElement(LOCATIONS),
+        action: getRandomElement(ACTIONS),
+        time: `hace ${time} min`
+    };
+};
 
 export default function SocialProofToast() {
     const [isVisible, setIsVisible] = useState(false);
-    const [currentNotification, setCurrentNotification] = useState(0);
+    const [notification, setNotification] = useState<{ name: string, location: string, action: string, time: string } | null>(null);
 
     useEffect(() => {
+        // Initialize with random data on mount (client-side only to avoid hydration mismatch)
+        setNotification(generateNotification());
+
         // Initial delay
         const initialTimeout = setTimeout(() => {
             setIsVisible(true);
@@ -29,10 +54,10 @@ export default function SocialProofToast() {
         const interval = setInterval(() => {
             setIsVisible(false);
             setTimeout(() => {
-                setCurrentNotification((prev) => (prev + 1) % NOTIFICATIONS.length);
+                setNotification(generateNotification());
                 setIsVisible(true);
-            }, 500); // Wait for fade out before changing text and fading in
-        }, 15000); // Show new one every 15s
+            }, 500); // Wait for fade out
+        }, 15000 + Math.random() * 10000); // Randomize interval slightly (15-25s)
 
         return () => {
             clearTimeout(initialTimeout);
@@ -40,9 +65,7 @@ export default function SocialProofToast() {
         };
     }, []);
 
-    const data = NOTIFICATIONS[currentNotification];
-
-    if (!data) return null;
+    if (!notification) return null;
 
     return (
         <div
@@ -63,10 +86,10 @@ export default function SocialProofToast() {
 
                 <div>
                     <p className="text-sm text-stone-800 font-medium">
-                        <span className="font-bold">{data.name}</span> de {data.location}
+                        <span className="font-bold">{notification.name}</span> de {notification.location}
                     </p>
                     <p className="text-xs text-stone-500">
-                        {data.action} <span className="text-stone-300">•</span> {data.time}
+                        {notification.action} <span className="text-stone-300">•</span> {notification.time}
                     </p>
                 </div>
             </div>
