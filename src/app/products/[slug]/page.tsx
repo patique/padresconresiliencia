@@ -131,7 +131,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
                             <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
                             <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1">
-                                "Los primeros meses fueron un caos de dudas y culpa. Este libro ha sido mi ancla. Entender el desarrollo cerebral de mi bebé me ayudó a dejar de obsesionarme con los horarios y empezar a disfrutar de la conexión real."
+                                "La 'carga mental' me estaba consumiendo. Este libro me hizo ver que pedir ayuda no es fracasar, sino una responsabilidad. Entender por qué me sentía así biológicamente cambió mi postparto por completo."
                             </p>
                             <div className="flex items-center gap-4 mt-auto">
                                 <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
@@ -153,7 +153,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
                             <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
                             <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1">
-                                "Nadie te enseña a ser padre de un recién nacido. La sección sobre el llanto y el sueño me dio herramientas concretas para calmar a mi hijo (y a mí mismo). Por fin siento que aporto seguridad a mi familia."
+                                "El capítulo sobre el estrés y la falta de sueño fue revelador. Dejé de luchar contra mi realidad y empecé a usar las herramientas prácticas para gestionarla. Por fin siento que tengo el control de nuevo."
                             </p>
                             <div className="flex items-center gap-4 mt-auto">
                                 <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
@@ -175,7 +175,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
                             <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
                             <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1">
-                                "Me sentía totalmente perdida y agotada. Leer sobre la importancia de mi propio bienestar fue un despertar. Gracias a este ebook he aprendido a pedir ayuda sin culpa y a ser una madre más presente y feliz."
+                                "Necesitaba esto: validación emocional pura. Saber que mis emociones 'crudas' son compartidas por millones de padres y tienen una explicación científica me quitó la culpa de golpe. Gracias."
                             </p>
                             <div className="flex items-center gap-4 mt-auto">
                                 <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
