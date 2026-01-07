@@ -89,6 +89,45 @@ const BLOG_POSTS = [
 
             <p>Haz que la fe sea sinónimo de hogar, de seguridad y de alegría, no de normas rígidas. Ese es el corazón de nuestra guía <em>Educar en la Fe</em>.</p>
         `
+    },
+    {
+        slug: "7-errores-transmitir-fe",
+        title: "¿Por qué tus hijos se aburren en Misa? 7 Errores que alejan a los niños de la Fe",
+        excerpt: "La fe no es una asignatura extraescolar. Descubre por qué el enfoque 'tradicional' suele fallar y cómo reconectar con el asombro.",
+        author: "Máximo",
+        date: new Date("2024-01-08"),
+        category: "Espiritualidad",
+        readTime: "6 min",
+        imageUrl: "/images/blog/iglesia-ninos.jpg",
+        content: `
+            <p>¿Te suena esta batalla? Es domingo por la mañana. Tú intentas que se vistan rápido, ellos se quejan, llegáis tarde y pasas la hora de Misa chistándoles para que no se muevan.</p>
+            <p>Al salir, piensas: <em>"Esto no sirve de nada. Solo estoy consiguiendo que odien venir"</em>.</p>
+
+            <p>No estás solo. El problema no es la Misa, ni Dios, ni tus hijos. El problema son los "errores de traducción" que cometemos los padres sin querer.</p>
+
+            <h2>Error #1: El Dios Policía</h2>
+            <p>Si solo hablamos de Dios para corregir ("Pórtate bien que Jesús te ve"), convertimos la fe en un sistema de vigilancia. ¿Quién quiere amar a una cámara de seguridad?</p>
+            <p><strong>El cambio:</strong> Habla de Dios cuando sean felices. "¡Qué helado tan rico! Gracias a Dios que inventó el sabor a chocolate". Asocia a Dios con el placer y la gratitud, no solo con la moral.</p>
+
+            <h2>Error #2: La Fe de "Domingo"</h2>
+            <p>Si Dios solo existe una hora a la semana, es irrelevante. Los niños detectan la incoherencia a kilómetros.</p>
+            <p><strong>El cambio:</strong> Integra micro-liturgias en casa. Bendecir la mesa, pedir perdón (tú a ellos) cuando te equivocas, o admirar la naturaleza.</p>
+
+            <h2>Error #3: Silenciar las preguntas incómodas</h2>
+            <p>"No preguntes eso, es pecado" o "porque sí". Cuando un niño pregunta "¿Por qué Dios permite que muera gente?", te está invitando a profundizar. Si cierras la puerta, buscará respuestas en otro lado (o asumirá que no las hay).</p>
+
+            <h2>La solución no es "hacer más", es "ser más"</h2>
+            <p>Educar en la fe se trata de contagiar tu propio asombro. Si tú vives tu fe con alegría, ellos querrán saber el secreto de tu alegría.</p>
+            
+            <div style="background-color: #FDF4F0; padding: 2rem; border-radius: 1rem; border: 1px solid #E07A5F; margin-top: 2rem;">
+                <h3 style="color: #E07A5F; margin-top: 0;">¿Quieres profundizar más?</h3>
+                <p>He preparado una guía completa llamada <strong>Educar en la Fe: De la Obligación al Asombro</strong>. Es un manual sin juicios para padres reales.</p>
+                <p>Te enseñaré a crear un hogar donde la fe respire y no asfixie. Aún no ha salido, pero puedes unirte a la lista de espera y ver el temario completo.</p>
+                <p style="text-align: center; margin-top: 1.5rem;">
+                    <a href="/#waitlist-educar-en-la-fe" style="background-color: #E07A5F; color: white; padding: 0.75rem 1.5rem; text-decoration: none; font-weight: bold; border-radius: 0.5rem; display: inline-block;">Ver Temario y Unirme a la Lista</a>
+                </p>
+            </div>
+        `
     }
 ];
 
