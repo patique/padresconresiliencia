@@ -18,35 +18,14 @@ interface Product {
 export default function ProductGrid({ initialProducts }: { initialProducts: Product[] }) {
     const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
 
-    const futureCourses = [
-        {
-            id: "fc-1",
-            title: "Educar en la Fe: Guía para Padres",
-            description: "Recursos prácticos para transmitir la fe católica en casa de forma natural y alegre.",
-            price: 27.00,
-            imageUrl: "/images/future_course_1.jpg"
-        },
-        {
-            id: "fc-2",
-            title: "Adolescencia sin Dramas",
-            description: "Estrategias de comunicación para conectar con tu hijo adolescente y evitar conflictos.",
-            price: 34.00,
-            imageUrl: "/images/future_course_2.jpg"
-        },
-        {
-            id: "fc-3",
-            title: "Primeros Pasos: 0 a 3 años",
-            description: "El manual definitivo para los primeros años de vida. Sueño, alimentación y apego.",
-            price: 29.00,
-            imageUrl: "/images/future_course_3.jpg"
-        }
-    ];
+    const availableProducts = initialProducts.filter(p => p.price > 0);
+    const waitlistProducts = initialProducts.filter(p => p.price === 0);
 
     return (
         <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                {/* Existing Products */}
-                {initialProducts.map((product) => (
+                {/* Available Products (Ebooks) */}
+                {availableProducts.map((product) => (
                     <div key={product.id} className="group flex flex-col bg-white rounded-2xl border border-stone-200 overflow-hidden hover:shadow-xl hover:shadow-stone-200/50 transition-all duration-300 transform hover:-translate-y-1">
                         <a href={`/products/${product.slug}`} className="relative aspect-[4/3] bg-stone-100 overflow-hidden">
                             {product.imageUrl ? (
@@ -99,16 +78,22 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                     </div>
                 ))}
 
-                {/* Future Mockup Products */}
-                {futureCourses.map((course) => (
+                {/* Waitlist / Future Products */}
+                {waitlistProducts.map((course) => (
                     <div key={course.id} className="group flex flex-col bg-white rounded-2xl border border-stone-200 overflow-hidden hover:shadow-xl hover:shadow-stone-200/50 transition-all duration-300 transform hover:-translate-y-1">
                         <div className="relative aspect-[4/3] bg-stone-100 overflow-hidden">
-                            <Image
-                                src={course.imageUrl}
-                                alt={course.title}
-                                fill
-                                className="object-cover group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100 grayscale group-hover:grayscale-0"
-                            />
+                            {course.imageUrl ? (
+                                <Image
+                                    src={course.imageUrl}
+                                    alt={course.title}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition duration-500 opacity-90 group-hover:opacity-100 grayscale group-hover:grayscale-0"
+                                />
+                            ) : (
+                                <div className="w-full h-full flex items-center justify-center text-stone-400">
+                                    <GraduationCap className="w-12 h-12 opacity-50" />
+                                </div>
+                            )}
                             <div className="absolute top-4 right-4 bg-stone-900/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-white shadow-sm">
                                 Próximamente
                             </div>
