@@ -9,6 +9,35 @@ export const metadata: Metadata = {
 export default function LandingPage() {
     return (
         <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Product",
+                        "name": "Bienestar Emocional de los Padres | Guía Práctica",
+                        "description": "Descubre el método para recuperar tu descanso, tu calma y tu pareja en el primer año de crianza. Guía paso a paso para padres primerizos.",
+                        "image": "https://padresconresiliencia.com/hero_baby_crying.jpg",
+                        "brand": {
+                            "@type": "Brand",
+                            "name": "Padres con Resiliencia"
+                        },
+                        "offers": {
+                            "@type": "Offer",
+                            "url": "https://padresconresiliencia.com/bienestar-padres-primer-ano",
+                            "priceCurrency": "EUR",
+                            "price": "7.99",
+                            "priceValidUntil": "2025-12-31",
+                            "availability": "https://schema.org/InStock"
+                        },
+                        "aggregateRating": {
+                            "@type": "AggregateRating",
+                            "ratingValue": "4.8",
+                            "reviewCount": "124"
+                        }
+                    })
+                }}
+            />
             {/* Navigation */}
             <nav className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
                 <div className="container mx-auto px-6 h-16 flex items-center justify-between">
