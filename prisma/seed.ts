@@ -106,17 +106,15 @@ const PRODUCTS = [
         description: "Transmite tus valores y creencias de forma natural y alegre.",
         price: 0,
         originalPrice: 0,
-        imageUrl: "/images/covers/faith_cover.jpg",
+        imageUrl: "/images/future_course_1.jpg",
         slug: "educar-en-la-fe",
-        // We might need to handle 'coming soon' logic differently or just use price 0/high price to indicate placeholder? 
-        // For now, let's just seed it as a product.
     },
     {
         title: "Primeros Pasos: 0 a 3 años",
         description: "Guía completa para la etapa más crucial del desarrollo.",
         price: 0,
         originalPrice: 0,
-        imageUrl: "/images/covers/toddler_cover.jpg",
+        imageUrl: "/images/future_course_3.jpg",
         slug: "primeros-pasos",
     },
     {
@@ -124,7 +122,7 @@ const PRODUCTS = [
         description: "Conecta con tu hijo y gestiona los conflictos desde el respeto.",
         price: 0,
         originalPrice: 0,
-        imageUrl: "/images/covers/teen_cover.jpg",
+        imageUrl: "/images/future_course_2.jpg",
         slug: "adolescencia-sin-dramas",
     }
 ];
