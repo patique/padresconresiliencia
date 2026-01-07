@@ -122,10 +122,11 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
             </div>
 
             <WaitlistModal
+                key={selectedTopic || "waitlist"}
                 isOpen={!!selectedTopic}
                 topic={selectedTopic || ""}
                 onClose={() => setSelectedTopic(null)}
-                previewContent={selectedTopic === "Educar en la Fe" ? (
+                previewContent={selectedTopic?.includes("Educar en la Fe") ? (
                     <div className="space-y-8">
                         <div>
                             <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Introducción</h4>
