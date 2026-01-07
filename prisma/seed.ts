@@ -90,6 +90,8 @@ const BLOG_POSTS = [
             <p>Haz que la fe sea sinónimo de hogar, de seguridad y de alegría, no de normas rígidas. Ese es el corazón de nuestra guía <em>Educar en la Fe</em>.</p>
         `
     }
+];
+
 const PRODUCTS = [
     {
         title: "Bienestar Emocional de los Padres",
