@@ -14,12 +14,14 @@
     "@vercel/analytics": "^1.6.1",
     "lucide-react": "^0.562.0",
     "next": "14.2.14",
+    "nodemailer": "^7.0.12",
     "prisma": "^6.19.1",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^7.0.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.23",
