@@ -128,6 +128,7 @@ const BLOG_POSTS = [
                 </p>
             </div>
         `
+    },
     {
         slug: "nadie-te-aviso-del-ruido",
         title: "Nadie te avisó de que el amor más grande de tu vida vendría acompañado de tanto ruido",

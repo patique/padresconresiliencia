@@ -1,3 +1,0 @@
-
-// This file is empty because I am using the run_command tool to copy images.
-// I need to create the directory first.
