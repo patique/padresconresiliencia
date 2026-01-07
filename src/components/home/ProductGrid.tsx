@@ -125,6 +125,76 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                 isOpen={!!selectedTopic}
                 topic={selectedTopic || ""}
                 onClose={() => setSelectedTopic(null)}
+                previewContent={selectedTopic === "Educar en la Fe" ? (
+                    <div className="space-y-8">
+                        <div>
+                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Introducción</h4>
+                            <h3 className="font-bold text-stone-800 text-lg mb-3">La fe como refugio, no como carga</h3>
+                            <ul className="space-y-2 text-stone-600">
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> El peso de la lista de tareas y el error de la "Asignatura Religión".</li>
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> Lo que este libro no es (y lo que sí es).</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Módulo 1</h4>
+                            <h3 className="font-bold text-stone-800 text-lg mb-3">El Cambio de Mentalidad (Los Cimientos)</h3>
+                            <ul className="space-y-2 text-stone-600">
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Dios no es un policía:</strong> Jubilar al vigilante para encontrar al Padre.</li>
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>La fe se contagia, no se impone:</strong> El poder del testimonio.</li>
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Vulnerabilidad:</strong> Por qué pedir perdón a tus hijos es un acto de fe.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Módulo 2</h4>
+                            <h3 className="font-bold text-stone-800 text-lg mb-3">Lo Sagrado en lo Cotidiano (0 a 7 años)</h3>
+                            <ul className="space-y-2 text-stone-600">
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Micro-liturgias domésticas:</strong> Momentos "ancla" que crean seguridad.</li>
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>El asombro en la naturaleza:</strong> Leer el libro de la Creación.</li>
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>La teología del juego:</strong> Dios entre los juguetes y las risas.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Módulo 3</h4>
+                            <h3 className="font-bold text-stone-800 text-lg mb-3">Preguntas Difíciles (7 a 12 años)</h3>
+                            <ul className="space-y-2 text-stone-600">
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>¿Por qué existe el mal?:</strong> Libertad, dolor y esperanza real.</li>
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>La Misa sin dramas:</strong> De la obligación a la fiesta.</li>
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Héroes de verdad:</strong> Los santos como referentes de aventura.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Módulo 4</h4>
+                            <h3 className="font-bold text-stone-800 text-lg mb-3">Adolescencia y Rebeldía (12+ años)</h3>
+                            <ul className="space-y-2 text-stone-600">
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>La duda como motor:</strong> Por qué cuestionar la fe es necesario.</li>
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Conectar antes de corregir:</strong> Hablar el idioma de los valores.</li>
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Jesús el Revolucionario:</strong> El imán del compromiso social.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-[#E07A5F] mb-1 uppercase text-xs tracking-wider">Módulo 5</h4>
+                            <h3 className="font-bold text-stone-800 text-lg mb-3">Cuidar al Cuidador</h3>
+                            <ul className="space-y-2 text-stone-600">
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>No puedes dar lo que no tienes:</strong> Tus 5 minutos de oasis.</li>
+                                <li className="flex gap-2 items-start"><span className="text-[#E07A5F] mt-1">•</span> <strong>Soltar el control:</strong> Confiar en que Dios los quiere más que tú.</li>
+                            </ul>
+                        </div>
+
+                        <div className="bg-[#E07A5F]/10 p-4 rounded-xl border border-[#E07A5F]/20">
+                            <h3 className="font-bold text-stone-900 mb-2">✨ Bonus Incluidos</h3>
+                            <ul className="space-y-1 text-sm text-stone-700">
+                                <li>• Cinefórum familiar: Películas para hablar de Dios.</li>
+                                <li>• El bote de la gratitud: Ritual de fin de año.</li>
+                                <li>• Voluntariado en familia: La fe que se pone las botas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                ) : undefined}
             />
         </>
     );
