@@ -122,6 +122,7 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
 
                             <div className="mt-auto pt-6 border-t border-stone-200/50">
                                 <button
+                                    type="button"
                                     onClick={() => setSelectedTopic(course.title)}
                                     className="w-full bg-white border border-[#E07A5F] text-[#E07A5F] hover:bg-[#E07A5F] hover:text-white px-5 py-3 rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2"
                                 >
