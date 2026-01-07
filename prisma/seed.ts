@@ -96,9 +96,9 @@ const PRODUCTS = [
     {
         title: "Bienestar Emocional de los Padres",
         description: "Gestiona el estrés, la culpa y la carga mental para criar desde la calma.",
-        price: 9.00,
-        originalPrice: 19.00,
-        imageUrl: "/ebook_cover_real.jpg",
+        price: 7.99,
+        originalPrice: 89.90,
+        imageUrl: "/pareja_frustrada_2.jpg",
         slug: "bienestar-emocional-padres",
     },
     {
