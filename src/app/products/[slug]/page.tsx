@@ -20,7 +20,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
     const benefits = [
         "Acceso inmediato al Curso (11 Módulos)",
-        "PDF completo desbloqueable a los 28 días",
+        "PDF completo desbloqueable a los 15 días",
         "Formato compatible con todos los dispositivos",
         "Garantía de devolución de 15 días"
     ];
