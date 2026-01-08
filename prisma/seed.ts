@@ -150,16 +150,15 @@ const BLOG_POSTS = [
 
             <p>Es maravilloso, sí. Pero también es agotador, sucio y a veces, solitario.</p>
 
-            <h2>No es cuestión de "aguantar más"</h2>
             <p>He creado este método porque yo también me rompí. Y descubrí que no es cuestión de apretar los dientes, sino de tener mejores herramientas.</p>
 
             <p>Tu hijo no necesita unos padres perfectos; necesita unos padres cuerdos y felices.</p>
 
             <div style="background-color: #F0FDF4; padding: 2rem; border-radius: 1rem; border: 1px solid #10B981; margin-top: 2rem;">
                 <h3 style="color: #047857; margin-top: 0;">¿Quieres recuperar tu vida?</h3>
-                <p>En el programa <strong>Bienestar Emocional de los Padres</strong> no te enseño a cambiar pañales. Te enseño a blindar tu descanso, desactivar las bombas de pareja y gestionar la "opinología" externa.</p>
+                <p>En el libro <strong>Mi Bebé Llora, ¿Y Yo Qué?</strong> no te enseño a cambiar pañales. Te enseño a blindar tu descanso, desactivar las bombas de pareja y gestionar la "opinología" externa.</p>
                 <p style="text-align: center; margin-top: 1.5rem;">
-                    <a href="/bienestar-padres-primer-ano" style="background-color: #10B981; color: white; padding: 0.75rem 1.5rem; text-decoration: none; font-weight: bold; border-radius: 0.5rem; display: inline-block;">Ver el Programa Completo</a>
+                    <a href="/bienestar-padres-primer-ano" style="background-color: #10B981; color: white; padding: 0.75rem 1.5rem; text-decoration: none; font-weight: bold; border-radius: 0.5rem; display: inline-block;">Ver el Libro</a>
                 </p>
             </div>
         `
@@ -168,7 +167,7 @@ const BLOG_POSTS = [
 
 const PRODUCTS = [
     {
-        title: "Bienestar Emocional de los Padres",
+        title: "Mi Bebé Llora, ¿Y Yo Qué?: La Guía Definitiva para Cuidarte sin Culpa en el Primer Año",
         description: "Deja de sobrevivir al primer año. Gestiona la culpa, el caos y recupera a tu pareja con un método que funciona.",
         price: 7.99,
         originalPrice: 89.90,
