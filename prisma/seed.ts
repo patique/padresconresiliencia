@@ -171,7 +171,7 @@ const PRODUCTS = [
         description: "Deja de sobrevivir al primer año. Gestiona la culpa, el caos y recupera a tu pareja con un método que funciona.",
         price: 7.99,
         originalPrice: 89.90,
-        imageUrl: "/pareja_frustrada_2.jpg",
+        imageUrl: "/images/portada-mi-bebe-llora.jpg",
         slug: "bienestar-emocional-padres",
     },
     {
