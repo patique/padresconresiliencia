@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2, ShieldCheck, Download, Star, Check } from "lucide-react";
 import AuthorSection from "@/components/home/AuthorSection";
+import OfferCountdown from "@/components/ui/OfferCountdown";
 
 interface ProductPageProps {
     params: { slug: string };
@@ -133,10 +134,11 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                             <span className="text-stone-500 text-sm">+ IVA</span>
                                         </div>
                                     </div>
-                                    <div className="text-right">
+                                    <div className="text-right flex flex-col items-end">
                                         <span className="bg-red-100 text-red-600 px-3 py-1 rounded-md text-sm font-bold">
                                             Oferta Limitada
                                         </span>
+                                        <OfferCountdown />
                                     </div>
                                 </div>
 
