@@ -75,42 +75,42 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                 </div>
                             </div>
 
-                            <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
-                                {product.title}
+                            <h1 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
+                                {product.slug === 'bienestar-emocional-padres'
+                                    ? "Cómo Sobrevivir al Primer Año sin Perder la Cabeza (Ni a tu Pareja)"
+                                    : product.title
+                                }
                             </h1>
 
                             {product.slug === 'bienestar-emocional-padres' ? (
                                 <div className="space-y-6 text-stone-600 mb-8 leading-relaxed">
-                                    <h2 className="text-2xl font-bold text-stone-900 leading-tight">
-                                        Nadie te avisó de que el amor más grande de tu vida vendría acompañado de tanto <span className="text-[#E07A5F]">ruido</span>.
+                                    <h2 className="text-xl md:text-2xl font-bold text-stone-900 leading-tight">
+                                        El Manual de Instrucciones para tu Salud Mental que no venía con el bebé.
                                     </h2>
-                                    <p>
-                                        ¿Recuerdas cuando te decían "aprovecha para dormir ahora"? Te reías. Ahora darías lo que fuera por 4 horas seguidas de silencio.
-                                    </p>
-                                    <p>
-                                        La realidad del primer año te atropella: La culpa, la sensación de ser compañeros de piso con tu pareja, el ruido mental...
+                                    <p className="text-lg font-medium text-stone-800">
+                                        Tu bebé llora, tú no duermes y tu relación pende de un hilo. <span className="text-[#E07A5F]">No eres tú, es el posparto. Y tiene solución.</span>
                                     </p>
                                     <div className="font-medium text-stone-900 bg-[#E07A5F]/10 p-4 border-l-4 border-[#E07A5F] rounded-r-lg">
-                                        Te han vendido que ser padres es instintivo y maravilloso todo el tiempo. <strong>Mentira.</strong> Es maravilloso, sí. Pero también agotador.
+                                        ¿Sientes que te has perdido a ti misma? Este es el botón de pausa que necesitas para dejar de sobrevivir y empezar a vivir esta etapa.
                                     </div>
                                     <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100 shadow-sm mt-6">
-                                        <h3 className="font-bold text-stone-900 mb-4 text-lg">En este ebook aprenderás a:</h3>
+                                        <h3 className="font-bold text-stone-900 mb-4 text-lg">Lo que vas a conseguir con este libro:</h3>
                                         <div className="grid grid-cols-1 gap-4">
                                             <div className="flex gap-3">
                                                 <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Blindar tu descanso:</strong> Estrategias reales para dormir sin dejarle llorar.</div>
+                                                <div><strong className="text-stone-900">Dormir Más:</strong> Estrategias de descanso para padres reales (sin dejar llorar al bebé).</div>
                                             </div>
                                             <div className="flex gap-3">
                                                 <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Desactivar la bomba de la pareja:</strong> Cómo hablaros bonito cuando estáis a punto de explotar.</div>
+                                                <div><strong className="text-stone-900">Salvar tu Pareja:</strong> Cómo dejar de discutir por tonterías a las 3 de la mañana.</div>
                                             </div>
                                             <div className="flex gap-3">
                                                 <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Gestionar la "opinología":</strong> Poner límites a suegros y cuñados sin culpa.</div>
+                                                <div><strong className="text-stone-900">Adiós Culpa:</strong> Aprende a poner límites a "opinólogos" sin sentirte mala madre/padre.</div>
                                             </div>
                                             <div className="flex gap-3">
                                                 <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Recuperar tu identidad:</strong> Recordar quién eras tú antes de ser "mamá/papá de...".</div>
+                                                <div><strong className="text-stone-900">Tener 5 Minutos de Paz:</strong> Técnicas de micro-autocuidado que funcionan de verdad.</div>
                                             </div>
                                         </div>
                                     </div>
