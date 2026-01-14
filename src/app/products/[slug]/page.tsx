@@ -66,63 +66,54 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                 </div>
                             </div>
                         </div>
+                        <Star className="w-4 h-4 fill-current" />
+                        <span className="text-stone-600 text-sm font-semibold ml-1">4.9/5</span>
                     </div>
+                </div>
 
-                    {/* Content Column (Hero Right) */}
-                    <div className="flex flex-col justify-center">
-                        <div className="mb-6 flex items-center gap-2">
-                            <span className="bg-[#E07A5F]/10 text-[#E07A5F] px-4 py-1.5 rounded-full text-sm font-bold tracking-wide">
-                                EBOOK PREMIUM
-                            </span>
-                            <div className="flex items-center gap-1 text-yellow-400 ml-4">
-                                <Star className="w-4 h-4 fill-current" />
-                                <span className="text-stone-600 text-sm font-semibold ml-1">4.9/5</span>
+                <h1 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
+                    {product.slug === 'bienestar-emocional-padres'
+                        ? <span>El "Interruptor" Biológico para <span className="text-[#E07A5F]">Detener el Caos</span> y Recuperar tu Vida <span className="block text-lg md:text-2xl font-normal text-stone-500 mt-4">Sin dormirte en el intento. Sin perder los nervios.</span></span>
+                        : product.title
+                    }
+                </h1>
+
+                {/* Short Intro for Hero */}
+                <p className="text-lg text-stone-600 mb-8 leading-relaxed">
+                    {product.slug === 'bienestar-emocional-padres'
+                        ? "Descubre por qué los métodos tradicionales fallan y cómo la neurociencia afectiva puede devolverte la paz en 7 días o menos."
+                        : product.description
+                    }
+                </p>
+
+                {/* Price Block (Hero) */}
+                <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm mb-8">
+                    <div className="flex flex-col items-center justify-center mb-6">
+                        <span className="bg-red-100 text-red-600 px-4 py-1 rounded-full text-sm font-bold mb-2">
+                            Oferta Limitada
+                        </span>
+                        <OfferCountdown className="text-red-600 text-3xl sm:text-4xl justify-center" />
+                        <div className="flex items-center justify-center gap-3 mt-4">
+                            <span className="text-stone-400 line-through text-lg font-medium">{product.originalPrice?.toFixed(2)}€</span>
+                            <div className="flex items-baseline gap-1">
+                                <span className="text-5xl font-bold text-stone-900 leading-none">{product.price.toFixed(2)}€</span>
+                                <span className="text-stone-500 text-xs font-bold self-end mb-1">+ IVA</span>
                             </div>
                         </div>
-
-                        <h1 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
-                            {product.slug === 'bienestar-emocional-padres'
-                                ? <span>El "Interruptor" Biológico para <span className="text-[#E07A5F]">Detener el Caos</span> y Recuperar tu Vida <span className="block text-lg md:text-2xl font-normal text-stone-500 mt-4">Sin dormirte en el intento. Sin perder los nervios.</span></span>
-                                : product.title
-                            }
-                        </h1>
-
-                        {/* Short Intro for Hero */}
-                        <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                            {product.slug === 'bienestar-emocional-padres'
-                                ? "Descubre por qué los métodos tradicionales fallan y cómo la neurociencia afectiva puede devolverte la paz en 7 días o menos."
-                                : product.description
-                            }
-                        </p>
-
-                        {/* Price Block (Hero) */}
-                        <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm mb-8">
-                            <div className="flex flex-col items-center justify-center mb-6">
-                                <span className="bg-red-100 text-red-600 px-4 py-1 rounded-full text-sm font-bold mb-2">
-                                    Oferta Limitada
-                                </span>
-                                <OfferCountdown className="text-red-600 text-3xl sm:text-4xl justify-center" />
-                                <div className="flex items-center justify-center gap-3 mt-4">
-                                    <span className="text-stone-400 line-through text-lg font-medium">{product.originalPrice?.toFixed(2)}€</span>
-                                    <div className="flex items-baseline gap-1">
-                                        <span className="text-5xl font-bold text-stone-900 leading-none">{product.price.toFixed(2)}€</span>
-                                        <span className="text-stone-500 text-xs font-bold self-end mb-1">+ IVA</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <a href="https://pay.hotmart.com/N103419626V" className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0">
-                                Comprar Ahora
-                            </a>
-                            <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
-                                <Download className="w-3 h-3" /> Acceso inmediato y seguro a través de la plataforma Hotmart
-                            </p>
-                        </div>
                     </div>
-                </div> {/* End Hero Grid */}
+
+                    <a href="https://pay.hotmart.com/N103419626V" className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0">
+                        Comprar Ahora
+                    </a>
+                    <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
+                        <Download className="w-3 h-3" /> Acceso inmediato y seguro a través de la plataforma Hotmart
+                    </p>
+                </div>
         </div>
+                </div > {/* End Hero Grid */ }
+        </div >
 
-                {/* --- LONG FORM CONTENT SECTIONS --- */ }
+        {/* --- LONG FORM CONTENT SECTIONS --- */ }
 
     {/* 1. THE PROBLEM (Agitation) */ }
     <div className="bg-stone-50 py-20 border-t border-stone-100">
