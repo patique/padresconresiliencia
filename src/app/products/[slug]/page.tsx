@@ -77,40 +77,52 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
                             <h1 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
                                 {product.slug === 'bienestar-emocional-padres'
-                                    ? "Cómo Sobrevivir al Primer Año sin Perder la Cabeza (Ni a tu Pareja)"
+                                    ? "¿Mi Bebé Llora, ¿Y Yo Qué?"
                                     : product.title
                                 }
                             </h1>
 
                             {product.slug === 'bienestar-emocional-padres' ? (
-                                <div className="space-y-6 text-stone-600 mb-8 leading-relaxed">
-                                    <h2 className="text-xl md:text-2xl font-bold text-stone-900 leading-tight">
-                                        El Manual de Instrucciones para tu Salud Mental que no venía con el bebé.
-                                    </h2>
-                                    <p className="text-lg font-medium text-stone-800">
-                                        Tu bebé llora, tú no duermes y tu relación pende de un hilo. <span className="text-[#E07A5F]">No eres tú, es el posparto. Y tiene solución.</span>
-                                    </p>
-                                    <div className="font-medium text-stone-900 bg-[#E07A5F]/10 p-4 border-l-4 border-[#E07A5F] rounded-r-lg">
-                                        ¿Sientes que te has perdido a ti misma? Este es el botón de pausa que necesitas para dejar de sobrevivir y empezar a vivir esta etapa.
+                                <div className="space-y-8 text-stone-600 mb-8 leading-relaxed">
+                                    {/* PAIN & SCIENCE */}
+                                    <div>
+                                        <h2 className="text-xl md:text-2xl font-bold text-stone-900 leading-tight mb-4">
+                                            Tu cerebro ha perdido 750 horas de sueño. <br /><span className="text-[#E07A5F]">No es culpa tuya sentirte así.</span>
+                                        </h2>
+                                        <p className="mb-4">
+                                            ¿Sientes que funcionas con el "piloto de reserva"? La ciencia lo confirma: la falta de sueño hace que tu <strong>amígdala cerebral sea un 60% más reactiva</strong>.
+                                        </p>
+                                        <p className="mb-4">
+                                            Esa irritabilidad, esa culpa por no estar "disfrutando" o ese miedo a dañar a tu bebé no te hacen un mal padre. <strong>Es tu biología pidiendo herramientas.</strong>
+                                        </p>
                                     </div>
-                                    <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100 shadow-sm mt-6">
-                                        <h3 className="font-bold text-stone-900 mb-4 text-lg">Lo que vas a conseguir con este libro:</h3>
+
+                                    {/* REFRAMING BELIEF */}
+                                    <div className="bg-[#E07A5F]/5 p-6 rounded-2xl border border-[#E07A5F]/20">
+                                        <h3 className="font-bold text-[#E07A5F] mb-2 flex items-center gap-2">
+                                            <ShieldCheck className="w-5 h-5" />
+                                            Pedir ayuda es un acto de fortaleza
+                                        </h3>
+                                        <p className="text-sm md:text-base text-stone-700">
+                                            Nos han enseñado que ser padres es instintivo y que "deberíamos" poder solos. Falso. Educarte no significa que hayas fallado; significa que amas tanto a tu hijo que decides cuidarte a ti para poder cuidarle mejor a él.
+                                        </p>
+                                    </div>
+
+                                    {/* TRANSFORMATION */}
+                                    <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100 shadow-sm">
+                                        <h3 className="font-bold text-stone-900 mb-4 text-lg">De "Superviviente" a "Padre con Resiliencia":</h3>
                                         <div className="grid grid-cols-1 gap-4">
                                             <div className="flex gap-3">
                                                 <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Dormir Más:</strong> Estrategias de descanso para padres reales (sin dejar llorar al bebé).</div>
+                                                <div><strong className="text-stone-900">Alivio de la Culpa:</strong> Entiende por qué te sientes así y cómo 'hackear' tu cerebro para volver a la calma en 2 minutos.</div>
                                             </div>
                                             <div className="flex gap-3">
                                                 <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Salvar tu Pareja:</strong> Cómo dejar de discutir por tonterías a las 3 de la mañana.</div>
+                                                <div><strong className="text-stone-900">Salvar tu Pareja:</strong> Herramientas para dejar de ser "compañeros de piso" y volver a ser un equipo (incluso sin dormir).</div>
                                             </div>
                                             <div className="flex gap-3">
                                                 <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Adiós Culpa:</strong> Aprende a poner límites a "opinólogos" sin sentirte mala madre/padre.</div>
-                                            </div>
-                                            <div className="flex gap-3">
-                                                <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Tener 5 Minutos de Paz:</strong> Técnicas de micro-autocuidado que funcionan de verdad.</div>
+                                                <div><strong className="text-stone-900">Seguridad:</strong> Deja de improvisar. Ten un plan claro para cuando llegue la próxima crisis de llanto.</div>
                                             </div>
                                         </div>
                                     </div>
