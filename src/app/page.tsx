@@ -8,7 +8,7 @@ import Footer from "@/components/layout/Footer";
 import ProductGrid from "@/components/home/ProductGrid";
 import AuthorSection from "@/components/home/AuthorSection";
 import StatsBar from "@/components/home/StatsBar";
-import SocialProofToast from "@/components/ui/SocialProofToast";
+
 import ProblemSection from "@/components/home/ProblemSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
 import FaqSection from "@/components/home/FaqSection";
@@ -153,7 +153,7 @@ export default async function HomePage() {
 
         <AuthorSection />
 
-        <SocialProofToast />
+
       </main>
 
       <Footer />

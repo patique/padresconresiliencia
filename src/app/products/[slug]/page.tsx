@@ -226,69 +226,93 @@ export default async function ProductPage({ params }: { params: { slug: string }
                 {/* Testimonials Section */}
                 <div className="container mx-auto px-6 max-w-6xl mt-24 border-t border-stone-200 pt-16">
                     <h2 className="text-2xl font-bold text-stone-900 mb-10 text-center">Lo que dicen otros padres</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* Testimonial 1 */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {/* Testimonial 1: Sleep */}
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
-                            <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
-                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1">
-                                "La 'carga mental' me estaba consumiendo. Este libro me hizo ver que pedir ayuda no es fracasar, sino una responsabilidad. Entender por qué me sentía así biológicamente cambió mi postparto por completo."
+                            <div className="flex text-yellow-500 mb-4 text-sm">{"★★★★★"}</div>
+                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1 italic">
+                                "Pensaba que era normal no dormir nada y 'aguantar'. Este libro me enseñó a establecer turnos lógicos con mi mujer. Nos ha salvado la vida (y el humor por las mañanas)."
                             </p>
-                            <div className="flex items-center gap-4 mt-auto">
-                                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
-                                    <Image
-                                        src="/images/testimonials/testimonial-1.jpg"
-                                        alt="María López"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
+                            <div className="flex items-center gap-3 mt-auto">
+                                <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm">JM</div>
                                 <div>
-                                    <p className="text-sm font-bold text-stone-900">María López</p>
-                                    <p className="text-xs text-stone-400">Mamá de un bebé de 4 meses</p>
+                                    <p className="text-sm font-bold text-stone-900">Javier M.</p>
+                                    <p className="text-xs text-stone-400">Papá de mellizos</p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Testimonial 2 */}
+                        {/* Testimonial 2: Guilt */}
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
-                            <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
-                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1">
-                                "El capítulo sobre el estrés y la falta de sueño fue revelador. Dejé de luchar contra mi realidad y empecé a usar las herramientas prácticas para gestionarla. Por fin siento que tengo el control de nuevo."
+                            <div className="flex text-yellow-500 mb-4 text-sm">{"★★★★★"}</div>
+                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1 italic">
+                                "La culpa me comía por querer 5 minutos para mí. Leer que es una necesidad biológica para poder cuidar mejor a mi hijo fue el 'clic' que necesitaba. Gracias por validarnos."
                             </p>
-                            <div className="flex items-center gap-4 mt-auto">
-                                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
-                                    <Image
-                                        src="/images/testimonials/testimonial-2.jpg"
-                                        alt="Carlos Ruiz"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
+                            <div className="flex items-center gap-3 mt-auto">
+                                <div className="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-sm">ER</div>
                                 <div>
-                                    <p className="text-sm font-bold text-stone-900">Carlos Ruiz</p>
-                                    <p className="text-xs text-stone-400">Papá primerizo</p>
+                                    <p className="text-sm font-bold text-stone-900">Elena R.</p>
+                                    <p className="text-xs text-stone-400">Mamá primeriza</p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Testimonial 3 */}
+                        {/* Testimonial 3: Relationship */}
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
-                            <div className="flex text-yellow-500 mb-4">{"★★★★★"}</div>
-                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1">
-                                "Necesitaba esto: validación emocional pura. Saber que mis emociones 'crudas' son compartidas por millones de padres y tienen una explicación científica me quitó la culpa de golpe. Gracias."
+                            <div className="flex text-yellow-500 mb-4 text-sm">{"★★★★★"}</div>
+                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1 italic">
+                                "Estábamos en un bucle de discusiones absurdas a las 3 AM. Las herramientas de comunicación 'en crisis' funcionan desde el primer día. Hemos vuelto a ser un equipo."
                             </p>
-                            <div className="flex items-center gap-4 mt-auto">
-                                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
-                                    <Image
-                                        src="/images/testimonials/testimonial-3.jpg"
-                                        alt="Ana Sánchez"
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
+                            <div className="flex items-center gap-3 mt-auto">
+                                <div className="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm">RC</div>
                                 <div>
-                                    <p className="text-sm font-bold text-stone-900">Ana Sánchez</p>
-                                    <p className="text-xs text-stone-400">Mamá de un bebé de 8 meses</p>
+                                    <p className="text-sm font-bold text-stone-900">Roberto y Clara</p>
+                                    <p className="text-xs text-stone-400">Padres de Leo (6 meses)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Testimonial 4: Anxiety */}
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
+                            <div className="flex text-yellow-500 mb-4 text-sm">{"★★★★★"}</div>
+                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1 italic">
+                                "El primer mes fue un caos de ansiedad brutal. La técnica de los 2 minutos para el 'secuestro de amígdala' es mano de santo. Ojalá lo hubiera leído antes de dar a luz."
+                            </p>
+                            <div className="flex items-center gap-3 mt-auto">
+                                <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm">SL</div>
+                                <div>
+                                    <p className="text-sm font-bold text-stone-900">Sofía L.</p>
+                                    <p className="text-xs text-stone-400">Mamá de 2 semanas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Testimonial 5: Skeptic */}
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
+                            <div className="flex text-yellow-500 mb-4 text-sm">{"★★★★★"}</div>
+                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1 italic">
+                                "No soy de comprar ebooks 'milagro', pero este va al grano. Sin paja teórica aburrida, solo estrategias que puedes aplicar mientras calientas el biberón."
+                            </p>
+                            <div className="flex items-center gap-3 mt-auto">
+                                <div className="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-sm">MA</div>
+                                <div>
+                                    <p className="text-sm font-bold text-stone-900">Miguel Á.</p>
+                                    <p className="text-xs text-stone-400">Papá práctico</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Testimonial 6: Experience */}
+                        <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 flex flex-col h-full">
+                            <div className="flex text-yellow-500 mb-4 text-sm">{"★★★★★"}</div>
+                            <p className="text-stone-600 mb-6 text-sm leading-relaxed flex-1 italic">
+                                "Es mi segundo hijo y pensé que ya lo sabía todo. Error. Este enfoque emocional es lo que me faltó con el primero. Estoy disfrutando el doble y sufriendo la mitad."
+                            </p>
+                            <div className="flex items-center gap-3 mt-auto">
+                                <div className="w-10 h-10 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center font-bold text-sm">LP</div>
+                                <div>
+                                    <p className="text-sm font-bold text-stone-900">Laura P.</p>
+                                    <p className="text-xs text-stone-400">Bimadre</p>
                                 </div>
                             </div>
                         </div>
