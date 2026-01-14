@@ -44,10 +44,14 @@ export default async function ProductPage({ params }: { params: { slug: string }
                         {/* Product Image Column */}
                         <div className="relative lg:sticky lg:top-24">
                             <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-2xl bg-white border-8 border-white transform rotate-1 lg:-rotate-1 hover:rotate-0 transition duration-500">
-                                {product.imageUrl ? (
-                                    <Image src={product.imageUrl} alt={product.title} fill className="object-cover" priority />
+                                {product.slug === 'bienestar-emocional-padres' ? (
+                                    <Image src="/images/madre-leyendo.png" alt="Madre leyendo Mi Bebé Llora con calma" fill className="object-cover" priority />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center bg-stone-100 text-stone-300">Sin Imagen</div>
+                                    product.imageUrl ? (
+                                        <Image src={product.imageUrl} alt={product.title} fill className="object-cover" priority />
+                                    ) : (
+                                        <div className="w-full h-full flex items-center justify-center bg-stone-100 text-stone-300">Sin Imagen</div>
+                                    )
                                 )}
                             </div>
 
@@ -77,7 +81,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
                             <h1 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
                                 {product.slug === 'bienestar-emocional-padres'
-                                    ? "¿Mi Bebé Llora, ¿Y Yo Qué?"
+                                    ? <span>El "Interruptor" Biológico para <span className="text-[#E07A5F]">Detener el Caos</span> y Recuperar tu Vida <span className="block text-lg md:text-2xl font-normal text-stone-500 mt-4">Sin dormirte en el intento. Sin perder los nervios.</span></span>
                                     : product.title
                                 }
                             </h1>
@@ -87,13 +91,15 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                     {/* PAIN & SCIENCE */}
                                     <div>
                                         <h2 className="text-xl md:text-2xl font-bold text-stone-900 leading-tight mb-4">
-                                            Tu cerebro ha perdido 750 horas de sueño. <br /><span className="text-[#E07A5F]">No es culpa tuya sentirte así.</span>
+                                            Tu cerebro (y el de tu bebé) están en modo "Supervivencia".
+                                            <br /><span className="text-[#E07A5F]">Te enseñamos a hackearlo.</span>
                                         </h2>
                                         <p className="mb-4">
-                                            ¿Sientes que funcionas con el "piloto de reserva"? La ciencia lo confirma: la falta de sueño hace que tu <strong>amígdala cerebral sea un 60% más reactiva</strong>.
+                                            No es que no tengas paciencia. Es que la falta de sueño activa tu amígdala y te impide pensar con claridad.
+                                            Mientras tanto, el llanto de tu bebé no es manipulación: es su biología pidiendo ayuda para regularse.
                                         </p>
-                                        <p className="mb-4">
-                                            Esa irritabilidad, esa culpa por no estar "disfrutando" o ese miedo a dañar a tu bebé no te hacen un mal padre. <strong>Es tu biología pidiendo herramientas.</strong>
+                                        <p className="mb-4 font-semibold text-stone-800 bg-orange-50 p-4 rounded-lg border-l-4 border-[#E07A5F]">
+                                            Este libro no es teoría aburrida. Es el manual de instrucciones para desactivar la alarma de tu cerebro y volver a disfrutar de tu hijo.
                                         </p>
                                     </div>
 
