@@ -198,6 +198,13 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                 </ul>
                             </div>
                         </div>
+
+                        <div className="flex justify-center mt-12">
+                            <a href="https://pay.hotmart.com/N103419626V" className="inline-flex items-center gap-2 text-[#E07A5F] font-bold text-lg hover:text-[#D06950] transition group">
+                                Sí, quiero dejar de sufrir y empezar a disfrutar
+                                <ArrowLeft className="w-5 h-5 rotate-180 transition-transform group-hover:translate-x-1" />
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -252,6 +259,13 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div className="flex justify-center mt-14">
+                            <a href="https://pay.hotmart.com/N103419626V" className="bg-[#E07A5F] hover:bg-[#D06950] text-white font-bold text-xl py-4 px-12 rounded-xl shadow-xl transition transform hover:-translate-y-1 active:translate-y-0 flex items-center gap-3">
+                                <Download className="w-6 h-6" />
+                                Descargar Guía Completa Ahora
+                            </a>
                         </div>
                     </div>
                 </div>
