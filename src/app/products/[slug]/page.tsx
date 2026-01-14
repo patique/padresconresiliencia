@@ -175,7 +175,53 @@ export default async function ProductPage({ params }: { params: { slug: string }
                     </div>
                 </div>
 
-                {/* Syllabus Section Hidden as per simplified PDF strategy */}
+                {/* Visual Transformation Journey (Only for Bienestar) */}
+                {product.slug === 'bienestar-emocional-padres' && (
+                    <div className="container mx-auto px-6 max-w-6xl mt-24 mb-24">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-4xl font-bold text-stone-900">¿En qué lado quieres estar?</h2>
+                            <p className="text-stone-600 mt-4 text-lg">Tu maternidad/paternidad no tiene por qué ser una batalla constante.</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
+                            {/* State A: Pain */}
+                            <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-xl transform -rotate-1 border-4 border-white">
+                                <Image
+                                    src="/images/landing/emotional-noise.png"
+                                    alt="Madre abrumada por el ruido mental"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div className="space-y-6">
+                                <div className="bg-red-50 text-red-800 font-bold px-4 py-1 rounded-full w-fit text-sm">SITUACIÓN ACTUAL</div>
+                                <h3 className="text-2xl font-bold text-stone-900">El Ruido Mental te impide disfrutar</h3>
+                                <p className="text-stone-600 leading-relaxed text-lg">
+                                    Sientes que estás sobreviviendo, no viviendo. La culpa, el agotamiento y la sensación de soledad crean una "estática" constante que te aleja de tu pareja y te impide conectar realmente con tu bebé.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                            {/* State B: Pleasure (Order swapped on desktop for visual flow) */}
+                            <div className="space-y-6 order-2 md:order-1">
+                                <div className="bg-[#E07A5F]/10 text-[#E07A5F] font-bold px-4 py-1 rounded-full w-fit text-sm">SITUACIÓN DESEADA</div>
+                                <h3 className="text-2xl font-bold text-stone-900">Calma, Conexión y Presencia</h3>
+                                <p className="text-stone-600 leading-relaxed text-lg">
+                                    Imagina bajar el volumen del ruido. Recuperar la complicidad con tu pareja y poder sostener a tu hijo desde la calma, no desde el estrés. Esto es lo que conseguirás al aplicar las herramientas del libro.
+                                </p>
+                            </div>
+                            <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-xl transform rotate-1 border-4 border-white order-1 md:order-2">
+                                <Image
+                                    src="/images/landing/peaceful-parenting.png"
+                                    alt="Pareja tranquila y conectada con su bebé"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {/* Testimonials Section */}
                 <div className="container mx-auto px-6 max-w-6xl mt-24 border-t border-stone-200 pt-16">
