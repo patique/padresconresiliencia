@@ -137,14 +137,8 @@ export default async function ProductPage({ params }: { params: { slug: string }
                             {/* Price Block */}
                             <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm mb-8">
                                 <div className="flex items-end justify-between mb-6">
-                                    <div>
-                                        {product.originalPrice && (
-                                            <p className="text-stone-400 text-sm mb-1 line-through">Precio Habitual: {product.originalPrice.toFixed(2)}€</p>
-                                        )}
-                                        <div className="flex items-baseline gap-1">
-                                            <span className="text-4xl font-bold text-stone-900">{product.price.toFixed(2)}€</span>
-                                            <span className="text-stone-500 text-sm">+ IVA</span>
-                                        </div>
+                                    <div className="invisible">
+                                        {/* Prices Hidden */}
                                     </div>
                                     <div className="text-right flex flex-col items-end">
                                         <span className="bg-red-100 text-red-600 px-3 py-1 rounded-md text-sm font-bold">
@@ -326,9 +320,13 @@ export default async function ProductPage({ params }: { params: { slug: string }
                     </div>
 
                     <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10 text-white">¿Cuánto vale tu paz mental?</h2>
-                    <p className="text-stone-100 text-lg mb-10 max-w-2xl mx-auto relative z-10 font-medium">
+                    <p className="text-stone-100 text-lg mb-8 max-w-2xl mx-auto relative z-10 font-medium">
                         Una sola sesión con un especialista en sueño o psicólogo perinatal cuesta más de 80€. Aquí tienes la hoja de ruta completa para siempre.
                     </p>
+
+                    <div className="flex justify-center relative z-10 mb-10">
+                        <OfferCountdown className="text-white text-3xl md:text-5xl bg-white/10 px-6 py-4 rounded-xl backdrop-blur-md border border-white/25 shadow-inner" />
+                    </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto mb-10 relative z-10">
                         <div className="bg-white/20 p-4 rounded-xl border border-white/30 backdrop-blur-sm">
