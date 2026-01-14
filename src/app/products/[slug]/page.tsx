@@ -443,10 +443,10 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
 
 
-            </main >
+            </main>
 
             {/* Sticky Mobile CTA */}
-            < div className="fixed bottom-0 left-0 w-full bg-white border-t border-stone-200 p-4 lg:hidden z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.05)]" >
+            <div className="fixed bottom-0 left-0 w-full bg-white border-t border-stone-200 p-4 lg:hidden z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
                 <div className="flex items-center justify-between gap-4">
                     <div className="flex flex-col">
                         <span className="text-xs text-stone-500 font-medium line-through">
@@ -463,8 +463,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
                         Comprar Ahora
                     </a>
                 </div>
-            </div >
-
-        </div >
+            </div>
+        </div>
     );
 }
