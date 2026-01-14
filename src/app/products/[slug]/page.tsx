@@ -66,117 +66,199 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        {/* Content Column */}
-                        <div className="flex flex-col justify-center">
-                            <div className="mb-6 flex items-center gap-2">
-                                <span className="bg-[#E07A5F]/10 text-[#E07A5F] px-4 py-1.5 rounded-full text-sm font-bold tracking-wide">
-                                    EBOOK PREMIUM
+                    {/* Content Column (Hero Right) */}
+                    <div className="flex flex-col justify-center">
+                        <div className="mb-6 flex items-center gap-2">
+                            <span className="bg-[#E07A5F]/10 text-[#E07A5F] px-4 py-1.5 rounded-full text-sm font-bold tracking-wide">
+                                EBOOK PREMIUM
+                            </span>
+                            <div className="flex items-center gap-1 text-yellow-400 ml-4">
+                                <Star className="w-4 h-4 fill-current" />
+                                <span className="text-stone-600 text-sm font-semibold ml-1">4.9/5</span>
+                            </div>
+                        </div>
+
+                        <h1 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
+                            {product.slug === 'bienestar-emocional-padres'
+                                ? <span>El "Interruptor" Biológico para <span className="text-[#E07A5F]">Detener el Caos</span> y Recuperar tu Vida <span className="block text-lg md:text-2xl font-normal text-stone-500 mt-4">Sin dormirte en el intento. Sin perder los nervios.</span></span>
+                                : product.title
+                            }
+                        </h1>
+
+                        {/* Short Intro for Hero */}
+                        <p className="text-lg text-stone-600 mb-8 leading-relaxed">
+                            {product.slug === 'bienestar-emocional-padres'
+                                ? "Descubre por qué los métodos tradicionales fallan y cómo la neurociencia afectiva puede devolverte la paz en 7 días o menos."
+                                : product.description
+                            }
+                        </p>
+
+                        {/* Price Block (Hero) */}
+                        <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm mb-8">
+                            <div className="flex flex-col items-center justify-center mb-6">
+                                <span className="bg-red-100 text-red-600 px-4 py-1 rounded-full text-sm font-bold mb-2">
+                                    Oferta Limitada
                                 </span>
-                                <div className="flex items-center gap-1 text-yellow-400 ml-4">
-                                    <Star className="w-4 h-4 fill-current" />
-                                    <span className="text-stone-600 text-sm font-semibold ml-1">4.9/5</span>
+                                <OfferCountdown className="text-red-600 text-3xl sm:text-4xl justify-center" />
+                                <div className="flex items-center justify-center gap-3 mt-4">
+                                    <span className="text-stone-400 line-through text-lg font-medium">{product.originalPrice?.toFixed(2)}€</span>
+                                    <div className="flex items-baseline gap-1">
+                                        <span className="text-5xl font-bold text-stone-900 leading-none">{product.price.toFixed(2)}€</span>
+                                        <span className="text-stone-500 text-xs font-bold self-end mb-1">+ IVA</span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <h1 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
-                                {product.slug === 'bienestar-emocional-padres'
-                                    ? <span>El "Interruptor" Biológico para <span className="text-[#E07A5F]">Detener el Caos</span> y Recuperar tu Vida <span className="block text-lg md:text-2xl font-normal text-stone-500 mt-4">Sin dormirte en el intento. Sin perder los nervios.</span></span>
-                                    : product.title
-                                }
-                            </h1>
+                            <a href="https://pay.hotmart.com/N103419626V" className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0">
+                                Comprar Ahora
+                            </a>
+                            <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
+                                <Download className="w-3 h-3" /> Acceso inmediato y seguro a través de la plataforma Hotmart
+                            </p>
+                        </div>
+                    </div>
+                </div> {/* End Hero Grid */}
+        </div>
 
-                            {product.slug === 'bienestar-emocional-padres' ? (
-                                <div className="space-y-8 text-stone-600 mb-8 leading-relaxed">
-                                    {/* PAIN & SCIENCE */}
+                {/* --- LONG FORM CONTENT SECTIONS --- */ }
+
+    {/* 1. THE PROBLEM (Agitation) */ }
+    <div className="bg-stone-50 py-20 border-t border-stone-100">
+        <div className="container mx-auto px-6 max-w-3xl text-center">
+            <h2 className="text-3xl font-bold text-stone-900 mb-8 leading-tight">¿Te suena esta historia?</h2>
+            <div className="space-y-6 text-lg text-stone-600 text-left leading-relaxed">
+                <p>
+                    Son las 7 de la tarde. O las 3 de la mañana. Tu bebé llora. Tú estás agotado/a.
+                    Intentas calmarlo, pero nada funciona.
+                </p>
+                <p className="font-medium text-stone-800 bg-white p-6 rounded-xl border-l-4 border-red-400 shadow-sm">
+                    "Sientes que el pecho se te cierra. La paciencia se rompe. Y entonces... gritas. O das un portazo. O te encierras en el baño a llorar."
+                </p>
+                <p>
+                    Y después viene lo peor: <strong>LA CULPA.</strong>
+                    <br />Te prometes que mañana será diferente. Que serás ese padre o madre zen que ves en Instagram.
+                    Pero al día siguiente, el ciclo se repite.
+                </p>
+                <p>
+                    No es que seas un mal padre. No es que tu hijo sea "difícil".
+                    <br /><strong>Es que estás luchando contra la biología sin las armas adecuadas.</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {/* 2. THE FALSE SOLUTION (Mechanism Gap) */ }
+    <div className="py-20 bg-white">
+        <div className="container mx-auto px-6 max-w-3xl">
+            <h2 className="text-3xl font-bold text-stone-900 mb-6 text-center">Por qué "contar hasta 10" NO funciona</h2>
+            <div className="space-y-6 text-lg text-stone-600 leading-relaxed">
+                <p>
+                    Nos han dicho que la crianza es cuestión de "paciencia" o "instinto". Mentira.
+                    Cuando tú (o tu bebé) estáis desbordados, <strong>la parte racional del cerebro se APAGA</strong>.
+                </p>
+                <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                    <h3 className="font-bold text-blue-900 mb-2">El Secuestro de la Amígdala</h3>
+                    <p className="text-blue-800 text-base">
+                        La ciencia demuestra que bajo estrés por falta de sueño, tu cerebro entra en modo "lucha o huida". Pedirte paciencia ahí es como pedirle a alguien que se ahoga que respire tranquilo. <strong>Necesitas un salvavidas, no un consejo.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {/* 3. THE SOLUTION (The Product Promise) */ }
+    <div className="py-20 bg-[#FDFBF7]">
+        <div className="container mx-auto px-6 max-w-4xl">
+            <div className="text-center mb-12">
+                <span className="text-[#E07A5F] font-bold tracking-widest uppercase text-sm">Presentamos</span>
+                <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mt-2 mb-6">El Método de Resiliencia Parental</h2>
+                <p className="text-xl text-stone-600 max-w-2xl mx-auto">
+                    No es solo un libro. Es tu manual de emergencia para desactivar el caos y volver a conectar.
+                </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+                    <h3 className="text-xl font-bold text-[#E07A5F] mb-4">Lo que la gente cree que es:</h3>
+                    <ul className="space-y-3 text-stone-500">
+                        <li className="flex gap-2"><span className="text-red-400">✕</span> Aguantar sin dormir</li>
+                        <li className="flex gap-2"><span className="text-red-400">✕</span> "Dejarlo llorar"</li>
+                        <li className="flex gap-2"><span className="text-red-400">✕</span> Teoría psicológica densa</li>
+                        <li className="flex gap-2"><span className="text-red-400">✕</span> Ser un padre "perfecto"</li>
+                    </ul>
+                </div>
+                <div className="bg-stone-900 text-white p-8 rounded-2xl shadow-xl transform scale-105">
+                    <h3 className="text-xl font-bold text-white mb-4">Lo que REALMENTE es:</h3>
+                    <ul className="space-y-3 text-stone-300">
+                        <li className="flex gap-2"><span className="text-[#E07A5F] font-bold">✓</span> Protocolos de sueño realistas</li>
+                        <li className="flex gap-2"><span className="text-[#E07A5F] font-bold">✓</span> Guiones para no gritar</li>
+                        <li className="flex gap-2"><span className="text-[#E07A5F] font-bold">✓</span> Herramientas de 2 minutos</li>
+                        <li className="flex gap-2"><span className="text-[#E07A5F] font-bold">✓</span> Recuperar a tu pareja</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {/* 4. WHAT'S INSIDE (Bullets) */ }
+                <div className="py-20 bg-white border-y border-stone-100">
+                    <div className="container mx-auto px-6 max-w-4xl">
+                        <h2 className="text-3xl font-bold text-stone-900 mb-10 text-center">Lo que descubrirás en estas páginas:</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                             <div className="space-y-6">
+                                <div className="flex gap-4">
+                                    <span className="text-2xl">🧠</span>
                                     <div>
-                                        <h2 className="text-xl md:text-2xl font-bold text-stone-900 leading-tight mb-4">
-                                            Tu cerebro (y el de tu bebé) están en modo "Supervivencia".
-                                            <br /><span className="text-[#E07A5F]">Te enseñamos a hackearlo.</span>
-                                        </h2>
-                                        <p className="mb-4">
-                                            No es que no tengas paciencia. Es que la falta de sueño activa tu amígdala y te impide pensar con claridad.
-                                            Mientras tanto, el llanto de tu bebé no es manipulación: es su biología pidiendo ayuda para regularse.
-                                        </p>
-                                        <p className="mb-4 font-semibold text-stone-800 bg-orange-50 p-4 rounded-lg border-l-4 border-[#E07A5F]">
-                                            Este libro no es teoría aburrida. Es el manual de instrucciones para desactivar la alarma de tu cerebro y volver a disfrutar de tu hijo.
-                                        </p>
-                                    </div>
-
-                                    {/* REFRAMING BELIEF */}
-                                    <div className="bg-[#E07A5F]/5 p-6 rounded-2xl border border-[#E07A5F]/20">
-                                        <h3 className="font-bold text-[#E07A5F] mb-2 flex items-center gap-2">
-                                            <ShieldCheck className="w-5 h-5" />
-                                            Pedir ayuda es un acto de fortaleza
-                                        </h3>
-                                        <p className="text-sm md:text-base text-stone-700">
-                                            Nos han enseñado que ser padres es instintivo y que "deberíamos" poder solos. Falso. Educarte no significa que hayas fallado; significa que amas tanto a tu hijo que decides cuidarte a ti para poder cuidarle mejor a él.
-                                        </p>
-                                    </div>
-
-                                    {/* TRANSFORMATION */}
-                                    <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100 shadow-sm">
-                                        <h3 className="font-bold text-stone-900 mb-4 text-lg">De "Superviviente" a "Padre con Resiliencia":</h3>
-                                        <div className="grid grid-cols-1 gap-4">
-                                            <div className="flex gap-3">
-                                                <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Alivio de la Culpa:</strong> Entiende por qué te sientes así y cómo 'hackear' tu cerebro para volver a la calma en 2 minutos.</div>
-                                            </div>
-                                            <div className="flex gap-3">
-                                                <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Salvar tu Pareja:</strong> Herramientas para dejar de ser "compañeros de piso" y volver a ser un equipo (incluso sin dormir).</div>
-                                            </div>
-                                            <div className="flex gap-3">
-                                                <div className="bg-[#E07A5F]/20 text-[#E07A5F] rounded-full p-1 h-fit shrink-0"><Check className="w-4 h-4" /></div>
-                                                <div><strong className="text-stone-900">Seguridad:</strong> Deja de improvisar. Ten un plan claro para cuando llegue la próxima crisis de llanto.</div>
-                                            </div>
-                                        </div>
+                                        <h4 className="font-bold text-stone-900">El Interruptor de la Calma</h4>
+                                        <p className="text-sm text-stone-600">La técnica neuro-científica para detener tu propio estallido de ira en menos de 60 segundos.</p>
                                     </div>
                                 </div>
-                            ) : (
-                                <div className="text-lg text-stone-600 leading-relaxed mb-8 space-y-4">
-                                    <p>{product.description}</p>
-                                    <p>Una guía esencial diseñada para padres que buscan respuestas claras y prácticas, sin perderse en teoría innecesaria.</p>
-                                </div>
-                            )}
-
-                            {/* Price Block */}
-                            {/* Price Block */}
-                            <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm mb-8">
-                                <div className="flex flex-col items-center justify-center mb-6">
-                                    <span className="bg-red-100 text-red-600 px-4 py-1 rounded-full text-sm font-bold mb-2">
-                                        Oferta Limitada
-                                    </span>
-                                    <OfferCountdown className="text-red-600 text-3xl sm:text-4xl justify-center" />
-                                    <div className="flex items-center justify-center gap-3 mt-4">
-                                        <span className="text-stone-400 line-through text-lg font-medium">{product.originalPrice?.toFixed(2)}€</span>
-                                        <div className="flex items-baseline gap-1">
-                                            <span className="text-5xl font-bold text-stone-900 leading-none">{product.price.toFixed(2)}€</span>
-                                            <span className="text-stone-500 text-xs font-bold self-end mb-1">+ IVA</span>
-                                        </div>
+                                <div className="flex gap-4">
+                                    <span className="text-2xl">😴</span>
+                                    <div>
+                                        <h4 className="font-bold text-stone-900">El Plan de Sueño por Turnos</h4>
+                                        <p className="text-sm text-stone-600">Cómo dormir 5 horas seguidas sin descuidar al bebé (y sin dormir en habitaciones separadas para siempre).</p>
                                     </div>
                                 </div>
-
-                                <a href="https://pay.hotmart.com/N103419626V" className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0">
-                                    Comprar Ahora
-                                </a>
-                                <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
-                                    <Download className="w-3 h-3" /> Acceso inmediato y seguro a través de la plataforma Hotmart
-                                </p>
-                            </div>
-
-                            {/* Benefits List */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {benefits.map((benefit, i) => (
-                                    <div key={i} className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-[#81B0B2] shrink-0 mt-0.5" />
-                                        <span className="text-stone-600 text-sm">{benefit}</span>
+                                <div className="flex gap-4">
+                                    <span className="text-2xl">🤝</span>
+                                    <div>
+                                        <h4 className="font-bold text-stone-900">Protocolo Anti-Divorcio</h4>
+                                        <p className="text-sm text-stone-600">Las 3 frases que debéis deciros cada mañana para seguir siendo un equipo, no enemigos.</p>
                                     </div>
-                                ))}
-                            </div>
+                                </div>
+                             </div>
+                             <div className="space-y-6">
+                                <div className="flex gap-4">
+                                    <span className="text-2xl">🛡️</span>
+                                    <div>
+                                        <h4 className="font-bold text-stone-900">Blindaje contra la Culpa</h4>
+                                        <p className="text-sm text-stone-600">Entiende por qué la culpa es basura biológica y cómo eliminarla de tu sistema operativo.</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <span className="text-2xl">👶</span>
+                                    <div>
+                                        <h4 className="font-bold text-stone-900">Decodificador de Llanto</h4>
+                                        <p className="text-sm text-stone-600">Aprende a distinguir si es hambre, sueño o simplemente necesidad de contacto, sin adivinar.</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <span className="text-2xl">🚀</span>
+                                    <div>
+                                        <h4 className="font-bold text-stone-900">Tu Nueva Identidad</h4>
+                                        <p className="text-sm text-stone-600">Cómo integrar tu rol de padre/madre sin perder a la persona que eras antes.</p>
+                                    </div>
+                                </div>
+                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div className=""> {/* Wrapper for remaining content to align with old structure if needed, or just let it flow */}
+
 
                 {/* Visual Transformation Journey (Only for Bienestar) */}
                 {product.slug === 'bienestar-emocional-padres' && (
@@ -363,26 +445,26 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
             </main>
 
-            {/* Sticky Mobile CTA */}
-            <div className="fixed bottom-0 left-0 w-full bg-white border-t border-stone-200 p-4 lg:hidden z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
-                <div className="flex items-center justify-between gap-4">
-                    <div className="flex flex-col">
-                        <span className="text-xs text-stone-500 font-medium line-through">
-                            {product.originalPrice ? `${product.originalPrice}€` : ''}
-                        </span>
-                        <span className="text-xl font-bold text-stone-900 leading-none">
-                            {product.price}€
-                        </span>
-                    </div>
-                    <a
-                        href="https://pay.hotmart.com/N103419626V"
-                        className="bg-[#E07A5F] hover:bg-[#D06950] text-white font-bold py-3 px-6 rounded-xl flex-1 text-center shadow-lg active:scale-95 transition"
-                    >
-                        Comprar Ahora
-                    </a>
-                </div>
+    {/* Sticky Mobile CTA */ }
+    <div className="fixed bottom-0 left-0 w-full bg-white border-t border-stone-200 p-4 lg:hidden z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
+        <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-col">
+                <span className="text-xs text-stone-500 font-medium line-through">
+                    {product.originalPrice ? `${product.originalPrice}€` : ''}
+                </span>
+                <span className="text-xl font-bold text-stone-900 leading-none">
+                    {product.price}€
+                </span>
             </div>
-
+            <a
+                href="https://pay.hotmart.com/N103419626V"
+                className="bg-[#E07A5F] hover:bg-[#D06950] text-white font-bold py-3 px-6 rounded-xl flex-1 text-center shadow-lg active:scale-95 transition"
+            >
+                Comprar Ahora
+            </a>
         </div>
+    </div>
+
+        </div >
     );
 }
