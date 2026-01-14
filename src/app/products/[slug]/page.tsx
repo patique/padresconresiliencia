@@ -142,6 +142,13 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                         Oferta Limitada
                                     </span>
                                     <OfferCountdown className="text-red-600 text-3xl sm:text-4xl justify-center" />
+                                    <div className="flex items-center justify-center gap-3 mt-4">
+                                        <span className="text-stone-400 line-through text-lg font-medium">{product.originalPrice?.toFixed(2)}€</span>
+                                        <div className="flex items-baseline gap-1">
+                                            <span className="text-5xl font-bold text-stone-900 leading-none">{product.price.toFixed(2)}€</span>
+                                            <span className="text-stone-500 text-xs font-bold self-end mb-1">+ IVA</span>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <a href="https://pay.hotmart.com/N103419626V" className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0">
