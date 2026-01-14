@@ -114,7 +114,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                     Comprar Ahora
                                 </a>
                                 <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
-                                    <Download className="w-3 h-3" /> Acceso inmediato y seguro a través de la plataforma Hotmart
+                                    🔒 Compra segura. Recíbelo en tu email en 1 minuto.
                                 </p>
                             </div>
                         </div>
@@ -446,19 +446,19 @@ export default async function ProductPage({ params }: { params: { slug: string }
             </main>
 
             {/* Sticky Mobile CTA */}
-            <div className="fixed bottom-0 left-0 w-full bg-white border-t border-stone-200 p-4 lg:hidden z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
+            <div className="fixed bottom-0 left-0 w-full bg-[#E07A5F] border-t border-[#E07A5F] p-4 lg:hidden z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.1)]">
                 <div className="flex items-center justify-between gap-4">
                     <div className="flex flex-col">
-                        <span className="text-xs text-stone-500 font-medium line-through">
-                            {product.originalPrice ? `${product.originalPrice}€` : ''}
+                        <span className="text-xs text-stone-100 font-medium line-through">
+                            {product?.originalPrice ? `${product.originalPrice}€` : ''}
                         </span>
-                        <span className="text-xl font-bold text-stone-900 leading-none">
-                            {product.price}€
+                        <span className="text-xl font-bold text-white leading-none">
+                            {product?.price}€
                         </span>
                     </div>
                     <a
                         href="https://pay.hotmart.com/N103419626V"
-                        className="bg-[#E07A5F] hover:bg-[#D06950] text-white font-bold py-3 px-6 rounded-xl flex-1 text-center shadow-lg active:scale-95 transition"
+                        className="bg-white text-[#E07A5F] hover:bg-stone-50 font-bold py-3 px-6 rounded-xl flex-1 text-center shadow-lg active:scale-95 transition"
                     >
                         Comprar Ahora
                     </a>
