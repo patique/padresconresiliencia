@@ -135,17 +135,13 @@ export default async function ProductPage({ params }: { params: { slug: string }
                             )}
 
                             {/* Price Block */}
+                            {/* Price Block */}
                             <div className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm mb-8">
-                                <div className="flex items-end justify-between mb-6">
-                                    <div className="invisible">
-                                        {/* Prices Hidden */}
-                                    </div>
-                                    <div className="text-right flex flex-col items-end">
-                                        <span className="bg-red-100 text-red-600 px-3 py-1 rounded-md text-sm font-bold">
-                                            Oferta Limitada
-                                        </span>
-                                        <OfferCountdown className="text-red-600 text-base sm:text-lg" />
-                                    </div>
+                                <div className="flex flex-col items-center justify-center mb-6">
+                                    <span className="bg-red-100 text-red-600 px-4 py-1 rounded-full text-sm font-bold mb-2">
+                                        Oferta Limitada
+                                    </span>
+                                    <OfferCountdown className="text-red-600 text-3xl sm:text-4xl justify-center" />
                                 </div>
 
                                 <a href="https://pay.hotmart.com/N103419626V" className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0">
