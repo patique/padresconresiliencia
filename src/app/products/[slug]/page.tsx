@@ -144,7 +144,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                         <span className="bg-red-100 text-red-600 px-3 py-1 rounded-md text-sm font-bold">
                                             Oferta Limitada
                                         </span>
-                                        <OfferCountdown />
+                                        <OfferCountdown className="text-red-600 text-base sm:text-lg" />
                                     </div>
                                 </div>
 
