@@ -348,72 +348,9 @@ export default async function ProductPage({ params }: { params: { slug: string }
                     <p className="text-stone-200 text-xs mt-4 relative z-10 font-medium">Garantía de 15 días. Si no te sirve, te devolvemos el dinero.</p>
                 </div>
 
-                {/* Author Section Integration */}
-                <div className="mt-20">
-                    <AuthorSection />
-                </div>
 
-                {/* FAQ Section */}
-                <div className="container mx-auto px-6 max-w-4xl mt-20 mb-20">
-                    <h2 className="text-2xl font-bold text-stone-900 mb-8 text-center">Preguntas Frecuentes</h2>
-                    <div className="space-y-4">
-                        <details className="group bg-white rounded-xl border border-stone-100 shadow-sm [&_summary::-webkit-details-marker]:hidden">
-                            <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-stone-900 font-bold hover:bg-stone-50 transition">
-                                <span>¿Cómo recibo el libro?</span>
-                                <span className="shrink-0 rounded-full bg-white p-1.5 text-stone-900 sm:p-3 group-open:-rotate-180 transition duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                                    </svg>
-                                </span>
-                            </summary>
-                            <p className="px-6 pb-6 text-stone-600 leading-relaxed">
-                                Recibirás acceso inmediato a la plataforma de Hotmart. Los 11 módulos del curso se irán activando progresivamente uno a uno. Todo el contenido se gestiona de forma sencilla y segura a través de dicha plataforma.
-                            </p>
-                        </details>
 
-                        <details className="group bg-white rounded-xl border border-stone-100 shadow-sm [&_summary::-webkit-details-marker]:hidden">
-                            <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-stone-900 font-bold hover:bg-stone-50 transition">
-                                <span>¿Puedo leerlo en el móvil?</span>
-                                <span className="shrink-0 rounded-full bg-white p-1.5 text-stone-900 sm:p-3 group-open:-rotate-180 transition duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                                    </svg>
-                                </span>
-                            </summary>
-                            <p className="px-6 pb-6 text-stone-600 leading-relaxed">
-                                Sí, el formato está 100% optimizado para leerse cómodamente en cualquier dispositivo: móvil, tablet, ordenador o tu lector de libros electrónicos favorito.
-                            </p>
-                        </details>
 
-                        <details className="group bg-white rounded-xl border border-stone-100 shadow-sm [&_summary::-webkit-details-marker]:hidden">
-                            <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-stone-900 font-bold hover:bg-stone-50 transition">
-                                <span>¿Qué pasa si no me sirve?</span>
-                                <span className="shrink-0 rounded-full bg-white p-1.5 text-stone-900 sm:p-3 group-open:-rotate-180 transition duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                                    </svg>
-                                </span>
-                            </summary>
-                            <p className="px-6 pb-6 text-stone-600 leading-relaxed">
-                                Tienes 15 días de garantía total. Si sientes que el contenido no te aporta valor o no resuena contigo, nos escribes a través de Hotmart y te devolvemos el 100% de tu dinero. Sin preguntas ni letras pequeñas.
-                            </p>
-                        </details>
-
-                        <details className="group bg-white rounded-xl border border-stone-100 shadow-sm [&_summary::-webkit-details-marker]:hidden">
-                            <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-stone-900 font-bold hover:bg-stone-50 transition">
-                                <span>¿Para qué edad es adecuado?</span>
-                                <span className="shrink-0 rounded-full bg-white p-1.5 text-stone-900 sm:p-3 group-open:-rotate-180 transition duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                                    </svg>
-                                </span>
-                            </summary>
-                            <p className="px-6 pb-6 text-stone-600 leading-relaxed">
-                                Aunque el ebook se centra en los desafíos inmensos del primer año (0-12 meses) y el puerperio, las herramientas de gestión emocional, comunicación en pareja y autocuidado te servirán como base sólida para toda la crianza.
-                            </p>
-                        </details>
-                    </div>
-                </div>
 
             </main>
 
