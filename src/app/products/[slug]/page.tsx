@@ -320,31 +320,34 @@ export default async function ProductPage({ params }: { params: { slug: string }
                 </div>
 
                 {/* Second CTA with Price Comparison */}
-                <div className="container mx-auto px-6 max-w-4xl mt-24 mb-24 bg-stone-900 rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden">
+                <div className="container mx-auto px-6 max-w-4xl mt-24 mb-24 bg-[#E07A5F] rounded-3xl p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
                     <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-                        <div className="absolute top-[-50%] left-[-50%] w-[100%] h-[100%] bg-[#E07A5F] rounded-full blur-3xl"></div>
+                        <div className="absolute top-[-50%] left-[-50%] w-[100%] h-[100%] bg-white rounded-full blur-3xl"></div>
                     </div>
 
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">¿Cuánto vale tu paz mental?</h2>
-                    <p className="text-stone-300 text-lg mb-10 max-w-2xl mx-auto relative z-10">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10 text-white">¿Cuánto vale tu paz mental?</h2>
+                    <p className="text-stone-100 text-lg mb-10 max-w-2xl mx-auto relative z-10 font-medium">
                         Una sola sesión con un especialista en sueño o psicólogo perinatal cuesta más de 80€. Aquí tienes la hoja de ruta completa para siempre.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto mb-10 relative z-10">
-                        <div className="bg-stone-800 p-4 rounded-xl border border-stone-700 opacity-60">
-                            <p className="text-stone-400 text-sm mb-1">Precio Habitual</p>
-                            <p className="text-2xl font-bold text-stone-500 line-through">{product.originalPrice?.toFixed(2)}€</p>
+                        <div className="bg-white/20 p-4 rounded-xl border border-white/30 backdrop-blur-sm">
+                            <p className="text-stone-100 text-sm mb-1 font-medium">Precio Habitual</p>
+                            <p className="text-2xl font-bold text-stone-200 line-through decoration-stone-200/70">{product.originalPrice?.toFixed(2)}€</p>
                         </div>
-                        <div className="bg-white text-stone-900 p-4 rounded-xl border-2 border-[#E07A5F] transform scale-105 shadow-xl">
-                            <p className="text-[#E07A5F] text-sm font-bold mb-1">Oferta Hoy</p>
-                            <p className="text-3xl font-bold">{product.price.toFixed(2)}€</p>
+                        <div className="bg-white text-stone-900 p-4 rounded-xl border-4 border-white transform scale-105 shadow-xl">
+                            <p className="text-[#E07A5F] text-sm font-bold mb-1">OFERTA HOY</p>
+                            <div className="flex items-baseline justify-center gap-1">
+                                <p className="text-4xl font-bold">{product.price.toFixed(2)}€</p>
+                                <span className="text-stone-400 text-xs font-bold">+IVA</span>
+                            </div>
                         </div>
                     </div>
 
-                    <a href="https://pay.hotmart.com/N103419626V" className="inline-block bg-[#E07A5F] hover:bg-[#D06950] text-white font-bold text-xl py-4 px-10 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0 relative z-10">
+                    <a href="https://pay.hotmart.com/N103419626V" className="inline-block bg-white text-[#E07A5F] hover:bg-stone-50 font-bold text-xl py-4 px-10 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0 relative z-10">
                         Quiero Acceso Inmediato
                     </a>
-                    <p className="text-stone-500 text-xs mt-4 relative z-10">Garantía de 15 días. Si no te sirve, te devolvemos el dinero.</p>
+                    <p className="text-stone-200 text-xs mt-4 relative z-10 font-medium">Garantía de 15 días. Si no te sirve, te devolvemos el dinero.</p>
                 </div>
 
                 {/* Author Section Integration */}
