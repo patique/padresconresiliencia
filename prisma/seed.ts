@@ -169,8 +169,8 @@ const PRODUCTS = [
     {
         title: "Mi Bebé Llora, ¿Y Yo Qué?: La Guía Definitiva para Cuidarte sin Culpa en el Primer Año",
         description: "Deja de sobrevivir al primer año. Gestiona la culpa, el caos y recupera a tu pareja con un método que funciona.",
-        price: 7.99,
-        originalPrice: 89.90,
+        price: 79.90,
+        originalPrice: 197.00,
         imageUrl: "/images/portada-mi-bebe-llora.jpg",
         slug: "bienestar-emocional-padres",
     },
