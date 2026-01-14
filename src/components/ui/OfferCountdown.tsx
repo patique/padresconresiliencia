@@ -1,4 +1,7 @@
+"use client";
+
 import { useState, useEffect } from "react";
+
 import { Clock } from "lucide-react";
 
 export default function OfferCountdown({ className = "text-red-600 text-xs sm:text-sm" }: { className?: string }) {
