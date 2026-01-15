@@ -7,24 +7,32 @@ const HOTMART_TOKEN = process.env.HOTMART_WEBHOOK_SECRET;
 
 export async function POST(req: NextRequest) {
     try {
-        // 1. Validate Secret Token (Security)
-        const incomingToken = req.headers.get("x-hotmart-hottok");
+        console.log("📨 INCOMING WEBHOOK REQUEST DETECTED");
 
-        // If you haven't set the env var yet, we log a warning but might allow it for testing 
-        // IF you want strict security immediately, uncomment the check below.
+        // 1. Log Headers for Debugging
+        const headerToken = req.headers.get("x-hotmart-hottok");
+        console.log("Headers Hottok:", headerToken ? "Present" : "Missing");
+
+        // 2. Parse Body
+        const body = await req.json();
+        console.log("📦 Webhook Payload:", JSON.stringify(body, null, 2));
+
+        // 3. Security Check (Allow Header OR Body token)
+        // Some Hotmart versions send 'hottok' in the body.
+        const bodyToken = body.hottok;
+        const incomingToken = headerToken || bodyToken;
+
         if (HOTMART_TOKEN && incomingToken !== HOTMART_TOKEN) {
-            console.error("⛔️ Unauthorized Hotmart Webhook attempt.");
+            console.error("⛔️ Token Mismatch.");
+            console.error("Expected:", HOTMART_TOKEN.slice(0, 3) + "...");
+            console.error("Received:", incomingToken ? incomingToken.slice(0, 3) + "..." : "None");
             return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
         }
-
-        // 2. Parse the Data
-        const body = await req.json();
-        console.log("🔔 Hotmart Webhook Received:", JSON.stringify(body, null, 2));
 
         const event = body.event; // 'PURCHASE_APPROVED', etc.
         const data = body.data;
 
-        // 3. Handle 'PURCHASE_APPROVED'
+        // 4. Handle 'PURCHASE_APPROVED'
         if (event === "PURCHASE_APPROVED") {
             const buyer = data.buyer;
             const product = data.product;
@@ -33,19 +41,19 @@ export async function POST(req: NextRequest) {
             const buyerName = buyer.name;
             const productName = product.name;
 
-            console.log(`✅ Purchase Approved for: ${buyerName} (${buyerEmail})`);
+            console.log(`✅ Processing Purchase for: ${buyerName} (${buyerEmail})`);
 
-            // 4. Send Delivery Email
+            // 5. Send Delivery Email
             await sendProductDeliveryEmail(buyerEmail, buyerName, productName);
 
             return NextResponse.json({ message: "Webhook processed successfully" }, { status: 200 });
         }
 
-        // Handle other events or ignore
-        return NextResponse.json({ message: "Event received but not processed" }, { status: 200 });
+        console.log(`ℹ️ Unhandled Event Type: ${event}`);
+        return NextResponse.json({ message: "Event received" }, { status: 200 });
 
     } catch (error) {
-        console.error("❌ Error processing webhook:", error);
+        console.error("❌ Fatal Error in Webhook:", error);
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
     }
 }
