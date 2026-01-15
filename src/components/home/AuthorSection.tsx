@@ -18,7 +18,7 @@ export default function AuthorSection() {
                         <div className="absolute inset-0 bg-[#E07A5F] rounded-2xl rotate-3 opacity-20 scale-105"></div>
                         <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden border-4 border-white shadow-lg rotate-[-2deg] transition hover:rotate-0 duration-500">
                             <Image
-                                src="/maximo tq.png"
+                                src="/images/maximo tq.png"
                                 alt="Máximo - Autor de Padres con Resiliencia"
                                 fill
                                 className="object-cover"
