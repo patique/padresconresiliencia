@@ -5,7 +5,10 @@ import { sendProductDeliveryEmail } from "@/lib/mail";
 // NOTE: Ideally, put 'HOTMART_WEBHOOK_SECRET' in your .env file
 const HOTMART_TOKEN = process.env.HOTMART_WEBHOOK_SECRET;
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
+    console.log("👀 SERVER LOG CHECK: Hotmart GET endpoint hit!");
     return NextResponse.json({ message: "Hotmart Webhook Endpoint is working! Use POST for events." }, { status: 200 });
 }
 
