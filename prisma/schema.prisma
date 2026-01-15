@@ -61,3 +61,47 @@ model Comment {
   blogPost   BlogPost @relation(fields: [blogPostId], references: [id], onDelete: Cascade)
   createdAt  DateTime @default(now())
 }
+
+// CRM & Sales Tracking
+model Customer {
+  id            String          @id @default(cuid())
+  email         String          @unique
+  name          String?
+  phone         String?
+  country       String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  purchases     Purchase[]
+  abandonedCarts AbandonedCart[]
+}
+
+model Purchase {
+  id            String   @id @default(cuid())
+  transactionId String   @unique // Hotmart 'transaction' code
+  status        String   // APPROVED, REFUNDED, etc.
+  productName   String
+  pricePaid     Float
+  currency      String
+  purchaseDate  DateTime
+  customerId    String
+  customer      Customer @relation(fields: [customerId], references: [id])
+  createdAt     DateTime @default(now())
+}
+
+model AbandonedCart {
+  id          String   @id @default(cuid())
+  productName String
+  checkoutUrl String?
+  recovered   Boolean  @default(false)
+  customerId  String
+  customer    Customer @relation(fields: [customerId], references: [id])
+  createdAt   DateTime @default(now())
+}
+
+model WebhookLog {
+  id        String   @id @default(cuid())
+  event     String
+  payload   Json
+  processed Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
