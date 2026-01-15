@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendProductDeliveryEmail } from "@/lib/mail";
+import { sendProductDeliveryEmail, sendCartAbandonmentEmail } from "@/lib/mail";
 
 // Define the Hotmart Token specifically here or retrieve from env
 // NOTE: Ideally, put 'HOTMART_WEBHOOK_SECRET' in your .env file
@@ -31,8 +31,8 @@ export async function POST(req: NextRequest) {
 
         if (HOTMART_TOKEN && incomingToken !== HOTMART_TOKEN) {
             console.error("⛔️ Token Mismatch.");
-            console.error("Expected:", HOTMART_TOKEN.slice(0, 3) + "...");
-            console.error("Received:", incomingToken ? incomingToken.slice(0, 3) + "..." : "None");
+            // console.error("Expected:", HOTMART_TOKEN.slice(0,3) + "...");
+            // console.error("Received:", incomingToken ? incomingToken.slice(0,3) + "..." : "None");
             return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
         }
 
@@ -50,10 +50,32 @@ export async function POST(req: NextRequest) {
 
             console.log(`✅ Processing Purchase for: ${buyerName} (${buyerEmail})`);
 
-            // 5. Send Delivery Email
+            // Send Delivery Email
             await sendProductDeliveryEmail(buyerEmail, buyerName, productName);
 
             return NextResponse.json({ message: "Webhook processed successfully" }, { status: 200 });
+        }
+
+        // 5. Handle 'PURCHASE_OUT_OF_SHOPPING_CART' (Abandonment)
+        if (event === "PURCHASE_OUT_OF_SHOPPING_CART") {
+            const buyer = data.buyer;
+            const product = data.product;
+
+            const buyerEmail = buyer.email;
+            const buyerName = buyer.name;
+            const productName = product.name;
+
+            // Hotmart doesn't always send the direct checkout link in this event payload,
+            // so we direct them to the main checkout page again.
+            // Ideally, you'd use the affiliate link or product link.
+            // Let's use your Hotmart Payment Link hardcoded for now or derived if possible.
+            const checkoutUrl = "https://pay.hotmart.com/D103873545U"; // Your generic checkout link
+
+            console.log(`🛒 Cart Abandoned by: ${buyerName} (${buyerEmail})`);
+
+            await sendCartAbandonmentEmail(buyerEmail, buyerName, productName, checkoutUrl);
+
+            return NextResponse.json({ message: "Abandonment processed" }, { status: 200 });
         }
 
         console.log(`ℹ️ Unhandled Event Type: ${event}`);

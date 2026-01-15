@@ -108,3 +108,58 @@ export async function sendProductDeliveryEmail(email: string, name: string, prod
         console.error("❌ Error sending delivery email:", error);
     }
 }
+
+export async function sendCartAbandonmentEmail(email: string, name: string, productName: string, checkoutUrl: string) {
+    console.log(`Attempting to send cart abandonment email to ${email}...`);
+
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+        console.error("❌ Gmail credentials MISSING in environment variables.");
+        return;
+    }
+
+    try {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.GMAIL_USER?.trim(),
+                pass: process.env.GMAIL_APP_PASSWORD?.replace(/\s+/g, ''),
+            },
+        });
+
+        await transporter.sendMail({
+            from: `"Padres con Resiliencia" <${process.env.GMAIL_USER}>`,
+            to: email,
+            subject: `🙈 ¿Olvidaste esto? (${productName})`,
+            text: `Hola ${name},\n\nHemos guardado tu carrito por unas horas.\n\nNotamos que estabas a punto de adquirir "${productName}" pero no finalizaste la compra.\n\n¿Tuviste algún problema técnico o duda?\n\nPuedes retomar tu pedido aquí: ${checkoutUrl}\n\nUn abrazo,\nPablo de Padres con Resiliencia`,
+            html: `
+                <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; background-color: #fcfcfc;">
+                    <div style="background-color: #E07A5F; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
+                        <h1 style="color: white; margin: 0; font-size: 24px;">¿Te has dejado algo? 🤔</h1>
+                    </div>
+                    <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 8px 8px; background-color: white;">
+                        <p style="font-size: 16px; line-height: 1.5;">Hola <strong>${name}</strong>,</p>
+                        <p style="font-size: 16px; line-height: 1.5;">Hemos notado que estabas interesado en <strong>"${productName}"</strong>, pero no llegaste a finalizar la compra.</p>
+                        <p style="font-size: 16px; line-height: 1.5;">Entendemos que la vida de padre es un caos y a veces nos interrumpen en el peor momento.</p>
+                        <p style="font-size: 16px; line-height: 1.5; font-weight: bold; color: #E07A5F;">¡No te preocupes! Hemos guardado tu carrito.</p>
+                        
+                        <div style="text-align: center; margin: 30px 0;">
+                            <a href="${checkoutUrl}" style="background-color: #E07A5F; color: white; padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 18px; display: inline-block; box-shadow: 0 4px 6px rgba(224, 122, 95, 0.3);">
+                                Retomar mi Pedido
+                            </a>
+                        </div>
+                        
+                        <p style="font-size: 14px; color: #777; margin-top: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 20px;">
+                            Si ya has comprado, ignora este mensaje o avísanos para que no te molestemos más. 😊
+                        </p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; color: #999; font-size: 12px;">
+                        © ${new Date().getFullYear()} Padres con Resiliencia. Todos los derechos reservados.
+                    </div>
+                </div>
+            `,
+        });
+        console.log(`✅ Cart abandonment email sent successfully to ${email}`);
+    } catch (error) {
+        console.error("❌ Error sending cart abandonment email:", error);
+    }
+}
