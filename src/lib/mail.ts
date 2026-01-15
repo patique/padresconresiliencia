@@ -44,3 +44,67 @@ export async function sendNotificationEmail(name: string, email: string, message
         console.error("❌ Error sending notification email:", error);
     }
 }
+
+export async function sendProductDeliveryEmail(email: string, name: string, productName: string) {
+    console.log(`Attempting to send delivery email to ${email} for ${productName}...`);
+
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+        console.error("❌ Gmail credentials MISSING in environment variables.");
+        return;
+    }
+
+    try {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.GMAIL_USER?.trim(),
+                pass: process.env.GMAIL_APP_PASSWORD?.replace(/\s+/g, ''),
+            },
+        });
+
+        // Customize the download link based on the product if needed.
+        // For now, we'll hardcode the known ebook PDF link or a thank you page.
+        // Since we don't have a direct file hosting URL yet, we might point them to a 'thank you' page 
+        // or effectively, we can assume the PDF is hosted somewhere. 
+        // For this MVP, let's assume we send them to the same Hotmart Access URL or a dummy link for now, 
+        // BUT better yet, let's send them to the Hotmart access page which is the standard.
+        // Hotmart usually provides the access link in the webhook payload, but if not, we use the generic one.
+        const accessLink = "https://consumer.hotmart.com/purchase/access";
+
+        await transporter.sendMail({
+            from: `"Padres con Resiliencia" <${process.env.GMAIL_USER}>`,
+            to: email,
+            subject: `🚀 Tu acceso a: ${productName}`,
+            text: `Hola ${name},\n\n¡Gracias por tu compra!\nAquí tienes el acceso a tu ebook "${productName}".\n\nAcceder ahora: ${accessLink}\n\nSi tienes alguna duda, responde a este correo.\n\nUn abrazo,\nPablo de Padres con Resiliencia`,
+            html: `
+                <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; background-color: #fcfcfc;">
+                    <div style="background-color: #E07A5F; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
+                        <h1 style="color: white; margin: 0; font-size: 24px;">¡Tu Pedido está Listo! 📚</h1>
+                    </div>
+                    <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 8px 8px; background-color: white;">
+                        <p style="font-size: 16px; line-height: 1.5;">Hola <strong>${name}</strong>,</p>
+                        <p style="font-size: 16px; line-height: 1.5;">¡Muchas gracias por confiar en nosotros! Ya tienes todo listo para empezar a transformar la crianza de tu hijo.</p>
+                        <p style="font-size: 16px; line-height: 1.5;">Aquí tienes el acceso inmediato a tu ebook: <strong>${productName}</strong>.</p>
+                        
+                        <div style="text-align: center; margin: 30px 0;">
+                            <a href="${accessLink}" style="background-color: #E07A5F; color: white; padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 18px; display: inline-block; box-shadow: 0 4px 6px rgba(224, 122, 95, 0.3);">
+                                Acceder al Contenido
+                            </a>
+                        </div>
+                        
+                        <p style="font-size: 14px; color: #777; margin-top: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 20px;">
+                            Si el botón no funciona, copia y pega este enlace en tu navegador:<br>
+                            <a href="${accessLink}" style="color: #E07A5F;">${accessLink}</a>
+                        </p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; color: #999; font-size: 12px;">
+                        © ${new Date().getFullYear()} Padres con Resiliencia. Todos los derechos reservados.
+                    </div>
+                </div>
+            `,
+        });
+        console.log(`✅ Delivery email sent successfully to ${email}`);
+    } catch (error) {
+        console.error("❌ Error sending delivery email:", error);
+    }
+}
