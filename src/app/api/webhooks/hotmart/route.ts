@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendProductDeliveryEmail, sendCartAbandonmentEmail } from "@/lib/mail";
+import prisma from "@/lib/prisma";
 
 // Define the Hotmart Token specifically here or retrieve from env
-// NOTE: Ideally, put 'HOTMART_WEBHOOK_SECRET' in your .env file
 const HOTMART_TOKEN = process.env.HOTMART_WEBHOOK_SECRET;
 
 export const dynamic = "force-dynamic";
@@ -16,73 +16,120 @@ export async function POST(req: NextRequest) {
     try {
         console.log("📨 INCOMING WEBHOOK REQUEST DETECTED");
 
-        // 1. Log Headers for Debugging
+        // 1. Log Headers & Auth
         const headerToken = req.headers.get("x-hotmart-hottok");
-        console.log("Headers Hottok:", headerToken ? "Present" : "Missing");
-
-        // 2. Parse Body
         const body = await req.json();
-        console.log("📦 Webhook Payload:", JSON.stringify(body, null, 2));
 
-        // 3. Security Check (Allow Header OR Body token)
-        // Some Hotmart versions send 'hottok' in the body.
+        // Security Check
         const bodyToken = body.hottok;
         const incomingToken = headerToken || bodyToken;
 
         if (HOTMART_TOKEN && incomingToken !== HOTMART_TOKEN) {
-            console.error("⛔️ Token Mismatch.");
-            // console.error("Expected:", HOTMART_TOKEN.slice(0,3) + "...");
-            // console.error("Received:", incomingToken ? incomingToken.slice(0,3) + "..." : "None");
+            console.error("⛔️ UNAUTHORIZED Webhook Attempt");
             return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
         }
 
-        const event = body.event; // 'PURCHASE_APPROVED', etc.
+        const event = body.event;
+        console.log(`📡 Processing Event: ${event}`);
+
+        // 2. DATABASE LOGGING ( The "Black Box" )
+        // We log absolutely everything first, so we never lose data.
+        await prisma.webhookLog.create({
+            data: {
+                event: event,
+                payload: body as any, // Cast to any to store JSON freely
+                processed: false // Will update to true if we handle it successfully
+            }
+        });
+
         const data = body.data;
+        const buyer = data.buyer; // Common in most sales events
 
-        // 4. Handle 'PURCHASE_APPROVED'
+        // 3. INTELLIGENT CUSTOMER UPDATE (CRM)
+        // If we have buyer info, we update/create the customer record immediately.
+        let customer = null;
+        if (buyer && buyer.email) {
+            customer = await prisma.customer.upsert({
+                where: { email: buyer.email },
+                update: {
+                    name: buyer.name || undefined,
+                    phone: buyer.phone || buyer.checkout_phone || undefined,
+                    country: buyer.address?.country || undefined, // Safe navigation just in case
+                },
+                create: {
+                    email: buyer.email,
+                    name: buyer.name,
+                    phone: buyer.phone || buyer.checkout_phone,
+                    country: buyer.address?.country,
+                }
+            });
+            console.log(`👤 Customer Synced: ${customer.email} (${customer.id})`);
+        }
+
+        // 4. HANDLE SPECIFIC EVENTS
+
+        // --- CASE A: NEW SALE ---
         if (event === "PURCHASE_APPROVED") {
-            const buyer = data.buyer;
             const product = data.product;
+            const purchaseData = data.purchase;
 
-            const buyerEmail = buyer.email;
-            const buyerName = buyer.name;
-            const productName = product.name;
+            if (customer && purchaseData) {
+                // Record Purchase
+                await prisma.purchase.create({
+                    data: {
+                        transactionId: purchaseData.transaction,
+                        status: purchaseData.status || 'APPROVED',
+                        productName: product.name,
+                        pricePaid: purchaseData.price?.value || 0,
+                        currency: purchaseData.price?.currency_value || 'UNK',
+                        purchaseDate: new Date(purchaseData.order_date || Date.now()),
+                        customerId: customer.id
+                    }
+                });
+                console.log("💰 Purchase Recorded in DB");
 
-            console.log(`✅ Processing Purchase for: ${buyerName} (${buyerEmail})`);
+                // Trigger Action: Send Email
+                await sendProductDeliveryEmail(buyer.email, buyer.name, product.name);
+            }
 
-            // Send Delivery Email
-            await sendProductDeliveryEmail(buyerEmail, buyerName, productName);
-
-            return NextResponse.json({ message: "Webhook processed successfully" }, { status: 200 });
+            return NextResponse.json({ message: "Sale Processed" }, { status: 200 });
         }
 
-        // 5. Handle 'PURCHASE_OUT_OF_SHOPPING_CART' (Abandonment)
+        // --- CASE B: CART ABANDONMENT ---
         if (event === "PURCHASE_OUT_OF_SHOPPING_CART") {
-            const buyer = data.buyer;
             const product = data.product;
 
-            const buyerEmail = buyer.email;
-            const buyerName = buyer.name;
-            const productName = product.name;
+            if (customer) {
+                // Record Abandonment
+                await prisma.abandonedCart.create({
+                    data: {
+                        productName: product.name,
+                        customerId: customer.id,
+                        checkoutUrl: "https://pay.hotmart.com/D103873545U", // Ideally dynamic, but hardcoded for now
+                        recovered: false
+                    }
+                });
+                console.log("🛒 Abandoned Cart Recorded in DB");
 
-            // Hotmart doesn't always send the direct checkout link in this event payload,
-            // so we direct them to the main checkout page again.
-            // Ideally, you'd use the affiliate link or product link.
-            // Let's use your Hotmart Payment Link hardcoded for now or derived if possible.
-            const checkoutUrl = "https://pay.hotmart.com/D103873545U"; // Your generic checkout link
+                // Trigger Action: Send Recovery Email
+                const checkoutUrl = "https://pay.hotmart.com/D103873545U";
+                await sendCartAbandonmentEmail(buyer.email, buyer.name, product.name, checkoutUrl);
+            }
 
-            console.log(`🛒 Cart Abandoned by: ${buyerName} (${buyerEmail})`);
-
-            await sendCartAbandonmentEmail(buyerEmail, buyerName, productName, checkoutUrl);
-
-            return NextResponse.json({ message: "Abandonment processed" }, { status: 200 });
+            return NextResponse.json({ message: "Abandonment Processed" }, { status: 200 });
         }
 
-        console.log(`ℹ️ Unhandled Event Type: ${event}`);
-        return NextResponse.json({ message: "Event received" }, { status: 200 });
+        // --- UNHANDLED EVENTS (But Logged) ---
+        // Since we are logging everything at step 2, these are safe.
+        // Useful for: PURCHASE_REFUNDED, SUBSCRIPTION_CANCELLATION, etc.
+        console.log(`💾 Event ${event} logged but no specific action taken yet.`);
+
+        return NextResponse.json({ message: "Event Logged" }, { status: 200 });
 
     } catch (error) {
         console.error("❌ Fatal Error in Webhook:", error);
+        // Even if it fails, try to return 200 to Hotmart so they don't retry indefinitely if it's a code error?
+        // No, return 500 so they retry if it's a temporary DB glitch.
         return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
     }
 }
