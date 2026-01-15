@@ -11,7 +11,7 @@ interface ProductPageProps {
 }
 
 export default async function ProductPage({ params }: { params: { slug: string } }) {
-    console.log(`👀 SERVER LOG CHECK: Visiting product page for slug: ${params.slug} at ${new Date().toISOString()}`);
+
 
     const product = await prisma.product.findUnique({
         where: { slug: params.slug },

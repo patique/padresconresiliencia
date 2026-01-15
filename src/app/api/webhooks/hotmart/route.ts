@@ -8,14 +8,11 @@ const HOTMART_TOKEN = process.env.HOTMART_WEBHOOK_SECRET;
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-    console.log("👀 SERVER LOG CHECK: Hotmart GET endpoint hit!");
     return NextResponse.json({ message: "Hotmart Webhook Endpoint is working! Use POST for events." }, { status: 200 });
 }
 
 export async function POST(req: NextRequest) {
     try {
-        console.log("📨 INCOMING WEBHOOK REQUEST DETECTED");
-
         // 1. Log Headers & Auth
         const headerToken = req.headers.get("x-hotmart-hottok");
         const body = await req.json();
@@ -30,7 +27,6 @@ export async function POST(req: NextRequest) {
         }
 
         const event = body.event;
-        console.log(`📡 Processing Event: ${event}`);
 
         // 2. DATABASE LOGGING ( The "Black Box" )
         // We log absolutely everything first, so we never lose data.
@@ -63,7 +59,6 @@ export async function POST(req: NextRequest) {
                     country: buyer.address?.country,
                 }
             });
-            console.log(`👤 Customer Synced: ${customer.email} (${customer.id})`);
         }
 
         // 4. HANDLE SPECIFIC EVENTS
@@ -86,7 +81,6 @@ export async function POST(req: NextRequest) {
                         customerId: customer.id
                     }
                 });
-                console.log("💰 Purchase Recorded in DB");
 
                 // Trigger Action: Send Email
                 await sendProductDeliveryEmail(buyer.email, buyer.name, product.name);
@@ -109,7 +103,6 @@ export async function POST(req: NextRequest) {
                         recovered: false
                     }
                 });
-                console.log("🛒 Abandoned Cart Recorded in DB");
 
                 // Trigger Action: Send Recovery Email
                 const checkoutUrl = "https://pay.hotmart.com/D103873545U";
@@ -122,7 +115,6 @@ export async function POST(req: NextRequest) {
         // --- UNHANDLED EVENTS (But Logged) ---
         // Since we are logging everything at step 2, these are safe.
         // Useful for: PURCHASE_REFUNDED, SUBSCRIPTION_CANCELLATION, etc.
-        console.log(`💾 Event ${event} logged but no specific action taken yet.`);
 
         return NextResponse.json({ message: "Event Logged" }, { status: 200 });
 
