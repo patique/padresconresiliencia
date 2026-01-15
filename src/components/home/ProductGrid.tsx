@@ -86,7 +86,8 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    );
+                })}
 
                 {/* Waitlist / Future Products */}
                 {waitlistProducts.map((course) => (
