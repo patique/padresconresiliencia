@@ -346,53 +346,79 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
             </section>
 
             {/* --- CROSS-SELL WAITLIST: EDUCAR EN LA FE --- */}
-            <section className="py-20 bg-stone-100 border-t border-stone-200">
-                <div className="container mx-auto px-6 max-w-4xl text-center">
-                    <div className="inline-flex items-center gap-2 bg-stone-200 text-stone-600 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide mb-6">
-                        <Star className="w-3 h-3 fill-current" />
-                        <span>PRÓXIMAMENTE</span>
+            <section className="py-24 bg-stone-100 border-t border-stone-200 overflow-hidden">
+                <div className="container mx-auto px-6 max-w-5xl">
+
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 bg-[#E07A5F] text-white px-6 py-2 rounded-full text-xs md:text-sm font-bold tracking-widest shadow-[0_0_20px_rgba(224,122,95,0.6)] animate-pulse border border-white/20">
+                            <Star className="w-4 h-4 fill-current" />
+                            <span>PRÓXIMAMENTE - NUEVO LANZAMIENTO</span>
+                        </div>
                     </div>
 
-                    <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-4">
-                        ¿Te interesa también <span className="text-[#E07A5F]">Educar en la Fe</span>?
-                    </h2>
-                    <p className="text-lg text-stone-600 mb-4 max-w-2xl mx-auto">
-                        Estamos escribiendo una guía para dejar de ser el "policía de Dios" y convertir la fe en un refugio de asombro para tus hijos. Sin obligaciones, solo conexión.
-                    </p>
-
-                    <Link href="/products/educar-en-la-fe" className="inline-block bg-white text-[#E07A5F] border-2 border-[#E07A5F] font-bold py-3 px-8 rounded-full hover:bg-[#E07A5F] hover:text-white transition mb-8">
-                        Descubre el Método Completo →
-                    </Link>
-
-                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 max-w-xl mx-auto">
-                        {waitlistStatus === "success" ? (
-                            <div className="text-center py-4 animate-in fade-in zoom-in duration-300">
-                                <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <Check className="w-6 h-6 text-green-600" />
-                                </div>
-                                <h3 className="text-xl font-bold text-stone-900 mb-1">¡Apuntado/a!</h3>
-                                <p className="text-stone-500 text-sm">Te avisaremos en exclusiva del lanzamiento.</p>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-3">
-                                <input
-                                    type="email"
-                                    required
-                                    placeholder="Tu email principal..."
-                                    value={waitlistEmail}
-                                    onChange={(e) => setWaitlistEmail(e.target.value)}
-                                    className="flex-1 px-4 py-3 rounded-xl border border-stone-200 focus:border-[#E07A5F] focus:ring-2 focus:ring-[#E07A5F]/20 outline-none transition text-stone-800 placeholder:text-stone-400"
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        {/* Column 1: Image */}
+                        <div className="relative flex justify-center md:justify-end">
+                            <div className="relative w-64 md:w-80 transform rotate-[-3deg] hover:rotate-0 transition duration-700 hover:scale-105 z-10">
+                                <Image
+                                    src={educarFeImg}
+                                    alt="Portada Educar en la Fe"
+                                    className="rounded-xl shadow-2xl border-4 border-white"
+                                    placeholder="blur"
                                 />
-                                <button
-                                    type="submit"
-                                    disabled={waitlistStatus === 'loading'}
-                                    className="px-6 py-3 bg-stone-800 hover:bg-stone-700 text-white font-bold rounded-xl transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 whitespace-nowrap"
-                                >
-                                    {waitlistStatus === 'loading' ? <Loader2 className="w-4 h-4 animate-spin" /> : "Avisadme"}
-                                </button>
-                            </form>
-                        )}
-                        <p className="text-xs text-stone-400 mt-4">No te enviaremos spam, solo el aviso de lanzamiento.</p>
+                            </div>
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#E07A5F]/20 blur-3xl rounded-full -z-0"></div>
+                        </div>
+
+                        {/* Column 2: Content */}
+                        <div className="text-left">
+                            <h2 className="text-3xl md:text-4xl font-bold text-stone-800 mb-4 leading-tight">
+                                ¿Te interesa también <span className="text-[#E07A5F] underline decoration-[#E07A5F]/30">Educar en la Fe</span>?
+                            </h2>
+                            <p className="text-lg text-stone-600 mb-6 leading-relaxed">
+                                Estamos escribiendo la guía definitiva para dejar de ser el "policía de Dios" y convertir la fe en un refugio de asombro para tus hijos. <br /><span className="font-bold text-stone-800">Sin obligaciones, solo conexión.</span>
+                            </p>
+
+                            <Link href="/products/educar-en-la-fe" className="inline-block bg-white text-[#E07A5F] border-2 border-[#E07A5F] font-bold py-3 px-8 rounded-full hover:bg-[#E07A5F] hover:text-white transition mb-8 shadow-sm hover:shadow-md">
+                                Descubre el Método Completo →
+                            </Link>
+
+                            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-stone-200">
+                                <h4 className="font-bold text-stone-900 mb-2 flex items-center gap-2"><Clock className="w-4 h-4 text-[#E07A5F]" /> Lista de Espera Prioritaria</h4>
+                                <p className="text-sm text-stone-500 mb-4">Apúntate para recibir el aviso de lanzamiento y un descuento exclusivo.</p>
+
+                                {waitlistStatus === "success" ? (
+                                    <div className="text-center py-4 animate-in fade-in zoom-in duration-300">
+                                        <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                            <Check className="w-6 h-6 text-green-600" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-stone-900 mb-1">¡Apuntado/a!</h3>
+                                        <p className="text-stone-500 text-sm">Te avisaremos en exclusiva.</p>
+                                    </div>
+                                ) : (
+                                    <form onSubmit={handleWaitlistSubmit} className="flex flex-col gap-3">
+                                        <div className="flex flex-col sm:flex-row gap-3">
+                                            <input
+                                                type="email"
+                                                required
+                                                placeholder="Tu email principal..."
+                                                value={waitlistEmail}
+                                                onChange={(e) => setWaitlistEmail(e.target.value)}
+                                                className="flex-1 px-4 py-3 rounded-xl border border-stone-200 focus:border-[#E07A5F] focus:ring-2 focus:ring-[#E07A5F]/20 outline-none transition text-stone-800 placeholder:text-stone-400"
+                                            />
+                                            <button
+                                                type="submit"
+                                                disabled={waitlistStatus === 'loading'}
+                                                className="px-6 py-3 bg-stone-800 hover:bg-stone-700 text-white font-bold rounded-xl transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 whitespace-nowrap"
+                                            >
+                                                {waitlistStatus === 'loading' ? <Loader2 className="w-4 h-4 animate-spin" /> : "Avisadme"}
+                                            </button>
+                                        </div>
+                                        <p className="text-[10px] text-stone-400 text-center sm:text-left">Cero spam. Solo te escribiremos cuando esté listo.</p>
+                                    </form>
+                                )}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
