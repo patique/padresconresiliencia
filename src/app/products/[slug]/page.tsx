@@ -10,8 +10,9 @@ interface ProductPageProps {
     params: { slug: string };
 }
 
-export default async function ProductPage({ params }: { params: { slug: string } }) {
+import EducarFeLanding from "@/components/products/EducarFeLanding";
 
+export default async function ProductPage({ params }: { params: { slug: string } }) {
 
     const product = await prisma.product.findUnique({
         where: { slug: params.slug },
@@ -19,6 +20,10 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
     if (!product) {
         notFound();
+    }
+
+    if (params.slug === 'educar-en-la-fe') {
+        return <EducarFeLanding product={product} />;
     }
 
     const benefits = [
