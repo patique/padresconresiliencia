@@ -75,10 +75,20 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
 
                                 <div className="mt-auto flex items-center justify-between pt-6 border-t border-stone-100">
                                     <div className="flex flex-col">
-                                        {product.originalPrice && (
-                                            <span className="text-xs text-stone-400 line-through">{product.originalPrice.toFixed(2)}€</span>
+                                        {/* Override Price for specific product */}
+                                        {product.slug === 'bienestar-emocional-padres' ? (
+                                            <>
+                                                <span className="text-xs text-stone-400 line-through">17.00 US$</span>
+                                                <span className="text-2xl font-bold text-stone-900">7.00 US$</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                {product.originalPrice && (
+                                                    <span className="text-xs text-stone-400 line-through">{product.originalPrice.toFixed(2)}€</span>
+                                                )}
+                                                <span className="text-2xl font-bold text-stone-900">{product.price.toFixed(2)}€</span>
+                                            </>
                                         )}
-                                        <span className="text-2xl font-bold text-stone-900">{product.price.toFixed(2)}€</span>
                                     </div>
                                     <a href={`/products/${product.slug}`} className="bg-stone-900 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#E07A5F] transition-colors">
                                         Ver Detalles
