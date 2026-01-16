@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, BatteryMedium, Coffee, Users, Brain, ArrowRight } from "lucide-react";
+import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, BatteryMedium, Coffee, Users, Brain, ArrowRight, Loader2 } from "lucide-react";
 import OfferCountdown from "@/components/ui/OfferCountdown";
+import { joinWaitlist } from "@/actions/waitlist";
 
 // Importing images directly to ensure they load correctly
 import portadaImg from "@/assets/images/primer-ano-portada.png";
@@ -22,6 +24,29 @@ interface Product {
 
 export default function PrimerAnoLanding({ product }: { product: Product }) {
     const hotmartLink = "https://pay.hotmart.com/D103873545U"; // DO NOT CHANGE THIS LINK
+    const [waitlistEmail, setWaitlistEmail] = useState("");
+    const [waitlistStatus, setWaitlistStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+    const handleWaitlistSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setWaitlistStatus("loading");
+
+        const formData = new FormData();
+        formData.append("email", waitlistEmail);
+        formData.append("topic", "Educar en la Fe (desde Primer Año Landing)");
+
+        try {
+            const result = await joinWaitlist(null, formData);
+            if (result.success) {
+                setWaitlistStatus("success");
+                setWaitlistEmail("");
+            } else {
+                setWaitlistStatus("error");
+            }
+        } catch (error) {
+            setWaitlistStatus("error");
+        }
+    };
 
     return (
         <div className="min-h-screen bg-[#FDFBF7] font-sans text-stone-800">
@@ -316,6 +341,54 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                         <BookOpen className="w-6 h-6" />
                     </a>
                     <p className="mt-6 text-sm text-stone-400">Descarga inmediata • Lectura compatible con móvil</p>
+                </div>
+            </section>
+
+            {/* --- CROSS-SELL WAITLIST: EDUCAR EN LA FE --- */}
+            <section className="py-20 bg-stone-100 border-t border-stone-200">
+                <div className="container mx-auto px-6 max-w-4xl text-center">
+                    <div className="inline-flex items-center gap-2 bg-stone-200 text-stone-600 px-4 py-1.5 rounded-full text-xs font-bold tracking-wide mb-6">
+                        <Star className="w-3 h-3 fill-current" />
+                        <span>PRÓXIMAMENTE</span>
+                    </div>
+
+                    <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-4">
+                        ¿Te interesa también <span className="text-[#E07A5F]">Educar en la Fe</span>?
+                    </h2>
+                    <p className="text-lg text-stone-600 mb-8 max-w-2xl mx-auto">
+                        Estamos escribiendo una guía para dejar de ser el "policía de Dios" y convertir la fe en un refugio de asombro para tus hijos. Sin obligaciones, solo conexión.
+                    </p>
+
+                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 max-w-xl mx-auto">
+                        {waitlistStatus === "success" ? (
+                            <div className="text-center py-4 animate-in fade-in zoom-in duration-300">
+                                <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <Check className="w-6 h-6 text-green-600" />
+                                </div>
+                                <h3 className="text-xl font-bold text-stone-900 mb-1">¡Apuntado/a!</h3>
+                                <p className="text-stone-500 text-sm">Te avisaremos en exclusiva del lanzamiento.</p>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-3">
+                                <input
+                                    type="email"
+                                    required
+                                    placeholder="Tu email principal..."
+                                    value={waitlistEmail}
+                                    onChange={(e) => setWaitlistEmail(e.target.value)}
+                                    className="flex-1 px-4 py-3 rounded-xl border border-stone-200 focus:border-[#E07A5F] focus:ring-2 focus:ring-[#E07A5F]/20 outline-none transition text-stone-800 placeholder:text-stone-400"
+                                />
+                                <button
+                                    type="submit"
+                                    disabled={waitlistStatus === 'loading'}
+                                    className="px-6 py-3 bg-stone-800 hover:bg-stone-700 text-white font-bold rounded-xl transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 whitespace-nowrap"
+                                >
+                                    {waitlistStatus === 'loading' ? <Loader2 className="w-4 h-4 animate-spin" /> : "Avisadme"}
+                                </button>
+                            </form>
+                        )}
+                        <p className="text-xs text-stone-400 mt-4">No te enviaremos spam, solo el aviso de lanzamiento.</p>
+                    </div>
                 </div>
             </section>
         </div>
