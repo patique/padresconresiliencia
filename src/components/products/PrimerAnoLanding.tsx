@@ -5,6 +5,12 @@ import Link from "next/link";
 import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, BatteryMedium, Coffee, Users, Brain, ArrowRight } from "lucide-react";
 import OfferCountdown from "@/components/ui/OfferCountdown";
 
+// Importing images directly to ensure they load correctly
+import portadaImg from "@/assets/images/primer-ano-portada.png";
+import caosImg from "@/assets/images/primer-ano-caos.png";
+import conexionImg from "@/assets/images/primer-ano-conexion.png";
+import herramientasImg from "@/assets/images/primer-ano-herramientas.png";
+
 interface Product {
     title: string;
     description: string;
@@ -40,12 +46,11 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                         <div className="relative order-2 md:order-1">
                             <div className="relative z-10 transform rotate-[-2deg] hover:rotate-0 transition duration-500">
                                 <Image
-                                    src="/images/primer-ano-portada.png"
+                                    src={portadaImg}
                                     alt="Portada Ebook Primer Año"
-                                    width={600}
-                                    height={800}
-                                    className="rounded-2xl shadow-2xl border-8 border-white hover:scale-[1.02] transition duration-500"
+                                    className="rounded-2xl shadow-2xl border-8 border-white hover:scale-[1.02] transition duration-500 w-full h-auto"
                                     priority
+                                    placeholder="blur"
                                 />
                             </div>
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#E07A5F]/20 blur-3xl rounded-full -z-10"></div>
@@ -123,10 +128,11 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
 
                     <div className="relative h-96 w-full rounded-2xl overflow-hidden shadow-2xl group">
                         <Image
-                            src="/images/primer-ano-caos.png"
+                            src={caosImg}
                             alt="Caos y cansancio parental"
                             fill
                             className="object-cover transition duration-700 group-hover:scale-105"
+                            placeholder="blur"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent flex items-end p-8">
                             <p className="text-white text-lg font-medium">"Amamos a nuestro bebé, pero sentimos que estamos perdiendo nuestra vida."</p>
@@ -155,10 +161,11 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative order-2 md:order-1 h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 transform hover:rotate-1 transition duration-500">
                             <Image
-                                src="/images/primer-ano-conexion.png"
+                                src={conexionImg}
                                 alt="Conexión padre e hijo"
                                 fill
                                 className="object-cover"
+                                placeholder="blur"
                             />
                         </div>
                         <div className="space-y-8 order-1 md:order-2">
@@ -264,7 +271,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                             </div>
                             <div className="md:w-1/3 h-48 w-full rounded-xl overflow-hidden shadow-lg border border-white/10 relative">
                                 <Image
-                                    src="/images/primer-ano-herramientas.png"
+                                    src={herramientasImg}
                                     alt="Kit herramientas calma"
                                     fill
                                     className="object-cover"
