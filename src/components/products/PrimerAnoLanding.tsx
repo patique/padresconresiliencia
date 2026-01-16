@@ -308,8 +308,8 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
 
                     {/* SECONDARY CTA IN SOLUTION */}
                     <div className="container mx-auto px-6 max-w-5xl pt-12 pb-4 text-center">
-                        <a href={hotmartLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-stone-400 hover:text-[#E07A5F] underline underline-offset-4 text-sm transition font-medium">
-                            Saltar al checkout directamente <ArrowRight className="w-4 h-4" />
+                        <a href={hotmartLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold py-3 px-6 rounded-lg transition">
+                            Prefiero ir directo al pago <ArrowRight className="w-4 h-4" />
                         </a>
                     </div>
                 </div>
@@ -359,8 +359,8 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                         Estamos escribiendo una guía para dejar de ser el "policía de Dios" y convertir la fe en un refugio de asombro para tus hijos. Sin obligaciones, solo conexión.
                     </p>
 
-                    <Link href="/products/educar-en-la-fe" className="inline-block text-[#E07A5F] font-bold hover:underline mb-8">
-                        Saber más sobre el libro →
+                    <Link href="/products/educar-en-la-fe" className="inline-block bg-white text-[#E07A5F] border-2 border-[#E07A5F] font-bold py-3 px-8 rounded-full hover:bg-[#E07A5F] hover:text-white transition mb-8">
+                        Descubre el Método Completo →
                     </Link>
 
                     <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 max-w-xl mx-auto">
