@@ -11,6 +11,7 @@ interface ProductPageProps {
 }
 
 import EducarFeLanding from "@/components/products/EducarFeLanding";
+import PrimerAnoLanding from "@/components/products/PrimerAnoLanding";
 
 export default async function ProductPage({ params }: { params: { slug: string } }) {
 
@@ -24,6 +25,10 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
     if (params.slug === 'educar-en-la-fe') {
         return <EducarFeLanding product={product} />;
+    }
+
+    if (params.slug === 'bienestar-emocional-padres') {
+        return <PrimerAnoLanding product={product} />;
     }
 
     const benefits = [
