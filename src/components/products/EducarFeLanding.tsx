@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, Loader2 } from "lucide-react";
-import { addToWaitlist } from "@/actions/waitlist";
+import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, Loader2, CloudRain } from "lucide-react";
+import { joinWaitlist } from "@/actions/waitlist";
 
 interface Product {
     title: string;
@@ -21,10 +21,19 @@ export default function EducarFeLanding({ product }: { product: Product }) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus("loading");
+
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("topic", "Educar en la Fe");
+
         try {
-            await addToWaitlist(email, "Educar en la Fe");
-            setStatus("success");
-            setEmail("");
+            const result = await joinWaitlist(null, formData);
+            if (result.success) {
+                setStatus("success");
+                setEmail("");
+            } else {
+                setStatus("error");
+            }
         } catch (error) {
             setStatus("error");
         }
