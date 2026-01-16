@@ -151,16 +151,16 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                             </div>
                         </div>
 
-                        {/* Module 3 & 4 Combined */}
+                        {/* Module 3 */}
                         <div className="bg-white rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-md transition border border-stone-100 flex flex-col md:flex-row gap-8">
                             <div className="md:w-1/3 flex flex-col items-center justify-center bg-[#E07A5F]/5 rounded-xl p-6 text-center">
                                 <div className="bg-[#E07A5F]/10 w-16 h-16 rounded-full flex items-center justify-center mb-4 text-[#E07A5F]">
                                     <Zap className="w-8 h-8" />
                                 </div>
-                                <h3 className="font-bold text-xl text-stone-900">Módulo 3 y 4: De las Preguntas a la Rebeldía (7-12+ años)</h3>
+                                <h3 className="font-bold text-xl text-stone-900">Módulos 3, 4 y 5: De las Preguntas a la Rebeldía</h3>
                             </div>
                             <div className="md:w-2/3">
-                                <p className="text-stone-600 mb-4">Cuando la fe madura y duele.</p>
+                                <p className="text-stone-600 mb-4">Cuando la fe madura (y a veces duele).</p>
                                 <ul className="space-y-3">
                                     <li className="flex gap-3 text-stone-700"><Check className="w-5 h-5 text-[#E07A5F] shrink-0" /> <span><strong>La Pregunta del Millón:</strong> "¿Por qué existe el mal?" (Respuestas honestas sin fantasía).</span></li>
                                     <li className="flex gap-3 text-stone-700"><Check className="w-5 h-5 text-[#E07A5F] shrink-0" /> <span><strong>Misa sin Dramas:</strong> Estrategias para sobrevivir al aburrimiento litúrgico.</span></li>
@@ -173,15 +173,16 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                         <div className="bg-gradient-to-r from-stone-900 to-stone-800 rounded-2xl p-8 md:p-10 shadow-lg text-white flex flex-col md:flex-row gap-8 items-center">
                             <div className="md:w-1/4 flex justify-center">
                                 <div className="bg-white/10 w-20 h-20 rounded-full flex items-center justify-center text-yellow-400">
-                                    <Clock className="w-10 h-10" />
+                                    <Heart className="w-10 h-10" />
                                 </div>
                             </div>
                             <div className="md:w-3/4">
-                                <h3 className="font-bold text-2xl mb-2 text-white">BONUS: Ideas Rápidas y Cuidar al Cuidador</h3>
-                                <p className="text-stone-300 mb-4">Porque no puedes dar lo que no tienes.</p>
-                                <ul className="space-y-2">
-                                    <li className="flex gap-2 text-stone-200"><Star className="w-5 h-5 text-yellow-400 shrink-0" /> <span>Cómo recuperar tus propios 5 minutos de oasis espiritual.</span></li>
-                                    <li className="flex gap-2 text-stone-200"><Star className="w-5 h-5 text-yellow-400 shrink-0" /> <span>El "Bote de la Gratitud" y Cinefórum en familia.</span></li>
+                                <h3 className="font-bold text-2xl mb-2 text-white">BONUS: El Kit de "Fe en Acción"</h3>
+                                <p className="text-stone-300 mb-4">Herramientas prácticas para bajar la fe de la cabeza al corazón.</p>
+                                <ul className="space-y-3">
+                                    <li className="flex gap-3 text-stone-200"><Star className="w-5 h-5 text-yellow-400 shrink-0" /> <span><strong>El Bote de la Gratitud:</strong> Un ritual semanal para entrenar la mirada positiva en familia.</span></li>
+                                    <li className="flex gap-3 text-stone-200"><Star className="w-5 h-5 text-yellow-400 shrink-0" /> <span><strong>Misiones de Voluntariado:</strong> "Operación Despensa" y otras ideas para curar el egoísmo.</span></li>
+                                    <li className="flex gap-3 text-stone-200"><Star className="w-5 h-5 text-yellow-400 shrink-0" /> <span><strong>Cinefórum con Valores:</strong> Películas que abren conversaciones profundas sin que se den cuenta.</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -189,7 +190,16 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                 </div>
             </section>
 
-            {/* --- AUTHOR SECTION --- */}
+            {/* --- VISION / EMOTIONAL HOOK --- */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-6 max-w-4xl text-center">
+                    <BookOpen className="w-12 h-12 text-[#E07A5F] mx-auto mb-6 opacity-80" />
+                    <blockquote className="text-2xl md:text-3xl font-serif text-stone-800 italic leading-relaxed mb-8">
+                        "Lo que les quedará no será una lista de normas morales... será una <span className="text-[#E07A5F] font-bold">memoria celular de la esperanza</span>. La certeza de que, pase lo que pase, son amados infinitamente."
+                    </blockquote>
+                    <p className="text-stone-500 font-medium">— Del Epílogo de "Educar en la Fe"</p>
+                </div>
+            </section>
             <div className="py-10 bg-white">
                 <AuthorSection />
             </div>
