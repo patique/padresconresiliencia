@@ -140,7 +140,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                     </div>
 
                     {/* CTA AFTER AGITATION */}
-                    <div className="flex justify-center mt-12">
+                    <div className="flex flex-col items-center mt-12">
                         <a
                             href={hotmartLink}
                             target="_blank"
@@ -149,6 +149,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                         >
                             Quiero dejar de sobrevivir y empezar a disfrutar <Check className="w-5 h-5" />
                         </a>
+                        <p className="mt-3 text-sm text-stone-400 font-medium">Oferta limitada: Solo {product.price} US$</p>
                     </div>
                 </div>
             </section>
