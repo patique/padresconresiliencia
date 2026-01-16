@@ -104,9 +104,9 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                     </span>
                                     <OfferCountdown className="text-red-600 text-3xl sm:text-4xl justify-center" />
                                     <div className="flex items-center justify-center gap-3 mt-4">
-                                        <span className="text-stone-400 line-through text-lg font-medium">{product?.slug === 'bienestar-emocional-padres' ? '17' : product?.originalPrice?.toFixed(2)} {product?.slug === 'bienestar-emocional-padres' ? 'US$' : '€'}</span>
+                                        <span className="text-stone-400 line-through text-lg font-medium">{product?.originalPrice?.toFixed(2)} {product?.slug === 'bienestar-emocional-padres' ? 'US$' : '€'}</span>
                                         <div className="flex items-baseline gap-1">
-                                            <span className="text-5xl font-bold text-stone-900 leading-none">{product?.slug === 'bienestar-emocional-padres' ? '7' : product?.price?.toFixed(2)}</span>
+                                            <span className="text-5xl font-bold text-stone-900 leading-none">{product?.price?.toFixed(2)}</span>
                                             <span className="text-stone-500 text-xs font-bold self-end mb-1"> {product?.slug === 'bienestar-emocional-padres' ? 'US$' : '€ + IVA'}</span>
                                         </div>
                                     </div>
@@ -438,12 +438,12 @@ export default async function ProductPage({ params }: { params: { slug: string }
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto mb-10 relative z-10">
                         <div className="bg-white/20 p-4 rounded-xl border border-white/30 backdrop-blur-sm">
                             <p className="text-stone-100 text-sm mb-1 font-medium">Precio Habitual</p>
-                            <p className="text-2xl font-bold text-stone-200 line-through decoration-stone-200/70">{product?.slug === 'bienestar-emocional-padres' ? '17 US$' : `${product?.originalPrice?.toFixed(2)}€`}</p>
+                            <p className="text-2xl font-bold text-stone-200 line-through decoration-stone-200/70">{product?.originalPrice?.toFixed(2)} {product?.slug === 'bienestar-emocional-padres' ? 'US$' : '€'}</p>
                         </div>
                         <div className="bg-white text-stone-900 p-4 rounded-xl border-4 border-white transform scale-105 shadow-xl">
                             <p className="text-[#E07A5F] text-sm font-bold mb-1">OFERTA HOY</p>
                             <div className="flex items-baseline justify-center gap-1">
-                                <p className="text-4xl font-bold">{product?.slug === 'bienestar-emocional-padres' ? '7' : product?.price?.toFixed(2)}</p>
+                                <p className="text-4xl font-bold">{product?.price?.toFixed(2)}</p>
                                 <span className="text-stone-400 text-xs font-bold">{product?.slug === 'bienestar-emocional-padres' ? 'US$' : '€+IVA'}</span>
                             </div>
                         </div>
@@ -466,10 +466,10 @@ export default async function ProductPage({ params }: { params: { slug: string }
                 <div className="flex items-center justify-between gap-4">
                     <div className="flex flex-col">
                         <span className="text-xs text-stone-100 font-medium line-through">
-                            {product?.slug === 'bienestar-emocional-padres' ? '17 US$' : (product?.originalPrice ? `${product.originalPrice}€` : '')}
+                            {product?.originalPrice?.toFixed(2)} {product?.slug === 'bienestar-emocional-padres' ? 'US$' : '€'}
                         </span>
                         <span className="text-xl font-bold text-white leading-none">
-                            {product?.slug === 'bienestar-emocional-padres' ? '7 US$' : `${product?.price}€`}
+                            {product?.price?.toFixed(2)} {product?.slug === 'bienestar-emocional-padres' ? 'US$' : '€'}
                         </span>
                     </div>
                     <a
