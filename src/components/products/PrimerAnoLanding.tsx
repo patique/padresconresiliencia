@@ -103,7 +103,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                                     href={hotmartLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block w-full text-center bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 mb-4"
+                                    className="block w-full text-center bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1 mb-4"
                                 >
                                     ¡Lo quiero ahora!
                                 </a>
@@ -170,7 +170,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                             href={hotmartLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-lg py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center gap-2"
+                            className="bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1 flex items-center gap-2"
                         >
                             Quiero dejar de sobrevivir y empezar a disfrutar <Check className="w-5 h-5" />
                         </a>
@@ -235,7 +235,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                             href={hotmartLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-white text-[#E07A5F] hover:bg-stone-50 font-bold text-lg py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
+                            className="bg-white text-[#E07A5F] hover:bg-stone-50 font-bold text-xl py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1"
                         >
                             Quiero esta calma para mi familia
                         </a>
@@ -355,9 +355,13 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                     <h2 className="text-2xl md:text-4xl font-bold text-stone-800 mb-4">
                         ¿Te interesa también <span className="text-[#E07A5F]">Educar en la Fe</span>?
                     </h2>
-                    <p className="text-lg text-stone-600 mb-8 max-w-2xl mx-auto">
+                    <p className="text-lg text-stone-600 mb-4 max-w-2xl mx-auto">
                         Estamos escribiendo una guía para dejar de ser el "policía de Dios" y convertir la fe en un refugio de asombro para tus hijos. Sin obligaciones, solo conexión.
                     </p>
+
+                    <Link href="/products/educar-en-la-fe" className="inline-block text-[#E07A5F] font-bold hover:underline mb-8">
+                        Saber más sobre el libro →
+                    </Link>
 
                     <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 max-w-xl mx-auto">
                         {waitlistStatus === "success" ? (
