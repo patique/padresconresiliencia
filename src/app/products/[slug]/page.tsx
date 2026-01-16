@@ -47,7 +47,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
                         <div className="relative lg:sticky lg:top-24">
                             <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-2xl bg-white border-8 border-white transform rotate-1 lg:-rotate-1 hover:rotate-0 transition duration-500">
                                 {product?.slug === 'bienestar-emocional-padres' ? (
-                                    <Image src="/images/portada-ebook-final.png" alt="Madre leyendo Mi Bebé Llora con calma" fill className="object-cover" priority />
+                                    <Image src="/images/madre-leyendo-nueva.png" alt="Madre leyendo disfrutando del primer año de su bebé" fill className="object-cover" priority />
                                 ) : (
                                     product?.imageUrl ? (
                                         <Image src={product.imageUrl} alt={product.title} fill className="object-cover" priority />
