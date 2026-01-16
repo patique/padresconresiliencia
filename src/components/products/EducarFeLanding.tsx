@@ -158,6 +158,104 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                 </div>
             </section>
 
+            {/* --- THE DREAM SCENARIO --- */}
+            <section className="py-24 bg-[#E07A5F] text-white overflow-hidden relative">
+                <div className="absolute inset-0 bg-[url('/images/pattern-light.png')] opacity-10 mix-blend-overlay"></div>
+
+                <div className="container mx-auto px-6 max-w-5xl relative z-10">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6">Pero imagina por un momento que fuera distinto... ✨</h2>
+                        <p className="text-xl md:text-2xl text-stone-100 max-w-3xl mx-auto font-light">
+                            Imagina que la fe no fuera una "lección" que les das, sino el aire que respiráis en casa juntos.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 transform hover:scale-105 transition duration-500">
+                            <Image
+                                src="/images/educar-fe-orando.png"
+                                alt="Padre e hija orando felices"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <div className="space-y-8">
+                            <div className="flex gap-4">
+                                <div className="bg-white/20 p-3 rounded-full h-fit"><Sun className="w-8 h-8 text-yellow-300" /></div>
+                                <div>
+                                    <h4 className="text-xl font-bold mb-2">De la Batalla a la Conexión</h4>
+                                    <p className="text-stone-100 leading-relaxed opacity-90">
+                                        Imagina que, al acostarse, tu hija no te pide otro cuento para alargar el tiempo, sino que te dice: <em>"Papá, ¿rezamos juntos para dar las gracias por el día?"</em>. Y lo hace sonriendo.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-4">
+                                <div className="bg-white/20 p-3 rounded-full h-fit"><ShieldCheck className="w-8 h-8 text-yellow-300" /></div>
+                                <div>
+                                    <h4 className="text-xl font-bold mb-2">Un Refugio en la Tormenta</h4>
+                                    <p className="text-stone-100 leading-relaxed opacity-90">
+                                        Imagina que tu hijo adolescente llega del colegio tras un mal día. No se encierra. Se sienta contigo y te dice: <em>"Mamá, hoy he sentido que Dios estaba lejos... ¿a ti te pasa a veces?"</em>. Y podéis hablar de ello sin miedo.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm mt-8">
+                                <p className="font-serif italic text-lg text-center">
+                                    "Esto no es una utopía. Es lo que sucede cuando cambias la OBLIGACIÓN por el ASOMBRO."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- SCRIPT FLIP --- */}
+            <section className="py-24 bg-[#FDFBF7]">
+                <div className="container mx-auto px-6 max-w-4xl">
+                    <div className="text-center mb-16">
+                        <span className="bg-stone-900 text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase">El Método Práctico</span>
+                        <h2 className="text-3xl md:text-5xl font-bold text-stone-900 mt-4 mb-6">Pequeños cambios de guion, resultados gigantes</h2>
+                        <p className="text-stone-600">No necesitas ser teólogo. Solo necesitas cambiar cómo hablas.</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {/* Example 1 */}
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-200">
+                            <div className="flex items-center gap-3 mb-4 opacity-50">
+                                <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center font-bold text-red-500"><X className="w-4 h-4" /></div>
+                                <span className="font-bold text-stone-400 uppercase text-sm">Antes (Modo Policía)</span>
+                            </div>
+                            <p className="text-stone-600 italic mb-6">"Pórtate bien que el Niño Jesús te está mirando y se va a enfadar."</p>
+
+                            <div className="w-full h-px bg-stone-100 mb-6"></div>
+
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center font-bold text-green-600"><Check className="w-4 h-4" /></div>
+                                <span className="font-bold text-green-700 uppercase text-sm">Ahora (Modo Refugio)</span>
+                            </div>
+                            <p className="text-stone-800 font-medium">"Veo que estás muy enfadado y lo entiendo. Jesús también se enfadaba a veces. Cuando estés listo, vamos a pedirle juntos que nos ayude a hacer las paces."</p>
+                        </div>
+                        {/* Example 2 */}
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-200">
+                            <div className="flex items-center gap-3 mb-4 opacity-50">
+                                <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center font-bold text-red-500"><X className="w-4 h-4" /></div>
+                                <span className="font-bold text-stone-400 uppercase text-sm">Antes (Modo Sermón)</span>
+                            </div>
+                            <p className="text-stone-600 italic mb-6">"Tienes que ser agradecido porque hay niños que no tienen nada." (Culpa)</p>
+
+                            <div className="w-full h-px bg-stone-100 mb-6"></div>
+
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center font-bold text-green-600"><Check className="w-4 h-4" /></div>
+                                <span className="font-bold text-green-700 uppercase text-sm">Ahora (Modo Asombro)</span>
+                            </div>
+                            <p className="text-stone-800 font-medium">"¡Guau! Mira qué comida más rica tenemos hoy. Vamos a meter un papelito en el Bote de la Gratitud para celebrar este regalo." (Gozo)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* --- THE SOLUTION (MODULES DEEP DIVE) --- */}
             <section className="py-24 bg-stone-50">
                 <div className="container mx-auto px-6 max-w-5xl">
