@@ -15,7 +15,7 @@ interface Product {
 }
 
 export default function PrimerAnoLanding({ product }: { product: Product }) {
-    const hotmartLink = "https://pay.hotmart.com/YOUR_HOTMART_LINK_HERE?checkoutMode=10"; // Placeholder, standard hotmart link
+    const hotmartLink = "https://pay.hotmart.com/D103873545U"; // DO NOT CHANGE THIS LINK
 
     return (
         <div className="min-h-screen bg-[#FDFBF7] font-sans text-stone-800">
