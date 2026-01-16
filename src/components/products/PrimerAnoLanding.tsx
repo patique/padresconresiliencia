@@ -12,6 +12,7 @@ import portadaImg from "@/assets/images/primer-ano-portada.png";
 import caosImg from "@/assets/images/primer-ano-caos.png";
 import conexionImg from "@/assets/images/primer-ano-conexion.png";
 import herramientasImg from "@/assets/images/primer-ano-herramientas.png";
+import educarFeImg from "@/assets/images/educar-en-la-fe-portada.png";
 
 interface Product {
     title: string;
