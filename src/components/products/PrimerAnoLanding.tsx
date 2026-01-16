@@ -257,20 +257,20 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                     </div>
 
                     {/* BONUS KIT */}
-                    <div className="mt-12 bg-stone-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
-                        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-[#E07A5F] rounded-full blur-3xl opacity-30"></div>
+                    <div className="mt-12 bg-white border-2 border-[#E07A5F]/20 rounded-3xl p-8 md:p-12 text-stone-800 relative overflow-hidden shadow-xl">
+                        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-[#E07A5F] rounded-full blur-3xl opacity-10"></div>
                         <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
                             <div className="md:w-2/3">
-                                <div className="inline-block bg-[#E07A5F] text-xs font-bold px-3 py-1 rounded-full mb-4">BONUS EXCLUSIVO</div>
-                                <h3 className="text-2xl md:text-3xl font-bold mb-4">Kit de Emergencia Emocional 🚑</h3>
-                                <p className="text-stone-300 mb-6">Herramientas para usar YA, cuando sientes que vas a explotar.</p>
+                                <div className="inline-block bg-[#E07A5F] text-white text-xs font-bold px-3 py-1 rounded-full mb-4">BONUS EXCLUSIVO</div>
+                                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-stone-900">Kit de Emergencia Emocional 🚑</h3>
+                                <p className="text-stone-600 mb-6">Herramientas para usar YA, cuando sientes que vas a explotar.</p>
                                 <ul className="space-y-3">
-                                    <li className="flex items-center gap-3"><Check className="text-green-400 w-5 h-5" /> <span>Técnica de Respiración 4-7-8 (Calma en 60 seg)</span></li>
-                                    <li className="flex items-center gap-3"><Check className="text-green-400 w-5 h-5" /> <span>Grounding 5-4-3-2-1 para ataques de ansiedad</span></li>
-                                    <li className="flex items-center gap-3"><Check className="text-green-400 w-5 h-5" /> <span>Checklist de Autoevaluación Semanal</span></li>
+                                    <li className="flex items-center gap-3"><Check className="text-green-500 w-5 h-5" /> <span>Técnica de Respiración 4-7-8 (Calma en 60 seg)</span></li>
+                                    <li className="flex items-center gap-3"><Check className="text-green-500 w-5 h-5" /> <span>Grounding 5-4-3-2-1 para ataques de ansiedad</span></li>
+                                    <li className="flex items-center gap-3"><Check className="text-green-500 w-5 h-5" /> <span>Checklist de Autoevaluación Semanal</span></li>
                                 </ul>
                             </div>
-                            <div className="md:w-1/3 h-48 w-full rounded-xl overflow-hidden shadow-lg border border-white/10 relative">
+                            <div className="md:w-1/3 h-48 w-full rounded-xl overflow-hidden shadow-lg border border-stone-100 relative">
                                 <Image
                                     src={herramientasImg}
                                     alt="Kit herramientas calma"
@@ -297,6 +297,14 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                     <p className="text-xl text-stone-600 mb-10 leading-relaxed">
                         No tienes que hacerlo solo/a. Invierte en tu bienestar y dale a tu hijo el mejor regalo posible: unos padres felices y presentes.
                     </p>
+
+                    <div className="flex items-baseline justify-center gap-4 mb-8">
+                        <span className="text-5xl font-bold text-[#E07A5F]">{product.price} US$</span>
+                        {product.originalPrice && (
+                            <span className="text-xl text-stone-400 line-through">{product.originalPrice} US$</span>
+                        )}
+                    </div>
+
 
                     <a
                         href={hotmartLink}
