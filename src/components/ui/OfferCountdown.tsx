@@ -4,9 +4,15 @@ import { useState, useEffect } from "react";
 
 import { Clock } from "lucide-react";
 
-export default function OfferCountdown({ className = "text-red-600 text-xs sm:text-sm" }: { className?: string }) {
-    // Target: 2026-01-18 23:59:59
-    const TARGET_DATE = new Date("2026-01-18T23:59:59+01:00").getTime();
+export default function OfferCountdown({
+    className = "text-red-600 text-xs sm:text-sm",
+    targetDate = "2026-01-18T23:59:59+01:00"
+}: {
+    className?: string;
+    targetDate?: string;
+}) {
+    // Target: passed prop or default
+    const TARGET_DATE = new Date(targetDate).getTime();
 
     const [timeLeft, setTimeLeft] = useState<{ h: number, m: number, s: number } | null>(null);
 
