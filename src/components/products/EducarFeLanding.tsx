@@ -121,40 +121,63 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                 </div>
             </header>
 
-            {/* --- AGITATION: THE 3 SILENT KILLERS --- */}
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-6 max-w-3xl text-center">
-                    <h2 className="text-3xl font-bold text-stone-900 mb-12">Por qué la educación religiosa tradicional está fallando (y no es culpa tuya)</h2>
-
-                    <div className="grid gap-10 text-left">
-                        <div className="bg-red-50 p-8 rounded-2xl border border-red-100 relative">
-                            <div className="absolute -top-5 -left-5 bg-red-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">1</div>
-                            <h3 className="font-bold text-xl text-stone-900 mb-2">El Error del "Dios Policía"</h3>
-                            <p className="text-stone-700 leading-relaxed">
-                                Usamos a Dios como herramienta de control: <em>"Si no te portas bien, Jesús se pone triste"</em>. Esto funciona a corto plazo, pero a largo plazo crea un rechazo visceral. Nadie quiere amar a su vigilante.
-                            </p>
-                        </div>
-
-                        <div className="bg-orange-50 p-8 rounded-2xl border border-orange-100 relative">
-                            <div className="absolute -top-5 -left-5 bg-orange-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">2</div>
-                            <h3 className="font-bold text-xl text-stone-900 mb-2">La Fe desconectada de la Vida</h3>
-                            <p className="text-stone-700 leading-relaxed">
-                                Limitamos la fe a "ir a Misa" o "rezar antes de dormir", pero el resto del día Dios no existe. Tus hijos huelen esa incoherencia. Si la fe no ilumina sus problemas reales (el examen suspendido, la pelea con el amigo), no les sirve.
-                            </p>
-                        </div>
-
-                        <div className="bg-stone-100 p-8 rounded-2xl border border-stone-200 relative">
-                            <div className="absolute -top-5 -left-5 bg-stone-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">3</div>
-                            <h3 className="font-bold text-xl text-stone-900 mb-2">El Silencio ante las Dudas</h3>
-                            <p className="text-stone-700 leading-relaxed">
-                                Cuando preguntan "¿Por qué existe el mal?" o "¿Cómo sabes que Dios existe?", nos ponemos nerviosos y damos respuestas de manual. Ellos necesitan tu honestidad, no tu teología perfecta. <strong>La fe que no se cuestiona, muere en la adolescencia.</strong>
-                            </p>
-                        </div>
+            {/* --- AGITATION: THE NIGHTMARE SCENARIO --- */}
+            <section className="py-24 bg-white relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-[#FDFBF7] to-white z-10"></div>
+                <div className="container mx-auto px-6 max-w-4xl">
+                    <div className="text-center mb-16">
+                        <span className="text-red-500 font-bold tracking-widest uppercase text-xs mb-2 block animate-pulse">La Verdad Incómoda</span>
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-stone-900 leading-tight">
+                            ¿Estás vacunando a tus hijos contra la Fe sin darte cuenta? 💉
+                        </h2>
                     </div>
 
-                    <p className="text-xl font-medium text-stone-800 text-center mt-12 bg-[#F2CC8F]/20 p-6 rounded-xl inline-block border border-[#F2CC8F]">
-                        Este libro no es un catecismo más. Es un manual de <strong>inteligencia espiritual</strong> para padres reales.
-                    </p>
+                    <div className="prose prose-lg text-stone-600 mx-auto leading-relaxed mb-16">
+                        <p>
+                            Es una escena que se repite en miles de hogares cada domingo. Tú estás nervioso, mirando el reloj. Ellos están quejándose, arrastrando los pies.
+                        </p>
+                        <p className="font-bold text-stone-800">
+                            <em>"¡Si no te vistes ya, no vamos al parque luego!" "¡En Misa se está callado porque lo digo yo!"</em>
+                        </p>
+                        <p>
+                            Y ahí, en ese preciso instante, algo se rompe. Sin querer, estás enseñando que Dios es una <strong>obligación pesada</strong>, un peaje que hay que pagar para que "papá no se enfade".
+                        </p>
+                        <p>
+                            El resultado es devastador: A los 8 años obedecen por miedo. A los 12 se aburren. A los 15, cuando tú ya no tienes el control, <strong>se marchan para no volver.</strong>
+                        </p>
+                    </div>
+
+                    <div className="bg-stone-50 rounded-3xl p-8 md:p-12 border border-stone-100 shadow-xl relative overflow-hidden group hover:shadow-2xl transition duration-500">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-red-100 rounded-full blur-3xl opacity-50 -mr-20 -mt-20"></div>
+                        <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+                            <div className="md:w-1/2">
+                                <h3 className="text-2xl font-bold text-stone-900 mb-4">El "Efecto Rebote" Espiritual</h3>
+                                <ul className="space-y-4">
+                                    <li className="flex gap-3 text-stone-700 items-start">
+                                        <div className="bg-red-100 p-1.5 rounded-full mt-1 shrink-0"><CloudRain className="w-4 h-4 text-red-500" /></div>
+                                        <span>Asociar a Dios con el <strong>castigo</strong> y el aburrimiento.</span>
+                                    </li>
+                                    <li className="flex gap-3 text-stone-700 items-start">
+                                        <div className="bg-red-100 p-1.5 rounded-full mt-1 shrink-0"><CloudRain className="w-4 h-4 text-red-500" /></div>
+                                        <span>Sentirse culpables por tener dudas naturales.</span>
+                                    </li>
+                                    <li className="flex gap-3 text-stone-700 items-start">
+                                        <div className="bg-red-100 p-1.5 rounded-full mt-1 shrink-0"><CloudRain className="w-4 h-4 text-red-500" /></div>
+                                        <span>Buscar respuestas en TikTok porque en casa solo hay silencio o dogmas rígidos.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="md:w-1/2 relative h-64 w-full rounded-xl overflow-hidden shadow-lg rotate-2 group-hover:rotate-0 transition duration-500">
+                                <Image
+                                    src="/images/educar-fe-adolescente.png"
+                                    alt="Adolescente desconectado"
+                                    fill
+                                    className="object-cover grayscale group-hover:grayscale-0 transition duration-700"
+                                />
+                                <div className="absolute inset-0 bg-stone-900/20 group-hover:bg-transparent transition"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
