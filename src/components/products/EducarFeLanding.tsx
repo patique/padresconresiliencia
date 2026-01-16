@@ -1,10 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Check, Star, ShieldCheck, ArrowRight, Heart, BookOpen, Clock, Users, Sun, Moon, CloudRain, Zap } from "lucide-react";
-import OfferCountdown from "@/components/ui/OfferCountdown";
-import AuthorSection from "@/components/home/AuthorSection";
+import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, Loader2 } from "lucide-react";
+import { addToWaitlist } from "@/actions/waitlist";
 
 interface Product {
     title: string;
@@ -16,6 +15,21 @@ interface Product {
 }
 
 export default function EducarFeLanding({ product }: { product: Product }) {
+    const [email, setEmail] = useState("");
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus("loading");
+        try {
+            await addToWaitlist(email, "Educar en la Fe");
+            setStatus("success");
+            setEmail("");
+        } catch (error) {
+            setStatus("error");
+        }
+    };
+
     return (
         <div className="min-h-screen bg-[#FDFBF7] font-sans text-stone-800">
             {/* --- HERO SECTION --- */}
@@ -25,17 +39,17 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                     <div className="max-w-4xl mx-auto text-center mb-12">
                         <div className="inline-flex items-center gap-2 bg-[#E07A5F]/10 text-[#E07A5F] px-4 py-1.5 rounded-full text-sm font-bold tracking-wide mb-8">
                             <Star className="w-4 h-4 fill-current" />
-                            <span>MÉTODO "ESPIRITUALIDAD RESILIENTE"</span>
+                            <span>PRÓXIMAMENTE: MÉTODO "ESPIRITUALIDAD RESILIENTE"</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl font-bold text-stone-900 mb-6 leading-tight">
                             ¿Y si la Fe no fuera otra tarea más, sino el <span className="text-[#E07A5F] underline decoration-4 decoration-[#E07A5F]/20">Refugio</span> al que tus hijos querrán volver siempre?
                         </h1>
                         <p className="text-xl md:text-2xl text-stone-600 leading-relaxed max-w-2xl mx-auto">
-                            Deja de ser el "policía de Dios" y conviértete en el guía que contagia el asombro. Sin peleas, sin aburrimiento y sin juicios.
+                            Deja de ser el "policía de Dios" y conviértete en el guía que contagia el asombro. Apúntate a la lista de espera para ser el primero en enterarte del lanzamiento.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
                         <div className="relative order-2 md:order-1">
                             <div className="relative z-10 transform rotate-[-2deg] hover:rotate-0 transition duration-500">
                                 <Image
@@ -43,7 +57,7 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                                     alt="Portada Ebook Educar en la Fe"
                                     width={600}
                                     height={800}
-                                    className="rounded-2xl shadow-2xl border-8 border-white"
+                                    className="rounded-2xl shadow-2xl border-8 border-white grayscale hover:grayscale-0 transition duration-500"
                                     priority
                                 />
                             </div>
@@ -51,29 +65,47 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                         </div>
 
                         <div className="order-1 md:order-2 flex flex-col gap-6">
-                            <div className="bg-white p-6 rounded-2xl shadow-lg border border-stone-100">
-                                <div className="flex items-center gap-4 mb-4 border-b border-stone-100 pb-4">
-                                    <div className="text-center">
-                                        <p className="text-xs text-stone-400 uppercase font-bold">Precio Habitual</p>
-                                        <p className="text-lg line-through text-stone-400 font-medium">{product.originalPrice}€</p>
+                            <div className="bg-white p-8 rounded-2xl shadow-lg border border-stone-100 relative overflow-hidden">
+                                {status === "success" ? (
+                                    <div className="text-center py-8 animate-in fade-in zoom-in duration-300">
+                                        <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <Check className="w-8 h-8 text-green-600" />
+                                        </div>
+                                        <h3 className="text-2xl font-bold text-stone-900 mb-2">¡Estás dentro!</h3>
+                                        <p className="text-stone-600">Te avisaremos en cuanto abramos las puertas. Prepárate para el asombro.</p>
                                     </div>
-                                    <div className="flex-1 text-center bg-[#E07A5F]/10 rounded-lg py-2">
-                                        <p className="text-xs text-[#E07A5F] uppercase font-bold">Oferta Hoy</p>
-                                        <p className="text-3xl font-bold text-[#E07A5F]">{product.price}€</p>
-                                    </div>
-                                </div>
-                                <OfferCountdown className="justify-center mb-4 text-[#E07A5F]" />
-                                <a href="https://pay.hotmart.com/YOUR_HOTMART_LINK_HERE" className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-                                    Quiero mi Guía Ahora
-                                </a>
-                                <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
-                                    <ShieldCheck className="w-3 h-3" /> Compra segura. Garantía de 15 días.
-                                </p>
+                                ) : (
+                                    <>
+                                        <h3 className="text-2xl font-bold text-stone-900 mb-2">Únete a la Lista de Espera</h3>
+                                        <p className="text-stone-600 mb-6">Este recurso aún no está disponible para el público general. Déjanos tu email para tener acceso prioritario y un descuento de lanzamiento.</p>
+
+                                        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                                            <input
+                                                type="email"
+                                                required
+                                                placeholder="Tu mejor email..."
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                className="w-full px-5 py-3 rounded-xl border border-stone-200 focus:border-[#E07A5F] focus:ring-2 focus:ring-[#E07A5F]/20 outline-none transition"
+                                            />
+                                            <button
+                                                type="submit"
+                                                disabled={status === "loading"}
+                                                className="w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-lg py-3 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                            >
+                                                {status === "loading" && <Loader2 className="w-5 h-5 animate-spin" />}
+                                                {status === "loading" ? "Apuntando..." : "Avísame cuando salga"}
+                                            </button>
+                                        </form>
+                                        <p className="text-center text-xs text-stone-400 mt-4 flex items-center justify-center gap-1">
+                                            <ShieldCheck className="w-3 h-3" /> Sin spam. Solo asombro.
+                                        </p>
+                                    </>
+                                )}
                             </div>
-                            <div className="flex flex-col gap-3 text-stone-600">
+                            <div className="flex flex-col gap-3 text-stone-600 pl-2">
                                 <div className="flex items-center gap-2"><Check className="w-5 h-5 text-green-500 shrink-0" /> <span>Lectura ágil y directa (sin teología compleja)</span></div>
                                 <div className="flex items-center gap-2"><Check className="w-5 h-5 text-green-500 shrink-0" /> <span>Estrategias por edad (0 a 12+ años)</span></div>
-                                <div className="flex items-center gap-2"><Check className="w-5 h-5 text-green-500 shrink-0" /> <span>Formato PDF compatible con todos los dispositivos</span></div>
                             </div>
                         </div>
                     </div>
@@ -200,33 +232,34 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                     <p className="text-stone-500 font-medium">— Del Epílogo de "Educar en la Fe"</p>
                 </div>
             </section>
-            <div className="py-10 bg-white">
-                <AuthorSection />
-            </div>
 
-            {/* --- FINAL CTA --- */}
+            {/* --- WAITING LIST CTA --- */}
             <section className="py-20 bg-[#E07A5F]">
                 <div className="container mx-auto px-6 text-center max-w-4xl">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">El mejor legado que puedes dejarles no es dinero, es un Refugio.</h2>
                     <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition duration-300">
-                        <div className="flex justify-center mb-6">
-                            <Image
-                                src={product.imageUrl || "/images/educar-en-la-fe-portada.png"}
-                                alt="Portada Ebook"
-                                width={150}
-                                height={200}
-                                className="shadow-md rounded-lg rotate-3"
-                            />
-                        </div>
-                        <div className="flex items-center justify-center gap-4 mb-6">
-                            <div className="text-stone-400 line-through text-xl font-medium">{product.originalPrice}€</div>
-                            <div className="text-[#E07A5F] text-5xl font-bold">{product.price}€</div>
-                        </div>
-                        <OfferCountdown className="justify-center mb-6 text-[#E07A5F]" />
-                        <a href="https://pay.hotmart.com/YOUR_HOTMART_LINK_HERE" className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-4 rounded-xl shadow-lg mb-4">
-                            Descargar Ebook Ahora
-                        </a>
-                        <p className="text-stone-400 text-xs">Pago único. Acceso de por vida. Garantía 100%.</p>
+
+                        <h3 className="text-2xl font-bold text-stone-900 mb-4">¿Te avisto cuando salga?</h3>
+                        {status === "success" ? (
+                            <div className="bg-green-50 p-4 rounded-xl">
+                                <p className="text-green-700 font-bold">¡Apuntado! Te avisaremos pronto.</p>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                                <input
+                                    type="email"
+                                    required
+                                    placeholder="Tu email aquí..."
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="w-full px-5 py-3 rounded-xl border border-stone-200 outline-none focus:ring-2 focus:ring-[#E07A5F]"
+                                />
+                                <button type="submit" className="w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-4 rounded-xl shadow-lg transition disabled:opacity-70">
+                                    {status === "loading" ? "Apuntando..." : "Sí, avísame"}
+                                </button>
+                            </form>
+                        )}
+                        <p className="text-stone-400 text-xs mt-4">Únete a otros 1.200 padres en la lista de espera.</p>
                     </div>
                 </div>
             </section>

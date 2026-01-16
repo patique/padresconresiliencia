@@ -125,13 +125,22 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                             </p>
 
                             <div className="mt-auto pt-6 border-t border-stone-100">
-                                <button
-                                    type="button"
-                                    onClick={() => setSelectedTopic(course.title)}
-                                    className="w-full bg-stone-100 text-stone-600 hover:bg-[#E07A5F] hover:text-white border border-transparent hover:border-[#E07A5F] px-5 py-3 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 group-hover:bg-[#E07A5F]/10 group-hover:text-[#E07A5F] group-hover:hover:bg-[#E07A5F] group-hover:hover:text-white"
-                                >
-                                    <Heart className="w-4 h-4" /> Lo quiero
-                                </button>
+                                {course.slug === 'educar-en-la-fe' ? (
+                                    <a
+                                        href={`/products/${course.slug}`}
+                                        className="w-full bg-stone-100 text-stone-600 hover:bg-[#E07A5F] hover:text-white border border-transparent hover:border-[#E07A5F] px-5 py-3 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 group-hover:bg-[#E07A5F]/10 group-hover:text-[#E07A5F] group-hover:hover:bg-[#E07A5F] group-hover:hover:text-white"
+                                    >
+                                        <Heart className="w-4 h-4" /> Ver Detalles
+                                    </a>
+                                ) : (
+                                    <button
+                                        type="button"
+                                        onClick={() => setSelectedTopic(course.title)}
+                                        className="w-full bg-stone-100 text-stone-600 hover:bg-[#E07A5F] hover:text-white border border-transparent hover:border-[#E07A5F] px-5 py-3 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 group-hover:bg-[#E07A5F]/10 group-hover:text-[#E07A5F] group-hover:hover:bg-[#E07A5F] group-hover:hover:text-white"
+                                    >
+                                        <Heart className="w-4 h-4" /> Avisadme
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </div>
