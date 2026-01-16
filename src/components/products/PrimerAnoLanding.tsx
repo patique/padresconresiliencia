@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, BatteryMedium, Coffee, Users, Brain } from "lucide-react";
+import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, BatteryMedium, Coffee, Users, Brain, ArrowRight } from "lucide-react";
 import OfferCountdown from "@/components/ui/OfferCountdown";
 
 interface Product {
@@ -131,6 +131,18 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                         <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent flex items-end p-8">
                             <p className="text-white text-lg font-medium">"Amamos a nuestro bebé, pero sentimos que estamos perdiendo nuestra vida."</p>
                         </div>
+                    </div>
+
+                    {/* CTA AFTER AGITATION */}
+                    <div className="flex justify-center mt-12">
+                        <a
+                            href={hotmartLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-lg py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center gap-2"
+                        >
+                            Quiero dejar de sobrevivir y empezar a disfrutar <Check className="w-5 h-5" />
+                        </a>
                     </div>
                 </div>
             </section>
