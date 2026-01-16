@@ -279,120 +279,78 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                 </div>
             </section>
 
-            {/* --- THE SOLUTION (MODULES DEEP DIVE) --- */}
-            <section className="py-24 bg-stone-50">
-                <div className="container mx-auto px-6 max-w-5xl">
-                    <div className="text-center mb-16">
-                        <span className="text-[#E07A5F] font-bold tracking-widest uppercase text-xs">Lo que descubrirás dentro</span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-stone-900 mt-2">De la Obligación al Asombro: El Método</h2>
-                    </div>
-
-                    <div className="space-y-8">
-                        {/* Module 1 */}
-                        <div className="bg-white rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-md transition border border-stone-100 flex flex-col md:flex-row gap-8">
-                            <div className="md:w-1/3 flex flex-col items-center shrink-0">
-                                <div className="bg-[#E07A5F]/10 w-20 h-20 rounded-full flex items-center justify-center mb-4 text-[#E07A5F]">
-                                    <Sun className="w-10 h-10" />
+            {/* --- THE SOLUTION (MODULES DEEP DIVE WITH IMAGE) --- */}
+            <section className="py-24 bg-white relative">
+                <div className="container mx-auto px-6 max-w-6xl">
+                    <div className="flex flex-col lg:flex-row gap-16 items-start">
+                        <div className="lg:w-1/3 sticky top-24">
+                            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6 leading-tight">
+                                El Mapa Completo: <br /><span className="text-[#E07A5F]">De la Obligación al Asombro</span>
+                            </h2>
+                            <p className="text-stone-600 mb-8 leading-relaxed">
+                                Más que un ebook es una hoja de ruta, paso a paso, desde los 0 años hasta la adolescencia, para construir una espiritualidad que dure toda la vida.
+                            </p>
+                            <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl rotate-1 hover:rotate-0 transition duration-500 border border-stone-100">
+                                <Image
+                                    src="/images/educar-fe-bote.png"
+                                    alt="Familia feliz con bote de gratitud"
+                                    fill
+                                    className="object-cover"
+                                />
+                                <div className="absolute bottom-0 left-0 right-0 bg-stone-900/70 p-4 backdrop-blur-sm">
+                                    <p className="text-white text-sm font-medium text-center">Incluye dinámicas prácticas para vivir en familia</p>
                                 </div>
-                                <h3 className="font-bold text-xl text-stone-900 text-center">Fase 1: Sanar la Imagen de Dios</h3>
-                                <span className="text-xs text-stone-400 uppercase font-bold mt-2 tracking-wide">Los Cimientos</span>
-                            </div>
-                            <div className="md:w-2/3 border-l border-stone-100 md:pl-8">
-                                <p className="text-stone-600 mb-4 italic">"Dios no es un sistema de vigilancia, es un refugio."</p>
-                                <ul className="space-y-4">
-                                    <li className="flex gap-3 text-stone-700">
-                                        <Check className="w-5 h-5 text-[#E07A5F] shrink-0 mt-1" />
-                                        <span><strong>El cambio de lenguaje:</strong> Cómo dejar de usar a Dios para amenazar y empezar a usarlo para reparar vínculos.</span>
-                                    </li>
-                                    <li className="flex gap-3 text-stone-700">
-                                        <Check className="w-5 h-5 text-[#E07A5F] shrink-0 mt-1" />
-                                        <span><strong>Validación Emocional Cristiana:</strong> Por qué Jesús se enfadaba y lloraba (y por qué tus hijos necesitan saber que "ser bueno" no significa reprimir emociones).</span>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
 
-                        {/* Module 2 */}
-                        <div className="bg-white rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-md transition border border-stone-100 flex flex-col md:flex-row gap-8">
-                            <div className="md:w-1/3 flex flex-col items-center shrink-0">
-                                <div className="bg-[#E07A5F]/10 w-20 h-20 rounded-full flex items-center justify-center mb-4 text-[#E07A5F]">
-                                    <Star className="w-10 h-10" />
-                                </div>
-                                <h3 className="font-bold text-xl text-stone-900 text-center">Fase 2: El Asombro (0-7 años)</h3>
-                                <span className="text-xs text-stone-400 uppercase font-bold mt-2 tracking-wide">La Magia</span>
-                            </div>
-                            <div className="md:w-2/3 border-l border-stone-100 md:pl-8">
-                                <p className="text-stone-600 mb-4 italic">"No se trata de dar lecciones, se trata de abrir los ojos."</p>
-                                <ul className="space-y-4">
-                                    <li className="flex gap-3 text-stone-700">
-                                        <Check className="w-5 h-5 text-[#E07A5F] shrink-0 mt-1" />
-                                        <span><strong>Micro-Liturgias que funcionan:</strong> Ritual de la "Bendición Nocturna" y el juego del agradecimiento en la cena. (Sin que suene forzado).</span>
-                                    </li>
-                                    <li className="flex gap-3 text-stone-700">
-                                        <Check className="w-5 h-5 text-[#E07A5F] shrink-0 mt-1" />
-                                        <span><strong>Teología de la Naturaleza:</strong> Cómo una puesta de sol explica a Dios mejor que mil catequesis aburridas.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Module 3 */}
-                        <div className="bg-white rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-md transition border border-stone-100 flex flex-col md:flex-row gap-8">
-                            <div className="md:w-1/3 flex flex-col items-center shrink-0">
-                                <div className="bg-[#E07A5F]/10 w-20 h-20 rounded-full flex items-center justify-center mb-4 text-[#E07A5F]">
-                                    <Zap className="w-10 h-10" />
-                                </div>
-                                <h3 className="font-bold text-xl text-stone-900 text-center">Fase 3: La Verdad Incómoda (7-12+ años)</h3>
-                                <span className="text-xs text-stone-400 uppercase font-bold mt-2 tracking-wide">La Madurez</span>
-                            </div>
-                            <div className="md:w-2/3 border-l border-stone-100 md:pl-8">
-                                <p className="text-stone-600 mb-4 italic">"Tu hijo necesita tus dudas, no solo tus certezas."</p>
-                                <ul className="space-y-4">
-                                    <li className="flex gap-3 text-stone-700">
-                                        <Check className="w-5 h-5 text-[#E07A5F] shrink-0 mt-1" />
-                                        <span><strong>Gestionar la muerte y el dolor:</strong> Qué decir (y qué NO decir) cuando fallece el abuelo o ven una guerra en la TV.</span>
-                                    </li>
-                                    <li className="flex gap-3 text-stone-700">
-                                        <Check className="w-5 h-5 text-[#E07A5F] shrink-0 mt-1" />
-                                        <span><strong>Supervivencia a la Misa:</strong> Estrategias reales para el "me aburro" sin acabar gritando en el banco de la iglesia.</span>
-                                    </li>
-                                    <li className="flex gap-3 text-stone-700">
-                                        <Check className="w-5 h-5 text-[#E07A5F] shrink-0 mt-1" />
-                                        <span><strong>El adolescente ateo:</strong> Por qué su rechazo es una buena señal y cómo "conectar antes de corregir" para no perder el vínculo sagrado.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* BONUS */}
-                        <div className="bg-gradient-to-br from-stone-900 to-stone-800 rounded-2xl p-8 md:p-10 shadow-xl text-white transform md:scale-105 border-4 border-white/10 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-[#E07A5F] rounded-full blur-3xl opacity-20"></div>
-
-                            <div className="flex flex-col md:flex-row gap-8 items-center relative z-10">
-                                <div className="md:w-1/4 flex flex-col items-center text-center">
-                                    <div className="bg-white/10 w-20 h-20 rounded-full flex items-center justify-center text-yellow-400 mb-2 shadow-inner">
-                                        <Heart className="w-10 h-10" />
-                                    </div>
-                                    <span className="font-bold text-yellow-400 text-sm tracking-widest uppercase">Bonus Exclusivo</span>
-                                </div>
-                                <div className="md:w-3/4">
-                                    <h3 className="font-bold text-2xl mb-4 text-white">El Kit Práctico "Fe en Acción"</h3>
-                                    <p className="text-stone-300 mb-6 font-light">
-                                        Porque la fe no se piensa, se vive. Herramientas tangibles para bajar a tierra todo lo aprendido.
+                        <div className="lg:w-2/3 grid gap-8">
+                            {/* Module 1 */}
+                            <div className="bg-stone-50 rounded-2xl p-8 flex gap-6 hover:bg-white hover:shadow-xl transition duration-300 border border-stone-100 group">
+                                <div className="bg-white w-14 h-14 rounded-xl flex items-center justify-center text-[#E07A5F] shadow-sm shrink-0 font-bold text-xl group-hover:scale-110 transition">1</div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-stone-900 mb-2">Fase 1: Sanar la Imagen de Dios</h3>
+                                    <p className="text-stone-600 leading-relaxed mb-3">
+                                        Desmontamos al "Dios Policía". Descubrirás cómo reparar el daño si has usado la fe como amenaza y cómo validar las emociones "negativas" de tu hijo como parte de su vida espiritual.
                                     </p>
-                                    <ul className="space-y-4">
-                                        <li className="flex gap-3 text-stone-200">
-                                            <div className="bg-white/20 p-1 rounded-full h-fit mt-0.5"><Check className="w-3 h-3 text-white" /></div>
-                                            <span><strong>El Bote de la Gratitud:</strong> El antídoto número 1 contra el materialismo y la queja constante.</span>
-                                        </li>
-                                        <li className="flex gap-3 text-stone-200">
-                                            <div className="bg-white/20 p-1 rounded-full h-fit mt-0.5"><Check className="w-3 h-3 text-white" /></div>
-                                            <span><strong>Misiones Secretas de Servicio:</strong> Convertir el voluntariado en una aventura familiar (Operación Despensa).</span>
-                                        </li>
-                                        <li className="flex gap-3 text-stone-200">
-                                            <div className="bg-white/20 p-1 rounded-full h-fit mt-0.5"><Check className="w-3 h-3 text-white" /></div>
-                                            <span><strong>Cuidar al Cuidador:</strong> Cómo recuperar tu propia vida espiritual en 5 minutos al día (porque no puedes dar lo que no tienes).</span>
-                                        </li>
+                                </div>
+                            </div>
+
+                            {/* Module 2 */}
+                            <div className="bg-stone-50 rounded-2xl p-8 flex gap-6 hover:bg-white hover:shadow-xl transition duration-300 border border-stone-100 group">
+                                <div className="bg-white w-14 h-14 rounded-xl flex items-center justify-center text-[#E07A5F] shadow-sm shrink-0 font-bold text-xl group-hover:scale-110 transition">2</div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-stone-900 mb-2">Fase 2: Magia y Asombro (0-7 años)</h3>
+                                    <p className="text-stone-600 leading-relaxed mb-3">
+                                        Olvídate de las clases teóricas. Aprenderás rituales sensoriales: La "Bendición de Contacto", la Teología de la Naturaleza y cómo orar con el cuerpo para niños inquietos.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Module 3 */}
+                            <div className="bg-stone-50 rounded-2xl p-8 flex gap-6 hover:bg-white hover:shadow-xl transition duration-300 border border-stone-100 group">
+                                <div className="bg-white w-14 h-14 rounded-xl flex items-center justify-center text-[#E07A5F] shadow-sm shrink-0 font-bold text-xl group-hover:scale-110 transition">3</div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-stone-900 mb-2">Fase 3: La Madurez y la Crisis (7-12+ años)</h3>
+                                    <p className="text-stone-600 leading-relaxed mb-3">
+                                        El momento de la verdad. Cómo responder a "¿Por qué existe el mal?" sin mentir. Estrategias de supervivencia para la Misa. Y lo más importante: cómo acompañar la duda adolescente sin romper el vínculo.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* BONUS */}
+                            <div className="bg-gradient-to-r from-stone-900 to-stone-800 rounded-2xl p-8 text-white relative overflow-hidden shadow-2xl transform hover:scale-[1.02] transition duration-300">
+                                <div className="absolute top-0 right-0 -mr-10 -mt-10 w-32 h-32 bg-[#E07A5F] rounded-full blur-3xl opacity-30"></div>
+                                <div className="relative z-10">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <Heart className="file:text-[#E07A5F] fill-current text-[#E07A5F] w-6 h-6" />
+                                        <span className="font-bold tracking-widest uppercase text-sm">Bonus Exclusivo: Kit "Fe en Acción"</span>
+                                    </div>
+                                    <h3 className="text-2xl font-bold mb-4">Herramientas Anti-Teoría</h3>
+                                    <ul className="grid sm:grid-cols-2 gap-4">
+                                        <li className="flex items-center gap-2"><Check className="w-5 h-5 text-green-400" /> <span>El Bote de la Gratitud</span></li>
+                                        <li className="flex items-center gap-2"><Check className="w-5 h-5 text-green-400" /> <span>Misiones Secretas de Servicio</span></li>
+                                        <li className="flex items-center gap-2"><Check className="w-5 h-5 text-green-400" /> <span>Cinefórum con Valores</span></li>
+                                        <li className="flex items-center gap-2"><Check className="w-5 h-5 text-green-400" /> <span>Recuperar tu Oasis Espiritual</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -418,7 +376,7 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">El mejor legado que puedes dejarles no es dinero, es un Refugio.</h2>
                     <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition duration-300">
 
-                        <h3 className="text-2xl font-bold text-stone-900 mb-4">¿Te avisto cuando salga?</h3>
+                        <h3 className="text-2xl font-bold text-stone-900 mb-4">¿Te aviso cuando salga?</h3>
                         {status === "success" ? (
                             <div className="bg-green-50 p-4 rounded-xl">
                                 <p className="text-green-700 font-bold">¡Apuntado! Te avisaremos pronto.</p>
