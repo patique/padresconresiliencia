@@ -195,6 +195,18 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                             </div>
                         </div>
                     </div>
+
+                    {/* CTA AFTER DREAM */}
+                    <div className="flex justify-center mt-12">
+                        <a
+                            href={hotmartLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white text-[#E07A5F] hover:bg-stone-50 font-bold text-lg py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
+                        >
+                            Quiero esta calma para mi familia
+                        </a>
+                    </div>
                 </div>
             </section>
 
