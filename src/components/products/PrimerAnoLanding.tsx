@@ -272,6 +272,13 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                             </div>
                         </div>
                     </div>
+
+                    {/* SECONDARY CTA IN SOLUTION */}
+                    <div className="container mx-auto px-6 max-w-5xl pt-12 pb-4 text-center">
+                        <a href={hotmartLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-stone-400 hover:text-[#E07A5F] underline underline-offset-4 text-sm transition font-medium">
+                            Saltar al checkout directamente <ArrowRight className="w-4 h-4" />
+                        </a>
+                    </div>
                 </div>
             </section>
 
