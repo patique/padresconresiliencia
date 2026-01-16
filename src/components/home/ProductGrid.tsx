@@ -28,7 +28,7 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                 {availableProducts.map((product) => {
                     // Override logic for specific product branding
                     const displayTitle = product.slug === 'bienestar-emocional-padres'
-                        ? "Mi Bebé Llora, ¿Y Yo Qué?"
+                        ? "Cómo Disfrutar del Primer Año de tu Bebé"
                         : product.title;
 
                     const displayImage = product.slug === 'bienestar-emocional-padres'

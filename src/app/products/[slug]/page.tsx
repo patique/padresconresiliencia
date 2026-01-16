@@ -83,7 +83,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
                             <h1 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
                                 {product?.slug === 'bienestar-emocional-padres'
-                                    ? <span>El "Interruptor" Biológico para <span className="text-[#E07A5F]">Detener el Caos</span> y Recuperar tu Vida <span className="block text-lg md:text-2xl font-normal text-stone-500 mt-4">Sin dormirte en el intento. Sin perder los nervios.</span></span>
+                                    ? <span>Cómo Disfrutar del <span className="text-[#E07A5F]">Primer Año de tu Bebé</span> <span className="block text-lg md:text-2xl font-normal text-stone-500 mt-4">La guía sin culpas para cuidar de ti mientras cuidas de él.</span></span>
                                     : product?.title
                                 }
                             </h1>
