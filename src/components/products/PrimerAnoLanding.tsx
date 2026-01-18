@@ -13,6 +13,7 @@ import caosImg from "@/assets/images/primer-ano-caos.png";
 import conexionImg from "@/assets/images/primer-ano-conexion.png";
 import herramientasImg from "@/assets/images/primer-ano-herramientas.png";
 import educarFeImg from "@/assets/images/educar-en-la-fe-portada.png";
+import maximoImg from "@/assets/images/maximo-con-libro.png";
 
 interface Product {
     title: string;
@@ -312,6 +313,33 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                         <a href={hotmartLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold py-3 px-6 rounded-lg transition">
                             Prefiero ir directo al pago <ArrowRight className="w-4 h-4" />
                         </a>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- AUTHOR SECTION --- */}
+            <section className="py-20 bg-[#FDFBF7] overflow-hidden">
+                <div className="container mx-auto px-6 max-w-5xl">
+                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-stone-100 flex flex-col md:flex-row items-center gap-12 relative">
+                        <div className="relative shrink-0 w-64 h-64 md:w-80 md:h-80 transform rotate-[-2deg] hover:rotate-0 transition duration-500">
+                            <Image
+                                src={maximoImg}
+                                alt="Máximo con su libro"
+                                className="rounded-2xl shadow-lg border-4 border-white object-cover"
+                                fill
+                            />
+                        </div>
+                        <div className="flex-1 text-center md:text-left">
+                            <h2 className="text-3xl font-bold text-stone-900 mb-6">Hola, soy Máximo</h2>
+                            <p className="text-lg text-stone-600 mb-6 leading-relaxed">
+                                Entiendo perfectamente por lo que estás pasando porque yo también estuve ahí. Mi propósito con <strong>Padres con Resiliencia</strong> es acompañarte en este viaje, aportando claridad donde hay dudas y herramientas prácticas donde hay agotamiento.
+                            </p>
+                            <div className="bg-stone-50 rounded-xl p-6 border-l-4 border-[#E07A5F]">
+                                <p className="text-stone-500 italic font-medium">
+                                    "Mi misión es que cada padre y madre recupere la confianza en sí mismo para disfrutar de la etapa más importante de sus vidas."
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
