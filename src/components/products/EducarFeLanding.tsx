@@ -63,7 +63,7 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                         <div className="relative order-2 md:order-1">
                             <div className="relative z-10 transform rotate-[-2deg] hover:rotate-0 transition duration-500">
                                 <Image
-                                    src={product.imageUrl || "/images/educar-en-la-fe-portada.png"}
+                                    src={product.imageUrl || "/images/como-educar-en-la-fe.png"}
                                     alt="Portada Ebook Educar en la Fe"
                                     width={600}
                                     height={800}
