@@ -17,6 +17,7 @@ interface Product {
 export default function EducarFeLanding({ product }: { product: Product }) {
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const hotmartLink = "https://pay.hotmart.com/H103988286K?off=rsw6f2ko";
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -75,45 +76,30 @@ export default function EducarFeLanding({ product }: { product: Product }) {
 
                         <div className="order-1 md:order-2 flex flex-col gap-6">
                             <div className="bg-white p-8 rounded-2xl shadow-lg border border-stone-100 relative overflow-hidden">
+                                {/* HERO SECTION CTA */}
                                 <div className="absolute top-0 right-0 bg-stone-900 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">
-                                    PRE-VENTA
+                                    -30% DTO
                                 </div>
 
-                                {status === "success" ? (
-                                    <div className="text-center py-8 animate-in fade-in zoom-in duration-300">
-                                        <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                                            <Check className="w-8 h-8 text-green-600" />
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-stone-900 mb-2">¡Interés Registrado!</h3>
-                                        <p className="text-stone-600">Eres parte del grupo fundador. Te enviaremos el acceso prioritario en breve.</p>
-                                    </div>
-                                ) : (
-                                    <>
-                                        <h3 className="text-2xl font-bold text-stone-900 mb-2">Únete a la Preventa</h3>
-                                        <p className="text-stone-600 mb-6 text-sm">Estamos validando el interés en esta guía. Si te apuntas ahora, asegurarás el <strong>precio más bajo posible</strong> y bonus exclusivos de lanzamiento.</p>
+                                <div className="text-center pt-4">
+                                    <h3 className="text-2xl font-bold text-stone-900 mb-2">Oferta de Lanzamiento</h3>
+                                    <p className="text-stone-600 mb-6 text-sm">Adquiere la guía hoy con un <span className="text-[#E07A5F] font-bold">30% de descuento</span> antes del lanzamiento oficial el 1 de Febrero.</p>
 
-                                        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                                            <input
-                                                type="email"
-                                                required
-                                                placeholder="Tu email principal..."
-                                                value={email}
-                                                onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full px-5 py-3 rounded-xl border border-stone-200 focus:border-[#E07A5F] focus:ring-2 focus:ring-[#E07A5F]/20 outline-none transition"
-                                            />
-                                            <button
-                                                type="submit"
-                                                disabled={status === "loading"}
-                                                className="w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-lg py-3 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                                            >
-                                                {status === "loading" ? <Loader2 className="w-5 h-5 animate-spin" /> : "Quiero asegurar mi copia"}
-                                            </button>
-                                        </form>
-                                        <p className="text-center text-xs text-stone-400 mt-4">
-                                            Sin compromiso de compra. Solo para interesados reales.
-                                        </p>
-                                    </>
-                                )}
+                                    <div className="flex items-end justify-center gap-2 mb-6">
+                                        <span className="text-5xl font-bold text-[#E07A5F]">4.90€</span>
+                                        <span className="text-xl text-stone-400 line-through mb-1">7.00€</span>
+                                    </div>
+
+                                    <a
+                                        href={hotmartLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center gap-2"
+                                    >
+                                        ¡Aprovechar Oferta Ahora! <ArrowRight className="w-5 h-5" />
+                                    </a>
+                                    <p className="text-xs text-stone-400 mt-4">Oferta válida hasta el 1 de Febrero.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -270,33 +256,25 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                     </p>
 
                     <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition duration-300">
+                        <h3 className="text-2xl font-bold text-stone-900 mb-2">Asegura tu copia hoy</h3>
+                        <p className="text-sm text-stone-500 mb-6">Precio especial de preventa disponible por tiempo limitado.</p>
 
-                        <h3 className="text-2xl font-bold text-stone-900 mb-2">Lista de Espera Prioritaria</h3>
-                        <p className="text-sm text-stone-500 mb-6">Asegura tu copia y el bonus de lanzamiento.</p>
+                        <div className="flex items-center justify-center gap-4 mb-8 bg-stone-50 py-3 rounded-lg">
+                            <span className="text-stone-400 line-through text-lg">7.00€</span>
+                            <span className="text-4xl font-bold text-[#E07A5F]">4.90€</span>
+                        </div>
 
-                        {status === "success" ? (
-                            <div className="bg-green-50 p-6 rounded-xl border border-green-200">
-                                <div className="flex justify-center mb-2"><Check className="w-8 h-8 text-green-600" /></div>
-                                <p className="text-green-800 font-bold text-lg">¡Te has apuntado con éxito!</p>
-                                <p className="text-green-600 text-sm mt-1">Revisa tu correo pronto.</p>
-                            </div>
-                        ) : (
-                            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                                <input
-                                    type="email"
-                                    required
-                                    placeholder="Tu email aquí..."
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full px-5 py-4 rounded-xl border border-stone-200 outline-none focus:ring-2 focus:ring-[#E07A5F] text-lg"
-                                />
-                                <button type="submit" className="w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-4 rounded-xl shadow-lg transition disabled:opacity-70">
-                                    {status === "loading" ? "Procesando..." : "Sí, quiero apuntarme"}
-                                </button>
-                            </form>
-                        )}
-                        <p className="text-stone-400 text-xs mt-6">
-                            Lanzamiento previo exclusivo. Plazas limitadas.
+                        <a
+                            href={hotmartLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2"
+                        >
+                            Comprar en Preventa <ArrowRight className="w-5 h-5" />
+                        </a>
+
+                        <p className="text-stone-400 text-xs mt-6 flex items-center justify-center gap-1">
+                            <ShieldCheck className="w-3 h-3" /> Pago 100% Seguro vía Hotmart
                         </p>
                     </div>
                 </div>
