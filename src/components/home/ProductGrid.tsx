@@ -101,7 +101,7 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                 {/* Waitlist / Future Products */}
                 {waitlistProducts.map((course) => {
                     const displayImage = course.slug === 'educar-en-la-fe'
-                        ? "/images/como-educar-en-la-fe.png"
+                        ? "/images/educar-fe-cover.png"
                         : course.imageUrl;
 
                     return (
