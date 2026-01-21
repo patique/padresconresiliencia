@@ -33,7 +33,9 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
 
                     const displayImage = product.slug === 'bienestar-emocional-padres'
                         ? "/images/portada-ebook-final.png"
-                        : product.imageUrl;
+                        : product.slug === 'educar-en-la-fe'
+                            ? "/images/como-educar-en-la-fe.png"
+                            : product.imageUrl;
 
                     return (
                         <div key={product.id} className="group flex flex-col bg-white rounded-2xl border border-stone-200 overflow-hidden hover:shadow-xl hover:shadow-stone-200/50 transition-all duration-300 transform hover:-translate-y-1">
@@ -86,8 +88,8 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                                             </span>
                                         </div>
                                     </div>
-                                    <a href={`/products/${product.slug}`} className="bg-stone-900 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#E07A5F] transition-colors">
-                                        Ver Detalles
+                                    <a href={`/products/${product.slug}`} className={`px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors ${product.slug === 'educar-en-la-fe' ? 'bg-[#E07A5F] text-white hover:bg-[#c96348]' : 'bg-stone-900 text-white hover:bg-[#E07A5F]'}`}>
+                                        {product.slug === 'educar-en-la-fe' ? "Comprar Ahora" : "Ver Detalles"}
                                     </a>
                                 </div>
                             </div>
