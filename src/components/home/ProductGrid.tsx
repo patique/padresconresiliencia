@@ -34,7 +34,7 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                     const displayImage = product.slug === 'bienestar-emocional-padres'
                         ? "/images/portada-ebook-final.png"
                         : product.slug === 'educar-en-la-fe'
-                            ? "/images/como-educar-en-la-fe.png"
+                            ? "/images/educar-fe-cover.png"
                             : product.imageUrl;
 
                     return (
