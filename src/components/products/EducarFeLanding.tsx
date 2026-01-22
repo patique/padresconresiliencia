@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, Loader2, CloudRain, X, ArrowRight, BatteryMedium, Users, Brain } from "lucide-react";
 import { joinWaitlist } from "@/actions/waitlist";
+import OfferCountdown from "@/components/ui/OfferCountdown";
+import maximoImg from "@/assets/images/maximo-con-libro.png";
 
 interface Product {
     title: string;
@@ -88,6 +90,10 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                                     <div className="flex items-end justify-center gap-2 mb-6">
                                         <span className="text-5xl font-bold text-[#E07A5F]">4.90€</span>
                                         <span className="text-xl text-stone-400 line-through mb-1">7.00€</span>
+                                    </div>
+
+                                    <div className="flex justify-center mb-4">
+                                        <OfferCountdown targetDate="2026-02-01T00:00:00" className="text-[#E07A5F] text-base" />
                                     </div>
 
                                     <a
@@ -243,6 +249,33 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                         <div className="bg-[#FDFBF7] p-8 rounded-2xl border border-stone-100 hover:border-[#E07A5F]/30 transition">
                             <div className="w-12 h-12 bg-stone-200 rounded-full mx-auto mb-4 flex items-center justify-center font-serif font-bold text-stone-600">3</div>
                             <p className="font-medium text-stone-800">Quieres dejar un legado que dure por la eternidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- AUTHOR SECTION --- */}
+            <section className="py-20 bg-[#FDFBF7] overflow-hidden">
+                <div className="container mx-auto px-6 max-w-5xl">
+                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-stone-100 flex flex-col md:flex-row items-center gap-12 relative">
+                        <div className="relative shrink-0 w-64 h-64 md:w-80 md:h-80 transform rotate-[-2deg] hover:rotate-0 transition duration-500">
+                            <Image
+                                src={maximoImg}
+                                alt="Máximo con su libro"
+                                className="rounded-2xl shadow-lg border-4 border-white object-cover"
+                                fill
+                            />
+                        </div>
+                        <div className="flex-1 text-center md:text-left">
+                            <h2 className="text-3xl font-bold text-stone-900 mb-6">Hola, soy Máximo</h2>
+                            <p className="text-lg text-stone-600 mb-6 leading-relaxed">
+                                Entiendo perfectamente ese nudo en el estómago cuando piensas en el futuro espiritual de tus hijos. Mi propósito con <strong>Padres con Resiliencia</strong> y esta guía es darte la tranquilidad de saber que estás construyendo sobre roca firme, con amor y sin miedos.
+                            </p>
+                            <div className="bg-stone-50 rounded-xl p-6 border-l-4 border-[#E07A5F]">
+                                <p className="text-stone-500 italic font-medium">
+                                    "La fe no se impone, se propone y se testimonia. Aquí tienes el mapa para hacerlo con alegría."
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
