@@ -344,8 +344,8 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                     <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-stone-100 flex flex-col md:flex-row items-center gap-12 relative">
                         <div className="relative shrink-0 w-64 h-64 md:w-80 md:h-80 transform rotate-[-2deg] hover:rotate-0 transition duration-500">
                             <Image
-                                src={maximoImg}
-                                alt="Máximo con su libro"
+                                src="/images/maximo-author.png"
+                                alt="Máximo - Autor de Padres con Resiliencia"
                                 className="rounded-2xl shadow-lg border-4 border-white object-cover"
                                 fill
                             />
