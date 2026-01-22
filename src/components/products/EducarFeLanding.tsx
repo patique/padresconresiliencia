@@ -313,7 +313,7 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                             </div>
 
                             {/* Animated Child Image */}
-                            <div className="absolute -bottom-4 -right-4 w-32 h-32 md:w-40 md:h-40 opacity-20 group-hover:opacity-40 transition duration-700 pointer-events-none">
+                            <div className="absolute -bottom-4 -right-4 w-32 h-32 md:w-40 md:h-40 opacity-60 group-hover:opacity-100 transition duration-700 pointer-events-none">
                                 <div className="relative w-full h-full animate-pulse-slow">
                                     <Image
                                         src="/images/child-praying.png"
