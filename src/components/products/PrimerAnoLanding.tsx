@@ -105,6 +105,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                                     href={hotmartLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Bienestar Emocional Padres', value: product.price, currency: 'USD' })}
                                     className="block w-full text-center bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1 mb-4"
                                 >
                                     ¡Lo quiero ahora!
@@ -172,6 +173,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                             href={hotmartLink}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Bienestar Emocional Padres', value: product.price, currency: 'USD' })}
                             className="bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1 flex items-center gap-2"
                         >
                             Quiero dejar de sobrevivir y empezar a disfrutar <Check className="w-5 h-5" />
@@ -237,6 +239,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                             href={hotmartLink}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Bienestar Emocional Padres', value: product.price, currency: 'USD' })}
                             className="bg-white text-[#E07A5F] hover:bg-stone-50 font-bold text-xl py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1"
                         >
                             Quiero esta calma para mi familia
@@ -310,7 +313,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
 
                     {/* SECONDARY CTA IN SOLUTION */}
                     <div className="container mx-auto px-6 max-w-5xl pt-12 pb-4 text-center">
-                        <a href={hotmartLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold py-3 px-6 rounded-lg transition">
+                        <a href={hotmartLink} target="_blank" rel="noopener noreferrer" onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Bienestar Emocional Padres', value: product.price, currency: 'USD' })} className="inline-flex items-center gap-2 bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold py-3 px-6 rounded-lg transition">
                             Prefiero ir directo al pago <ArrowRight className="w-4 h-4" />
                         </a>
                     </div>
@@ -364,6 +367,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                         href={hotmartLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Bienestar Emocional Padres', value: product.price, currency: 'USD' })}
                         className="inline-flex items-center gap-3 bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1"
                     >
                         <span>Descargar la Guía Ahora</span>

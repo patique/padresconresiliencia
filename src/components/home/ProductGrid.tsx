@@ -151,6 +151,7 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                                             </div>
                                             <a
                                                 href={`/products/${course.slug}`}
+                                                onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 4.90, currency: 'EUR' })}
                                                 className="w-full bg-stone-900 text-white hover:bg-[#E07A5F] px-5 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                                             >
                                                 Comprar Ahora

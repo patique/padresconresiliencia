@@ -94,6 +94,7 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                                         href={hotmartLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 4.90, currency: 'EUR' })}
                                         className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center gap-2"
                                     >
                                         ¡Aprovechar Oferta Ahora! <ArrowRight className="w-5 h-5" />
@@ -268,6 +269,7 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                             href={hotmartLink}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 4.90, currency: 'EUR' })}
                             className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2"
                         >
                             Comprar en Preventa <ArrowRight className="w-5 h-5" />
