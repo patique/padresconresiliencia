@@ -170,232 +170,234 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                         <p className="mt-3 text-sm text-stone-400 font-medium">Oferta limitada de preventa</p>
                     </div>
                 </div>
-                {/* --- STORYTELLING: THE SCENE --- */}
-                <section className="py-24 bg-stone-50 border-y border-stone-200">
-                    <div className="container mx-auto px-6 max-w-3xl">
-                        <h3 className="text-2xl md:text-3xl font-bold text-stone-900 mb-8 text-center">¿Te suena esta escena?</h3>
+            </section>
 
-                        <div className="relative bg-white p-8 md:p-10 rounded-2xl shadow-lg leading-relaxed text-lg text-stone-600 italic">
-                            <div className="absolute -top-4 -left-4 text-6xl text-[#E07A5F] opacity-20 font-serif">"</div>
-                            <p className="mb-6">
-                                Martes por la noche. Estás agotado/a del trabajo.
-                                <br /><br />
-                                Te sientas a cenar y preguntas: <em>"¿Qué tal el día?"</em>.
-                                <br />
-                                Respuesta: <em>"Bien"</em>. (Silencio).
-                                <br /><br />
-                                Intentas aprovechar para hablar de algo importante, quizás algo que escuchaste en misa o un valor que quieres transmitir. De repente, el ambiente cambia. Tus hijos miran el plato, se ponen a la defensiva o, peor aún, ponen los ojos en blanco.
-                                <br /><br />
-                                Sientes que hay un <strong>muro invisible</strong>. Te sientes un "pesado". Y te vas a dormir pensando:
-                                <span className="block mt-4 font-bold text-[#E07A5F] not-italic">"Ojalá supiera cómo llegar a su corazón sin que parezca un sermón".</span>
-                            </p>
-                        </div>
+            {/* --- STORYTELLING: THE SCENE --- */}
+            <section className="py-24 bg-stone-50 border-y border-stone-200">
+                <div className="container mx-auto px-6 max-w-3xl">
+                    <h3 className="text-2xl md:text-3xl font-bold text-stone-900 mb-8 text-center">¿Te suena esta escena?</h3>
 
-                        <div className="mt-10 text-center">
-                            <p className="text-xl text-stone-800 font-medium">
-                                No es culpa tuya. <br className="hidden md:block" />
-                                Nadie nos ha enseñado a ser "influencers de Dios" en nuestra propia casa.
-                            </p>
-                            <ArrowRight className="w-8 h-8 text-[#E07A5F] mx-auto mt-6 animate-bounce" />
-                        </div>
+                    <div className="relative bg-white p-8 md:p-10 rounded-2xl shadow-lg leading-relaxed text-lg text-stone-600 italic">
+                        <div className="absolute -top-4 -left-4 text-6xl text-[#E07A5F] opacity-20 font-serif">"</div>
+                        <p className="mb-6">
+                            Martes por la noche. Estás agotado/a del trabajo.
+                            <br /><br />
+                            Te sientas a cenar y preguntas: <em>"¿Qué tal el día?"</em>.
+                            <br />
+                            Respuesta: <em>"Bien"</em>. (Silencio).
+                            <br /><br />
+                            Intentas aprovechar para hablar de algo importante, quizás algo que escuchaste en misa o un valor que quieres transmitir. De repente, el ambiente cambia. Tus hijos miran el plato, se ponen a la defensiva o, peor aún, ponen los ojos en blanco.
+                            <br /><br />
+                            Sientes que hay un <strong>muro invisible</strong>. Te sientes un "pesado". Y te vas a dormir pensando:
+                            <span className="block mt-4 font-bold text-[#E07A5F] not-italic">"Ojalá supiera cómo llegar a su corazón sin que parezca un sermón".</span>
+                        </p>
                     </div>
-                </section>
 
-                {/* --- DREAM STATE --- */}
-                <section className="py-24 bg-[#E07A5F] text-white overflow-hidden relative">
-                    <div className="absolute inset-0 bg-[url('/images/pattern-light.png')] opacity-10 mix-blend-overlay"></div>
+                    <div className="mt-10 text-center">
+                        <p className="text-xl text-stone-800 font-medium">
+                            No es culpa tuya. <br className="hidden md:block" />
+                            Nadie nos ha enseñado a ser "influencers de Dios" en nuestra propia casa.
+                        </p>
+                        <ArrowRight className="w-8 h-8 text-[#E07A5F] mx-auto mt-6 animate-bounce" />
+                    </div>
+                </div>
+            </section>
 
-                    <div className="container mx-auto px-6 max-w-5xl relative z-10">
-                        <div className="grid md:grid-cols-2 gap-12 items-center">
-                            <div className="relative order-2 md:order-1 h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 transform hover:rotate-1 transition duration-500">
-                                <Image
-                                    src="/images/educar-fe-dream.png"
-                                    alt="Familia cenando feliz y conectada"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <div className="space-y-8 order-1 md:order-2">
-                                <h2 className="text-3xl md:text-5xl font-bold mb-6">Imagina que la fe sea el "lugar seguro" de tu familia.</h2>
+            {/* --- DREAM STATE --- */}
+            <section className="py-24 bg-[#E07A5F] text-white overflow-hidden relative">
+                <div className="absolute inset-0 bg-[url('/images/pattern-light.png')] opacity-10 mix-blend-overlay"></div>
 
-                                <div className="flex gap-4">
-                                    <div className="bg-white/20 p-3 rounded-full h-fit"><Sun className="w-6 h-6 text-yellow-300" /></div>
-                                    <div>
-                                        <h4 className="text-xl font-bold mb-2">Alegría, no obligación</h4>
-                                        <p className="text-stone-100 opacity-90">
-                                            Niños que asocian a Jesús con las mejores historias, con cenas divertidas y con padres que sonríen, no que solo regañan.
-                                        </p>
-                                    </div>
-                                </div>
+                <div className="container mx-auto px-6 max-w-5xl relative z-10">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="relative order-2 md:order-1 h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 transform hover:rotate-1 transition duration-500">
+                            <Image
+                                src="/images/educar-fe-dream.png"
+                                alt="Familia cenando feliz y conectada"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <div className="space-y-8 order-1 md:order-2">
+                            <h2 className="text-3xl md:text-5xl font-bold mb-6">Imagina que la fe sea el "lugar seguro" de tu familia.</h2>
 
-                                <div className="flex gap-4">
-                                    <div className="bg-white/20 p-3 rounded-full h-fit"><Heart className="w-6 h-6 text-yellow-300" /></div>
-                                    <div>
-                                        <h4 className="text-xl font-bold mb-2">Conversaciones profundas</h4>
-                                        <p className="text-stone-100 opacity-90">
-                                            Adolescentes que, en lugar de cerrarse, vienen a ti con sus dudas más difíciles porque saben que no les juzgarás.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="flex gap-4">
-                                    <div className="bg-white/20 p-3 rounded-full h-fit"><Coffee className="w-6 h-6 text-yellow-300" /></div>
-                                    <div>
-                                        <h4 className="text-xl font-bold mb-2">Paz en el caos</h4>
-                                        <p className="text-stone-100 opacity-90">
-                                            Tener rituales sencillos que, pase lo que pase en el día, os devuelvan la calma y la gratitud antes de dormir.
-                                        </p>
-                                    </div>
+                            <div className="flex gap-4">
+                                <div className="bg-white/20 p-3 rounded-full h-fit"><Sun className="w-6 h-6 text-yellow-300" /></div>
+                                <div>
+                                    <h4 className="text-xl font-bold mb-2">Alegría, no obligación</h4>
+                                    <p className="text-stone-100 opacity-90">
+                                        Niños que asocian a Jesús con las mejores historias, con cenas divertidas y con padres que sonríen, no que solo regañan.
+                                    </p>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* CTA AFTER DREAM */}
-                        <div className="flex justify-center mt-12">
-                            <a
-                                href={hotmartLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 4.90, currency: 'EUR' })}
-                                className="bg-white text-[#E07A5F] hover:bg-stone-50 font-bold text-xl py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1"
-                            >
-                                Quiero construir ese hogar
-                            </a>
-                        </div>
-                    </div>
-                </section>
-
-                {/* --- SOLUTIONS (MODULES) --- */}
-                <section className="py-24 bg-stone-50">
-                    <div className="container mx-auto px-6 max-w-5xl">
-                        <div className="text-center mb-16">
-                            <span className="text-[#E07A5F] font-bold tracking-widest uppercase text-xs">Lo que incluye la guía</span>
-                            <h2 className="text-3xl md:text-5xl font-bold text-stone-900 mt-2">Más que un libro, un plan de acción</h2>
-                        </div>
-
-                        <div className="grid md:grid-cols-2 gap-8">
-                            {/* Card 1 */}
-                            <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition">
-                                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-4"><Sun className="w-6 h-6" /></div>
-                                <h3 className="text-xl font-bold mb-3">1. La Pedagogía del Asombro</h3>
-                                <p className="text-stone-600 text-sm leading-relaxed">Olvídate de los sermones aburridos. Aprende a usar la naturaleza, el arte y las historias para despertar la curiosidad espiritual innata de tus hijos.</p>
+                            <div className="flex gap-4">
+                                <div className="bg-white/20 p-3 rounded-full h-fit"><Heart className="w-6 h-6 text-yellow-300" /></div>
+                                <div>
+                                    <h4 className="text-xl font-bold mb-2">Conversaciones profundas</h4>
+                                    <p className="text-stone-100 opacity-90">
+                                        Adolescentes que, en lugar de cerrarse, vienen a ti con sus dudas más difíciles porque saben que no les juzgarás.
+                                    </p>
+                                </div>
                             </div>
 
-                            {/* Card 2 */}
-                            <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition">
-                                <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 mb-4"><Clock className="w-6 h-6" /></div>
-                                <h3 className="text-xl font-bold mb-3">2. Rituales de 5 Minutos</h3>
-                                <p className="text-stone-600 text-sm leading-relaxed">No necesitas horas. Descubre cómo bendecir la mesa, orar al ir al cole o agradecer por la noche puede transformar la atmósfera de tu casa.</p>
-                            </div>
-
-                            {/* Card 3 */}
-                            <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition">
-                                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-4"><Brain className="w-6 h-6" /></div>
-                                <h3 className="text-xl font-bold mb-3">3. Respuestas "Anti-Crisis"</h3>
-                                <p className="text-stone-600 text-sm leading-relaxed">Guiones exactos para responder a las preguntas difíciles: "¿Por qué existe el mal?", "¿El cielo es real?", "¿Por qué tengo que ir a Misa?". Sin miedo.</p>
-                            </div>
-
-                            {/* Card 4 */}
-                            <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition">
-                                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 mb-4"><ShieldCheck className="w-6 h-6" /></div>
-                                <h3 className="text-xl font-bold mb-3">4. Blindaje Digital</h3>
-                                <p className="text-stone-600 text-sm leading-relaxed">Cómo educar en valores en la era de TikTok. Estrategias para fomentar el pensamiento crítico frente a las pantallas.</p>
-                            </div>
-                        </div>
-
-
-
-                        {/* SECONDARY CTA IN SOLUTION */}
-                        <div className="container mx-auto px-6 max-w-5xl pt-12 pb-4 text-center">
-                            <a href={hotmartLink} target="_blank" rel="noopener noreferrer" onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 4.90, currency: 'EUR' })} className="inline-flex items-center gap-2 bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold py-3 px-6 rounded-lg transition">
-                                Prefiero ir directo al pago <ArrowRight className="w-4 h-4" />
-                            </a>
-                        </div>
-                    </div>
-                </section>
-
-                {/* --- TARGET AUDIENCE --- */}
-                <section className="py-24 bg-white border-t border-stone-100">
-                    <div className="container mx-auto px-6 max-w-4xl text-center">
-                        <h2 className="text-3xl font-bold text-stone-900 mb-12">Este libro es para ti si...</h2>
-                        <div className="grid md:grid-cols-3 gap-8">
-                            <div className="bg-[#FDFBF7] p-8 rounded-2xl border border-stone-100 hover:border-[#E07A5F]/30 transition">
-                                <div className="w-12 h-12 bg-stone-200 rounded-full mx-auto mb-4 flex items-center justify-center font-serif font-bold text-stone-600">1</div>
-                                <p className="font-medium text-stone-800">Deseas que tus hijos tengan una relación personal con Dios, no solo una religión heredada.</p>
-                            </div>
-                            <div className="bg-[#FDFBF7] p-8 rounded-2xl border border-stone-100 hover:border-[#E07A5F]/30 transition">
-                                <div className="w-12 h-12 bg-stone-200 rounded-full mx-auto mb-4 flex items-center justify-center font-serif font-bold text-stone-600">2</div>
-                                <p className="font-medium text-stone-800">Buscas recursos prácticos para hacer "devocionales" o tiempos en familia divertidos.</p>
-                            </div>
-                            <div className="bg-[#FDFBF7] p-8 rounded-2xl border border-stone-100 hover:border-[#E07A5F]/30 transition">
-                                <div className="w-12 h-12 bg-stone-200 rounded-full mx-auto mb-4 flex items-center justify-center font-serif font-bold text-stone-600">3</div>
-                                <p className="font-medium text-stone-800">Quieres dejar un legado que dure por la eternidad.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-
-                {/* --- AUTHOR SECTION --- */}
-                <section className="py-20 bg-[#FDFBF7] overflow-hidden">
-                    <div className="container mx-auto px-6 max-w-5xl">
-                        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-stone-100 flex flex-col md:flex-row items-center gap-12 relative">
-                            <div className="relative shrink-0 w-64 h-64 md:w-80 md:h-80 transform rotate-[-2deg] hover:rotate-0 transition duration-500">
-                                <Image
-                                    src={maximoImg}
-                                    alt="Máximo con su libro"
-                                    className="rounded-2xl shadow-lg border-4 border-white object-cover"
-                                    fill
-                                />
-                            </div>
-                            <div className="flex-1 text-center md:text-left">
-                                <h2 className="text-3xl font-bold text-stone-900 mb-6">Hola, soy Máximo</h2>
-                                <p className="text-lg text-stone-600 mb-6 leading-relaxed">
-                                    Entiendo perfectamente ese nudo en el estómago cuando piensas en el futuro espiritual de tus hijos. Mi propósito con <strong>Padres con Resiliencia</strong> y esta guía es darte la tranquilidad de saber que estás construyendo sobre roca firme, con amor y sin miedos.
-                                </p>
-                                <div className="bg-stone-50 rounded-xl p-6 border-l-4 border-[#E07A5F]">
-                                    <p className="text-stone-500 italic font-medium">
-                                        "La fe no se impone, se propone y se testimonia. Aquí tienes el mapa para hacerlo con alegría."
+                            <div className="flex gap-4">
+                                <div className="bg-white/20 p-3 rounded-full h-fit"><Coffee className="w-6 h-6 text-yellow-300" /></div>
+                                <div>
+                                    <h4 className="text-xl font-bold mb-2">Paz en el caos</h4>
+                                    <p className="text-stone-100 opacity-90">
+                                        Tener rituales sencillos que, pase lo que pase en el día, os devuelvan la calma y la gratitud antes de dormir.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
 
-                {/* --- FINAL CTA / WAITING LIST --- */}
-                <section className="py-20 bg-[#E07A5F]">
-                    <div className="container mx-auto px-6 text-center max-w-4xl">
-                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">No dejes la educación espiritual al azar.</h2>
-                        <p className="text-xl text-stone-100 mb-10 max-w-2xl mx-auto">
-                            Empieza hoy a construir los cimientos que sostendrán a tus hijos toda su vida.
-                        </p>
+                    {/* CTA AFTER DREAM */}
+                    <div className="flex justify-center mt-12">
+                        <a
+                            href={hotmartLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 4.90, currency: 'EUR' })}
+                            className="bg-white text-[#E07A5F] hover:bg-stone-50 font-bold text-xl py-5 px-10 rounded-full shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1"
+                        >
+                            Quiero construir ese hogar
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-                        <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition duration-300">
-                            <h3 className="text-2xl font-bold text-stone-900 mb-2">Asegura tu copia hoy</h3>
-                            <p className="text-sm text-stone-500 mb-6">Precio especial de preventa disponible por tiempo limitado.</p>
+            {/* --- SOLUTIONS (MODULES) --- */}
+            <section className="py-24 bg-stone-50">
+                <div className="container mx-auto px-6 max-w-5xl">
+                    <div className="text-center mb-16">
+                        <span className="text-[#E07A5F] font-bold tracking-widest uppercase text-xs">Lo que incluye la guía</span>
+                        <h2 className="text-3xl md:text-5xl font-bold text-stone-900 mt-2">Más que un libro, un plan de acción</h2>
+                    </div>
 
-                            <div className="flex items-center justify-center gap-4 mb-8 bg-stone-50 py-3 rounded-lg">
-                                <span className="text-stone-400 line-through text-lg">7.00€</span>
-                                <span className="text-4xl font-bold text-[#E07A5F]">4.90€</span>
-                            </div>
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {/* Card 1 */}
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition">
+                            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-4"><Sun className="w-6 h-6" /></div>
+                            <h3 className="text-xl font-bold mb-3">1. La Pedagogía del Asombro</h3>
+                            <p className="text-stone-600 text-sm leading-relaxed">Olvídate de los sermones aburridos. Aprende a usar la naturaleza, el arte y las historias para despertar la curiosidad espiritual innata de tus hijos.</p>
+                        </div>
 
-                            <a
-                                href={hotmartLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 4.90, currency: 'EUR' })}
-                                className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2"
-                            >
-                                Comprar en Preventa <ArrowRight className="w-5 h-5" />
-                            </a>
+                        {/* Card 2 */}
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition">
+                            <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 mb-4"><Clock className="w-6 h-6" /></div>
+                            <h3 className="text-xl font-bold mb-3">2. Rituales de 5 Minutos</h3>
+                            <p className="text-stone-600 text-sm leading-relaxed">No necesitas horas. Descubre cómo bendecir la mesa, orar al ir al cole o agradecer por la noche puede transformar la atmósfera de tu casa.</p>
+                        </div>
 
-                            <p className="text-stone-400 text-xs mt-6 flex items-center justify-center gap-1">
-                                <ShieldCheck className="w-3 h-3" /> Pago 100% Seguro vía Hotmart
-                            </p>
+                        {/* Card 3 */}
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition">
+                            <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-4"><Brain className="w-6 h-6" /></div>
+                            <h3 className="text-xl font-bold mb-3">3. Respuestas "Anti-Crisis"</h3>
+                            <p className="text-stone-600 text-sm leading-relaxed">Guiones exactos para responder a las preguntas difíciles: "¿Por qué existe el mal?", "¿El cielo es real?", "¿Por qué tengo que ir a Misa?". Sin miedo.</p>
+                        </div>
+
+                        {/* Card 4 */}
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition">
+                            <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 mb-4"><ShieldCheck className="w-6 h-6" /></div>
+                            <h3 className="text-xl font-bold mb-3">4. Blindaje Digital</h3>
+                            <p className="text-stone-600 text-sm leading-relaxed">Cómo educar en valores en la era de TikTok. Estrategias para fomentar el pensamiento crítico frente a las pantallas.</p>
                         </div>
                     </div>
-                </section>
+
+
+
+                    {/* SECONDARY CTA IN SOLUTION */}
+                    <div className="container mx-auto px-6 max-w-5xl pt-12 pb-4 text-center">
+                        <a href={hotmartLink} target="_blank" rel="noopener noreferrer" onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 4.90, currency: 'EUR' })} className="inline-flex items-center gap-2 bg-stone-100 hover:bg-stone-200 text-stone-600 font-bold py-3 px-6 rounded-lg transition">
+                            Prefiero ir directo al pago <ArrowRight className="w-4 h-4" />
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- TARGET AUDIENCE --- */}
+            <section className="py-24 bg-white border-t border-stone-100">
+                <div className="container mx-auto px-6 max-w-4xl text-center">
+                    <h2 className="text-3xl font-bold text-stone-900 mb-12">Este libro es para ti si...</h2>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="bg-[#FDFBF7] p-8 rounded-2xl border border-stone-100 hover:border-[#E07A5F]/30 transition">
+                            <div className="w-12 h-12 bg-stone-200 rounded-full mx-auto mb-4 flex items-center justify-center font-serif font-bold text-stone-600">1</div>
+                            <p className="font-medium text-stone-800">Deseas que tus hijos tengan una relación personal con Dios, no solo una religión heredada.</p>
+                        </div>
+                        <div className="bg-[#FDFBF7] p-8 rounded-2xl border border-stone-100 hover:border-[#E07A5F]/30 transition">
+                            <div className="w-12 h-12 bg-stone-200 rounded-full mx-auto mb-4 flex items-center justify-center font-serif font-bold text-stone-600">2</div>
+                            <p className="font-medium text-stone-800">Buscas recursos prácticos para hacer "devocionales" o tiempos en familia divertidos.</p>
+                        </div>
+                        <div className="bg-[#FDFBF7] p-8 rounded-2xl border border-stone-100 hover:border-[#E07A5F]/30 transition">
+                            <div className="w-12 h-12 bg-stone-200 rounded-full mx-auto mb-4 flex items-center justify-center font-serif font-bold text-stone-600">3</div>
+                            <p className="font-medium text-stone-800">Quieres dejar un legado que dure por la eternidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            {/* --- AUTHOR SECTION --- */}
+            <section className="py-20 bg-[#FDFBF7] overflow-hidden">
+                <div className="container mx-auto px-6 max-w-5xl">
+                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-stone-100 flex flex-col md:flex-row items-center gap-12 relative">
+                        <div className="relative shrink-0 w-64 h-64 md:w-80 md:h-80 transform rotate-[-2deg] hover:rotate-0 transition duration-500">
+                            <Image
+                                src={maximoImg}
+                                alt="Máximo con su libro"
+                                className="rounded-2xl shadow-lg border-4 border-white object-cover"
+                                fill
+                            />
+                        </div>
+                        <div className="flex-1 text-center md:text-left">
+                            <h2 className="text-3xl font-bold text-stone-900 mb-6">Hola, soy Máximo</h2>
+                            <p className="text-lg text-stone-600 mb-6 leading-relaxed">
+                                Entiendo perfectamente ese nudo en el estómago cuando piensas en el futuro espiritual de tus hijos. Mi propósito con <strong>Padres con Resiliencia</strong> y esta guía es darte la tranquilidad de saber que estás construyendo sobre roca firme, con amor y sin miedos.
+                            </p>
+                            <div className="bg-stone-50 rounded-xl p-6 border-l-4 border-[#E07A5F]">
+                                <p className="text-stone-500 italic font-medium">
+                                    "La fe no se impone, se propone y se testimonia. Aquí tienes el mapa para hacerlo con alegría."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- FINAL CTA / WAITING LIST --- */}
+            <section className="py-20 bg-[#E07A5F]">
+                <div className="container mx-auto px-6 text-center max-w-4xl">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">No dejes la educación espiritual al azar.</h2>
+                    <p className="text-xl text-stone-100 mb-10 max-w-2xl mx-auto">
+                        Empieza hoy a construir los cimientos que sostendrán a tus hijos toda su vida.
+                    </p>
+
+                    <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-lg mx-auto transform hover:scale-105 transition duration-300">
+                        <h3 className="text-2xl font-bold text-stone-900 mb-2">Asegura tu copia hoy</h3>
+                        <p className="text-sm text-stone-500 mb-6">Precio especial de preventa disponible por tiempo limitado.</p>
+
+                        <div className="flex items-center justify-center gap-4 mb-8 bg-stone-50 py-3 rounded-lg">
+                            <span className="text-stone-400 line-through text-lg">7.00€</span>
+                            <span className="text-4xl font-bold text-[#E07A5F]">4.90€</span>
+                        </div>
+
+                        <a
+                            href={hotmartLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 4.90, currency: 'EUR' })}
+                            className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-xl py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2"
+                        >
+                            Comprar en Preventa <ArrowRight className="w-5 h-5" />
+                        </a>
+
+                        <p className="text-stone-400 text-xs mt-6 flex items-center justify-center gap-1">
+                            <ShieldCheck className="w-3 h-3" /> Pago 100% Seguro vía Hotmart
+                        </p>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
