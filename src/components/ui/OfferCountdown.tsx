@@ -6,15 +6,17 @@ import { Clock } from "lucide-react";
 
 export default function OfferCountdown({
     className = "text-red-600 text-xs sm:text-sm",
-    targetDate = "2026-01-18T23:59:59+01:00"
+    targetDate = "2026-01-18T23:59:59+01:00",
+    includeDays = false
 }: {
     className?: string;
     targetDate?: string;
+    includeDays?: boolean;
 }) {
     // Target: passed prop or default
     const TARGET_DATE = new Date(targetDate).getTime();
 
-    const [timeLeft, setTimeLeft] = useState<{ h: number, m: number, s: number } | null>(null);
+    const [timeLeft, setTimeLeft] = useState<{ d: number, h: number, m: number, s: number } | null>(null);
 
     useEffect(() => {
         const calculateTimeLeft = () => {
@@ -23,12 +25,13 @@ export default function OfferCountdown({
 
             if (difference > 0) {
                 return {
-                    h: Math.floor((difference / (1000 * 60 * 60))),
-                    m: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-                    s: Math.floor((difference % (1000 * 60)) / 1000),
+                    d: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                    h: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                    m: Math.floor((difference / 1000 / 60) % 60),
+                    s: Math.floor((difference / 1000) % 60),
                 };
             } else {
-                return { h: 0, m: 0, s: 0 };
+                return { d: 0, h: 0, m: 0, s: 0 };
             }
         };
 
@@ -39,7 +42,7 @@ export default function OfferCountdown({
         }, 1000);
 
         return () => clearInterval(timer);
-    }, []);
+    }, [TARGET_DATE]);
 
     if (!timeLeft) return null;
 
@@ -47,7 +50,13 @@ export default function OfferCountdown({
         <div className={`flex items-center gap-2 font-bold mt-1 ${className}`}>
             <Clock className="w-[1.2em] h-[1.2em] animate-pulse" />
             <span className="tabular-nums">
-                {String(timeLeft.h).padStart(2, '0')}:{String(timeLeft.m).padStart(2, '0')}:{String(timeLeft.s).padStart(2, '0')}
+                {includeDays && timeLeft.d > 0 ? (
+                    <span>{timeLeft.d}d {timeLeft.h}h {timeLeft.m}m</span>
+                ) : (
+                    <span>
+                        {String(timeLeft.d * 24 + timeLeft.h).padStart(2, '0')}:{String(timeLeft.m).padStart(2, '0')}:{String(timeLeft.s).padStart(2, '0')}
+                    </span>
+                )}
             </span>
         </div>
     );

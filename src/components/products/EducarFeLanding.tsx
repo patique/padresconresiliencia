@@ -93,7 +93,7 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                                     </div>
 
                                     <div className="flex justify-center mb-4">
-                                        <OfferCountdown targetDate="2026-02-01T00:00:00" className="text-[#E07A5F] text-base" />
+                                        <OfferCountdown targetDate="2026-02-01T00:00:00" className="text-[#E07A5F] text-base" includeDays={true} />
                                     </div>
 
                                     <a
