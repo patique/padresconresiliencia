@@ -274,30 +274,7 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                         </div>
                     </div>
 
-                    {/* BONUS KIT */}
-                    <div className="mt-12 bg-white border-2 border-[#E07A5F]/20 rounded-3xl p-8 md:p-12 text-stone-800 relative overflow-hidden shadow-xl">
-                        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-[#E07A5F] rounded-full blur-3xl opacity-10"></div>
-                        <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
-                            <div className="md:w-2/3">
-                                <div className="inline-block bg-[#E07A5F] text-white text-xs font-bold px-3 py-1 rounded-full mb-4">BONUS EXCLUSIVO PREVENTA</div>
-                                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-stone-900">Kit de Conexión Familiar 🏠</h3>
-                                <p className="text-stone-600 mb-6">Recursos imprimibles para pasar a la acción desde el día uno.</p>
-                                <ul className="space-y-3">
-                                    <li className="flex items-center gap-3"><Check className="text-green-500 w-5 h-5" /> <span><strong>Tarjetas de Conversación:</strong> 50 preguntas para cenas divertidas.</span></li>
-                                    <li className="flex items-center gap-3"><Check className="text-green-500 w-5 h-5" /> <span><strong>Checklist Semanal:</strong> Sencillo evaluador de clima familiar.</span></li>
-                                    <li className="flex items-center gap-3"><Check className="text-green-500 w-5 h-5" /> <span><strong>Guía de Oraciones:</strong> Textos simples para niños.</span></li>
-                                </ul>
-                            </div>
-                            <div className="md:w-1/3 h-48 w-full rounded-xl overflow-hidden shadow-lg border border-stone-100 relative bg-stone-100">
-                                <Image
-                                    src="/images/educar-fe-bonus.png"
-                                    alt="Kit de Conexión Familiar Mockup"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                        </div>
-                    </div>
+
 
                     {/* SECONDARY CTA IN SOLUTION */}
                     <div className="container mx-auto px-6 max-w-5xl pt-12 pb-4 text-center">
