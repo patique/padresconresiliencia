@@ -304,11 +304,25 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                             <p className="text-stone-600 text-sm leading-relaxed">Olvídate de los sermones aburridos. Aprende a usar la naturaleza, el arte y las historias para despertar la curiosidad espiritual innata de tus hijos.</p>
                         </div>
 
-                        {/* Card 2 */}
-                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition">
-                            <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 mb-4"><Clock className="w-6 h-6" /></div>
-                            <h3 className="text-xl font-bold mb-3">2. Rituales de 5 Minutos</h3>
-                            <p className="text-stone-600 text-sm leading-relaxed">No necesitas horas. Descubre cómo bendecir la mesa, orar al ir al cole o agradecer por la noche puede transformar la atmósfera de tu casa.</p>
+                        {/* Card 2 with Animation */}
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md transition relative group overflow-hidden">
+                            <div className="relative z-10">
+                                <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 mb-4"><Clock className="w-6 h-6" /></div>
+                                <h3 className="text-xl font-bold mb-3">2. Rituales de 5 Minutos</h3>
+                                <p className="text-stone-600 text-sm leading-relaxed mb-4">No necesitas horas. Descubre cómo bendecir la mesa, orar al ir al cole o agradecer por la noche puede transformar la atmósfera de tu casa.</p>
+                            </div>
+
+                            {/* Animated Child Image */}
+                            <div className="absolute -bottom-4 -right-4 w-32 h-32 md:w-40 md:h-40 opacity-20 group-hover:opacity-40 transition duration-700 pointer-events-none">
+                                <div className="relative w-full h-full animate-pulse-slow">
+                                    <Image
+                                        src="/images/child-praying.png"
+                                        alt="Niño rezando"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                            </div>
                         </div>
 
                         {/* Card 3 */}
