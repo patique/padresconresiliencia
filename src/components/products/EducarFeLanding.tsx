@@ -212,8 +212,21 @@ export default function EducarFeLanding({ product }: { product: Product }) {
             </section>
 
             {/* --- DREAM STATE --- */}
-            <section className="py-24 bg-[#E07A5F] text-white overflow-hidden relative">
-                <div className="absolute inset-0 bg-[url('/images/pattern-light.png')] opacity-10 mix-blend-overlay"></div>
+            <section className="py-24 text-white overflow-hidden relative">
+                {/* Background Image with Professional Overlay */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/warm-home-bg.png"
+                        alt="Background ambiance"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-[#E07A5F]/90 mix-blend-multiply"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                </div>
+
+                <div className="absolute inset-0 bg-[url('/images/pattern-light.png')] opacity-10 mix-blend-overlay z-0"></div>
 
                 <div className="container mx-auto px-6 max-w-5xl relative z-10">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
