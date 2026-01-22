@@ -198,7 +198,15 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                             No es culpa tuya. <br className="hidden md:block" />
                             Nadie nos ha enseñado a ser "influencers de Dios" en nuestra propia casa.
                         </p>
-                        <ArrowRight className="w-8 h-8 text-[#E07A5F] mx-auto mt-6 animate-bounce" />
+                        <a
+                            href={hotmartLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 4.90, currency: 'EUR' })}
+                            className="inline-flex items-center gap-2 bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 mt-8 animate-bounce"
+                        >
+                            Quiero la Solución <ArrowRight className="w-5 h-5" />
+                        </a>
                     </div>
                 </div>
             </section>
