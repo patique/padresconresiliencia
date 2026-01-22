@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, Loader2, CloudRain, X, ArrowRight, BatteryMedium, Users, Brain, Coffee } from "lucide-react";
 import { joinWaitlist } from "@/actions/waitlist";
 import OfferCountdown from "@/components/ui/OfferCountdown";
-import maximoImg from "@/assets/images/maximo-con-libro.png";
+
 
 interface Product {
     title: string;

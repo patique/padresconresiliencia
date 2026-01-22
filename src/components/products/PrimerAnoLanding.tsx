@@ -13,7 +13,7 @@ import caosImg from "@/assets/images/primer-ano-caos.png";
 import conexionImg from "@/assets/images/primer-ano-conexion.png";
 import herramientasImg from "@/assets/images/primer-ano-herramientas.png";
 import educarFeImg from "@/assets/images/educar-en-la-fe-portada.png";
-import maximoImg from "@/assets/images/maximo-con-libro.png";
+
 
 interface Product {
     title: string;
@@ -326,7 +326,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                     <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-stone-100 flex flex-col md:flex-row items-center gap-12 relative">
                         <div className="relative shrink-0 w-64 h-64 md:w-80 md:h-80 transform rotate-[-2deg] hover:rotate-0 transition duration-500">
                             <Image
-                                src={maximoImg}
+                                src="/images/maximo-con-libro.png"
                                 alt="Máximo con su libro"
                                 className="rounded-2xl shadow-lg border-4 border-white object-cover"
                                 fill
