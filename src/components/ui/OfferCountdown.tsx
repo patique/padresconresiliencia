@@ -1,27 +1,48 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
 import { Clock } from "lucide-react";
 
-export default function OfferCountdown({
-    className = "text-red-600 text-xs sm:text-sm",
-    targetDate = "2026-01-18T23:59:59+01:00",
-    includeDays = false
-}: {
+interface OfferCountdownProps {
     className?: string;
     targetDate?: string;
     includeDays?: boolean;
-}) {
-    // Target: passed prop or default
-    const TARGET_DATE = new Date(targetDate).getTime();
+    cycleDays?: number; // New prop for evergreen cycles
+}
 
+export default function OfferCountdown({
+    className = "text-red-600 text-xs sm:text-sm",
+    targetDate,
+    includeDays = false,
+    cycleDays = 3
+}: OfferCountdownProps) {
+    // State to store the calculated target timestamp
+    const [targetTimestamp, setTargetTimestamp] = useState<number | null>(null);
     const [timeLeft, setTimeLeft] = useState<{ d: number, h: number, m: number, s: number } | null>(null);
 
     useEffect(() => {
+        // Determine the target timestamp
+        let target: number;
+
+        if (targetDate) {
+            target = new Date(targetDate).getTime();
+        } else {
+            // Evergreen logic: 3-day cycles starting from a fixed epoch
+            const epoch = new Date('2024-01-01T00:00:00Z').getTime();
+            const now = Date.now();
+            const cycleMs = cycleDays * 24 * 60 * 60 * 1000;
+            const elapsed = now - epoch;
+            // The end of the current cycle
+            target = epoch + (Math.floor(elapsed / cycleMs) + 1) * cycleMs;
+        }
+
+        setTargetTimestamp(target);
+
         const calculateTimeLeft = () => {
+            if (!target) return { d: 0, h: 0, m: 0, s: 0 };
+
             const now = new Date().getTime();
-            const difference = TARGET_DATE - now;
+            const difference = target - now;
 
             if (difference > 0) {
                 return {
@@ -35,6 +56,7 @@ export default function OfferCountdown({
             }
         };
 
+        // Initial calculation
         setTimeLeft(calculateTimeLeft());
 
         const timer = setInterval(() => {
@@ -42,8 +64,9 @@ export default function OfferCountdown({
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [TARGET_DATE]);
+    }, [targetDate, cycleDays]);
 
+    // Prevent hydration mismatch or empty state
     if (!timeLeft) return null;
 
     return (

@@ -99,7 +99,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                                     )}
                                 </div>
 
-                                <OfferCountdown targetDate="2026-01-18T23:59:59" />
+                                <OfferCountdown />
 
                                 <a
                                     href={hotmartLink}
