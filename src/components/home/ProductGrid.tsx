@@ -62,7 +62,14 @@ export default function ProductGrid({ initialProducts }: { initialProducts: Prod
                                     <div className="flex text-yellow-400">
                                         {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-4 h-4 fill-current" />)}
                                     </div>
-                                    <span className="text-xs text-stone-400">(128 reseñas)</span>
+                                    <span className="text-xs text-stone-400">
+                                        ({
+                                            product.slug === 'bienestar-emocional-padres' ? '247' :
+                                                product.slug === 'educar-en-la-fe' ? '189' :
+                                                    product.slug === 'cerebro-pantallas' ? '156' :
+                                                        '128'
+                                        } reseñas)
+                                    </span>
                                 </div>
 
                                 <a href={`/products/${product.slug}`}>

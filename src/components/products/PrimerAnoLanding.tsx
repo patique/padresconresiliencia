@@ -52,6 +52,19 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
 
     return (
         <div className="min-h-screen bg-[#FDFBF7] font-sans text-stone-800">
+            {/* Back to Home Button */}
+            <div className="bg-gradient-to-r from-stone-50 to-white border-b border-stone-200 sticky top-0 z-50 shadow-sm">
+                <div className="container mx-auto px-6 py-4">
+                    <Link
+                        href="/"
+                        className="inline-flex items-center gap-2 text-base font-bold text-stone-700 hover:text-[#E07A5F] transition-colors group"
+                    >
+                        <ArrowRight className="w-5 h-5 rotate-180 group-hover:scale-110 transition-transform" />
+                        <span>Volver a Padres con Resiliencia</span>
+                    </Link>
+                </div>
+            </div>
+
             {/* --- HERO SECTION --- */}
             <header className="relative pt-10 pb-20 md:pt-16 md:pb-32 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/images/pattern-light.png')] opacity-50 z-0"></div>
