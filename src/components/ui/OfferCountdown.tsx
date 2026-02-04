@@ -70,9 +70,9 @@ export default function OfferCountdown({
     if (!timeLeft) return null;
 
     return (
-        <div className={`flex items-center gap-2 font-bold mt-1 ${className}`}>
-            <Clock className="w-[1.2em] h-[1.2em] animate-pulse" />
-            <span className="tabular-nums neon-text">
+        <div className={`countdown-container flex items-center gap-2 font-bold ${className}`}>
+            <Clock className="w-[1.2em] h-[1.2em]" />
+            <span className="tabular-nums">
                 {includeDays && timeLeft.d > 0 ? (
                     <span>{timeLeft.d}d {timeLeft.h}h {timeLeft.m}m {timeLeft.s}s</span>
                 ) : (
@@ -82,45 +82,33 @@ export default function OfferCountdown({
                 )}
             </span>
             <style jsx>{`
-                .neon-text {
-                    text-shadow: 
-                        0 0 7px currentColor,
-                        0 0 10px currentColor,
-                        0 0 21px currentColor,
-                        0 0 42px currentColor,
-                        0 0 82px currentColor,
-                        0 0 92px currentColor,
-                        0 0 102px currentColor,
-                        0 0 151px currentColor;
-                    animation: neon-pulse 1.5s ease-in-out infinite;
-                    font-weight: 700;
-                    letter-spacing: 0.05em;
+                .countdown-container {
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+                    padding: 0.5rem 1rem;
+                    border-radius: 9999px;
+                    border: 2px solid currentColor;
+                    box-shadow: 
+                        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+                        0 0 0 3px rgba(224, 122, 95, 0.1);
+                    animation: countdown-pulse 2s ease-in-out infinite;
+                    backdrop-filter: blur(10px);
                 }
                 
-                @keyframes neon-pulse {
+                @keyframes countdown-pulse {
                     0%, 100% {
-                        text-shadow: 
-                            0 0 7px currentColor,
-                            0 0 10px currentColor,
-                            0 0 21px currentColor,
-                            0 0 42px currentColor,
-                            0 0 82px currentColor,
-                            0 0 92px currentColor,
-                            0 0 102px currentColor,
-                            0 0 151px currentColor;
-                        opacity: 1;
+                        transform: scale(1);
+                        box-shadow: 
+                            0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                            0 2px 4px -1px rgba(0, 0, 0, 0.06),
+                            0 0 0 3px rgba(224, 122, 95, 0.1);
                     }
                     50% {
-                        text-shadow: 
-                            0 0 4px currentColor,
-                            0 0 11px currentColor,
-                            0 0 19px currentColor,
-                            0 0 40px currentColor,
-                            0 0 80px currentColor,
-                            0 0 90px currentColor,
-                            0 0 100px currentColor,
-                            0 0 150px currentColor;
-                        opacity: 0.8;
+                        transform: scale(1.05);
+                        box-shadow: 
+                            0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                            0 4px 6px -2px rgba(0, 0, 0, 0.05),
+                            0 0 0 5px rgba(224, 122, 95, 0.2);
                     }
                 }
             `}</style>
