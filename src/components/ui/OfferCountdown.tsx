@@ -72,15 +72,42 @@ export default function OfferCountdown({
     return (
         <div className={`flex items-center gap-2 font-bold mt-1 ${className}`}>
             <Clock className="w-[1.2em] h-[1.2em] animate-pulse" />
-            <span className="tabular-nums">
+            <span className="tabular-nums neon-text">
                 {includeDays && timeLeft.d > 0 ? (
-                    <span>{timeLeft.d}d {timeLeft.h}h {timeLeft.m}m</span>
+                    <span>{timeLeft.d}d {timeLeft.h}h {timeLeft.m}m {timeLeft.s}s</span>
                 ) : (
                     <span>
                         {String(timeLeft.d * 24 + timeLeft.h).padStart(2, '0')}:{String(timeLeft.m).padStart(2, '0')}:{String(timeLeft.s).padStart(2, '0')}
                     </span>
                 )}
             </span>
+            <style jsx>{`
+                .neon-text {
+                    text-shadow: 
+                        0 0 5px currentColor,
+                        0 0 10px currentColor,
+                        0 0 20px currentColor,
+                        0 0 40px currentColor;
+                    animation: neon-pulse 2s ease-in-out infinite;
+                }
+                
+                @keyframes neon-pulse {
+                    0%, 100% {
+                        text-shadow: 
+                            0 0 5px currentColor,
+                            0 0 10px currentColor,
+                            0 0 20px currentColor,
+                            0 0 40px currentColor;
+                    }
+                    50% {
+                        text-shadow: 
+                            0 0 2px currentColor,
+                            0 0 5px currentColor,
+                            0 0 10px currentColor,
+                            0 0 20px currentColor;
+                    }
+                }
+            `}</style>
         </div>
     );
 }
