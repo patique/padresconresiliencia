@@ -12,28 +12,28 @@ interface Collaborator {
 
 const collaborators: Collaborator[] = [
     {
+        name: "Código Nutrición Inteligente",
+        description: "Aprende a alimentar a tu familia de forma saludable y equilibrada sin complicaciones.",
+        category: "Nutrición",
+        imageUrl: "/images/collaborators/nutricion-inteligente.jpg",
+        link: "https://tintaviva.info/codigo-nutricion-inteligente/#aff=Pablotq",
+        highlight: "Recetas fáciles y saludables"
+    },
+    {
+        name: "Emprende con Repostería",
+        description: "Convierte tu pasión por la repostería en un negocio rentable desde casa.",
+        category: "Emprendimiento",
+        imageUrl: "/images/collaborators/emprende-reposteria.jpg",
+        link: "https://tintaviva.info/landing-emprende-con-reposteria/#aff=Pablotq",
+        highlight: "De hobby a negocio"
+    },
+    {
         name: "Educar con Propósito",
         description: "Recursos y estrategias para una educación consciente y respetuosa en el hogar.",
         category: "Educación",
         imageUrl: "/images/collaborators/educar-proposito.jpg",
         link: "#",
         highlight: "Método Montessori adaptado"
-    },
-    {
-        name: "Padres en Oración",
-        description: "Guías espirituales y devocionales para fortalecer la fe familiar.",
-        category: "Espiritualidad",
-        imageUrl: "/images/collaborators/padres-oracion.jpg",
-        link: "#",
-        highlight: "Oraciones para cada etapa"
-    },
-    {
-        name: "Crianza Positiva",
-        description: "Herramientas prácticas para gestionar conflictos y fortalecer vínculos.",
-        category: "Crianza",
-        imageUrl: "/images/collaborators/crianza-positiva.jpg",
-        link: "#",
-        highlight: "Disciplina sin gritos"
     }
 ];
 

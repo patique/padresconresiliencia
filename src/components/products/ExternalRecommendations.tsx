@@ -10,25 +10,25 @@ interface ExternalProduct {
 
 const externalProducts: ExternalProduct[] = [
     {
+        name: "Código Nutrición Inteligente",
+        description: "Aprende a alimentar a tu familia de forma saludable y equilibrada sin complicaciones.",
+        category: "Nutrición",
+        link: "https://tintaviva.info/codigo-nutricion-inteligente/#aff=Pablotq",
+        highlight: "Recetas fáciles y saludables"
+    },
+    {
+        name: "Emprende con Repostería",
+        description: "Convierte tu pasión por la repostería en un negocio rentable desde casa.",
+        category: "Emprendimiento",
+        link: "https://tintaviva.info/landing-emprende-con-reposteria/#aff=Pablotq",
+        highlight: "De hobby a negocio"
+    },
+    {
         name: "Educar con Propósito",
         description: "Recursos y estrategias para una educación consciente y respetuosa en el hogar.",
         category: "Educación",
         link: "#",
         highlight: "Método Montessori adaptado"
-    },
-    {
-        name: "Padres en Oración",
-        description: "Guías espirituales y devocionales para fortalecer la fe familiar.",
-        category: "Espiritualidad",
-        link: "#",
-        highlight: "Oraciones para cada etapa"
-    },
-    {
-        name: "Crianza Positiva",
-        description: "Herramientas prácticas para gestionar conflictos y fortalecer vínculos.",
-        category: "Crianza",
-        link: "#",
-        highlight: "Disciplina sin gritos"
     }
 ];
 
