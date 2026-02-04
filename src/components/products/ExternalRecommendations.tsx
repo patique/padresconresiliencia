@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ExternalLink, Sparkles } from "lucide-react";
 
 interface ExternalProduct {
@@ -6,9 +7,18 @@ interface ExternalProduct {
     category: string;
     link: string;
     highlight: string;
+    imageUrl?: string;
 }
 
 const externalProducts: ExternalProduct[] = [
+    {
+        name: "Revoluciona Tu Vida",
+        description: "Únete al reto y descubre tu mejor versión. Transforma tu cuerpo y mente con un programa diseñado para resultados reales.",
+        category: "Fitness & Bienestar",
+        link: "https://go.hotmart.com/N104275421B",
+        highlight: "Programa completo de transformación",
+        imageUrl: "/images/tevasa-revoluciona.jpg"
+    },
     {
         name: "Ayuda a tu bebé a dormir mejor",
         description: "Guía completa para padres primerizos. Estrategias respetuosas para establecer hábitos de sueño saludables.",
@@ -35,32 +45,45 @@ export default function ExternalRecommendations() {
                     </p>
                 </div>
 
-                <div className="max-w-md mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                     {externalProducts.map((product, index) => (
                         <a
                             key={index}
                             href={product.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group bg-white rounded-xl p-6 border border-stone-100 hover:border-purple-200 hover:shadow-lg transition-all"
+                            className="group bg-white rounded-xl overflow-hidden border border-stone-100 hover:border-purple-200 hover:shadow-lg transition-all"
                         >
-                            <div className="flex items-start justify-between mb-3">
-                                <span className="text-xs font-bold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
-                                    {product.category}
-                                </span>
-                                <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-purple-600 transition-colors" />
-                            </div>
+                            {product.imageUrl && (
+                                <div className="relative w-full aspect-square overflow-hidden">
+                                    <Image
+                                        src={product.imageUrl}
+                                        alt={product.name}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                </div>
+                            )}
 
-                            <h3 className="text-lg font-bold text-stone-900 mb-2 group-hover:text-purple-600 transition-colors">
-                                {product.name}
-                            </h3>
+                            <div className="p-6">
+                                <div className="flex items-start justify-between mb-3">
+                                    <span className="text-xs font-bold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
+                                        {product.category}
+                                    </span>
+                                    <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-purple-600 transition-colors" />
+                                </div>
 
-                            <p className="text-stone-600 text-sm mb-4 line-clamp-2">
-                                {product.description}
-                            </p>
+                                <h3 className="text-lg font-bold text-stone-900 mb-2 group-hover:text-purple-600 transition-colors">
+                                    {product.name}
+                                </h3>
 
-                            <div className="text-xs text-purple-600 font-semibold">
-                                ✨ {product.highlight}
+                                <p className="text-stone-600 text-sm mb-4 line-clamp-2">
+                                    {product.description}
+                                </p>
+
+                                <div className="text-xs text-purple-600 font-semibold">
+                                    ✨ {product.highlight}
+                                </div>
                             </div>
                         </a>
                     ))}
