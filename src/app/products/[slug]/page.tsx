@@ -12,6 +12,8 @@ interface ProductPageProps {
 
 import EducarFeLanding from "@/components/products/EducarFeLanding";
 import PrimerAnoLanding from "@/components/products/PrimerAnoLanding";
+import InternalRecommendations from "@/components/products/InternalRecommendations";
+import ExternalRecommendations from "@/components/products/ExternalRecommendations";
 
 export default async function ProductPage({ params }: { params: { slug: string } }) {
 
@@ -470,6 +472,12 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
 
             </main>
+
+            {/* Internal Recommendations */}
+            <InternalRecommendations currentProductSlug={params.slug} />
+
+            {/* External Recommendations */}
+            <ExternalRecommendations />
 
             {/* Sticky Mobile CTA */}
             <div className="fixed bottom-0 left-0 w-full bg-[#E07A5F] border-t border-[#E07A5F] p-4 lg:hidden z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.1)]">

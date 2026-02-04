@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, Loader2, CloudRain, X, ArrowRight, BatteryMedium, Users, Brain, Coffee, HelpCircle, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, Loader2, CloudRain, X, ArrowRight, BatteryMedium, Users, Brain, Coffee, HelpCircle, MessageCircle, Home } from "lucide-react";
 import { joinWaitlist } from "@/actions/waitlist";
 import OfferCountdown from "@/components/ui/OfferCountdown";
+import InternalRecommendations from "@/components/products/InternalRecommendations";
+import ExternalRecommendations from "@/components/products/ExternalRecommendations";
 
 
 interface Product {
@@ -21,6 +24,19 @@ export default function EducarFeLanding({ product }: { product: Product }) {
 
     return (
         <div className="min-h-screen bg-[#FDFBF7] font-sans text-stone-800">
+            {/* Back to Home Button */}
+            <div className="bg-white border-b border-stone-100">
+                <div className="container mx-auto px-6 py-3">
+                    <Link
+                        href="/"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-stone-600 hover:text-[#E07A5F] transition-colors"
+                    >
+                        <Home className="w-4 h-4" />
+                        <span>Volver a Padres con Resiliencia</span>
+                    </Link>
+                </div>
+            </div>
+
             {/* --- HERO SECTION --- */}
             <header className="relative pt-10 pb-20 md:pt-16 md:pb-32 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/images/pattern-light.png')] opacity-50 z-0"></div>
@@ -394,6 +410,12 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                     </div>
                 </div>
             </section>
+
+            {/* Internal Recommendations */}
+            <InternalRecommendations currentProductSlug="educar-fe" />
+
+            {/* External Recommendations */}
+            <ExternalRecommendations />
         </div>
     );
 }

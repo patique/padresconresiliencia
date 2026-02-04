@@ -1,0 +1,91 @@
+import { ExternalLink, Sparkles } from "lucide-react";
+
+interface ExternalProduct {
+    name: string;
+    description: string;
+    category: string;
+    link: string;
+    highlight: string;
+}
+
+const externalProducts: ExternalProduct[] = [
+    {
+        name: "Educar con Propósito",
+        description: "Recursos y estrategias para una educación consciente y respetuosa en el hogar.",
+        category: "Educación",
+        link: "#",
+        highlight: "Método Montessori adaptado"
+    },
+    {
+        name: "Padres en Oración",
+        description: "Guías espirituales y devocionales para fortalecer la fe familiar.",
+        category: "Espiritualidad",
+        link: "#",
+        highlight: "Oraciones para cada etapa"
+    },
+    {
+        name: "Crianza Positiva",
+        description: "Herramientas prácticas para gestionar conflictos y fortalecer vínculos.",
+        category: "Crianza",
+        link: "#",
+        highlight: "Disciplina sin gritos"
+    }
+];
+
+export default function ExternalRecommendations() {
+    return (
+        <section className="py-20 bg-gradient-to-b from-stone-50 to-white">
+            <div className="container mx-auto px-6 max-w-5xl">
+                <div className="text-center mb-12">
+                    <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-bold mb-4">
+                        <Sparkles className="w-4 h-4" />
+                        <span>Recursos Recomendados</span>
+                    </div>
+                    <h2 className="text-3xl font-bold text-stone-900 mb-3">
+                        Proyectos que nos encantan
+                    </h2>
+                    <p className="text-stone-600">
+                        Colaboradores de confianza que complementan tu camino
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {externalProducts.map((product, index) => (
+                        <a
+                            key={index}
+                            href={product.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group bg-white rounded-xl p-6 border border-stone-100 hover:border-purple-200 hover:shadow-lg transition-all"
+                        >
+                            <div className="flex items-start justify-between mb-3">
+                                <span className="text-xs font-bold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
+                                    {product.category}
+                                </span>
+                                <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-purple-600 transition-colors" />
+                            </div>
+
+                            <h3 className="text-lg font-bold text-stone-900 mb-2 group-hover:text-purple-600 transition-colors">
+                                {product.name}
+                            </h3>
+
+                            <p className="text-stone-600 text-sm mb-4 line-clamp-2">
+                                {product.description}
+                            </p>
+
+                            <div className="text-xs text-purple-600 font-semibold">
+                                ✨ {product.highlight}
+                            </div>
+                        </a>
+                    ))}
+                </div>
+
+                <div className="mt-8 text-center">
+                    <p className="text-sm text-stone-500">
+                        Estos son enlaces de afiliados. Al comprar, apoyas nuestro proyecto sin coste adicional para ti.
+                    </p>
+                </div>
+            </div>
+        </section>
+    );
+}
