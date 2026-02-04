@@ -24,7 +24,8 @@ const externalProducts: ExternalProduct[] = [
         description: "Guía completa para padres primerizos. Estrategias respetuosas para establecer hábitos de sueño saludables.",
         category: "Sueño Infantil",
         link: "https://go.hotmart.com/V104268249J",
-        highlight: "Rutinas prácticas y adaptables"
+        highlight: "Rutinas prácticas y adaptables",
+        imageUrl: "/images/bebe-dormir-mejor.png"
     }
 ];
 
