@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Check, Star, ShieldCheck, Heart, Zap, Clock, Sun, BookOpen, BatteryMedium, Coffee, Users, Brain, ArrowRight, Loader2 } from "lucide-react";
 import OfferCountdown from "@/components/ui/OfferCountdown";
 import { joinWaitlist } from "@/actions/waitlist";
+import InternalRecommendations from "@/components/products/InternalRecommendations";
+import ExternalRecommendations from "@/components/products/ExternalRecommendations";
 
 // Importing images directly to ensure they load correctly
 import portadaImg from "@/assets/images/primer-ano-portada.png";
@@ -447,6 +449,12 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                     </div>
                 </div>
             </section>
+
+            {/* Internal Recommendations */}
+            <InternalRecommendations currentProductSlug={product.slug} />
+
+            {/* External Recommendations */}
+            <ExternalRecommendations />
         </div>
     );
 }
