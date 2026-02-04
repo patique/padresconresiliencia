@@ -25,7 +25,7 @@ const internalProducts: InternalProduct[] = [
     {
         title: "Educar en la Fe",
         description: "El sistema probado para transmitir una fe viva a tus hijos sin sermones.",
-        price: 17,
+        price: 27,
         slug: "educar-fe",
         imageUrl: "/images/educar-fe-cover.png"
     }
