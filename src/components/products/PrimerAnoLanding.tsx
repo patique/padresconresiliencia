@@ -14,7 +14,6 @@ import portadaImg from "@/assets/images/primer-ano-portada.png";
 import caosImg from "@/assets/images/primer-ano-caos.png";
 import conexionImg from "@/assets/images/primer-ano-conexion.png";
 import herramientasImg from "@/assets/images/primer-ano-herramientas.png";
-import educarFeImg from "@/assets/images/educar-en-la-fe-portada.png";
 
 
 interface Product {
@@ -389,64 +388,6 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                         <BookOpen className="w-6 h-6" />
                     </a>
                     <p className="mt-6 text-sm text-stone-400">Descarga inmediata • Lectura compatible con móvil</p>
-                </div>
-            </section>
-
-            {/* --- CROSS-SELL PRE-SALE: EDUCAR EN LA FE --- */}
-            <section className="py-24 bg-stone-100 border-t border-stone-200 overflow-hidden">
-                <div className="container mx-auto px-6 max-w-5xl">
-
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2 rounded-full text-xs md:text-sm font-bold tracking-widest shadow-[0_0_20px_rgba(22,163,74,0.4)] animate-pulse border border-white/20">
-                            <Check className="w-4 h-4 fill-current" />
-                            <span>¡YA DISPONIBLE!</span>
-                        </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        {/* Column 1: Image */}
-                        <div className="relative flex justify-center md:justify-end">
-                            <div className="relative w-64 md:w-80 transform rotate-[-3deg] hover:rotate-0 transition duration-700 hover:scale-105 z-10">
-                                <Image
-                                    src={educarFeImg}
-                                    alt="Portada Educar en la Fe"
-                                    className="rounded-xl shadow-2xl border-4 border-white"
-                                    placeholder="blur"
-                                />
-                            </div>
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#E07A5F]/20 blur-3xl rounded-full -z-0"></div>
-                        </div>
-
-                        {/* Column 2: Content */}
-                        <div className="text-left">
-                            <h2 className="text-3xl md:text-4xl font-bold text-stone-800 mb-4 leading-tight">
-                                ¿Te interesa también <span className="text-[#E07A5F] underline decoration-[#E07A5F]/30">Educar en la Fe</span>?
-                            </h2>
-                            <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                                La guía definitiva para dejar de ser el "policía de Dios" y convertir la fe en un refugio de asombro para tus hijos. <span className="font-bold text-stone-800">Sin obligaciones, solo conexión.</span>
-                            </p>
-
-                            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-stone-200">
-                                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                                    <div>
-                                        <h4 className="font-bold text-stone-900 mb-1 flex items-center gap-2"><Star className="w-4 h-4 text-[#E07A5F]" /> Oferta de Lanzamiento</h4>
-                                        <p className="text-sm text-stone-500 mb-2">Precio especial por tiempo limitado.</p>
-                                        <div className="flex items-baseline gap-2">
-                                            <span className="text-3xl font-bold text-[#E07A5F]">27€</span>
-                                            <span className="text-lg text-stone-400 line-through">97€</span>
-                                        </div>
-                                    </div>
-
-                                    <Link
-                                        href="/products/educar-en-la-fe"
-                                        className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold py-3 px-8 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1"
-                                    >
-                                        Ver Producto <ArrowRight className="w-5 h-5" />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
