@@ -26,14 +26,6 @@ const collaborators: Collaborator[] = [
         imageUrl: "/images/collaborators/emprende-reposteria.jpg",
         link: "https://tintaviva.info/landing-emprende-con-reposteria/#aff=Pablotq",
         highlight: "De hobby a negocio"
-    },
-    {
-        name: "Educar con Propósito",
-        description: "Recursos y estrategias para una educación consciente y respetuosa en el hogar.",
-        category: "Educación",
-        imageUrl: "/images/collaborators/educar-proposito.jpg",
-        link: "#",
-        highlight: "Método Montessori adaptado"
     }
 ];
 
@@ -54,7 +46,7 @@ export default function CollaboratorsSection() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     {collaborators.map((collab, index) => (
                         <a
                             key={index}

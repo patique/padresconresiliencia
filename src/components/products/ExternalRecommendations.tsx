@@ -22,13 +22,6 @@ const externalProducts: ExternalProduct[] = [
         category: "Emprendimiento",
         link: "https://tintaviva.info/landing-emprende-con-reposteria/#aff=Pablotq",
         highlight: "De hobby a negocio"
-    },
-    {
-        name: "Educar con Propósito",
-        description: "Recursos y estrategias para una educación consciente y respetuosa en el hogar.",
-        category: "Educación",
-        link: "#",
-        highlight: "Método Montessori adaptado"
     }
 ];
 
@@ -49,7 +42,7 @@ export default function ExternalRecommendations() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                     {externalProducts.map((product, index) => (
                         <a
                             key={index}

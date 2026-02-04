@@ -17,10 +17,10 @@ interface InternalRecommendationsProps {
 const internalProducts: InternalProduct[] = [
     {
         title: "El Primer Año",
-        description: "Guía completa para sobrevivir y disfrutar los primeros 12 meses con tu bebé.",
-        price: 27,
-        slug: "primer-ano",
-        imageUrl: "/images/primer-ano-cover.png"
+        description: "Deja de sobrevivir al primer año. Gestiona la culpa, el caos y recupera a tu pareja con un método que funciona.",
+        price: 7.99,
+        slug: "bienestar-emocional-padres",
+        imageUrl: "/images/portada-mi-bebe-llora.jpg"
     },
     {
         title: "Educar en la Fe",
