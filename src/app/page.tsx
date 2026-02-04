@@ -12,8 +12,7 @@ import StatsBar from "@/components/home/StatsBar";
 import ProblemSection from "@/components/home/ProblemSection";
 import SocialProofSection from "@/components/home/SocialProofSection";
 import FaqSection from "@/components/home/FaqSection";
-
-import ParentingQuiz from "@/components/home/ParentingQuiz";
+import CollaboratorsSection from "@/components/home/CollaboratorsSection";
 
 export const revalidate = 60;
 
@@ -80,9 +79,6 @@ export default async function HomePage() {
         {/* Problem Section (Agitation) */}
         <ProblemSection />
 
-        {/* Interactive Quiz */}
-        <ParentingQuiz />
-
         {/* Products Grid */}
         <section id="productos" className="py-24 bg-white">
           <div className="container mx-auto px-6">
@@ -102,6 +98,9 @@ export default async function HomePage() {
 
         {/* Social Proof */}
         <SocialProofSection />
+
+        {/* Collaborators Section */}
+        <CollaboratorsSection />
 
         {/* Latest Blog Posts */}
         <section id="blog" className="py-24 bg-stone-50">

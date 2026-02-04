@@ -1,4 +1,4 @@
-import { Users, Star, Download } from "lucide-react";
+import { Users, Star, Award, Heart } from "lucide-react";
 
 export default function StatsBar() {
     return (
@@ -7,11 +7,11 @@ export default function StatsBar() {
                 {/* Stat 1 */}
                 <div className="p-6 flex items-center justify-center gap-4">
                     <div className="bg-orange-50 p-3 rounded-full text-[#E07A5F]">
-                        <Users className="w-6 h-6" />
+                        <Heart className="w-6 h-6 fill-current" />
                     </div>
                     <div>
-                        <p className="text-2xl font-bold text-stone-900">+1,250</p>
-                        <p className="text-xs text-stone-500 uppercase tracking-wider font-semibold">Padres ayudados</p>
+                        <p className="text-2xl font-bold text-stone-900">+2,500</p>
+                        <p className="text-xs text-stone-500 uppercase tracking-wider font-semibold">Familias transformadas</p>
                     </div>
                 </div>
 
@@ -29,11 +29,11 @@ export default function StatsBar() {
                 {/* Stat 3 */}
                 <div className="p-6 flex items-center justify-center gap-4">
                     <div className="bg-blue-50 p-3 rounded-full text-blue-500">
-                        <Download className="w-6 h-6" />
+                        <Award className="w-6 h-6" />
                     </div>
                     <div>
-                        <p className="text-2xl font-bold text-stone-900">+500</p>
-                        <p className="text-xs text-stone-500 uppercase tracking-wider font-semibold">Descargas este mes</p>
+                        <p className="text-2xl font-bold text-stone-900">98%</p>
+                        <p className="text-xs text-stone-500 uppercase tracking-wider font-semibold">Tasa de satisfacción</p>
                     </div>
                 </div>
             </div>
