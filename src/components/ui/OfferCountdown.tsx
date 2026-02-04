@@ -84,27 +84,43 @@ export default function OfferCountdown({
             <style jsx>{`
                 .neon-text {
                     text-shadow: 
-                        0 0 5px currentColor,
+                        0 0 7px currentColor,
                         0 0 10px currentColor,
-                        0 0 20px currentColor,
-                        0 0 40px currentColor;
-                    animation: neon-pulse 2s ease-in-out infinite;
+                        0 0 21px currentColor,
+                        0 0 42px currentColor,
+                        0 0 82px currentColor,
+                        0 0 92px currentColor,
+                        0 0 102px currentColor,
+                        0 0 151px currentColor;
+                    animation: neon-pulse 1.5s ease-in-out infinite;
+                    font-weight: 700;
+                    letter-spacing: 0.05em;
                 }
                 
                 @keyframes neon-pulse {
                     0%, 100% {
                         text-shadow: 
-                            0 0 5px currentColor,
+                            0 0 7px currentColor,
                             0 0 10px currentColor,
-                            0 0 20px currentColor,
-                            0 0 40px currentColor;
+                            0 0 21px currentColor,
+                            0 0 42px currentColor,
+                            0 0 82px currentColor,
+                            0 0 92px currentColor,
+                            0 0 102px currentColor,
+                            0 0 151px currentColor;
+                        opacity: 1;
                     }
                     50% {
                         text-shadow: 
-                            0 0 2px currentColor,
-                            0 0 5px currentColor,
-                            0 0 10px currentColor,
-                            0 0 20px currentColor;
+                            0 0 4px currentColor,
+                            0 0 11px currentColor,
+                            0 0 19px currentColor,
+                            0 0 40px currentColor,
+                            0 0 80px currentColor,
+                            0 0 90px currentColor,
+                            0 0 100px currentColor,
+                            0 0 150px currentColor;
+                        opacity: 0.8;
                     }
                 }
             `}</style>
