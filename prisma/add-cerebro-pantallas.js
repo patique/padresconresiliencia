@@ -12,7 +12,7 @@ async function addCerebroPantallasProduct() {
                 price: 27.00,
                 originalPrice: 67.00,
                 imageUrl: '/images/cerebro-pantallas/ebook_mockup.png',
-                affiliateLink: 'https://pay.hotmart.com/R104271494E',
+                affiliateLink: 'https://pay.hotmart.com/R104271494E?checkoutMode=10',
                 isActive: true, // Producto listo para lanzamiento
             },
             create: {
@@ -22,7 +22,7 @@ async function addCerebroPantallasProduct() {
                 price: 27.00,
                 originalPrice: 67.00,
                 imageUrl: '/images/cerebro-pantallas/ebook_mockup.png',
-                affiliateLink: 'https://pay.hotmart.com/R104271494E',
+                affiliateLink: 'https://pay.hotmart.com/R104271494E?checkoutMode=10',
                 isActive: true, // Producto listo para lanzamiento
             },
         });
