@@ -12,6 +12,7 @@ interface ProductPageProps {
 
 import EducarFeLanding from "@/components/products/EducarFeLanding";
 import PrimerAnoLanding from "@/components/products/PrimerAnoLanding";
+import CerebroPantallasLanding from "@/components/products/CerebroPantallasLanding";
 import InternalRecommendations from "@/components/products/InternalRecommendations";
 import ExternalRecommendations from "@/components/products/ExternalRecommendations";
 
@@ -31,6 +32,10 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
     if (params.slug === 'bienestar-emocional-padres') {
         return <PrimerAnoLanding product={product} />;
+    }
+
+    if (params.slug === 'cerebro-pantallas') {
+        return <CerebroPantallasLanding product={product} />;
     }
 
     const benefits = [
