@@ -72,8 +72,8 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                                     <p className="text-stone-600 mb-6 text-sm">Precio especial de lanzamiento solo para las primeras copias.</p>
 
                                     <div className="flex items-end justify-center gap-2 mb-6">
-                                        <span className="text-5xl font-bold text-[#E07A5F]">27€</span>
-                                        <span className="text-xl text-stone-400 line-through mb-1">37€</span>
+                                        <span className="text-5xl font-bold text-[#E07A5F]">17€</span>
+                                        <span className="text-xl text-stone-400 line-through mb-1">97€</span>
                                     </div>
 
                                     <div className="flex justify-center mb-4">
@@ -84,7 +84,7 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                                         href={hotmartLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 27.00, currency: 'EUR' })}
+                                        onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 17.00, currency: 'EUR' })}
                                         className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center gap-2"
                                     >
                                         Quiero Acceso Ahora <ArrowRight className="w-5 h-5" />
@@ -330,8 +330,8 @@ export default function EducarFeLanding({ product }: { product: Product }) {
 
                         <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
                             <div className="text-center">
-                                <p className="text-stone-400 font-medium line-through text-2xl mb-1">37€</p>
-                                <p className="text-6xl font-bold text-[#E07A5F]">27€</p>
+                                <p className="text-stone-400 font-medium line-through text-2xl mb-1">97€</p>
+                                <p className="text-6xl font-bold text-[#E07A5F]">17€</p>
                                 <p className="text-stone-400 text-sm mt-2">Precio sube en 48 horas</p>
                             </div>
                             <div className="h-16 w-px bg-stone-200 hidden md:block"></div>
@@ -348,7 +348,7 @@ export default function EducarFeLanding({ product }: { product: Product }) {
                                 href={hotmartLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 27.00, currency: 'EUR' })}
+                                onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Educar en la Fe', value: 17.00, currency: 'EUR' })}
                                 className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-2xl py-5 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center mb-6"
                             >
                                 Quiero Acceso Ahora
