@@ -10,18 +10,11 @@ interface ExternalProduct {
 
 const externalProducts: ExternalProduct[] = [
     {
-        name: "Código Nutrición Inteligente",
-        description: "Aprende a alimentar a tu familia de forma saludable y equilibrada sin complicaciones.",
-        category: "Nutrición",
-        link: "https://tintaviva.info/codigo-nutricion-inteligente/#aff=Pablotq",
-        highlight: "Recetas fáciles y saludables"
-    },
-    {
-        name: "Emprende con Repostería",
-        description: "Convierte tu pasión por la repostería en un negocio rentable desde casa.",
-        category: "Emprendimiento",
-        link: "https://tintaviva.info/landing-emprende-con-reposteria/#aff=Pablotq",
-        highlight: "De hobby a negocio"
+        name: "Ayuda a tu bebé a dormir mejor",
+        description: "Guía completa para padres primerizos. Estrategias respetuosas para establecer hábitos de sueño saludables.",
+        category: "Sueño Infantil",
+        link: "https://go.hotmart.com/V104268249J",
+        highlight: "Rutinas prácticas y adaptables"
     }
 ];
 
@@ -42,7 +35,7 @@ export default function ExternalRecommendations() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <div className="max-w-md mx-auto">
                     {externalProducts.map((product, index) => (
                         <a
                             key={index}
