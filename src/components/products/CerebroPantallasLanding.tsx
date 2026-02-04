@@ -408,7 +408,7 @@ export default function CerebroPantallasLanding({ product }: CerebroPantallasLan
                         </div>
 
                         <a
-                            href={product.affiliateLink || "https://go.hotmart.com/N104275421B"}
+                            href={product.affiliateLink || "https://pay.hotmart.com/R104271494E"}
                             className="block w-full bg-[#f97316] hover:bg-[#ea580c] text-white text-center font-bold text-xl py-5 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0 mb-6"
                         >
                             Descargar Ahora
@@ -479,7 +479,7 @@ export default function CerebroPantallasLanding({ product }: CerebroPantallasLan
                         <span className="text-xl font-bold text-white leading-none">27.00 €</span>
                     </div>
                     <a
-                        href={product.affiliateLink || "https://go.hotmart.com/N104275421B"}
+                        href={product.affiliateLink || "https://pay.hotmart.com/R104271494E"}
                         className="bg-white text-[#f97316] hover:bg-stone-50 font-bold py-3 px-6 rounded-xl flex-1 text-center shadow-lg active:scale-95 transition"
                     >
                         Comprar Ahora
