@@ -25,14 +25,14 @@ export default function EducarFeLanding({ product }: { product: Product }) {
     return (
         <div className="min-h-screen bg-[#FDFBF7] font-sans text-stone-800">
             {/* Back to Home Button */}
-            <div className="bg-white border-b border-stone-100">
-                <div className="container mx-auto px-6 py-3">
+            <div className="bg-gradient-to-r from-stone-50 to-white border-b border-stone-200 sticky top-0 z-50 shadow-sm">
+                <div className="container mx-auto px-6 py-4">
                     <Link
                         href="/"
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-stone-600 hover:text-[#E07A5F] transition-colors"
+                        className="inline-flex items-center gap-2 text-base font-bold text-stone-700 hover:text-[#E07A5F] transition-colors group"
                     >
-                        <Home className="w-4 h-4" />
-                        <span>Volver a Padres con Resiliencia</span>
+                        <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                        <span>← Volver a Padres con Resiliencia</span>
                     </Link>
                 </div>
             </div>

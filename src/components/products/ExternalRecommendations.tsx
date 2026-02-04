@@ -74,8 +74,8 @@ export default function ExternalRecommendations() {
                 </div>
 
                 <div className="mt-8 text-center">
-                    <p className="text-sm text-stone-500">
-                        Estos son enlaces de afiliados. Al comprar, apoyas nuestro proyecto sin coste adicional para ti.
+                    <p className="text-sm text-stone-600 font-medium">
+                        💡 Recursos cuidadosamente seleccionados que complementan tu camino en la crianza consciente
                     </p>
                 </div>
             </div>
