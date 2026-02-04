@@ -169,7 +169,7 @@ const PRODUCTS = [
     {
         title: "Mi Bebé Llora, ¿Y Yo Qué?: La Guía Definitiva para Cuidarte sin Culpa en el Primer Año",
         description: "Deja de sobrevivir al primer año. Gestiona la culpa, el caos y recupera a tu pareja con un método que funciona.",
-        price: 7.99,
+        price: 7,
         originalPrice: 89.90,
         imageUrl: "/images/portada-mi-bebe-llora.jpg",
         slug: "bienestar-emocional-padres",
@@ -177,8 +177,8 @@ const PRODUCTS = [
     {
         title: "Educar en la Fe",
         description: "Transmite tus valores y creencias de forma natural y alegre.",
-        price: 0,
-        originalPrice: 0,
+        price: 27,
+        originalPrice: 97,
         imageUrl: "/images/future_course_1.jpg",
         slug: "educar-en-la-fe",
     },

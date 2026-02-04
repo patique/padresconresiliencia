@@ -384,7 +384,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                     <div className="text-center mb-16">
                         <div className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-2 rounded-full text-xs md:text-sm font-bold tracking-widest shadow-[0_0_20px_rgba(22,163,74,0.4)] animate-pulse border border-white/20">
                             <Check className="w-4 h-4 fill-current" />
-                            <span>¡YA DISPONIBLE EN PREVENTA!</span>
+                            <span>¡YA DISPONIBLE!</span>
                         </div>
                     </div>
 
@@ -417,8 +417,8 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                                         <h4 className="font-bold text-stone-900 mb-1 flex items-center gap-2"><Star className="w-4 h-4 text-[#E07A5F]" /> Oferta de Lanzamiento</h4>
                                         <p className="text-sm text-stone-500 mb-2">Precio especial por tiempo limitado.</p>
                                         <div className="flex items-baseline gap-2">
-                                            <span className="text-3xl font-bold text-[#E07A5F]">4.90€</span>
-                                            <span className="text-lg text-stone-400 line-through">7.00€</span>
+                                            <span className="text-3xl font-bold text-[#E07A5F]">27€</span>
+                                            <span className="text-lg text-stone-400 line-through">97€</span>
                                         </div>
                                     </div>
 
@@ -426,7 +426,7 @@ export default function PrimerAnoLanding({ product }: { product: Product }) {
                                         href="/products/educar-en-la-fe"
                                         className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold py-3 px-8 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-1"
                                     >
-                                        Ver Preventa <ArrowRight className="w-5 h-5" />
+                                        Ver Producto <ArrowRight className="w-5 h-5" />
                                     </Link>
                                 </div>
                             </div>

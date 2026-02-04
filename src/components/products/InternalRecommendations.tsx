@@ -1,39 +1,32 @@
 import Link from "next/link";
 import { ArrowRight, ShoppingBag } from "lucide-react";
-
-interface InternalProduct {
-    title: string;
-    description: string;
-    price: number;
-    slug: string;
-    imageUrl: string;
-}
+import prisma from "@/lib/prisma";
 
 interface InternalRecommendationsProps {
     currentProductSlug?: string;
 }
 
-// Productos internos de ejemplo - estos deberían venir de la base de datos
-const internalProducts: InternalProduct[] = [
-    {
-        title: "El Primer Año",
-        description: "Deja de sobrevivir al primer año. Gestiona la culpa, el caos y recupera a tu pareja con un método que funciona.",
-        price: 7.99,
-        slug: "bienestar-emocional-padres",
-        imageUrl: "/images/portada-mi-bebe-llora.jpg"
-    },
-    {
-        title: "Educar en la Fe",
-        description: "El sistema probado para transmitir una fe viva a tus hijos sin sermones.",
-        price: 27,
-        slug: "educar-fe",
-        imageUrl: "/images/educar-fe-cover.png"
-    }
-];
+export default async function InternalRecommendations({ currentProductSlug }: InternalRecommendationsProps) {
+    // Obtener productos de la base de datos
+    const allProducts = await prisma.product.findMany({
+        where: {
+            price: {
+                gt: 0 // Solo productos con precio mayor a 0
+            }
+        },
+        select: {
+            title: true,
+            description: true,
+            price: true,
+            slug: true,
+            imageUrl: true
+        }
+    });
 
-export default function InternalRecommendations({ currentProductSlug }: InternalRecommendationsProps) {
     // Filtrar el producto actual
-    const recommendations = internalProducts.filter(p => p.slug !== currentProductSlug).slice(0, 2);
+    const recommendations = allProducts
+        .filter(p => p.slug !== currentProductSlug)
+        .slice(0, 2);
 
     if (recommendations.length === 0) return null;
 
@@ -57,11 +50,13 @@ export default function InternalRecommendations({ currentProductSlug }: Internal
                             className="group bg-stone-50 rounded-2xl overflow-hidden hover:shadow-lg transition-all border border-stone-100 hover:border-[#E07A5F]/30"
                         >
                             <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200">
-                                <img
-                                    src={product.imageUrl}
-                                    alt={product.title}
-                                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-                                />
+                                {product.imageUrl && (
+                                    <img
+                                        src={product.imageUrl}
+                                        alt={product.title}
+                                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                )}
                             </div>
                             <div className="p-6">
                                 <h3 className="text-xl font-bold text-stone-900 mb-2 group-hover:text-[#E07A5F] transition-colors">
