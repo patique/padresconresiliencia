@@ -1,37 +1,38 @@
+require('dotenv').config();
+const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
 
 /**
- * Script para enviar email de prueba de recordatorio de compra cancelada
- * 
- * IMPORTANTE: Este script usa Resend para enviar emails.
- * Necesitas una API key de Resend (https://resend.com)
- * 
- * Instalación:
- * npm install resend
- * 
- * Uso:
- * RESEND_API_KEY=tu_api_key node emails/send-test-email.js
+ * Script para enviar email de prueba usando la configuración de Gmail existente
  */
 
 async function sendTestEmail() {
+    console.log('📧 Preparando envío de email de prueba...\n');
+
+    // Verificar credenciales
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+        console.error('❌ Error: Credenciales de Gmail no configuradas en .env');
+        console.log('\nNecesitas añadir a tu archivo .env:');
+        console.log('GMAIL_USER=padresconresiliencia@gmail.com');
+        console.log('GMAIL_APP_PASSWORD=tu_contraseña_de_aplicación\n');
+        process.exit(1);
+    }
+
     try {
-        // Importar Resend
-        const { Resend } = require('resend');
+        // Crear transporter
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.GMAIL_USER.trim(),
+                pass: process.env.GMAIL_APP_PASSWORD.replace(/\s+/g, ''),
+            },
+        });
 
-        // Verificar que existe la API key
-        const apiKey = process.env.RESEND_API_KEY;
-        if (!apiKey) {
-            console.error('❌ Error: RESEND_API_KEY no está configurada');
-            console.log('\n📝 Para obtener una API key:');
-            console.log('1. Ve a https://resend.com');
-            console.log('2. Crea una cuenta gratuita');
-            console.log('3. Genera una API key');
-            console.log('4. Ejecuta: RESEND_API_KEY=tu_api_key node emails/send-test-email.js\n');
-            process.exit(1);
-        }
-
-        const resend = new Resend(apiKey);
+        // Verificar conexión
+        console.log('🔍 Verificando conexión con Gmail...');
+        await transporter.verify();
+        console.log('✅ Conexión verificada\n');
 
         // Leer el template HTML
         const emailHtml = fs.readFileSync(
@@ -39,26 +40,26 @@ async function sendTestEmail() {
             'utf-8'
         );
 
-        console.log('📧 Enviando email de prueba...\n');
+        console.log('📨 Enviando email a: pablotinocoquevedo@gmail.com\n');
 
         // Enviar email
-        const data = await resend.emails.send({
-            from: 'Padres con Resiliencia <onboarding@resend.dev>', // Email de prueba de Resend
-            to: ['pablotinocoquevedo@gmail.com'], // Tu email para prueba
+        const info = await transporter.sendMail({
+            from: `"Padres con Resiliencia" <${process.env.GMAIL_USER}>`,
+            to: 'pablotinocoquevedo@gmail.com',
             subject: '🔔 Estamos aquí para ayudarte - Padres con Resiliencia',
             html: emailHtml,
         });
 
-        console.log('✅ Email enviado exitosamente!');
-        console.log('📬 ID del email:', data.id);
+        console.log('✅ ¡Email enviado exitosamente!');
+        console.log('📬 Message ID:', info.messageId);
         console.log('\n💡 Revisa tu bandeja de entrada (y spam por si acaso)\n');
 
     } catch (error) {
         console.error('❌ Error al enviar el email:', error.message);
 
-        if (error.message.includes('resend')) {
-            console.log('\n📦 Parece que Resend no está instalado.');
-            console.log('Ejecuta: npm install resend\n');
+        if (error.message.includes('Invalid login')) {
+            console.log('\n⚠️  Parece que las credenciales de Gmail no son correctas.');
+            console.log('Verifica que GMAIL_APP_PASSWORD sea una "Contraseña de aplicación" de Google.\n');
         }
     }
 }
