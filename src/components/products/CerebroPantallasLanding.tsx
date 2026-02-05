@@ -399,9 +399,11 @@ export default function CerebroPantallasLanding({ product }: CerebroPantallasLan
                             <OfferCountdown className="text-red-600 text-3xl md:text-4xl justify-center mb-6" />
 
                             <div className="flex items-center justify-center gap-4 mb-8">
-                                <span className="text-stone-400 line-through text-2xl font-medium">67.00 €</span>
+                                {product.originalPrice && (
+                                    <span className="text-stone-400 line-through text-2xl font-medium">{product.originalPrice.toFixed(2)} €</span>
+                                )}
                                 <div className="flex items-baseline gap-1">
-                                    <span className="text-6xl font-bold text-stone-900 leading-none">27.00</span>
+                                    <span className="text-6xl font-bold text-stone-900 leading-none">{product.price.toFixed(2)}</span>
                                     <span className="text-stone-500 text-lg font-bold">€ + IVA</span>
                                 </div>
                             </div>
@@ -475,8 +477,10 @@ export default function CerebroPantallasLanding({ product }: CerebroPantallasLan
             <div className="fixed bottom-0 left-0 w-full bg-[#f97316] border-t border-[#ea580c] p-4 lg:hidden z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.1)]">
                 <div className="flex items-center justify-between gap-4">
                     <div className="flex flex-col">
-                        <span className="text-xs text-orange-100 font-medium line-through">67.00 €</span>
-                        <span className="text-xl font-bold text-white leading-none">27.00 €</span>
+                        {product.originalPrice && (
+                            <span className="text-xs text-orange-100 font-medium line-through">{product.originalPrice.toFixed(2)} €</span>
+                        )}
+                        <span className="text-xl font-bold text-white leading-none">{product.price.toFixed(2)} €</span>
                     </div>
                     <a
                         href={product.affiliateLink || "https://pay.hotmart.com/R104271494E?checkoutMode=10"}
