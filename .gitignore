@@ -38,3 +38,4 @@ next-env.d.ts
 # User generated content
 images-etsy/
 .env
+.env.local_temp
