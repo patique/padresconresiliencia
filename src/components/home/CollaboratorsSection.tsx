@@ -1,4 +1,4 @@
-import { ExternalLink, BookOpen, Heart, Sparkles } from "lucide-react";
+import { ExternalLink, Heart, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 interface Collaborator {
@@ -12,10 +12,18 @@ interface Collaborator {
 
 const collaborators: Collaborator[] = [
     {
+        name: "Revoluciona Tu Vida",
+        description: "Únete al reto y descubre tu mejor versión. Transforma tu cuerpo y mente con un programa diseñado para resultados reales.",
+        category: "Fitness & Bienestar",
+        imageUrl: "/images/tevasa-revoluciona.jpg",
+        link: "https://go.hotmart.com/N104275421B",
+        highlight: "Programa completo de transformación"
+    },
+    {
         name: "Ayuda a tu bebé a dormir mejor",
         description: "Guía completa para padres primerizos. Estrategias respetuosas para establecer hábitos de sueño saludables.",
         category: "Sueño Infantil",
-        imageUrl: "/images/collaborators/bebe-dormir.jpg",
+        imageUrl: "/images/bebe-dormir-mejor.png",
         link: "https://go.hotmart.com/V104268249J",
         highlight: "Rutinas prácticas y adaptables"
     }
@@ -38,7 +46,7 @@ export default function CollaboratorsSection() {
                     </p>
                 </div>
 
-                <div className="max-w-md mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     {collaborators.map((collab, index) => (
                         <a
                             key={index}
@@ -47,11 +55,13 @@ export default function CollaboratorsSection() {
                             rel="noopener noreferrer"
                             className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 hover:border-[#E07A5F]/30"
                         >
-                            <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200">
-                                {/* Placeholder for image - replace with actual images */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <BookOpen className="w-16 h-16 text-stone-400" />
-                                </div>
+                            <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200">
+                                <Image
+                                    src={collab.imageUrl}
+                                    alt={collab.name}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
                                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-stone-700">
                                     {collab.category}
                                 </div>
