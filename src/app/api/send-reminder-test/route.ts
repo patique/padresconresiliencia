@@ -5,7 +5,7 @@ import path from 'path';
 
 export async function GET() {
     try {
-        console.log('📧 Sending test email...');
+        console.log('📧 Sending purchase reminder email...');
 
         if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
             console.error('Missing credentials');
@@ -15,7 +15,7 @@ export async function GET() {
             );
         }
 
-        // Read the email template
+        // Read the PURCHASE REMINDER email template
         const emailHtml = fs.readFileSync(
             path.join(process.cwd(), 'emails', 'purchase-reminder.html'),
             'utf-8'
@@ -30,9 +30,9 @@ export async function GET() {
             },
         });
 
-        console.log('Sending to: pablotinocoquevedo@gmail.com');
+        console.log('Sending purchase reminder to: pablotinocoquevedo@gmail.com');
 
-        // Send email
+        // Send email with the purchase reminder template
         const info = await transporter.sendMail({
             from: `"Padres con Resiliencia" <${process.env.GMAIL_USER}>`,
             to: 'pablotinocoquevedo@gmail.com',
@@ -40,11 +40,11 @@ export async function GET() {
             html: emailHtml,
         });
 
-        console.log('✅ Email sent! Message ID:', info.messageId);
+        console.log('✅ Purchase reminder email sent! Message ID:', info.messageId);
 
         return NextResponse.json({
             success: true,
-            message: 'Email sent successfully to pablotinocoquevedo@gmail.com',
+            message: 'Purchase reminder email sent successfully to pablotinocoquevedo@gmail.com',
             messageId: info.messageId
         });
 
