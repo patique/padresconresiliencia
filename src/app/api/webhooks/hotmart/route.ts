@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendProductDeliveryEmail, sendCartAbandonmentEmail } from "@/lib/mail";
+import { notifyAdmin } from "@/lib/notifications";
 import prisma from "@/lib/prisma";
 
 // Define the Hotmart Token specifically here or retrieve from env
@@ -99,22 +100,69 @@ export async function POST(req: NextRequest) {
                     data: {
                         productName: product.name,
                         customerId: customer.id,
-                        checkoutUrl: "https://pay.hotmart.com/D103873545U", // Ideally dynamic, but hardcoded for now
+                        checkoutUrl: "https://padresconresiliencia.com", // Link to main page
                         recovered: false
                     }
                 });
 
                 // Trigger Action: Send Recovery Email
-                const checkoutUrl = "https://pay.hotmart.com/D103873545U";
-                await sendCartAbandonmentEmail(buyer.email, buyer.name, product.name, checkoutUrl);
+                await sendCartAbandonmentEmail(buyer.email, buyer.name, product.name, "https://padresconresiliencia.com");
+
+                // Notify admin
+                await notifyAdmin({
+                    event: event,
+                    email: buyer.email,
+                    name: buyer.name,
+                    product: product.name,
+                    country: buyer.address?.country,
+                    timestamp: new Date()
+                });
             }
 
             return NextResponse.json({ message: "Abandonment Processed" }, { status: 200 });
         }
 
+        // --- CASE C: PURCHASE CANCELED ---
+        if (event === "PURCHASE_CANCELED") {
+            const product = data.product;
+            const purchaseData = data.purchase;
+
+            // Notify admin immediately - this is critical!
+            await notifyAdmin({
+                event: event,
+                email: buyer.email,
+                name: buyer.name,
+                product: product?.name,
+                amount: purchaseData?.price?.value,
+                country: buyer.address?.country,
+                timestamp: new Date()
+            });
+
+            return NextResponse.json({ message: "Cancellation Notified" }, { status: 200 });
+        }
+
+        // --- CASE D: REFUND ---
+        if (event === "PURCHASE_REFUNDED") {
+            const product = data.product;
+            const purchaseData = data.purchase;
+
+            // Notify admin
+            await notifyAdmin({
+                event: event,
+                email: buyer.email,
+                name: buyer.name,
+                product: product?.name,
+                amount: purchaseData?.price?.value,
+                country: buyer.address?.country,
+                timestamp: new Date()
+            });
+
+            return NextResponse.json({ message: "Refund Notified" }, { status: 200 });
+        }
+
         // --- UNHANDLED EVENTS (But Logged) ---
         // Since we are logging everything at step 2, these are safe.
-        // Useful for: PURCHASE_REFUNDED, SUBSCRIPTION_CANCELLATION, etc.
+        // Useful for: SUBSCRIPTION_CANCELLATION, etc.
 
         return NextResponse.json({ message: "Event Logged" }, { status: 200 });
 
