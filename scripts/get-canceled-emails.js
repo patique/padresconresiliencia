@@ -37,6 +37,7 @@ async function getCanceledPurchaseEmails() {
                     email: buyer.email,
                     name: buyer.name || 'N/A',
                     product: log.payload?.data?.product?.name || 'N/A',
+                    country: buyer.address?.country || buyer.country || 'N/A',
                     date: log.createdAt,
                     event: 'PURCHASE_CANCELED'
                 });
@@ -68,6 +69,7 @@ async function getCanceledPurchaseEmails() {
                     email: cart.customer.email,
                     name: cart.customer.name || 'N/A',
                     product: cart.productName,
+                    country: cart.customer.country || 'N/A',
                     date: cart.createdAt,
                     event: 'CART_ABANDONED'
                 });
@@ -96,6 +98,7 @@ async function getCanceledPurchaseEmails() {
         allDetails.forEach((detail, index) => {
             console.log(`${index + 1}. ${detail.email}`);
             console.log(`   Nombre: ${detail.name}`);
+            console.log(`   País: ${detail.country}`);
             console.log(`   Producto: ${detail.product}`);
             console.log(`   Fecha: ${detail.date.toISOString()}`);
             console.log(`   Tipo: ${detail.event}`);
@@ -113,8 +116,8 @@ async function getCanceledPurchaseEmails() {
         console.log('💾 Guardando en archivo CSV...');
         const fs = require('fs');
         const csvContent = [
-            'Email,Nombre,Producto,Fecha,Tipo',
-            ...allDetails.map(d => `${d.email},"${d.name}","${d.product}",${d.date.toISOString()},${d.event}`)
+            'Email,Nombre,País,Producto,Fecha,Tipo',
+            ...allDetails.map(d => `${d.email},"${d.name}","${d.country}","${d.product}",${d.date.toISOString()},${d.event}`)
         ].join('\n');
 
         fs.writeFileSync('emails-compras-canceladas.csv', csvContent);
