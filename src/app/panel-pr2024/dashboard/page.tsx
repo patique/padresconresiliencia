@@ -30,16 +30,18 @@ export default function DashboardPage() {
 
     const fetchStats = async () => {
         try {
-            const response = await fetch('/api/get-canceled-emails');
+            const response = await fetch('/api/admin/stats');
             const data = await response.json();
 
-            setStats({
-                totalSales: 0, // TODO: Implementar
-                totalAbandoned: data.stats?.abandoned || 0,
-                totalCanceled: data.stats?.canceled || 0,
-                revenueToday: 0, // TODO: Implementar
-                canceledEmails: data.details || [],
-            });
+            if (data.success) {
+                setStats({
+                    totalSales: data.stats?.totalSales || 0,
+                    totalAbandoned: data.stats?.totalAbandoned || 0,
+                    totalCanceled: data.stats?.totalCanceled || 0,
+                    revenueToday: data.stats?.revenueToday || 0,
+                    canceledEmails: data.negativeEvents || [],
+                });
+            }
         } catch (error) {
             console.error('Error fetching stats:', error);
         } finally {
@@ -138,8 +140,8 @@ export default function DashboardPage() {
                                             <div className="flex items-center gap-3 mb-2">
                                                 <h3 className="font-semibold text-gray-900">{item.name}</h3>
                                                 <span className={`px-2 py-1 text-xs font-medium rounded-full ${item.event === 'PURCHASE_CANCELED'
-                                                        ? 'bg-red-100 text-red-700'
-                                                        : 'bg-yellow-100 text-yellow-700'
+                                                    ? 'bg-red-100 text-red-700'
+                                                    : 'bg-yellow-100 text-yellow-700'
                                                     }`}>
                                                     {item.event === 'PURCHASE_CANCELED' ? 'Cancelado' : 'Abandonado'}
                                                 </span>
