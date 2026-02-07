@@ -3,6 +3,7 @@
 import { useSession, signOut } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface Sale {
     transactionId: string;
@@ -253,6 +254,12 @@ function OverviewTab({ data, loading }: any) {
 
     return (
         <div className="space-y-6">
+            {/* Sales Chart */}
+            <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Ventas Últimos 30 Días</h3>
+                <SalesChart chartData={data?.chartData || []} />
+            </div>
+
             <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Últimas Ventas</h3>
                 {recentSales.length > 0 ? (
@@ -422,3 +429,60 @@ function EmailsTab() {
         </div>
     );
 }
+
+function SalesChart({ chartData }: { chartData: any[] }) {
+    if (!chartData || chartData.length === 0) {
+        return (
+            <div className="bg-gray-50 rounded-lg p-8 text-center text-gray-500">
+                No hay datos suficientes para mostrar el gráfico
+            </div>
+        );
+    }
+
+    // Formatear datos para el gráfico
+    const formattedData = chartData.map(item => ({
+        ...item,
+        fecha: new Date(item.date).toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit' })
+    }));
+
+    return (
+        <div className="bg-white rounded-lg border border-gray-200 p-6">
+            <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={formattedData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                    <XAxis
+                        dataKey="fecha"
+                        tick={{ fontSize: 12 }}
+                        stroke="#9ca3af"
+                    />
+                    <YAxis
+                        tick={{ fontSize: 12 }}
+                        stroke="#9ca3af"
+                    />
+                    <Tooltip
+                        contentStyle={{
+                            backgroundColor: '#fff',
+                            border: '1px solid #e5e7eb',
+                            borderRadius: '8px',
+                            padding: '12px'
+                        }}
+                        labelStyle={{ fontWeight: 'bold', marginBottom: '4px' }}
+                    />
+                    <Line
+                        type="monotone"
+                        dataKey="sales"
+                        stroke="#10b981"
+                        strokeWidth={2}
+                        dot={{ fill: '#10b981', r: 4 }}
+                        activeDot={{ r: 6 }}
+                        name="Ventas"
+                    />
+                </LineChart>
+            </ResponsiveContainer>
+            <p className="text-center text-sm text-gray-500 mt-4">
+                Número de ventas por día (últimos 30 días)
+            </p>
+        </div>
+    );
+}
+

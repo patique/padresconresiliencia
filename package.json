@@ -19,6 +19,7 @@
     "prisma": "^6.19.1",
     "react": "^18",
     "react-dom": "^18",
+    "recharts": "^3.7.0",
     "resend": "^6.9.1"
   },
   "devDependencies": {

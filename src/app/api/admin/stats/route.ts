@@ -108,6 +108,41 @@ export async function GET() {
             new Date(b.date).getTime() - new Date(a.date).getTime()
         );
 
+        // 8. Agrupar ventas por día (últimos 30 días)
+        const thirtyDaysAgo = new Date();
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+        thirtyDaysAgo.setHours(0, 0, 0, 0);
+
+        const salesByDay: Record<string, { date: string; sales: number; revenue: number }> = {};
+
+        // Inicializar todos los días con 0
+        for (let i = 0; i < 30; i++) {
+            const date = new Date();
+            date.setDate(date.getDate() - i);
+            const dateKey = date.toISOString().split('T')[0];
+            salesByDay[dateKey] = {
+                date: dateKey,
+                sales: 0,
+                revenue: 0
+            };
+        }
+
+        // Contar ventas por día
+        approvedPurchases.forEach(purchase => {
+            if (purchase.purchaseDate >= thirtyDaysAgo) {
+                const dateKey = purchase.purchaseDate.toISOString().split('T')[0];
+                if (salesByDay[dateKey]) {
+                    salesByDay[dateKey].sales += 1;
+                    salesByDay[dateKey].revenue += purchase.pricePaid || 0;
+                }
+            }
+        });
+
+        // Convertir a array y ordenar por fecha
+        const chartData = Object.values(salesByDay).sort((a, b) =>
+            new Date(a.date).getTime() - new Date(b.date).getTime()
+        );
+
         return NextResponse.json({
             success: true,
             stats: {
@@ -129,6 +164,7 @@ export async function GET() {
                 customerCountry: p.customer.country,
             })),
             negativeEvents: allNegativeEvents,
+            chartData: chartData,
         });
 
     } catch (error: any) {
