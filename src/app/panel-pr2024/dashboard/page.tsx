@@ -24,6 +24,12 @@ interface DashboardStats {
     revenueTodayEUR: number;
     totalRevenueEUR: number;
     revenueByCurrency: Record<string, number>;
+    // Métricas de conversión
+    conversionRate: number;
+    aov: number;
+    topProduct: { name: string; sales: number } | null;
+    topCountry: { name: string; sales: number } | null;
+    recoveryRate: number;
 }
 
 interface DashboardData {
@@ -243,6 +249,41 @@ function OverviewTab({ data, loading }: any) {
             <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Ventas Últimos 30 Días</h3>
                 <SalesChart chartData={data?.chartData || []} />
+            </div>
+
+            {/* Conversion Metrics */}
+            <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Métricas Clave</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <MetricCard
+                        title="Tasa de Conversión"
+                        value={`${(data?.stats.conversionRate || 0).toFixed(1)}%`}
+                        subtitle="Ventas / Total intentos"
+                        icon="📊"
+                        color="purple"
+                    />
+                    <MetricCard
+                        title="Valor Promedio"
+                        value={`${(data?.stats.aov || 0).toFixed(2)} €`}
+                        subtitle="Por pedido (AOV)"
+                        icon="💎"
+                        color="indigo"
+                    />
+                    <MetricCard
+                        title="Producto Top"
+                        value={data?.stats.topProduct?.name || 'N/A'}
+                        subtitle={`${data?.stats.topProduct?.sales || 0} ventas`}
+                        icon="🏆"
+                        color="amber"
+                    />
+                    <MetricCard
+                        title="País Top"
+                        value={data?.stats.topCountry?.name || 'N/A'}
+                        subtitle={`${data?.stats.topCountry?.sales || 0} ventas`}
+                        icon="🌍"
+                        color="teal"
+                    />
+                </div>
             </div>
 
             <div>
@@ -467,6 +508,29 @@ function SalesChart({ chartData }: { chartData: any[] }) {
             <p className="text-center text-sm text-gray-500 mt-4">
                 Número de ventas por día (últimos 30 días)
             </p>
+        </div>
+    );
+}
+
+function MetricCard({ title, value, subtitle, icon, color }: any) {
+    const colorClasses: Record<string, string> = {
+        purple: 'from-purple-500 to-violet-600',
+        indigo: 'from-indigo-500 to-blue-600',
+        amber: 'from-amber-500 to-orange-600',
+        teal: 'from-teal-500 to-cyan-600',
+    };
+
+    return (
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <div className="flex items-center justify-between mb-3">
+                <span className="text-2xl">{icon}</span>
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${colorClasses[color]} opacity-10`}></div>
+            </div>
+            <h4 className="text-xs font-medium text-gray-600 mb-1">{title}</h4>
+            <div className="text-xl font-bold text-gray-900 mb-1 truncate" title={typeof value === 'string' ? value : ''}>
+                {value}
+            </div>
+            <p className="text-xs text-gray-500">{subtitle}</p>
         </div>
     );
 }

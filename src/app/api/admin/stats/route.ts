@@ -90,6 +90,37 @@ export async function GET() {
             revenueByCurrency[currency] += p.pricePaid || 0;
         });
 
+        // 6. Calcular métricas de conversión
+        const totalAttempts = approvedPurchases.length + canceledPurchases.length + abandonedCarts.length;
+        const conversionRate = totalAttempts > 0
+            ? (approvedPurchases.length / totalAttempts) * 100
+            : 0;
+
+        // Valor promedio del pedido (Average Order Value)
+        const aov = approvedPurchases.length > 0
+            ? totalRevenueEUR / approvedPurchases.length
+            : 0;
+
+        // Producto más vendido
+        const productSales: Record<string, number> = {};
+        approvedPurchases.forEach(p => {
+            const product = p.productName || 'Desconocido';
+            productSales[product] = (productSales[product] || 0) + 1;
+        });
+        const topProduct = Object.entries(productSales).sort((a, b) => b[1] - a[1])[0];
+
+        // País con más ventas
+        const countrySales: Record<string, number> = {};
+        approvedPurchases.forEach(p => {
+            const country = p.customer.country || 'Desconocido';
+            countrySales[country] = (countrySales[country] || 0) + 1;
+        });
+        const topCountry = Object.entries(countrySales).sort((a, b) => b[1] - a[1])[0];
+
+        // Tasa de recuperación (carritos que se convirtieron después)
+        // Nota: Esto requeriría tracking adicional, por ahora lo dejamos en 0
+        const recoveryRate = 0;
+
         // 5. Extraer emails únicos de cancelados
         const canceledEmails = new Set<string>();
         const canceledDetails: any[] = [];
@@ -178,6 +209,12 @@ export async function GET() {
                 revenueTodayEUR: revenueTodayEUR,
                 totalRevenueEUR: totalRevenueEUR,
                 revenueByCurrency: revenueByCurrency,
+                // Métricas de conversión
+                conversionRate: conversionRate,
+                aov: aov,
+                topProduct: topProduct ? { name: topProduct[0], sales: topProduct[1] } : null,
+                topCountry: topCountry ? { name: topCountry[0], sales: topCountry[1] } : null,
+                recoveryRate: recoveryRate,
             },
             sales: approvedPurchases.map(p => ({
                 transactionId: p.transactionId,
