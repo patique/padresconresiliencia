@@ -10,6 +10,13 @@ export default function FacebookPixel() {
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
+    // No cargar el pixel en rutas de administración
+    const isAdminRoute = pathname?.startsWith('/panel-pr2024') || pathname?.startsWith('/api/admin');
+
+    if (isAdminRoute) {
+        return null;
+    }
+
     useEffect(() => {
         if (typeof window !== "undefined") {
             // Import fbq definition if needed or just use window as any
