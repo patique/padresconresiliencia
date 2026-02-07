@@ -58,7 +58,7 @@ export default function DashboardPage() {
     };
 
     // Agrupar ventas por moneda
-    const revenueByC currency = data?.sales.reduce((acc, sale) => {
+    const revenueByCurrency = data?.sales.reduce((acc, sale) => {
         if (!acc[sale.currency]) {
             acc[sale.currency] = 0;
         }
@@ -233,8 +233,8 @@ function TabButton({ active, onClick, icon, label }: any) {
         <button
             onClick={onClick}
             className={`flex items-center gap-2 px-6 py-4 text-sm font-medium border-b-2 transition ${active
-                    ? 'border-blue-600 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                ? 'border-blue-600 text-blue-600'
+                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
         >
             <span>{icon}</span>
@@ -286,8 +286,8 @@ function OverviewTab({ data, loading }: any) {
                                     <p className="text-sm text-gray-600">{issue.product}</p>
                                 </div>
                                 <span className={`px-3 py-1 text-xs font-medium rounded-full ${issue.event === 'PURCHASE_CANCELED'
-                                        ? 'bg-red-100 text-red-700'
-                                        : 'bg-yellow-100 text-yellow-700'
+                                    ? 'bg-red-100 text-red-700'
+                                    : 'bg-yellow-100 text-yellow-700'
                                     }`}>
                                     {issue.event === 'PURCHASE_CANCELED' ? 'Cancelado' : 'Abandonado'}
                                 </span>
@@ -385,8 +385,8 @@ function IssuesTab({ issues, loading }: any) {
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                                 <span className={`px-2 py-1 text-xs font-medium rounded-full ${issue.event === 'PURCHASE_CANCELED'
-                                        ? 'bg-red-100 text-red-700'
-                                        : 'bg-yellow-100 text-yellow-700'
+                                    ? 'bg-red-100 text-red-700'
+                                    : 'bg-yellow-100 text-yellow-700'
                                     }`}>
                                     {issue.event === 'PURCHASE_CANCELED' ? 'Cancelado' : 'Abandonado'}
                                 </span>
