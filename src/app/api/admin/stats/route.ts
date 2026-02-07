@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import prisma from '@/lib/prisma';
+import { getExchangeRates, convertCurrency } from '@/lib/currency';
 
 export async function GET() {
     // Verificar autenticación
@@ -47,7 +48,10 @@ export async function GET() {
             }
         });
 
-        // 4. Calcular estadísticas
+        // 4. Obtener tasas de cambio
+        const exchangeRates = await getExchangeRates();
+
+        // 5. Calcular estadísticas
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
@@ -55,15 +59,36 @@ export async function GET() {
             p => p.purchaseDate >= today
         );
 
-        const revenueToday = salesToday.reduce(
-            (sum, p) => sum + (p.pricePaid || 0),
-            0
-        );
+        // Calcular ingresos convertidos a EUR
+        const revenueTodayEUR = salesToday.reduce((sum, p) => {
+            const amountInEUR = convertCurrency(
+                p.pricePaid || 0,
+                p.currency || 'EUR',
+                'EUR',
+                exchangeRates
+            );
+            return sum + amountInEUR;
+        }, 0);
 
-        const totalRevenue = approvedPurchases.reduce(
-            (sum, p) => sum + (p.pricePaid || 0),
-            0
-        );
+        const totalRevenueEUR = approvedPurchases.reduce((sum, p) => {
+            const amountInEUR = convertCurrency(
+                p.pricePaid || 0,
+                p.currency || 'EUR',
+                'EUR',
+                exchangeRates
+            );
+            return sum + amountInEUR;
+        }, 0);
+
+        // Agrupar ingresos por moneda
+        const revenueByCurrency: Record<string, number> = {};
+        approvedPurchases.forEach(p => {
+            const currency = p.currency || 'EUR';
+            if (!revenueByCurrency[currency]) {
+                revenueByCurrency[currency] = 0;
+            }
+            revenueByCurrency[currency] += p.pricePaid || 0;
+        });
 
         // 5. Extraer emails únicos de cancelados
         const canceledEmails = new Set<string>();
@@ -150,8 +175,9 @@ export async function GET() {
                 salesToday: salesToday.length,
                 totalAbandoned: abandonedEmails.size,
                 totalCanceled: canceledEmails.size,
-                revenueToday: revenueToday,
-                totalRevenue: totalRevenue,
+                revenueTodayEUR: revenueTodayEUR,
+                totalRevenueEUR: totalRevenueEUR,
+                revenueByCurrency: revenueByCurrency,
             },
             sales: approvedPurchases.map(p => ({
                 transactionId: p.transactionId,
@@ -165,6 +191,7 @@ export async function GET() {
             })),
             negativeEvents: allNegativeEvents,
             chartData: chartData,
+            exchangeRates: exchangeRates,
         });
 
     } catch (error: any) {

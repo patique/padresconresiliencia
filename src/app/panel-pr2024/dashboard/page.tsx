@@ -21,8 +21,9 @@ interface DashboardStats {
     salesToday: number;
     totalAbandoned: number;
     totalCanceled: number;
-    revenueToday: number;
-    totalRevenue: number;
+    revenueTodayEUR: number;
+    totalRevenueEUR: number;
+    revenueByCurrency: Record<string, number>;
 }
 
 interface DashboardData {
@@ -58,14 +59,6 @@ export default function DashboardPage() {
         }
     };
 
-    // Agrupar ventas por moneda
-    const revenueByCurrency = data?.sales.reduce((acc, sale) => {
-        if (!acc[sale.currency]) {
-            acc[sale.currency] = 0;
-        }
-        acc[sale.currency] += sale.pricePaid;
-        return acc;
-    }, {} as Record<string, number>) || {};
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -118,17 +111,9 @@ export default function DashboardPage() {
                         loading={loading}
                     />
                     <KPICard
-                        title="Ingresos por Moneda"
-                        value={Object.keys(revenueByCurrency).length > 0 ? (
-                            <div className="space-y-1">
-                                {Object.entries(revenueByCurrency).map(([currency, amount]) => (
-                                    <div key={currency} className="text-lg font-bold">
-                                        {amount.toFixed(2)} {currency}
-                                    </div>
-                                ))}
-                            </div>
-                        ) : '0'}
-                        subtitle="Total acumulado"
+                        title="Ingresos Totales"
+                        value={`${(data?.stats.totalRevenueEUR || 0).toFixed(2)} €`}
+                        subtitle="Convertido a EUR"
                         icon="💵"
                         color="blue"
                         loading={loading}
