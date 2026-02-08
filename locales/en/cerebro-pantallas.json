@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "title": "Your Child's Brain on Screens - Practical Guide for Parents",
+        "description": "Discover how to protect your child's brain from digital addiction. Practical guide based on neuroscience.",
+        "ogTitle": "Your Child's Brain on Screens",
+        "ogDescription": "Practical guide to understand and manage screen time in children"
+    },
+    "hero": {
+        "title": "Your Child's Brain on Screens",
+        "subtitle": "The practical guide to understand and manage screen time without guilt or conflicts",
+        "cta": "Download Now"
+    },
+    "pain": {
+        "title": "Do you feel lost when it comes to screens?",
+        "points": [
+            "Your child spends hours on their phone and you don't know how to stop it",
+            "Screen-related arguments happen daily",
+            "You're worried they're becoming addicted",
+            "You don't know what limits to set or how to enforce them"
+        ]
+    },
+    "solution": {
+        "title": "Stop fighting. Start understanding.",
+        "description": "This guide teaches you how your child's brain works with screens and gives you practical tools to manage digital usage without conflicts."
+    },
+    "price": {
+        "original": "$47",
+        "offer": "$19",
+        "currency": "USD",
+        "guarantee": "15-day money-back guarantee"
+    }
+}

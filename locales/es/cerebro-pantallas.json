@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "title": "El Cerebro de tu Hijo en Pantallas - Guía Práctica para Padres",
+        "description": "Descubre cómo proteger el cerebro de tu hijo de la adicción digital. Guía práctica basada en neurociencia.",
+        "ogTitle": "El Cerebro de tu Hijo en Pantallas",
+        "ogDescription": "Guía práctica para entender y gestionar el uso de pantallas en niños"
+    },
+    "hero": {
+        "title": "El Cerebro de tu Hijo en Pantallas",
+        "subtitle": "La guía práctica para entender y gestionar el uso de pantallas sin culpa ni conflictos",
+        "cta": "Descargar Ahora"
+    },
+    "pain": {
+        "title": "¿Te sientes perdido/a ante las pantallas?",
+        "points": [
+            "Tu hijo pasa horas en el móvil y no sabes cómo pararlo",
+            "Las peleas por las pantallas son diarias",
+            "Te preocupa que se esté volviendo adicto",
+            "No sabes qué límites poner ni cómo hacerlos cumplir"
+        ]
+    },
+    "solution": {
+        "title": "Deja de luchar. Empieza a entender.",
+        "description": "Esta guía te enseña cómo funciona el cerebro de tu hijo con las pantallas y te da herramientas prácticas para gestionar el uso digital sin conflictos."
+    },
+    "price": {
+        "original": "47€",
+        "offer": "19€",
+        "currency": "EUR",
+        "guarantee": "Garantía de devolución de 15 días"
+    }
+}

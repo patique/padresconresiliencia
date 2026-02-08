@@ -1,0 +1,32 @@
+{
+    "meta": {
+        "title": "Le Cerveau de votre Enfant face aux Écrans - Guide Pratique pour Parents",
+        "description": "Découvrez comment protéger le cerveau de votre enfant de l'addiction numérique. Guide pratique basé sur les neurosciences.",
+        "ogTitle": "Le Cerveau de votre Enfant face aux Écrans",
+        "ogDescription": "Guide pratique pour comprendre et gérer l'utilisation des écrans chez les enfants"
+    },
+    "hero": {
+        "title": "Le Cerveau de votre Enfant face aux Écrans",
+        "subtitle": "Le guide pratique pour comprendre et gérer l'utilisation des écrans sans culpabilité ni conflits",
+        "cta": "Télécharger Maintenant"
+    },
+    "pain": {
+        "title": "Vous sentez-vous perdu(e) face aux écrans ?",
+        "points": [
+            "Votre enfant passe des heures sur son téléphone et vous ne savez pas comment l'arrêter",
+            "Les disputes à propos des écrans sont quotidiennes",
+            "Vous craignez qu'il devienne accro",
+            "Vous ne savez pas quelles limites fixer ni comment les faire respecter"
+        ]
+    },
+    "solution": {
+        "title": "Arrêtez de lutter. Commencez à comprendre.",
+        "description": "Ce guide vous enseigne comment fonctionne le cerveau de votre enfant avec les écrans et vous donne des outils pratiques pour gérer l'usage numérique sans conflits."
+    },
+    "price": {
+        "original": "47€",
+        "offer": "19€",
+        "currency": "EUR",
+        "guarantee": "Garantie de remboursement de 15 jours"
+    }
+}

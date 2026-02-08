@@ -1,0 +1,28 @@
+{
+    "header": {
+        "brand": "Resilient Parents",
+        "cta": "Download Now"
+    },
+    "footer": {
+        "copyright": "© 2026 Resilient Parents. All rights reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms and Conditions"
+    },
+    "buttons": {
+        "buy": "Buy Now",
+        "learnMore": "Learn More",
+        "download": "Download Guide",
+        "backToHome": "Back to Home"
+    },
+    "languageSwitcher": {
+        "selectLanguage": "Select language"
+    },
+    "guarantee": {
+        "title": "Satisfaction Guarantee",
+        "description": "If you're not satisfied, we'll refund your money. No questions asked.",
+        "days": "15 days"
+    },
+    "testimonials": {
+        "title": "What our readers say"
+    }
+}

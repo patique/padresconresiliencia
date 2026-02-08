@@ -1,0 +1,28 @@
+{
+    "header": {
+        "brand": "Padres con Resiliencia",
+        "cta": "Descargar Ahora"
+    },
+    "footer": {
+        "copyright": "© 2026 Padres con Resiliencia. Todos los derechos reservados.",
+        "privacy": "Política de Privacidad",
+        "terms": "Términos y Condiciones"
+    },
+    "buttons": {
+        "buy": "Comprar Ahora",
+        "learnMore": "Más Información",
+        "download": "Descargar Guía",
+        "backToHome": "Volver al Inicio"
+    },
+    "languageSwitcher": {
+        "selectLanguage": "Seleccionar idioma"
+    },
+    "guarantee": {
+        "title": "Garantía de Satisfacción",
+        "description": "Si no estás satisfecho, te devolvemos tu dinero. Sin preguntas.",
+        "days": "15 días"
+    },
+    "testimonials": {
+        "title": "Lo que dicen nuestros lectores"
+    }
+}
