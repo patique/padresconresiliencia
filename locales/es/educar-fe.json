@@ -1,0 +1,88 @@
+{
+    "meta": {
+        "title": "Educar en la Fe - Guía Práctica para Padres Cristianos",
+        "description": "El sistema que 1,847 familias usan para que sus hijos elijan creer. Sin sermones, obligaciones ni dramas.",
+        "ogTitle": "¿Tus Hijos Abandonarán la Fe en 5 Años?",
+        "ogDescription": "El Manual del Padre Cristiano Moderno: Transmite Fe Real en un Mundo que No Para de Distraerlos"
+    },
+    "header": {
+        "backToHome": "← Volver a Padres con Resiliencia"
+    },
+    "hero": {
+        "badge": "LANZAMIENTO PREVIO - PLAZAS LIMITADAS",
+        "title": "¿Tus Hijos Abandonarán la Fe en 5 Años?",
+        "subtitle": "El Sistema que 1,847 Familias Usan para Que Ellos ELIJAN Creer",
+        "subtitleNote": "(Sin Sermones, Obligaciones ni Dramas)",
+        "description": "El Manual del Padre Cristiano Moderno:",
+        "descriptionSub": "Transmite Fe Real en un Mundo que No Para de Distraerlos.",
+        "cta": {
+            "title": "Acceso Inmediato",
+            "subtitle": "Precio especial de lanzamiento solo para las primeras copias.",
+            "price": "27€",
+            "originalPrice": "97€",
+            "button": "Quiero Acceso Ahora",
+            "guarantee": "Garantía de devolución de 15 días."
+        }
+    },
+    "pain": {
+        "title": "¿Te rompe el corazón ver a tus hijos...",
+        "statistic": "El 68% de jóvenes católicos abandonan la fe antes de los 23 años.",
+        "points": [
+            "Poner los ojos en blanco cuando mencionas \"Misa\" o rezar.",
+            "Decir que Dios es \"aburrido\" o \"cosa de gente mayor\".",
+            "Preferir YouTube o TikTok antes que 5 minutos de oración.",
+            "Hacer la Primera Comunión solo \"porque toca\" (y por los regalos)."
+        ],
+        "callout": {
+            "title": "No estás solo/a.",
+            "description": "No se van porque sean rebeldes. Se van porque a menudo nunca la VIVIERON realmente en casa."
+        }
+    },
+    "agitation": {
+        "title": "Y aquí está lo que nadie te dice:",
+        "subtitle": "La catequesis de 1 hora semanal NO puede competir con:",
+        "stats": [
+            {
+                "value": "40h",
+                "label": "De colegio secular a la semana"
+            },
+            {
+                "value": "35h",
+                "label": "De pantallas y redes sociales"
+            },
+            {
+                "value": "∞",
+                "label": "Amigos que se burlan de la fe"
+            }
+        ],
+        "warning": "Si la fe es solo una \"obligación de domingo\", la verán como un castigo, no como un regalo.",
+        "warningBold": "Y cuando cumplan 18, te dirán: \"Respeto tu fe, papá/mamá, pero no es para mí.\""
+    },
+    "solution": {
+        "title": "¿Y si existiera un sistema diferente?",
+        "subtitle": "Presentamos: EDUCAR EN LA FE. El método probado por 1,847 familias para transmitir una fe viva.",
+        "benefits": [
+            {
+                "title": "Convierte lo cotidiano en sagrado",
+                "description": "Transforma conversaciones de cena en semillas de fe, sin forzar."
+            },
+            {
+                "title": "Funciona con tu agenda real",
+                "description": "No requiere horas extra. Se integra en tu rutina actual."
+            },
+            {
+                "title": "Ellos pedirán rezar",
+                "description": "Sí, has leído bien. Rituales tan bonitos que ellos mismos los reclaman."
+            },
+            {
+                "title": "Respuestas a las preguntas difíciles",
+                "description": "Los 20 temas \"incómodos\" explicados para que los entiendan y acepten."
+            }
+        ]
+    },
+    "price": {
+        "current": "27€",
+        "original": "97€",
+        "currency": "EUR"
+    }
+}

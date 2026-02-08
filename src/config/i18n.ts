@@ -2,11 +2,20 @@
 // Cada ebook tiene un producto diferente en Hotmart para cada idioma
 
 export const HOTMART_PRODUCTS = {
+    // Educar en la Fe
+    'educar-fe': {
+        es: 'https://pay.hotmart.com/H103988286K?off=rsw6f2ko', // URL actual en español
+        pt: 'https://pay.hotmart.com/XXXXXXXX?off=XXXXXX', // TODO: Reemplazar con URL de producto en portugués
+        fr: 'https://pay.hotmart.com/H103988286K?off=rsw6f2ko', // Fallback temporal
+        en: 'https://pay.hotmart.com/H103988286K?off=rsw6f2ko', // Fallback temporal
+    },
+
     // El Cerebro de tu Hijo en Pantallas
     'cerebro-pantallas': {
         es: 'https://pay.hotmart.com/X1234567?off=abc123', // TODO: Reemplazar con URL real
         fr: 'https://pay.hotmart.com/Y7654321?off=def456', // TODO: Crear producto en francés
         en: 'https://pay.hotmart.com/Z9876543?off=ghi789', // TODO: Crear producto en inglés
+        pt: 'https://pay.hotmart.com/X1234567?off=abc123', // TODO: Crear producto en portugués
     },
 
     // Neurodivergencia (futuro)
@@ -14,6 +23,7 @@ export const HOTMART_PRODUCTS = {
         es: 'https://pay.hotmart.com/...',
         fr: 'https://pay.hotmart.com/...',
         en: 'https://pay.hotmart.com/...',
+        pt: 'https://pay.hotmart.com/...',
     },
 
     // Redes Sociales (futuro)
@@ -21,13 +31,14 @@ export const HOTMART_PRODUCTS = {
         es: 'https://pay.hotmart.com/...',
         fr: 'https://pay.hotmart.com/...',
         en: 'https://pay.hotmart.com/...',
+        pt: 'https://pay.hotmart.com/...',
     },
 } as const;
 
 export type EbookSlug = keyof typeof HOTMART_PRODUCTS;
 export type Locale = 'es' | 'fr' | 'en' | 'pt' | 'it';
 
-export const SUPPORTED_LOCALES: Locale[] = ['es', 'fr', 'en'];
+export const SUPPORTED_LOCALES: Locale[] = ['es', 'pt']; // Activados: Español y Portugués
 export const DEFAULT_LOCALE: Locale = 'es';
 
 export const LOCALE_NAMES: Record<Locale, string> = {

@@ -1,0 +1,28 @@
+{
+    "header": {
+        "brand": "Pais com Resiliência",
+        "cta": "Baixar Agora"
+    },
+    "footer": {
+        "copyright": "© 2026 Pais com Resiliência. Todos os direitos reservados.",
+        "privacy": "Política de Privacidade",
+        "terms": "Termos e Condições"
+    },
+    "buttons": {
+        "buy": "Comprar Agora",
+        "learnMore": "Saiba Mais",
+        "download": "Baixar Guia",
+        "backToHome": "Voltar ao Início"
+    },
+    "languageSwitcher": {
+        "selectLanguage": "Selecionar idioma"
+    },
+    "guarantee": {
+        "title": "Garantia de Satisfação",
+        "description": "Se não estiver satisfeito, devolvemos seu dinheiro. Sem perguntas.",
+        "days": "15 dias"
+    },
+    "testimonials": {
+        "title": "O que nossos leitores dizem"
+    }
+}
