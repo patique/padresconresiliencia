@@ -5,10 +5,11 @@ import { useState, useRef, useEffect } from 'react';
 import { SUPPORTED_LOCALES, LOCALE_FLAGS, LOCALE_NAMES, type Locale } from '@/config/i18n';
 import { useLocale } from '@/hooks/useTranslation';
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ locale: propLocale }: { locale?: Locale } = {}) {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
-    const currentLocale = useLocale();
+    const hookLocale = useLocale();
+    const currentLocale = propLocale || hookLocale;
     const pathname = usePathname();
     const router = useRouter();
 

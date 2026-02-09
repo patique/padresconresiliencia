@@ -28,7 +28,7 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
                         <span>{t('header.backToHome')}</span>
                     </Link>
                     <Suspense fallback={<div className="w-24 h-10" />}>
-                        <LanguageSwitcher />
+                        <LanguageSwitcher locale={locale} />
                     </Suspense>
                 </div>
             </div>
