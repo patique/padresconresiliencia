@@ -161,7 +161,8 @@
                 "slug": "cerebro-pantallas"
             }
         ],
-        "cta": "Ver todos os recursos"
+        "cta": "Ver todos os recursos",
+        "cta_button": "Entrar na lista de espera"
     },
     "external_recommendations": {
         "title": "Projetos que amamos",

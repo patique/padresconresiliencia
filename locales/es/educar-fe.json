@@ -161,7 +161,8 @@
                 "slug": "cerebro-pantallas"
             }
         ],
-        "cta": "Ver todos los recursos"
+        "cta": "Ver todos los recursos",
+        "cta_button": "Ver más"
     },
     "external_recommendations": {
         "title": "Proyectos que nos encantan",

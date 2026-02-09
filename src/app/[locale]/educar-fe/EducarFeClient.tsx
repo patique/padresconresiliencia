@@ -366,43 +366,70 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {((t('internal_recommendations.items') || []) as any).map((product: any, idx: number) => (
-                            <div key={idx} className="group bg-stone-50 rounded-2xl overflow-hidden transition-all border border-stone-100 opacity-90">
-                                <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200">
-                                    {/* Placeholder simplificado ya que no tenemos imágenes traducidas cargadas, pero usamos las del sitio original si existen */}
-                                    <div className="absolute inset-0 bg-stone-200/50 flex items-center justify-center text-stone-400">
-                                        <ShoppingBag className="w-12 h-12 opacity-20" />
-                                    </div>
-                                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center">
-                                        <span className="bg-[#f97316] text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
-                                            {locale === 'pt' ? 'Em Breve' : 'Próximamente'}
-                                        </span>
-                                    </div>
+                        {((t('internal_recommendations.items') || []) as any).map((product: any, idx: number) => {
+                            // Mapeo estático de imágenes para los productos conocidos
+                            let imageUrl = null;
+                            if (product.slug === 'primer-ano') {
+                                imageUrl = "/images/primer-ano-portada.png";
+                            } else if (product.slug === 'cerebro-pantallas') {
+                                imageUrl = "/images/cerebro-pantallas/ebook_mockup.png";
+                            }
+
+                            const isComingSoon = locale === 'pt';
+
+                            return (
+                                <div key={idx} className={`group bg-stone-50 rounded-2xl overflow-hidden transition-all border border-stone-100 ${!isComingSoon ? 'hover:shadow-lg hover:border-[#E07A5F]/30 cursor-pointer' : 'opacity-90'}`}>
+                                    <Link
+                                        href={isComingSoon ? '#' : `/products/${product.slug}`}
+                                        className={isComingSoon ? 'cursor-not-allowed' : ''}
+                                        onClick={(e) => isComingSoon && e.preventDefault()}
+                                    >
+                                        <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200">
+                                            {imageUrl ? (
+                                                <Image
+                                                    src={imageUrl}
+                                                    alt={product.title}
+                                                    fill
+                                                    className={`object-cover ${!isComingSoon ? 'group-hover:scale-105 transition-transform duration-500' : ''}`}
+                                                />
+                                            ) : (
+                                                <div className="absolute inset-0 bg-stone-200/50 flex items-center justify-center text-stone-400">
+                                                    <ShoppingBag className="w-12 h-12 opacity-20" />
+                                                </div>
+                                            )}
+
+                                            {isComingSoon && (
+                                                <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center">
+                                                    <span className="bg-[#f97316] text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+                                                        Em Breve
+                                                    </span>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className="p-6">
+                                            <h3 className={`text-xl font-bold text-stone-900 mb-2 ${!isComingSoon ? 'group-hover:text-[#E07A5F] transition-colors' : ''}`}>
+                                                {product.title}
+                                            </h3>
+                                            <p className="text-stone-600 text-sm mb-4 line-clamp-2">
+                                                {product.description}
+                                            </p>
+                                            <div className="flex items-center justify-between min-h-[28px]">
+                                                {product.price && (
+                                                    <span className="text-xl font-bold text-stone-900">
+                                                        {product.price}
+                                                    </span>
+                                                )}
+                                                <div
+                                                    className={`flex items-center gap-2 text-sm font-semibold transition-colors ${isComingSoon ? 'text-[#E07A5F] opacity-50 ml-auto' : 'text-stone-600 group-hover:text-[#E07A5F]'}`}
+                                                >
+                                                    {t('internal_recommendations.cta_button') || (isComingSoon ? 'Entrar na lista de espera' : 'Ver más')} <ArrowRight className="w-4 h-4" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold text-stone-900 mb-2">
-                                        {product.title}
-                                    </h3>
-                                    <p className="text-stone-600 text-sm mb-4 line-clamp-2">
-                                        {product.description}
-                                    </p>
-                                    <div className="flex items-center justify-between min-h-[28px]">
-                                        {product.price && (
-                                            <span className="text-xl font-bold text-stone-400">
-                                                {product.price}
-                                            </span>
-                                        )}
-                                        <Link
-                                            href={locale === 'pt' ? '/pt/educar-fe' : '/es/educar-fe'}
-                                            className={`flex items-center gap-2 text-sm font-semibold text-[#E07A5F] hover:text-[#D06950] transition-colors cursor-not-allowed opacity-50 ${!product.price ? 'ml-auto' : ''}`}
-                                            onClick={(e) => e.preventDefault()}
-                                        >
-                                            {locale === 'pt' ? 'Entrar na lista de espera' : 'Apúntate al waitlist'} <ArrowRight className="w-4 h-4" />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
 
                     <div className="mt-10 text-center">
