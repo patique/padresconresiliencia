@@ -418,76 +418,78 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
             </section>
 
             {/* --- SECTION 9: EXTERNAL RECOMMENDATIONS --- */}
-            <section className="py-20 bg-gradient-to-b from-stone-50 to-white">
-                <div className="container mx-auto px-6 max-w-5xl">
-                    <div className="text-center mb-12">
-                        <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-bold mb-4">
-                            <Sparkles className="w-4 h-4" />
-                            <span>{t('external_recommendations.badge')}</span>
+            {locale !== 'pt' && (
+                <section className="py-20 bg-gradient-to-b from-stone-50 to-white">
+                    <div className="container mx-auto px-6 max-w-5xl">
+                        <div className="text-center mb-12">
+                            <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-bold mb-4">
+                                <Sparkles className="w-4 h-4" />
+                                <span>{t('external_recommendations.badge')}</span>
+                            </div>
+                            <h2 className="text-3xl font-bold text-stone-900 mb-3">
+                                {t('external_recommendations.title')}
+                            </h2>
+                            <p className="text-stone-600">
+                                {t('external_recommendations.subtitle')}
+                            </p>
                         </div>
-                        <h2 className="text-3xl font-bold text-stone-900 mb-3">
-                            {t('external_recommendations.title')}
-                        </h2>
-                        <p className="text-stone-600">
-                            {t('external_recommendations.subtitle')}
-                        </p>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        {((t('external_recommendations.items') || []) as any).map((product: any, idx: number) => {
-                            // Imágenes estáticas hardcodeadas porque no vienen del JSON
-                            const images = ["/images/tevasa-revoluciona.jpg", "/images/bebe-dormir-mejor.png"];
-                            const imageUrl = images[idx % images.length];
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                            {((t('external_recommendations.items') || []) as any).map((product: any, idx: number) => {
+                                // Imágenes estáticas hardcodeadas porque no vienen del JSON
+                                const images = ["/images/tevasa-revoluciona.jpg", "/images/bebe-dormir-mejor.png"];
+                                const imageUrl = images[idx % images.length];
 
-                            return (
-                                <a
-                                    key={idx}
-                                    href={product.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group bg-white rounded-xl overflow-hidden border border-stone-100 hover:border-purple-200 hover:shadow-lg transition-all"
-                                >
-                                    <div className="relative w-full aspect-square overflow-hidden bg-stone-100">
-                                        <Image
-                                            src={imageUrl}
-                                            alt={product.name}
-                                            fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                        />
-                                    </div>
-
-                                    <div className="p-6">
-                                        <div className="flex items-start justify-between mb-3">
-                                            <span className="text-xs font-bold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
-                                                {product.category}
-                                            </span>
-                                            <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-purple-600 transition-colors" />
+                                return (
+                                    <a
+                                        key={idx}
+                                        href={product.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group bg-white rounded-xl overflow-hidden border border-stone-100 hover:border-purple-200 hover:shadow-lg transition-all"
+                                    >
+                                        <div className="relative w-full aspect-square overflow-hidden bg-stone-100">
+                                            <Image
+                                                src={imageUrl}
+                                                alt={product.name}
+                                                fill
+                                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
                                         </div>
 
-                                        <h3 className="text-lg font-bold text-stone-900 mb-2 group-hover:text-purple-600 transition-colors">
-                                            {product.name}
-                                        </h3>
+                                        <div className="p-6">
+                                            <div className="flex items-start justify-between mb-3">
+                                                <span className="text-xs font-bold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
+                                                    {product.category}
+                                                </span>
+                                                <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-purple-600 transition-colors" />
+                                            </div>
 
-                                        <p className="text-stone-600 text-sm mb-4 line-clamp-2">
-                                            {product.description}
-                                        </p>
+                                            <h3 className="text-lg font-bold text-stone-900 mb-2 group-hover:text-purple-600 transition-colors">
+                                                {product.name}
+                                            </h3>
 
-                                        <div className="text-xs text-purple-600 font-semibold">
-                                            ✨ {product.highlight}
+                                            <p className="text-stone-600 text-sm mb-4 line-clamp-2">
+                                                {product.description}
+                                            </p>
+
+                                            <div className="text-xs text-purple-600 font-semibold">
+                                                ✨ {product.highlight}
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            );
-                        })}
-                    </div>
+                                    </a>
+                                );
+                            })}
+                        </div>
 
-                    <div className="mt-8 text-center">
-                        <p className="text-sm text-stone-600 font-medium">
-                            {t('external_recommendations.footer')}
-                        </p>
+                        <div className="mt-8 text-center">
+                            <p className="text-sm text-stone-600 font-medium">
+                                {t('external_recommendations.footer')}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
         </div>
     );
 }
