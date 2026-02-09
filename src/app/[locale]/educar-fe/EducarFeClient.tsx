@@ -369,7 +369,7 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
                         {((t('internal_recommendations.items') || []) as any).map((product: any, idx: number) => {
                             // Mapeo estático de imágenes para los productos conocidos
                             let imageUrl = null;
-                            if (product.slug === 'primer-ano') {
+                            if (product.slug === 'bienestar-emocional-padres') {
                                 imageUrl = "/images/primer-ano-portada.png";
                             } else if (product.slug === 'cerebro-pantallas') {
                                 imageUrl = "/images/cerebro-pantallas/ebook_mockup.png";
