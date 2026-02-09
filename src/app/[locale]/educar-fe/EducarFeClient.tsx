@@ -6,7 +6,7 @@ import { getCheckoutUrl, type Locale } from '@/config/i18n';
 import LanguageSwitcher from '@/components/i18n/LanguageSwitcher';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check, Star, X, ArrowRight, Home } from 'lucide-react';
+import { Check, Star, X, ArrowRight, Home, ShieldCheck, Clock, Brain, Users, HelpCircle, Heart, MessageCircle } from 'lucide-react';
 import OfferCountdown from '@/components/ui/OfferCountdown';
 
 export default function EducarFeClient({ locale }: { locale: Locale }) {
@@ -230,6 +230,125 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
                             {t('hero.cta.button')} <ArrowRight className="w-5 h-5" />
                         </a>
                         <p className="text-xs text-stone-400 mt-4">{t('hero.cta.guarantee')}</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- SECTION 4: TANGIBLE BENEFITS (BENEFICIOS) --- */}
+            <section className="py-20 bg-white border-y border-stone-100">
+                <div className="container mx-auto px-6 max-w-6xl">
+                    <h2 className="text-3xl font-bold text-center text-stone-900 mb-16">{t('benefits.title')}</h2>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {((t('benefits.items') || []) as any).map((benefit: any, idx: number) => {
+                            const icons = [Heart, MessageCircle, ShieldCheck, Clock, Brain, Users];
+                            const Icon = icons[idx % icons.length];
+                            return (
+                                <div key={idx} className="bg-stone-50 p-8 rounded-2xl border border-stone-100 hover:shadow-lg transition group">
+                                    <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-[#E07A5F] mb-6 group-hover:scale-110 transition">
+                                        <Icon className="w-8 h-8" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-stone-900 mb-3">{benefit.title}</h3>
+                                    <p className="text-stone-600">
+                                        {benefit.description}
+                                    </p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* --- SECTION 5: SOCIAL PROOF (TESTIMONIO) --- */}
+            <section className="py-24 bg-[#E07A5F]">
+                <div className="container mx-auto px-6 max-w-4xl text-center">
+                    <Star className="w-12 h-12 text-white/80 mx-auto mb-6" fill="currentColor" />
+                    <blockquote className="text-2xl md:text-4xl font-serif text-white leading-relaxed italic mb-8">
+                        {t('testimonials.title')}
+                    </blockquote>
+                    <div className="flex items-center justify-center gap-4">
+                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center text-white font-bold text-xl">ML</div>
+                        <div className="text-left">
+                            <cite className="block text-white font-bold not-italic text-lg">{t('testimonials.author')}</cite>
+                            <span className="text-stone-200">{t('testimonials.role')}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- SECTION 6: OFFER & GUARANTEE --- */}
+            <section className="py-24 bg-[#FDFBF7]" id="offer">
+                <div className="container mx-auto px-6 max-w-4xl">
+                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-stone-100 relative overflow-hidden">
+                        <div className="absolute top-0 inset-x-0 h-2 bg-[#E07A5F]"></div>
+
+                        <div className="text-center mb-10">
+                            <span className="bg-red-100 text-red-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">{t('offer.badge')}</span>
+                            <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mt-6 mb-4">{t('offer.title')}</h2>
+                            <p className="text-stone-500 text-lg">{t('offer.subtitle')}</p>
+                        </div>
+
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-12">
+                            <div className="text-center">
+                                <p className="text-stone-400 font-medium line-through text-2xl mb-1">{t('offer.originalPrice')}</p>
+                                <p className="text-6xl font-bold text-[#E07A5F]">{t('offer.price')}</p>
+                                <p className="text-stone-400 text-sm mt-2">{t('offer.priceNote')}</p>
+                            </div>
+                            <div className="h-16 w-px bg-stone-200 hidden md:block"></div>
+                            <div className="text-left space-y-2">
+                                {((t('offer.features') || []) as any).map((feature: string, idx: number) => (
+                                    <div key={idx} className="flex items-center gap-2 text-stone-700">
+                                        <Check className="text-green-500 w-5 h-5 flex-shrink-0" />
+                                        <span>{feature}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="max-w-md mx-auto">
+                            <div className="flex justify-center mb-6">
+                                <OfferCountdown className="text-[#E07A5F] text-xl font-bold" includeDays={true} cycleDays={3} />
+                            </div>
+
+                            <a
+                                href={checkoutUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', {
+                                    content_name: 'Educar en la Fe',
+                                    value: locale === 'pt' ? 69 : 27,
+                                    currency: locale === 'pt' ? 'BRL' : 'EUR',
+                                    language: locale
+                                })}
+                                className="block w-full bg-[#E07A5F] hover:bg-[#c96348] text-white font-bold text-2xl py-5 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center mb-6"
+                            >
+                                {t('offer.cta')}
+                            </a>
+
+                            <div className="bg-stone-50 p-4 rounded-xl text-center border border-stone-100 flex items-center justify-center gap-3">
+                                <ShieldCheck className="w-6 h-6 text-[#E07A5F]" />
+                                <div className="text-left">
+                                    <p className="font-bold text-stone-900 text-sm">{t('offer.guaranteeTitle')}</p>
+                                    <p className="text-xs text-stone-500">{t('offer.guaranteeText')}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- SECTION 7: FAQ --- */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-6 max-w-3xl">
+                    <h2 className="text-3xl font-bold text-center text-stone-900 mb-12">{t('faq.title')}</h2>
+
+                    <div className="space-y-6">
+                        {((t('faq.items') || []) as any).map((item: any, idx: number) => (
+                            <div key={idx} className="bg-[#FDFBF7] p-6 rounded-xl border border-stone-100">
+                                <h4 className="font-bold text-stone-900 flex items-center gap-3 mb-3"><HelpCircle className="w-5 h-5 text-[#E07A5F]" /> {item.question}</h4>
+                                <p className="text-stone-600 ml-8">{item.answer}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

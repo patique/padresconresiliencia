@@ -1,18 +1,18 @@
 {
     "meta": {
-        "title": "Educar en la Fe - Guía Práctica para Padres Cristianos",
-        "description": "El sistema que 1,847 familias usan para que sus hijos elijan creer. Sin sermones, obligaciones ni dramas.",
-        "ogTitle": "¿Tus Hijos Abandonarán la Fe en 5 Años?",
-        "ogDescription": "El Manual del Padre Cristiano Moderno: Transmite Fe Real en un Mundo que No Para de Distraerlos"
+        "title": "Educar en la Fe | Padres con Resiliencia",
+        "description": "El sistema para transmitir la fe católica a tus hijos sin sermones ni dramas. Guía práctica para padres.",
+        "ogTitle": "¿Tus hijos abandonarán la fe?",
+        "ogDescription": "Descubre cómo hacer que elijan creer por convicción propia."
     },
     "header": {
-        "backToHome": "← Volver a Padres con Resiliencia"
+        "backToHome": "Volver a Padres con Resiliencia"
     },
     "hero": {
         "badge": "LANZAMIENTO PREVIO - PLAZAS LIMITADAS",
-        "title": "¿Tus Hijos Abandonarán la Fe en 5 Años?",
-        "subtitle": "El Sistema que 1,847 Familias Usan para Que Ellos ELIJAN Creer",
-        "subtitleNote": "(Sin Sermones, Obligaciones ni Dramas)",
+        "title": "¿Tus Hijos",
+        "subtitle": "Abandonarán la Fe en 5 Años?",
+        "subtitleNote": "El Sistema que 1,847 Familias Usan para Que Ellos ELIJAN Creer (Sin Sermones, Obligaciones ni Dramas)",
         "description": "El Manual del Padre Cristiano Moderno:",
         "descriptionSub": "Transmite Fe Real en un Mundo que No Para de Distraerlos.",
         "cta": {
@@ -25,8 +25,8 @@
         }
     },
     "pain": {
+        "statistic": "\"El 68% de jóvenes católicos abandonan la fe antes de los 23 años.\"",
         "title": "¿Te rompe el corazón ver a tus hijos...",
-        "statistic": "El 68% de jóvenes católicos abandonan la fe antes de los 23 años.",
         "points": [
             "Poner los ojos en blanco cuando mencionas \"Misa\" o rezar.",
             "Decir que Dios es \"aburrido\" o \"cosa de gente mayor\".",
@@ -35,12 +35,12 @@
         ],
         "callout": {
             "title": "No estás solo/a.",
-            "description": "No se van porque sean rebeldes. Se van porque a menudo nunca la VIVIERON realmente en casa."
+            "description": "No se van porque sean rebeldes. Se van porque a menudo nunca la <strong>VIVIERON</strong> realmente en casa."
         }
     },
     "agitation": {
         "title": "Y aquí está lo que nadie te dice:",
-        "subtitle": "La catequesis de 1 hora semanal NO puede competir con:",
+        "subtitle": "La catequesis de 1 hora semanal <strong>NO puede competir</strong> con:",
         "stats": [
             {
                 "value": "40h",
@@ -60,7 +60,7 @@
     },
     "solution": {
         "title": "¿Y si existiera un sistema diferente?",
-        "subtitle": "Presentamos: EDUCAR EN LA FE. El método probado por 1,847 familias para transmitir una fe viva.",
+        "subtitle": "Presentamos: <span class=\"text-[#E07A5F] font-bold\">EDUCAR EN LA FE</span>. El método probado por 1,847 familias para transmitir una fe viva.",
         "benefits": [
             {
                 "title": "Convierte lo cotidiano en sagrado",
@@ -80,9 +80,68 @@
             }
         ]
     },
-    "price": {
-        "current": "27€",
-        "original": "97€",
-        "currency": "EUR"
+    "benefits": {
+        "title": "Lo que lograrás al aplicar este sistema",
+        "items": [
+            {
+                "title": "Rituales que AMAN",
+                "description": "Olvida las peleas para ir a rezar. Implementarás el \"Rincón de la Paz\" y el \"Bote de Gratitud\" que tus hijos pedirán usar cada noche."
+            },
+            {
+                "title": "Cero Sermones",
+                "description": "Aprenderás a tener conversaciones naturales sobre Dios. Sin tonos de \"deberías\", sino compartiendo desde el corazón y la curiosidad."
+            },
+            {
+                "title": "Adolescentes con Criterio",
+                "description": "Cuando sus amigos se burlen, ellos sabrán por qué creen. Tendrán una identidad sólida que no se rompe con la presión social."
+            },
+            {
+                "title": "Plan Día a Día",
+                "description": "No más improvisar. Sabrás exactamente qué decir y hacer en cada etapa, desde los 0 hasta los 18 años."
+            },
+            {
+                "title": "Respuestas Honestas",
+                "description": "\"¿Por qué existe el mal?\" \"¿El cielo es real?\" Guiones listos para usar ante las preguntas que más temes."
+            },
+            {
+                "title": "Unidad Familiar",
+                "description": "La fe dejará de ser causa de tensión para convertirse en el pegamento más fuerte de vuestro hogar."
+            }
+        ]
+    },
+    "testimonials": {
+        "title": "\"Mi hija de 9 años me pidió rezar juntas antes de dormir. Llevamos 2 semanas y no quiere saltarse ni un día. Esto es real.\"",
+        "author": "María L.",
+        "role": "Mamá de 3 hijos"
+    },
+    "offer": {
+        "badge": "Oferta por Tiempo Limitado",
+        "title": "Acceso Inmediato al Sistema Completo",
+        "subtitle": "Todo lo que necesitas para transformar la vida espiritual de tu familia.",
+        "originalPrice": "97€",
+        "price": "27€",
+        "priceNote": "Precio sube en 48 horas",
+        "features": [
+            "Ebook Completo (PDF)",
+            "Audio-guía complementaria",
+            "Plan de Acción 0-18 años",
+            "Acceso de por vida"
+        ],
+        "cta": "Quiero Acceso Ahora",
+        "guaranteeTitle": "Garantía de 15 Días",
+        "guaranteeText": "Si no ves cambios positivos, te devolvemos el dinero. Sin dramas."
+    },
+    "faq": {
+        "title": "Preguntas Frecuentes",
+        "items": [
+            {
+                "question": "¿Funciona con adolescentes rebeldes?",
+                "answer": "Sí. Hay un módulo completo dedicado a la etapa 12-18 años. Aprenderás a \"re-conectar\" antes de corregir y cómo plantear la fe desde la libertad, que es lo que ellos más valoran."
+            },
+            {
+                "question": "No tengo tiempo extra, ¿podré hacerlo?",
+                "answer": "Absolutamente. El sistema se basa en \"micro-rituales\" de 5-10 minutos que se integran en lo que YA haces (la cena, el trayecto al colegio, la hora de dormir). No es añadir tareas, es transformar momentos."
+            }
+        ]
     }
 }
