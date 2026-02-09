@@ -6,7 +6,7 @@ import { getCheckoutUrl, type Locale } from '@/config/i18n';
 import LanguageSwitcher from '@/components/i18n/LanguageSwitcher';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Check, Star, X, ArrowRight, Home, ShieldCheck, Clock, Brain, Users, HelpCircle, Heart, MessageCircle } from 'lucide-react';
+import { Check, Star, X, ArrowRight, Home, ShieldCheck, Clock, Brain, Users, HelpCircle, Heart, MessageCircle, ShoppingBag, Sparkles, ExternalLink } from 'lucide-react';
 import OfferCountdown from '@/components/ui/OfferCountdown';
 
 export default function EducarFeClient({ locale }: { locale: Locale }) {
@@ -61,7 +61,7 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
                         <div className="relative order-2 md:order-1">
                             <div className="relative z-10 transform rotate-[-2deg] hover:rotate-0 transition duration-500">
                                 <Image
-                                    src="/landing/educar-en-la-fe/educar-fe-cover.png"
+                                    src="/images/landing/educar-en-la-fe/educar-fe-cover.png"
                                     alt="Portada Ebook Educar en la Fe"
                                     width={600}
                                     height={800}
@@ -119,7 +119,7 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl">
                             <Image
-                                src="/landing/educar-en-la-fe/educar-fe-problem.png"
+                                src="/images/landing/educar-en-la-fe/educar-fe-problem.png"
                                 alt="Problema"
                                 fill
                                 className="object-cover"
@@ -200,7 +200,7 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
                         </div>
                         <div className="order-1 md:order-2 relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white transform rotate-2">
                             <Image
-                                src="/landing/educar-en-la-fe/educar-fe-dream.png"
+                                src="/images/landing/educar-en-la-fe/educar-fe-dream.png"
                                 alt="Solución"
                                 fill
                                 className="object-cover"
@@ -349,6 +349,140 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
                                 <p className="text-stone-600 ml-8">{item.answer}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* --- SECTION 8: INTERNAL RECOMMENDATIONS --- */}
+            <section className="py-20 bg-white border-t border-stone-100">
+                <div className="container mx-auto px-6 max-w-5xl">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-stone-900 mb-3">
+                            {t('internal_recommendations.title')}
+                        </h2>
+                        <p className="text-stone-600">
+                            {t('internal_recommendations.subtitle')}
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {((t('internal_recommendations.items') || []) as any).map((product: any, idx: number) => (
+                            <div key={idx} className="group bg-stone-50 rounded-2xl overflow-hidden transition-all border border-stone-100 opacity-90">
+                                <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200">
+                                    {/* Placeholder simplificado ya que no tenemos imágenes traducidas cargadas, pero usamos las del sitio original si existen */}
+                                    <div className="absolute inset-0 bg-stone-200/50 flex items-center justify-center text-stone-400">
+                                        <ShoppingBag className="w-12 h-12 opacity-20" />
+                                    </div>
+                                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center">
+                                        <span className="bg-[#f97316] text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+                                            {locale === 'pt' ? 'Em Breve' : 'Próximamente'}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-xl font-bold text-stone-900 mb-2">
+                                        {product.title}
+                                    </h3>
+                                    <p className="text-stone-600 text-sm mb-4 line-clamp-2">
+                                        {product.description}
+                                    </p>
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-xl font-bold text-stone-400">
+                                            {product.price}
+                                        </span>
+                                        <Link
+                                            href={locale === 'pt' ? '/pt/educar-fe' : '/es/educar-fe'}
+                                            className="flex items-center gap-2 text-sm font-semibold text-[#E07A5F] hover:text-[#D06950] transition-colors cursor-not-allowed opacity-50"
+                                            onClick={(e) => e.preventDefault()}
+                                        >
+                                            {locale === 'pt' ? 'Entrar na lista de espera' : 'Apúntate al waitlist'} <ArrowRight className="w-4 h-4" />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="mt-10 text-center">
+                        <Link
+                            href="/"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-stone-900 text-white font-bold rounded-xl hover:bg-stone-800 transition-colors"
+                        >
+                            <ShoppingBag className="w-5 h-5" />
+                            {t('internal_recommendations.cta')}
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- SECTION 9: EXTERNAL RECOMMENDATIONS --- */}
+            <section className="py-20 bg-gradient-to-b from-stone-50 to-white">
+                <div className="container mx-auto px-6 max-w-5xl">
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-bold mb-4">
+                            <Sparkles className="w-4 h-4" />
+                            <span>{t('external_recommendations.badge')}</span>
+                        </div>
+                        <h2 className="text-3xl font-bold text-stone-900 mb-3">
+                            {t('external_recommendations.title')}
+                        </h2>
+                        <p className="text-stone-600">
+                            {t('external_recommendations.subtitle')}
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                        {((t('external_recommendations.items') || []) as any).map((product: any, idx: number) => {
+                            // Imágenes estáticas hardcodeadas porque no vienen del JSON
+                            const images = ["/images/tevasa-revoluciona.jpg", "/images/bebe-dormir-mejor.png"];
+                            const imageUrl = images[idx % images.length];
+
+                            return (
+                                <a
+                                    key={idx}
+                                    href={product.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group bg-white rounded-xl overflow-hidden border border-stone-100 hover:border-purple-200 hover:shadow-lg transition-all"
+                                >
+                                    <div className="relative w-full aspect-square overflow-hidden bg-stone-100">
+                                        <Image
+                                            src={imageUrl}
+                                            alt={product.name}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    </div>
+
+                                    <div className="p-6">
+                                        <div className="flex items-start justify-between mb-3">
+                                            <span className="text-xs font-bold text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
+                                                {product.category}
+                                            </span>
+                                            <ExternalLink className="w-4 h-4 text-stone-400 group-hover:text-purple-600 transition-colors" />
+                                        </div>
+
+                                        <h3 className="text-lg font-bold text-stone-900 mb-2 group-hover:text-purple-600 transition-colors">
+                                            {product.name}
+                                        </h3>
+
+                                        <p className="text-stone-600 text-sm mb-4 line-clamp-2">
+                                            {product.description}
+                                        </p>
+
+                                        <div className="text-xs text-purple-600 font-semibold">
+                                            ✨ {product.highlight}
+                                        </div>
+                                    </div>
+                                </a>
+                            );
+                        })}
+                    </div>
+
+                    <div className="mt-8 text-center">
+                        <p className="text-sm text-stone-600 font-medium">
+                            {t('external_recommendations.footer')}
+                        </p>
                     </div>
                 </div>
             </section>

@@ -143,5 +143,46 @@
                 "answer": "Absolutamente. O sistema baseia-se em \"micro-rituais\" de 5-10 minutos que se integram ao que você JÁ faz (o jantar, o trajeto para a escola, a hora de dormir). Não é adicionar tarefas, é transformar momentos."
             }
         ]
+    },
+    "internal_recommendations": {
+        "title": "Você também pode gostar",
+        "subtitle": "Outros recursos de Padres con Resiliencia",
+        "items": [
+            {
+                "title": "O Primeiro Ano do Bebê",
+                "description": "Guia completo mês a mês para entender o desenvolvimento do seu bebê e desfrutar da criação.",
+                "price": "7€",
+                "slug": "primer-ano"
+            },
+            {
+                "title": "Cérebro e Telas",
+                "description": "Proteja o cérebro dos seus filhos na era digital. Estratégias baseadas em neurociência.",
+                "price": "9€",
+                "slug": "cerebro-pantallas"
+            }
+        ],
+        "cta": "Ver todos os recursos"
+    },
+    "external_recommendations": {
+        "title": "Projetos que amamos",
+        "subtitle": "Colaboradores de confiança que complementam sua jornada",
+        "badge": "Recursos Recomendados",
+        "items": [
+            {
+                "name": "Revolucione Sua Vida",
+                "description": "Junte-se ao desafio e descubra sua melhor versão. Transforme seu corpo e mente.",
+                "category": "Fitness & Bem-estar",
+                "highlight": "Programa completo de transformação",
+                "link": "https://go.hotmart.com/N104275421B"
+            },
+            {
+                "name": "Ajude seu bebê a dormir melhor",
+                "description": "Guia completo para pais de primeira viagem. Estratégias respeitosas para o sono.",
+                "category": "Sono Infantil",
+                "highlight": "Rotinas práticas e adaptáveis",
+                "link": "https://go.hotmart.com/V104268249J"
+            }
+        ],
+        "footer": "💡 Recursos cuidadosamente selecionados que complementam sua jornada na criação consciente"
     }
 }

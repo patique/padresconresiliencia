@@ -143,5 +143,46 @@
                 "answer": "Absolutamente. El sistema se basa en \"micro-rituales\" de 5-10 minutos que se integran en lo que YA haces (la cena, el trayecto al colegio, la hora de dormir). No es añadir tareas, es transformar momentos."
             }
         ]
+    },
+    "internal_recommendations": {
+        "title": "También te puede interesar",
+        "subtitle": "Otros recursos de Padres con Resiliencia",
+        "items": [
+            {
+                "title": "El Primer Año del Bebé",
+                "description": "Guía completa mes a mes para entender el desarrollo de tu bebé y disfrutar de la crianza.",
+                "price": "7€",
+                "slug": "primer-ano"
+            },
+            {
+                "title": "Cerebro y Pantallas",
+                "description": "Protege el cerebro de tus hijos en la era digital. Estrategias basadas en neurociencia.",
+                "price": "9€",
+                "slug": "cerebro-pantallas"
+            }
+        ],
+        "cta": "Ver todos los recursos"
+    },
+    "external_recommendations": {
+        "title": "Proyectos que nos encantan",
+        "subtitle": "Colaboradores de confianza que complementan tu camino",
+        "badge": "Recursos Recomendados",
+        "items": [
+            {
+                "name": "Revoluciona Tu Vida",
+                "description": "Únete al reto y descubre tu mejor versión. Transforma tu cuerpo y mente.",
+                "category": "Fitness & Bienestar",
+                "highlight": "Programa completo de transformación",
+                "link": "https://go.hotmart.com/N104275421B"
+            },
+            {
+                "name": "Ayuda a tu bebé a dormir mejor",
+                "description": "Guía completa para padres primerizos. Estrategias respetuosas para el sueño.",
+                "category": "Sueño Infantil",
+                "highlight": "Rutinas prácticas y adaptables",
+                "link": "https://go.hotmart.com/V104268249J"
+            }
+        ],
+        "footer": "💡 Recursos cuidadosamente seleccionados que complementan tu camino en la crianza consciente"
     }
 }
