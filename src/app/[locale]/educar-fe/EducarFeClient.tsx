@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { getCheckoutUrl, type Locale } from '@/config/i18n';
 import LanguageSwitcher from '@/components/i18n/LanguageSwitcher';
@@ -26,7 +27,9 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
                         <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
                         <span>{t('header.backToHome')}</span>
                     </Link>
-                    <LanguageSwitcher />
+                    <Suspense fallback={<div className="w-24 h-10" />}>
+                        <LanguageSwitcher />
+                    </Suspense>
                 </div>
             </div>
 
