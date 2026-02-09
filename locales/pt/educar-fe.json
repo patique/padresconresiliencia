@@ -151,13 +151,13 @@
             {
                 "title": "O Primeiro Ano do Bebê",
                 "description": "Guia completo mês a mês para entender o desenvolvimento do seu bebê e desfrutar da criação.",
-                "price": "7€",
+                "price": "",
                 "slug": "primer-ano"
             },
             {
                 "title": "Cérebro e Telas",
                 "description": "Proteja o cérebro dos seus filhos na era digital. Estratégias baseadas em neurociência.",
-                "price": "9€",
+                "price": "",
                 "slug": "cerebro-pantallas"
             }
         ],

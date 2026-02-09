@@ -386,13 +386,15 @@ export default function EducarFeClient({ locale }: { locale: Locale }) {
                                     <p className="text-stone-600 text-sm mb-4 line-clamp-2">
                                         {product.description}
                                     </p>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-xl font-bold text-stone-400">
-                                            {product.price}
-                                        </span>
+                                    <div className="flex items-center justify-between min-h-[28px]">
+                                        {product.price && (
+                                            <span className="text-xl font-bold text-stone-400">
+                                                {product.price}
+                                            </span>
+                                        )}
                                         <Link
                                             href={locale === 'pt' ? '/pt/educar-fe' : '/es/educar-fe'}
-                                            className="flex items-center gap-2 text-sm font-semibold text-[#E07A5F] hover:text-[#D06950] transition-colors cursor-not-allowed opacity-50"
+                                            className={`flex items-center gap-2 text-sm font-semibold text-[#E07A5F] hover:text-[#D06950] transition-colors cursor-not-allowed opacity-50 ${!product.price ? 'ml-auto' : ''}`}
                                             onClick={(e) => e.preventDefault()}
                                         >
                                             {locale === 'pt' ? 'Entrar na lista de espera' : 'Apúntate al waitlist'} <ArrowRight className="w-4 h-4" />
