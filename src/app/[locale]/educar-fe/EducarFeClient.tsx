@@ -1,7 +1,7 @@
 'use client';
 
 import { Suspense } from 'react';
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslationWithLocale } from '@/hooks/useTranslation';
 import { getCheckoutUrl, type Locale } from '@/config/i18n';
 import LanguageSwitcher from '@/components/i18n/LanguageSwitcher';
 import Image from 'next/image';
@@ -10,8 +10,8 @@ import { Check, Star, X, ArrowRight, Home } from 'lucide-react';
 import OfferCountdown from '@/components/ui/OfferCountdown';
 
 export default function EducarFeClient({ locale }: { locale: Locale }) {
-    const { t } = useTranslation('educar-fe');
-    const { t: tCommon } = useTranslation('common');
+    const { t } = useTranslationWithLocale(locale, 'educar-fe');
+    const { t: tCommon } = useTranslationWithLocale(locale, 'common');
 
     const checkoutUrl = getCheckoutUrl('educar-fe', locale);
 

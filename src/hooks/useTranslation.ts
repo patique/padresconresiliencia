@@ -92,6 +92,41 @@ export function useTranslation(namespace: TranslationNamespace = 'common') {
 }
 
 /**
+ * Hook para acceder a las traducciones con locale explícito (para SSG)
+ * @param locale - Locale explícito
+ * @param namespace - Namespace de traducción
+ * @returns Objeto con función t() y locale
+ */
+export function useTranslationWithLocale(locale: Locale, namespace: TranslationNamespace = 'common') {
+    const t = (key: string, fallback?: string): any => {
+        try {
+            const namespaceTranslations = translations[locale]?.[namespace];
+
+            if (!namespaceTranslations) {
+                console.warn(`Namespace '${namespace}' no encontrado para locale '${locale}'`);
+                return fallback || key;
+            }
+
+            const value = key.split('.').reduce((obj: any, k: string) => {
+                return obj?.[k];
+            }, namespaceTranslations);
+
+            if (value === undefined || value === null) {
+                console.warn(`Traducción no encontrada: ${namespace}.${key} (${locale})`);
+                return fallback || key;
+            }
+
+            return value;
+        } catch (error) {
+            console.error(`Error al obtener traducción ${namespace}.${key}:`, error);
+            return fallback || key;
+        }
+    };
+
+    return { t, locale };
+}
+
+/**
  * Hook para obtener el locale actual sin cargar traducciones
  */
 export function useLocale(): Locale {
