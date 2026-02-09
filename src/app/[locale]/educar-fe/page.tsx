@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { SUPPORTED_LOCALES, type Locale } from '@/config/i18n';
-import { getTranslations } from '@/hooks/useTranslation';
+import { getServerTranslations } from '@/lib/serverTranslations';
 import EducarFeClient from './EducarFeClient';
 
 // Generar parámetros estáticos para todas las locales
@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 // Generar metadata por locale
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
     const locale = params.locale as Locale;
-    const t = getTranslations(locale, 'educar-fe');
+    const t = getServerTranslations(locale, 'educar-fe');
 
     return {
         title: t.meta.title,
