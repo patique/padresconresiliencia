@@ -5,7 +5,7 @@ export const HOTMART_PRODUCTS = {
     // Educar en la Fe
     'educar-fe': {
         es: 'https://pay.hotmart.com/H103988286K?off=rsw6f2ko', // URL actual en español
-        pt: 'https://pay.hotmart.com/XXXXXXXX?off=XXXXXX', // TODO: Reemplazar con URL de producto en portugués
+        pt: 'https://pay.hotmart.com/S104334623E', // URL en portugués de Brasil
         fr: 'https://pay.hotmart.com/H103988286K?off=rsw6f2ko', // Fallback temporal
         en: 'https://pay.hotmart.com/H103988286K?off=rsw6f2ko', // Fallback temporal
     },
