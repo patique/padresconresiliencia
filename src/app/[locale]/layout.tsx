@@ -1,12 +1,19 @@
 import { notFound } from 'next/navigation';
 import { SUPPORTED_LOCALES, type Locale } from '@/config/i18n';
 import FacebookPixel from '@/components/layout/FacebookPixel';
+import { Suspense } from 'react';
 
 export async function generateStaticParams() {
     return SUPPORTED_LOCALES.map((locale) => ({
         locale,
     }));
 }
+
+const FacebookPixelWrapper = () => (
+    <Suspense fallback={null}>
+        <FacebookPixel />
+    </Suspense>
+);
 
 export default function LocaleLayout({
     children,
@@ -22,7 +29,7 @@ export default function LocaleLayout({
 
     return (
         <>
-            <FacebookPixel />
+            <FacebookPixelWrapper />
             {children}
         </>
     );
