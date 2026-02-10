@@ -53,6 +53,7 @@ export default function ExternalRecommendations() {
                             href={product.link}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: product.name, content_category: 'Affiliate', currency: 'EUR' })}
                             className="group bg-white rounded-xl overflow-hidden border border-stone-100 hover:border-purple-200 hover:shadow-lg transition-all"
                         >
                             {product.imageUrl && (

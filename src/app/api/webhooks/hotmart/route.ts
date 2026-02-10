@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { sendProductDeliveryEmail, sendCartAbandonmentEmail } from "@/lib/mail";
 import { notifyAdmin } from "@/lib/notifications";
 import prisma from "@/lib/prisma";
+import { sendFacebookConversion } from "@/lib/facebook";
 
 // Define the Hotmart Token specifically here or retrieve from env
 const HOTMART_TOKEN = process.env.HOTMART_WEBHOOK_SECRET;
@@ -85,6 +86,23 @@ export async function POST(req: NextRequest) {
 
                 // Trigger Action: Send Email
                 await sendProductDeliveryEmail(buyer.email, buyer.name, product.name);
+
+                // 2026-02-10: Send Event to Facebook CAPI (Server-Side Tracking)
+                // This ensures we track sales even if user has AdBlock or closes the page immediately
+                await sendFacebookConversion({
+                    eventName: 'Purchase',
+                    eventId: purchaseData.transaction, // Deduplication key
+                    email: buyer.email,
+                    firstName: buyer.first_name || buyer.name?.split(' ')[0],
+                    lastName: buyer.last_name || buyer.name?.split(' ').slice(1).join(' '),
+                    country: buyer.address?.country_iso || buyer.address?.country,
+                    value: purchaseData.price?.value || purchaseData.full_price?.value,
+                    currency: purchaseData.price?.currency_value || 'EUR',
+                    contentName: product.name,
+                    contentIds: [String(product.id)],
+                    clientIp: purchaseData.buyer_ip, // Hotmart sends this!
+                    userAgent: req.headers.get('user-agent') || undefined // Best effort
+                });
             }
 
             return NextResponse.json({ message: "Sale Processed" }, { status: 200 });

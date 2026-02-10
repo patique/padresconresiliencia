@@ -129,7 +129,11 @@ export default async function ProductPage({ params }: { params: { slug: string }
                                     </div>
                                 </div>
 
-                                <a href="https://pay.hotmart.com/D103873545U" className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0">
+                                <a
+                                    href="https://pay.hotmart.com/D103873545U"
+                                    onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: product?.title || 'Producto Genérico', value: product?.price || 0, currency: 'EUR' })}
+                                    className="block w-full bg-[#E07A5F] hover:bg-[#D06950] text-white text-center font-bold text-lg py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0"
+                                >
                                     Comprar Ahora
                                 </a>
                                 <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-1">
@@ -219,7 +223,11 @@ export default async function ProductPage({ params }: { params: { slug: string }
                         </div>
 
                         <div className="flex justify-center mt-12">
-                            <a href="https://pay.hotmart.com/D103873545U" className="inline-flex items-center gap-2 text-[#E07A5F] font-bold text-lg hover:text-[#D06950] transition group">
+                            <a
+                                href="https://pay.hotmart.com/D103873545U"
+                                onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: product?.title || 'Producto Genérico', value: product?.price || 0, currency: 'EUR' })}
+                                className="inline-flex items-center gap-2 text-[#E07A5F] font-bold text-lg hover:text-[#D06950] transition group"
+                            >
                                 Sí, quiero dejar de sufrir y empezar a disfrutar
                                 <ArrowLeft className="w-5 h-5 rotate-180 transition-transform group-hover:translate-x-1" />
                             </a>
@@ -281,7 +289,11 @@ export default async function ProductPage({ params }: { params: { slug: string }
                         </div>
 
                         <div className="flex justify-center mt-14">
-                            <a href="https://pay.hotmart.com/D103873545U" className="bg-[#E07A5F] hover:bg-[#D06950] text-white font-bold text-xl py-4 px-12 rounded-xl shadow-xl transition transform hover:-translate-y-1 active:translate-y-0 flex items-center gap-3">
+                            <a
+                                href="https://pay.hotmart.com/D103873545U"
+                                onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: product?.title || 'Producto Genérico', value: product?.price || 0, currency: 'EUR' })}
+                                className="bg-[#E07A5F] hover:bg-[#D06950] text-white font-bold text-xl py-4 px-12 rounded-xl shadow-xl transition transform hover:-translate-y-1 active:translate-y-0 flex items-center gap-3"
+                            >
                                 <Download className="w-6 h-6" />
                                 Descargar Guía Completa Ahora
                             </a>
@@ -466,7 +478,11 @@ export default async function ProductPage({ params }: { params: { slug: string }
                         </div>
                     </div>
 
-                    <a href="https://pay.hotmart.com/D103873545U" className="inline-block bg-white text-[#E07A5F] hover:bg-stone-50 font-bold text-xl py-4 px-10 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0 relative z-10">
+                    <a
+                        href="https://pay.hotmart.com/D103873545U"
+                        onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: product?.title || 'Producto Genérico', value: product?.price || 0, currency: 'EUR' })}
+                        className="inline-block bg-white text-[#E07A5F] hover:bg-stone-50 font-bold text-xl py-4 px-10 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0 relative z-10"
+                    >
                         Quiero Acceso Inmediato
                     </a>
                     <p className="text-stone-200 text-xs mt-4 relative z-10 font-medium">Garantía de 15 días. Si no te sirve, te devolvemos el dinero.</p>
@@ -497,6 +513,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
                     </div>
                     <a
                         href="https://pay.hotmart.com/D103873545U"
+                        onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: product?.title || 'Producto Genérico', value: product?.price || 0, currency: 'EUR' })}
                         className="bg-white text-[#E07A5F] hover:bg-stone-50 font-bold py-3 px-6 rounded-xl flex-1 text-center shadow-lg active:scale-95 transition"
                     >
                         Comprar Ahora

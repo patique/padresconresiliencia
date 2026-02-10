@@ -411,6 +411,7 @@ export default function CerebroPantallasLanding({ product }: CerebroPantallasLan
 
                         <a
                             href={product.affiliateLink || "https://pay.hotmart.com/R104271494E?checkoutMode=10"}
+                            onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Cerebro y Pantallas', value: product.price, currency: 'EUR' })}
                             className="block w-full bg-[#f97316] hover:bg-[#ea580c] text-white text-center font-bold text-xl py-5 rounded-xl shadow-lg transition transform hover:-translate-y-1 active:translate-y-0 mb-6"
                         >
                             Descargar Ahora
@@ -484,6 +485,7 @@ export default function CerebroPantallasLanding({ product }: CerebroPantallasLan
                     </div>
                     <a
                         href={product.affiliateLink || "https://pay.hotmart.com/R104271494E?checkoutMode=10"}
+                        onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: 'Cerebro y Pantallas', value: product.price, currency: 'EUR' })}
                         className="bg-white text-[#f97316] hover:bg-stone-50 font-bold py-3 px-6 rounded-xl flex-1 text-center shadow-lg active:scale-95 transition"
                     >
                         Comprar Ahora

@@ -53,6 +53,7 @@ export default function CollaboratorsSection() {
                             href={collab.link}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => (window as any).fbq && (window as any).fbq('track', 'InitiateCheckout', { content_name: collab.name, content_category: 'Affiliate', currency: 'EUR' })}
                             className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 hover:border-[#E07A5F]/30"
                         >
                             <div className="aspect-square relative overflow-hidden bg-gradient-to-br from-stone-100 to-stone-200">
